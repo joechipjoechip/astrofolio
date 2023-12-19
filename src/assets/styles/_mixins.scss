@@ -1,0 +1,46 @@
+@mixin glassMorph {
+	box-shadow: 0 -1px 0px rgba(255, 255, 255, 0.15),
+				0 2px 2px rgba(0,0,0, 0.25),
+				1px -1px 1px transparent;
+
+}
+
+@mixin glassMorphHover($color){
+	box-shadow: 0 -1px 0px rgba(255,255,255,0.15),
+				0 2px 2px rgba(0,0,0, 0.25),
+				0 -20px 60px $color;
+}
+
+@mixin flex {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin fontSmall {
+	font-size: 0.5rem;
+}
+
+@mixin fontMedium {
+	font-size: 0.75rem;
+}
+
+@mixin scrollbar {
+
+		box-sizing: border-box;
+		&::-webkit-scrollbar {
+			width: var(--scrollbar-width);
+	  	}
+	   
+		&::-webkit-scrollbar-track {
+			background: var(--bg-white-15);
+	  	}
+	   
+		&::-webkit-scrollbar-thumb {
+			background: var(--bg-white-65);
+	  	}
+
+	scrollbar-color: var(--bg-white-45) var(--bg-white-25);
+  	scrollbar-width: thin;
+}
