@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/react": "^3.0.7",
     "@astrojs/vue": "^4.0.4",
+    "@nanostores/vue": "^0.10.0",
     "@react-three/drei": "^9.92.4",
     "@react-three/fiber": "^8.15.12",
     "@react-three/postprocessing": "^2.15.11",
@@ -20,6 +21,7 @@
     "@types/react-dom": "^18.2.18",
     "astro": "^4.0.6",
     "leva": "^0.9.35",
+    "nanostores": "^0.9.5",
     "postprocessing": "^6.33.4",
     "r3f-perf": "^7.1.2",
     "react": "^18.2.0",
