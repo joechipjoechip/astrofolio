@@ -11,7 +11,11 @@ const __dirname = dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue(), react()],
+  integrations: [
+    // vue(), 
+    vue({ appEntrypoint: '/src/pages/_app' }),
+    react()
+  ],
   // output: 'hybrid',
 
   renderers: ['@astrojs/renderer-vue'],

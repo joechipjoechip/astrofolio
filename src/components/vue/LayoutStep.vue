@@ -1,11 +1,7 @@
 <script setup>
+import { ref } from "vue"
+
 import SearchBar from './SearchBar.vue'
-// import { directive as motion } from '@vueuse/motion'
-
-
-// console.log("motion : ", motion)
-
-
 
 const props = defineProps({
 	isActive: {
@@ -31,6 +27,7 @@ const props = defineProps({
 
                     <h2 class="step-head-title"
                         v-if="isActive"
+                        ref="headTitle"
                         v-motion
                         :initial="{ y: 335, opacity: 0 }"
                         :delay="100"
