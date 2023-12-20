@@ -1,26 +1,24 @@
 <script setup>
-	import UiSearch from './icons/uiSearch.vue';
-	import { useUserStore } from '@/stores/user';
+import { ref } from "vue"
+import UiSearch from './icons/uiSearch.vue'
 
-	const store = useUserStore()
-
-	const props = defineProps({
-		color: {
-			type: String,
-			default: "currentColor"
-		},
-		placeholder: {
-			type: String,
-			default: "search somthing"
-		}
-	})
-
-	const textInputRef = ref(null)
-
-	function handleKeyUp(){
-		console.log("event keydown : textInputRef value : ", textInputRef.value.value)
-		store.setCurrentSearch(textInputRef.value.value)
+const props = defineProps({
+	color: {
+		type: String,
+		default: "currentColor"
+	},
+	placeholder: {
+		type: String,
+		default: "search somthing"
 	}
+})
+
+const textInputRef = ref(null)
+
+// function handleKeyUp(){
+// 	console.log("event keydown : textInputRef value : ", textInputRef.value.value)
+// 	store.setCurrentSearch(textInputRef.value.value)
+// }
 
 
 </script>

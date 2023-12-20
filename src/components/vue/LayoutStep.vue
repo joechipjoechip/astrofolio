@@ -1,5 +1,7 @@
 <script setup>
 
+import SearchBar from './SearchBar.vue';
+
 const props = defineProps({
 	isActive: {
 		type: Boolean,

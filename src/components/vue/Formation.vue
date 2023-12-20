@@ -1,5 +1,6 @@
 <script setup>
 import LayoutStep from './LayoutStep.vue';
+import SlotList from './SlotList.vue';
 
 const props = defineProps({
 	isActive: {
