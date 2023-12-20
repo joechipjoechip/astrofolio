@@ -1,6 +1,11 @@
 <script setup>
+import SearchBar from './SearchBar.vue'
+// import { directive as motion } from '@vueuse/motion'
 
-import SearchBar from './SearchBar.vue';
+
+// console.log("motion : ", motion)
+
+
 
 const props = defineProps({
 	isActive: {

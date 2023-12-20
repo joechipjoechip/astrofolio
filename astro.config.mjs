@@ -12,7 +12,9 @@ const __dirname = dirname(__filename);
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue(), react()],
-  output: 'hybrid',
+  // output: 'hybrid',
+
+  renderers: ['@astrojs/renderer-vue'],
 
   vite: {
     resolve: {
