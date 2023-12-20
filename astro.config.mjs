@@ -12,19 +12,14 @@ const __dirname = dirname(__filename);
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    // vue(), 
     vue({ appEntrypoint: '/src/pages/_app' }),
     react()
   ],
-  // output: 'hybrid',
-
-  renderers: ['@astrojs/renderer-vue'],
+  output: 'hybrid',
 
   vite: {
     resolve: {
-      alias: {
-        '@/': `${path.resolve(__dirname, 'src')}/`
-      }
+      alias: { '@/': `${path.resolve(__dirname, 'src')}/` }
     },
     css: {
       preprocessorOptions: {
