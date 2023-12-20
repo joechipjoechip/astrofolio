@@ -1,12 +1,15 @@
 <script setup>
 
-import { uiConfig } from "../../assets/uiConfig.js"
+import SlotItem from "@/components/vue/SlotItem.vue"
 
-import { globalStore } from "../../stores/globalStore.js"
-import { useStore } from '@nanostores/vue';
-const $store = useStore(globalStore);
+import { uiConfig } from "@/assets/uiConfig.js"
 
-defineProps({
+
+// import { globalStore } from "../../stores/globalStore.js"
+// import { useStore } from '@nanostores/vue';
+// const $store = useStore(globalStore);
+
+const props = defineProps({
 	slots: {
 		type: Object,
 		required: true
@@ -23,12 +26,15 @@ defineProps({
     }
 })
 
+console.log("props dans slotlist : ", props)
+
 </script>
 
 <template>
 
     <div class="list">
 
+        <!-- :soundEnabled="$store.sound.enabled" -->
         <SlotItem
             v-if="stepIsActive"
             v-for="(slotData, index) in slots" :key="index"
@@ -37,7 +43,7 @@ defineProps({
             :stepColor="stepColor"
             :stepIsActive="stepIsActive"
             :slotIndex="index"
-            :soundEnabled="$store.sound.enabled"
+            
     
             v-motion
             :initial="{ 

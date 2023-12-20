@@ -8,7 +8,7 @@ import { stepsWording } from "../../assets/wording/steps"
     <div class="shell">
 
         <Formation
-			:wording="stepsWording"
+			:wording="stepsWording.formation"
 			:isActive="true"
 		/> 
        
