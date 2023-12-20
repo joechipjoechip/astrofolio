@@ -5,9 +5,9 @@ import { stepsWording } from "../../assets/wording/steps"
 </script>
 
 <template>
-    <div>
+    <div class="shell">
 
-        <Formation client:load
+        <Formation
 			:wording="stepsWording"
 			:isActive="true"
 		/> 
@@ -15,7 +15,3 @@ import { stepsWording } from "../../assets/wording/steps"
         <p>test formation via shell</p>
     </div>
 </template>
-
-<style lang="scss">
-@import "../../assets/styles/main.scss";
-</style>
