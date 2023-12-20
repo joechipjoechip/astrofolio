@@ -1,4 +1,5 @@
 <script setup>
+import LayoutStep from './LayoutStep.vue';
 
 const props = defineProps({
 	isActive: {
@@ -15,17 +16,15 @@ const props = defineProps({
 
 <template>
 
-    <NuxtLayout name="layout-step" 
+	<LayoutStep
 		:isActive="isActive" 
 		:wording="wording"
 	>
-
 		<SlotList 
 			:slots="wording.slots"
 			:stepIsActive="isActive"
 			:stepColor="wording.color"
 		/>
+	</LayoutStep>
 
-    </NuxtLayout>
-	
 </template>

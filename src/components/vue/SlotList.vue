@@ -1,8 +1,10 @@
 <script setup>
 
-import { uiConfig } from "@/assets/uiConfig.js"
-import { useUserStore } from '@/stores/user';
-const store = useUserStore()
+import { uiConfig } from "../../assets/uiConfig.js"
+
+import { globalStore } from "../../stores/globalStore.js"
+import { useStore } from '@nanostores/vue';
+const $store = useStore(globalStore);
 
 defineProps({
 	slots: {
@@ -35,7 +37,7 @@ defineProps({
             :stepColor="stepColor"
             :stepIsActive="stepIsActive"
             :slotIndex="index"
-            :soundEnabled="store.sound.enabled"
+            :soundEnabled="$store.sound.enabled"
     
             v-motion
             :initial="{ 

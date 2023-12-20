@@ -3,7 +3,6 @@ import { ref } from "vue"
 
 import { globalStore, setName } from "../../stores/globalStore.js"
 import { useStore } from '@nanostores/vue';
-
 const $store = useStore(globalStore);
 
 

@@ -1,15 +1,12 @@
 ---
-// import Stepper from '../components/vue/Stepper.vue';
-import Hello from '../components/vue/Hello.vue';
 import Layout from '../layouts/Layout.astro';
+import Shell from '../components/vue/Shell.vue';
 ---
-
-<Layout title="Welcome to my portfolio">
+<Layout title="LIO PORTFOLIO">
 	<main>
-		<!-- <Stepper client:load /> -->
-		<Hello client:load />
+		<Shell 
+			client:load 
+			client:only="vue" 
+		/>
 	</main>
 </Layout>
-
-<style lang="scss">
-</style>
