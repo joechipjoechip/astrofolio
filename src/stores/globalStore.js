@@ -59,9 +59,12 @@ export function setstepGrabed( bool ){
 }
 
 export function setIsCurrentlyManipulatedIndex( payload ){
+	console.log("store currently manip triggered : ", payload)
 	globalStore.setKey("navigation",
 		Object.assign(globalStore.get().navigation,  { isCurrentlyManipulatedIndex: payload })
 	)
+
+	console.log("after the store update : ", globalStore.get().navigation)
 }
 
 // TDO : à tester (si la key fonctionne)

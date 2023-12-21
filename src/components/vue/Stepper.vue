@@ -135,6 +135,7 @@ const scaleRatio = ref(0.9)
 			:class="[
 				`step-${step.name.toLowerCase()}`,
 				defineDynamicClasses(index),
+				{ 'grabing-x': $store.navigation.isCurrentlyManipulatedIndex === index }
 			]"
 
 			:data-index="index"
