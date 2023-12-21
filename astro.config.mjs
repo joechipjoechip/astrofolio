@@ -15,7 +15,7 @@ export default defineConfig({
     vue({ appEntrypoint: '/src/pages/_app' }),
     react()
   ],
-  output: 'hybrid',
+  // output: 'hybrid',
 
   vite: {
     resolve: {
