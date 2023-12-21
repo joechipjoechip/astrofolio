@@ -1,12 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Stepper from '../components/vue/Stepper.vue';
+import Shell from '../components/vue/Shell.vue';
+import HelloReact from '../components/react/HelloReact'
 ---
 <Layout title="LIO PORTFOLIO">
 	<main>
-		<Stepper 
+		<Shell 
 			client:load 
-			client:only
+			client:only="vue"
+		/>
+		<HelloReact 
+			client:idle 
+			client:only="react"
 		/>
 	</main>
 </Layout>
