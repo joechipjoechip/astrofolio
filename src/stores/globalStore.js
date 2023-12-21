@@ -54,7 +54,6 @@ export function setStepsCount( size ){
 // NAVIGATION
 export function setStepGrabed( bool ){
 	globalStore.setKey("stepGrabed", bool)
-	console.log("état du stepGrabed depuis le store : ", globalStore.get().stepGrabed)
 }
 
 export function setIsCurrentlyManipulatedIndex( payload ){

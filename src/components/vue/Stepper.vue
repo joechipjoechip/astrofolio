@@ -73,7 +73,6 @@ function onTouchStart( event ){
 }
 
 function onTouchEnd(){
-	console.log("on touch end triggered")
 	touchOriginX.value = null
 	decayX.value = baseDecayX
 	leftTransitionValue.value = "0.4s"
@@ -109,10 +108,8 @@ function computePositionDiff( movingX ){
 	} else {
 		
 		if( direction === "left" ){
-			console.log("wsh decrement")
 			setCurrentStepIndexDecrement()
 		} else {
-			console.log("wsh increment")
 			setCurrentStepIndexIncrement()
 		}
 
