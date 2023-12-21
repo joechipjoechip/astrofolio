@@ -4,8 +4,8 @@ export const globalStore = map({
 	name: "Paul",
 	currentStepIndex: 0,
 	stepsCount: 0,
+	stepGrabed: false,
 	navigation: {
-		stepGrabed: false,
 		navbar: {
 			isMoving: false,
 			position: { x:0, y:0 }
@@ -52,19 +52,16 @@ export function setStepsCount( size ){
 
 
 // NAVIGATION
-export function setstepGrabed( bool ){
+export function setStepGrabed( bool ){
 	globalStore.setKey("navigation",
-		Object.assign(globalStore.get().navigation, { stepGrabed: bool })
+		Object.assign(globalStore.get(), { stepGrabed: bool })
 	)
 }
 
 export function setIsCurrentlyManipulatedIndex( payload ){
-	console.log("store currently manip triggered : ", payload)
 	globalStore.setKey("navigation",
 		Object.assign(globalStore.get().navigation,  { isCurrentlyManipulatedIndex: payload })
 	)
-
-	console.log("after the store update : ", globalStore.get().navigation)
 }
 
 // TDO : à tester (si la key fonctionne)

@@ -1,20 +1,31 @@
 <script setup>
 
 import Formation from "./Formation.vue";
-
-import { ref, watch, onMounted } from "vue"
-
-import { useEmitter } from "@/composables/Emitter"
-import { useUserInteractions } from "@/composables/UserInteractions"
+import Experience from "./Experience.vue";
 
 import { stepsWording } from "@/assets/wording/steps.js"
 
-import { globalStore, setStepsCount, setIsCurrentlyManipulatedIndex } from "@/stores/globalStore.js"
+import { ref, reactive, watch } from "vue"
+
+import { useEmitter } from "@/composables/Emitter"
+import { useUserInteractions } from "@/composables/UserInteractions"
+import { useGetEventPosition } from "@/composables/GetEventPosition"
+
+
+import { 
+	globalStore, 
+	setStepsCount, 
+	setStepGrabed,
+	setIsCurrentlyManipulatedIndex,
+	setCurrentStepIndexIncrement,
+	setCurrentStepIndexDecrement
+} from "@/stores/globalStore.js"
+
 import { useStore } from '@nanostores/vue';
 
-const $store = useStore(globalStore);
-
 useUserInteractions()
+
+const $store = useStore(globalStore);
 
 const stepperWrapper = ref(null)
 
@@ -27,10 +38,10 @@ const goodSteps = [
 		name: "Formation",
         component: Formation
     },
-    // {
-	// 	name: "Experience",
-    //     component: resolveComponent('Experience')
-    // }
+    {
+		name: "Experience",
+        component: Experience
+    }
 ]
 
 setStepsCount(goodSteps.length)
@@ -38,50 +49,69 @@ setStepsCount(goodSteps.length)
 // - - - - TOUCH LOGIC - - - -
 const dynamicLeft = ref("0px")
 const leftTransitionValue = ref("0s")
+const touchOriginX = ref(null)
+const threshold = 0.35
 
 const { on } = useEmitter()
 
-// on("main-touch-move", onTouchMove)
+on("main-touch-move", onTouchMove)
 on("main-touch-start", onTouchStart)
 on("main-touch-end", onTouchEnd)
 
 function onTouchStart( event ){
-
 	const currentStepGrabed = event.target.closest(".step-item")?.dataset.index
+	const { x } = useGetEventPosition(event)
 
-	console.log("au start : ", $store.value.navigation.navbar.isMoving, currentStepGrabed)
+	setStepGrabed(true)
 
-	if( $store.value.navigation.navbar.isMoving ){ return }
-
+	touchOriginX.value = x
 	decayX.value *= 0.92
-
 	leftTransitionValue.value = "0s"
 	
 	currentStepGrabed && setIsCurrentlyManipulatedIndex(parseInt(currentStepGrabed)) 
 }
 
 function onTouchEnd(){
-	
+	touchOriginX.value = null
 	decayX.value = baseDecayX
-
 	leftTransitionValue.value = "0.4s"
-	
 	dynamicLeft.value = "0px"
 
+	setStepGrabed(false)
 	setIsCurrentlyManipulatedIndex(null)
-
 }
 
-function onTouchMove( {diffX} ){
-	console.log("on touch move tiggered dans le stepper")
-
-	if( $store.value.navigation.navbar.isMoving ){ 
-		onTouchEnd()
-		return 
+function onTouchMove( event ){
+	if( $store.value.stepGrabed ){
+		const { x } = useGetEventPosition(event)
+		const diffX = computePositionDiff(x)
+		dynamicLeft.value = `${diffX * -1}px`
 	}
+}
 
-	dynamicLeft.value = `${diffX * -1}px`
+function computePositionDiff( movingX ){
+	const diffX = touchOriginX.value - movingX
 
+	if( diffX === 0 ){ return }
+
+	const direction = diffX < 0 ? "left" : "right"
+
+	if( Math.abs(diffX / window.innerWidth) < threshold ){
+
+		return diffX
+
+	} else {
+		
+		if( direction === "left" ){
+			console.log("wsh decrement")
+			setCurrentStepIndexDecrement()
+		} else {
+			console.log("wsh increment")
+			setCurrentStepIndexIncrement()
+		}
+
+		onTouchEnd()
+	}
 }
 // - - - - - - - - - - - - -
 
@@ -126,7 +156,6 @@ const scaleRatio = ref(0.9)
 
 	<div class="stepper-wrapper" ref="stepperWrapper">
 
-		<!-- { 'grabing-x': store.navigation.isCurrentlyManipulatedIndex === index } -->
 		<component 
 			v-for="(step, index) in goodSteps" :key="index"
 			:is="step.component"
@@ -172,7 +201,7 @@ const scaleRatio = ref(0.9)
 
 	&-item {
 		z-index: 10;
-		position: relative;
+		position: absolute;
 		width: 100%;
 		height: var(--stepHeight);
 		overflow: hidden;
@@ -220,7 +249,7 @@ const scaleRatio = ref(0.9)
 	
 		&.isActive {
 			z-index: 100;
-			position: relative;
+			// position: relative;
 			transform: translateX(0) scale(1);
 			background: linear-gradient(405deg, var(--bg-white-65) -140%, transparent 50%);
 			

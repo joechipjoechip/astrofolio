@@ -1,6 +1,8 @@
 <script setup>
+import LayoutStep from './LayoutStep.vue';
+import SlotList from './SlotList.vue';
 
-defineProps({
+const props = defineProps({
 	isActive: {
 		type: Boolean,
 		required: true
@@ -15,17 +17,15 @@ defineProps({
 
 <template>
 
-    <NuxtLayout name="layout-step" 
+	<LayoutStep
 		:isActive="isActive" 
 		:wording="wording"
 	>
-
 		<SlotList 
 			:slots="wording.slots"
 			:stepIsActive="isActive"
 			:stepColor="wording.color"
 		/>
+	</LayoutStep>
 
-    </NuxtLayout>
-	
 </template>

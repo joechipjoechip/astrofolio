@@ -3,11 +3,6 @@
 import SlotItem from "@/components/vue/SlotItem.vue"
 import { uiConfig } from "@/assets/uiConfig.js"
 
-
-// import { globalStore } from "../../stores/globalStore.js"
-// import { useStore } from '@nanostores/vue';
-// const $store = useStore(globalStore);
-
 const props = defineProps({
 	slots: {
 		type: Object,
@@ -24,8 +19,6 @@ const props = defineProps({
         required: true
     }
 })
-
-console.log("props dans slotlist : ", props)
 
 </script>
 
