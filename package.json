@@ -23,6 +23,7 @@
     "@vueuse/motion": "^2.0.0",
     "astro": "^4.0.6",
     "leva": "^0.9.35",
+    "mitt": "^3.0.1",
     "nanostores": "^0.9.5",
     "postprocessing": "^6.33.4",
     "r3f-perf": "^7.1.2",

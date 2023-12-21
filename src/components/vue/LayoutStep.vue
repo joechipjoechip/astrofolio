@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue"
 
 import SearchBar from './SearchBar.vue'
 
@@ -27,7 +26,6 @@ const props = defineProps({
 
                     <h2 class="step-head-title"
                         v-if="isActive"
-                        ref="headTitle"
                         v-motion
                         :initial="{ y: 335, opacity: 0 }"
                         :delay="100"

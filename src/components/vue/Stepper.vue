@@ -1,50 +1,63 @@
 <script setup>
 
-import { stepsWording } from "../../assets/wording/steps.js"
-import { useUserStore } from "@/stores/user"
+import Formation from "./Formation.vue";
 
-const store = useUserStore()
+import { ref, watch, onMounted } from "vue"
+
+import { useEmitter } from "@/composables/Emitter"
+import { useUserInteractions } from "@/composables/UserInteractions"
+
+import { stepsWording } from "@/assets/wording/steps.js"
+
+import { globalStore, setStepsCount, setIsCurrentlyManipulatedIndex } from "@/stores/globalStore.js"
+import { useStore } from '@nanostores/vue';
+
+const $store = useStore(globalStore);
+
+useUserInteractions()
 
 const stepperWrapper = ref(null)
 
 const goodSteps = [
-	{
-		name: "Bio",
-        component: resolveComponent('Bio')
-    },
+	// {
+	// 	name: "Bio",
+    //     component: resolveComponent('Bio')
+    // },
 	{
 		name: "Formation",
-        component: resolveComponent('Formation')
+        component: Formation
     },
-    {
-		name: "Experience",
-        component: resolveComponent('Experience')
-    }
+    // {
+	// 	name: "Experience",
+    //     component: resolveComponent('Experience')
+    // }
 ]
 
-store.setStepsCount(goodSteps.length)
+setStepsCount(goodSteps.length)
 
 // - - - - TOUCH LOGIC - - - -
 const dynamicLeft = ref("0px")
 const leftTransitionValue = ref("0s")
 
-const { $on } = useNuxtApp()
+const { on } = useEmitter()
 
-$on("update-step-positions", onTouchMove)
-$on("update-step-positions-start", onTouchStart)
-$on("update-step-positions-end", onTouchEnd)
+// on("main-touch-move", onTouchMove)
+on("main-touch-start", onTouchStart)
+on("main-touch-end", onTouchEnd)
 
 function onTouchStart( event ){
 
 	const currentStepGrabed = event.target.closest(".step-item")?.dataset.index
 
-	if( store.navigation.navbar.isMoving ){ return }
+	console.log("au start : ", $store.value.navigation.navbar.isMoving, currentStepGrabed)
+
+	if( $store.value.navigation.navbar.isMoving ){ return }
 
 	decayX.value *= 0.92
 
 	leftTransitionValue.value = "0s"
 	
-	currentStepGrabed && store.setIsCurrentlyManipulatedIndex(parseInt(currentStepGrabed)) 
+	currentStepGrabed && setIsCurrentlyManipulatedIndex(parseInt(currentStepGrabed)) 
 }
 
 function onTouchEnd(){
@@ -55,13 +68,14 @@ function onTouchEnd(){
 	
 	dynamicLeft.value = "0px"
 
-	store.setIsCurrentlyManipulatedIndex(null)
+	setIsCurrentlyManipulatedIndex(null)
 
 }
 
 function onTouchMove( {diffX} ){
+	console.log("on touch move tiggered dans le stepper")
 
-	if( store.navigation.navbar.isMoving ){ 
+	if( $store.value.navigation.navbar.isMoving ){ 
 		onTouchEnd()
 		return 
 	}
@@ -74,7 +88,7 @@ function onTouchMove( {diffX} ){
 
 // - - - COMPONENT STATUS / CLASS LOGIC - - - -
 function defineIsActive(index){
-	return index === store.currentStepIndex
+	return index === $store.value.currentStepIndex
 }
 
 function defineDynamicClasses(index){
@@ -82,11 +96,11 @@ function defineDynamicClasses(index){
 	return {
 		name: goodSteps[index].name?.toLowerCase(),
 		isActive: defineIsActive(index),
-		isPrevious: index === store.currentStepIndex - 1,
-		isNext: index === store.currentStepIndex + 1,
-		isOutPrevious: store.currentStepIndex - index > 1,
-		isOutNext: index - store.currentStepIndex > 1,
-		isCurrentlyManipulated: store.navigation.isCurrentlyManipulatedIndex === index
+		isPrevious: index === $store.value.currentStepIndex - 1,
+		isNext: index === $store.value.currentStepIndex + 1,
+		isOutPrevious: $store.value.currentStepIndex - index > 1,
+		isOutNext: index - $store.value.currentStepIndex > 1,
+		isCurrentlyManipulated: $store.value.navigation.isCurrentlyManipulatedIndex === index
 	}
 
 }
@@ -112,18 +126,19 @@ const scaleRatio = ref(0.9)
 
 	<div class="stepper-wrapper" ref="stepperWrapper">
 
+		<!-- { 'grabing-x': store.navigation.isCurrentlyManipulatedIndex === index } -->
 		<component 
 			v-for="(step, index) in goodSteps" :key="index"
 			:is="step.component"
 			
-			class="step-item"
+			class="step-item isActive"
 			:class="[
 				`step-${step.name.toLowerCase()}`,
 				defineDynamicClasses(index),
-				{ 'grabing-x': store.navigation.isCurrentlyManipulatedIndex === index }
 			]"
 
 			:data-index="index"
+			
 			:isActive="defineIsActive(index)"
 			:wording="stepsWording[step.name.toLowerCase()]"
 

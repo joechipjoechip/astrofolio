@@ -1,7 +1,6 @@
 <script setup>
 
 import SlotItem from "@/components/vue/SlotItem.vue"
-
 import { uiConfig } from "@/assets/uiConfig.js"
 
 

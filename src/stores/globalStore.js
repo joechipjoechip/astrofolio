@@ -2,7 +2,7 @@ import { map } from "nanostores"
 
 export const globalStore = map({
 	name: "Paul",
-	currentStepIndex: 2,
+	currentStepIndex: 0,
 	stepsCount: 0,
 	navigation: {
 		stepGrabed: false,
@@ -53,19 +53,28 @@ export function setStepsCount( size ){
 
 // NAVIGATION
 export function setstepGrabed( bool ){
-	globalStore.setKey("navigation", { stepGrabed: bool })
+	globalStore.setKey("navigation",
+		Object.assign(globalStore.get().navigation, { stepGrabed: bool })
+	)
 }
 
 export function setIsCurrentlyManipulatedIndex( payload ){
-	globalStore.setKey("navigation", { isCurrentlyManipulatedIndex: payload })
+	globalStore.setKey("navigation",
+		Object.assign(globalStore.get().navigation,  { isCurrentlyManipulatedIndex: payload })
+	)
 }
 
+// TDO : à tester (si la key fonctionne)
 export function setNavigationNavbarPosition( obj ){
-	globalStore.setKey("navigation", { navbar: { position: obj } })
+	globalStore.setKey("navigation.navbar",
+		Object.assign(globalStore.get().navigation.navbar,  { navbar: { position: obj } })
+	)
 }
 
 export function setNavigationNavbarIsMoving( bool ){
-	globalStore.setKey("navigation", { navbar: { isMoving: bool } })
+	globalStore.setKey("navigation.navbar",
+		Object.assign(globalStore.get().navigation.navbar,  { navbar: { isMoving: bool } })
+	)
 }
 
 
