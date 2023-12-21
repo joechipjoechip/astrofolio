@@ -1,4 +1,6 @@
 <script setup>
+import LayoutStep from './LayoutStep.vue';
+import SlotList from './SlotList.vue';
 
 const props = defineProps({
 	isActive: {
@@ -14,33 +16,16 @@ const props = defineProps({
 </script>
 
 <template>
-    <NuxtLayout 
-        class="layout-exception" 
-        name="layout-step" 
-        :isActive="isActive" 
-        :wording="wording"
-    >
 
-        <div class="bio-wrapper">
-            hey ici le component bio
-            <slot />
+	<LayoutStep
+		:isActive="isActive" 
+		:wording="wording"
+	>
+		<SlotList 
+			:slots="wording.slots"
+			:stepIsActive="isActive"
+			:stepColor="wording.color"
+		/>
+	</LayoutStep>
 
-            <p class="layout-style-test">ceci est un test de style unscoped de la part du layout</p>
-        </div>
-
-    </NuxtLayout>
 </template>
-
-<style lang="scss" scoped>
-
-.layout-exception {
-    opacity: 0;
-}
-
-.bio {
-    &-wrapper {
-        //
-    }
-}
-
-</style>

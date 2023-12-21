@@ -1,11 +1,12 @@
 <script setup>
 
+import Bio from "./Bio.vue";
 import Formation from "./Formation.vue";
 import Experience from "./Experience.vue";
 
 import { stepsWording } from "@/assets/wording/steps.js"
 
-import { ref, reactive, watch } from "vue"
+import { ref, computed } from "vue"
 
 import { useEmitter } from "@/composables/Emitter"
 import { useUserInteractions } from "@/composables/UserInteractions"
@@ -30,10 +31,10 @@ const $store = useStore(globalStore);
 const stepperWrapper = ref(null)
 
 const goodSteps = [
-	// {
-	// 	name: "Bio",
-    //     component: resolveComponent('Bio')
-    // },
+	{
+		name: "Bio",
+        component: Bio
+    },
 	{
 		name: "Formation",
         component: Formation
@@ -72,6 +73,7 @@ function onTouchStart( event ){
 }
 
 function onTouchEnd(){
+	console.log("on touch end triggered")
 	touchOriginX.value = null
 	decayX.value = baseDecayX
 	leftTransitionValue.value = "0.4s"
@@ -82,11 +84,15 @@ function onTouchEnd(){
 }
 
 function onTouchMove( event ){
-	if( $store.value.stepGrabed ){
-		const { x } = useGetEventPosition(event)
-		const diffX = computePositionDiff(x)
-		dynamicLeft.value = `${diffX * -1}px`
-	}
+	if( !$store.value.stepGrabed ){ 
+		onTouchEnd()
+		return
+	} 
+
+	const { x } = useGetEventPosition(event)
+	const diffX = computePositionDiff(x)
+	dynamicLeft.value = `${-diffX}px`
+	
 }
 
 function computePositionDiff( movingX ){
@@ -140,14 +146,8 @@ function defineDynamicClasses(index){
 // - - - - DYNAMIC STYLE LOGIC - - - -
 const baseDecayX = 105
 const decayX = ref(baseDecayX)
-const decayXPositiveString = ref(`${baseDecayX}%`)
-const decayXNegativeString = ref(`${-baseDecayX}%`)
-
-watch(decayX, newVal => {
-	decayXPositiveString.value = `${decayX.value}%`
-	decayXNegativeString.value = `${-decayX.value}%`
-})
-
+const decayXPositiveString = computed(() => `${decayX.value}%`)
+const decayXNegativeString = computed(() => `${-decayX.value}%`)
 const scaleRatio = ref(0.9)
 
 </script>
@@ -188,8 +188,7 @@ const scaleRatio = ref(0.9)
 		width: 65%;
 		max-width: 1200px;
 		margin: 0 auto;
-
-		cursor: grab;
+		height: 100vh;
 
 		@media #{$mobile} {
 			width: 90%;	
@@ -205,8 +204,7 @@ const scaleRatio = ref(0.9)
 		width: 100%;
 		height: var(--stepHeight);
 		overflow: hidden;
-		position: absolute;
-		top: 0;
+		top: calc((100vh - var(--stepHeight)) / 2);
 		transform: translateX(0) scale(1);
 		background-color: var(--bg-white-05);
 		border: solid 2px transparent;

@@ -17,7 +17,7 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
-<style is:global>
+<style lang="scss" is:global>
 	:root {
 		/* Customs */
 		--stepHeight: calc(100vh - 180px);
@@ -92,13 +92,13 @@ const { title } = Astro.props;
 		font-family: system-ui, sans-serif;
 
 		font-size: 8px;
-	
-		@media #{$desktopLarge}{
-			font-size: 11px;
+		
+		@media #{$desktopLarge} {
+			font-size: 10px;
 		}
-
+	
 		@media #{$desktopVeryLarge}{
-			font-size: 13px;
+			font-size: 11px;
 		}
 	}
 

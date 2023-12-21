@@ -151,6 +151,7 @@ export const stepsWording = {
 		catcher: "hey, ici cest la bio",
 		stepStyle: "line",
 		color: "#FF4E4E",
+		slots: []
 	},
 
 	"experience": {

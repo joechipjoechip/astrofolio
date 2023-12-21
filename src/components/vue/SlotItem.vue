@@ -687,7 +687,7 @@ function handleInnerComplete(){
 						color: var(--bg-white-70);
 						margin-top: 0;
 						margin-left: 3rem;
-						margin-bottom: 1rem;
+						margin-bottom: 0.15rem;
 
 						transition: color var(--transitionDurationVeryLong);
 						
