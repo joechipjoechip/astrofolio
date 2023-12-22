@@ -151,7 +151,7 @@ function handleInnerComplete(){
 			v-motion
 			:initial="{ 
 				opacity: 0,
-				y:  800 * speed,
+				y:  1000 * speed,
 			}"
 			:delay="idealDelay"
 			:enter="{ 
@@ -193,17 +193,15 @@ function handleInnerComplete(){
 						v-motion
 						style="will-change: opacity, transform;"
 						:initial="{ 
-							x: random(-4000, -800) * speed,
-							opacity: 0.2
+							x: -1000 * speed,
 						}"
 						:enter="{ 
 							x: 0,
-							opacity: 1,
 	
 							transition: {
 								duration: uiConfig.animation.long,
 								// onPlay: handleStart,
-								delay: idealDelay + 100,
+								delay: (idealDelay * 0.8) + 100,
 								ease: 'backInOut'
 							}
 						}"
@@ -214,25 +212,7 @@ function handleInnerComplete(){
 			
 					<h4 class="name" v-html="slotData.body"></h4>
 			
-					<div class="description"
-						v-motion
-						style="will-change: opacity, transform;"
-						:initial="{ 
-							y: 300,
-							opacity: 0
-						}"
-						:delay="idealDelay * 0.5"
-	
-						:enter="{ 
-							y: 0,
-							opacity: 1,
-	
-							transition: {
-								duration: uiConfig.animation.medium,
-								ease: 'backInOut'
-							}
-						}"
-					>
+					<div class="description">
 			
 						<p v-for="sentence in slotData.description" :key="sentence.id" 
 							v-html="sentence"
