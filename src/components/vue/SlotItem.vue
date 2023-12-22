@@ -1,11 +1,10 @@
 <script setup>
 
-import { ref, onMounted, watch, nextTick, computed } from "vue"
+import { ref, onMounted, watch, nextTick } from "vue"
 
 import IconsUiDoubleChevronDown from "./icons/uiDoubleChevronDown.vue"
 
 import { uiConfig } from "@/assets/uiConfig.js"
-import { random } from "@/assets/js/utils.js"
 
 const props = defineProps({
 	slotData: {
@@ -101,35 +100,12 @@ function handleAnchorClick( event ){
 	})
 
 }
-// // - - - - - - - - - - - - - 
+
 
 // // - - - - - - - - - - - - - 
 // // ANIMATION LOGIC - - - - -
 const speed = ref(0.2)
-const idealDelay = computed(() => uiConfig.animation.short * props.slotIndex * 0.8)
-const gradientDirection = "right"
-
-const animationsAreFinished = ref(false)
-const isVisible = computed(() => animationsAreFinished.value)
-
-function handleInnerComplete(){
-	animationsAreFinished.value = true
-}
-
-// function handleStart(){
-	
-// 	// createSound("bubble");
-	
-// 	setTimeout(() => {
-// 		playSound()
-// 	}, random(idealDelay.value, idealDelay.value * 1.6))
-
-// }
-
-// - - - - - - - - - - - - - 
-
-
-
+const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 </script>
 
@@ -138,6 +114,7 @@ function handleInnerComplete(){
 	<article 
 		ref="slotWrapperElement"
 		class="step-slot-wrapper"
+		style="will-change: margin-top;"
 		:class="{
 			isHovered,
 			isExpanded
@@ -146,8 +123,7 @@ function handleInnerComplete(){
 	>
 
 		<div class="step-slot-inner"
-			:class="{ isVisible }"
-			style="will-change: opacity, transform;"
+			style="will-change: opacity, transform, margin;"
 			v-motion
 			:initial="{ 
 				opacity: 0,
@@ -160,7 +136,6 @@ function handleInnerComplete(){
 
 				transition: {
 					duration: uiConfig.animation.medium,
-					onComplete: handleInnerComplete,
 					ease: 'easeInOut'
 				},
 			}"
@@ -374,21 +349,6 @@ function handleInnerComplete(){
 
 				& + .step-slot-wrapper {
 					margin-top: 4rem;
-				}
-
-				.level-1 {
-
-					// .name,
-					// .description {
-					// 	//
-					// }
-
-					.description {
-						margin-right: 1.5rem;
-						margin-left: 0.2rem;	
-						letter-spacing: 0.075rem;					
-					}
-					
 				}
 
 			}
@@ -698,11 +658,8 @@ function handleInnerComplete(){
 			}
 
 			.level-2 {
-				// @include glassMorph;
-				// width: 0%;
 				width: 100%;
 				height: 0%;
-				// max-height: 30rem;
 				opacity: 0;
 				overflow: hidden;
 				display: flex;
@@ -710,9 +667,6 @@ function handleInnerComplete(){
 				column-gap: 1.5rem;
 
 				padding: 2rem 0;
-
-
-				// background-color: var(--bg-black-15);
 
 				border-radius: 0;
 				
@@ -829,21 +783,10 @@ function handleInnerComplete(){
 					
 					overflow-y: scroll;
 					
-					// padding-bottom: 2rem;
-
-					// &:last-of-type {
-						
-					// 	// .text-item:last-of-type {
-					// 	// 	padding-bottom: 5rem;
-					// 	// }
-					// }
-					
 					* {
 						margin: 0;
 						padding: 0;
 					}
-
-					
 
 					.anchor-wrapper {
 						z-index: 15;
