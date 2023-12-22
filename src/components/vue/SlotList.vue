@@ -1,5 +1,5 @@
 <script setup>
-
+import { ref } from "vue"
 import SlotItem from "@/components/vue/SlotItem.vue"
 import { uiConfig } from "@/assets/uiConfig.js"
 
@@ -20,11 +20,24 @@ const props = defineProps({
     }
 })
 
+const focusedSlotIndex = ref(null)
+
+function handleMouseMove( event ){
+    focusedSlotIndex.value = event.target.closest(".step-slot-wrapper")?.dataset.slotIndex ? parseInt(event.target.closest(".step-slot-wrapper")?.dataset.slotIndex) : null
+}
+
+function handleMouseLeave(){
+    focusedSlotIndex.value = null
+}
+
 </script>
 
 <template>
 
-    <div class="list">
+    <div class="list"
+        @mousemove="handleMouseMove"
+        @mouseleave="handleMouseLeave"
+    >
 
         <!-- :soundEnabled="$store.sound.enabled" -->
         <SlotItem
@@ -35,6 +48,7 @@ const props = defineProps({
             :stepColor="stepColor"
             :stepIsActive="stepIsActive"
             :slotIndex="index"
+            :isHovered="index === focusedSlotIndex"
             
     
             v-motion

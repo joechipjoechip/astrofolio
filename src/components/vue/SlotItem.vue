@@ -23,13 +23,16 @@ const props = defineProps({
 	soundEnabled: {
 		type: Boolean,
 		default: false
+	},
+	isHovered: {
+		type: Boolean,
+		required: true
 	}
 })
 
 // - - - - - - - - - - - - - 
 // BASIC LOGIC - - - - -
 
-const isHovered = ref(false)
 const isExpanded = ref(false)
 
 // - - - - - - - - - - - - - 
@@ -139,8 +142,7 @@ function handleInnerComplete(){
 			isHovered,
 			isExpanded
 		}"
-		@mouseenter="isHovered = true"
-		@mouseleave="isHovered = false"
+		:data-slot-index="slotIndex"
 	>
 
 		<div class="step-slot-inner"
