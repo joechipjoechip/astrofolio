@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/react": "^3.0.7",
     "@astrojs/vue": "^4.0.4",
+    "@nanostores/react": "^0.7.1",
     "@nanostores/vue": "^0.10.0",
     "@react-three/fiber": "^8.15.12",
     "@types/react": "^18.2.45",
