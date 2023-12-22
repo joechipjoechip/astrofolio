@@ -2,10 +2,13 @@ import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient'
 import * as reactSpring from '@react-spring/three'
 import * as drei from '@react-three/drei'
 import * as fiber from '@react-three/fiber'
+import "./HelloReact.css"
 
 export default function HelloReact() {
 
     const params = {
+        orbitControls: "disabled",
+
         brightness: 1.1,
         cAzimuthAngle: 180,
         cDistance: 3.9,
@@ -45,14 +48,16 @@ export default function HelloReact() {
     }
 
   return (
-    <ShaderGradientCanvas
-      importedfiber={{ ...fiber, ...drei, ...reactSpring }}
-      style={{
-        position: 'absolute',
-        top: 0,
-      }}
-    >
-      <ShaderGradient {...params} />
-    </ShaderGradientCanvas>
+    <div className='react-canvas-wrapper'>
+        <ShaderGradientCanvas
+        importedfiber={{ ...fiber, ...drei, ...reactSpring }}
+        style={{
+            position: 'absolute',
+            top: 0,
+        }}
+        >
+        <ShaderGradient {...params} />
+        </ShaderGradientCanvas>
+    </div>
   )
 }
