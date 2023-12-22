@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue"
+import { ref, watch, nextTick } from "vue"
 import SlotItem from "@/components/vue/SlotItem.vue"
 import { uiConfig } from "@/assets/uiConfig.js"
 
@@ -20,6 +20,10 @@ const props = defineProps({
     }
 })
 
+const listWrapper = ref(null)
+
+watch(() => props.stepIsActive, newVal => newVal && nextTick(() => listWrapper.value.scrollIntoView({block: "start"})))
+
 const focusedSlotIndex = ref(null)
 
 function handleMouseMove( event ){
@@ -35,6 +39,7 @@ function handleMouseLeave(){
 <template>
 
     <div class="list"
+        ref="listWrapper"
         @mousemove="handleMouseMove"
         @mouseleave="handleMouseLeave"
     >
