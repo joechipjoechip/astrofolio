@@ -36,59 +36,7 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style lang="scss" is:global>
-	:root {
-		/* Customs */
-		--bg-white-015: rgba(255,255,255,0.015);
-		--bg-white-05: rgba(255,255,255,0.05);
-		--bg-white-15: rgba(255,255,255,0.15);
-		--bg-white-25: rgba(255,255,255,0.25);
-		--bg-white-35: rgba(255,255,255,0.35);
-		--bg-white-45: rgba(255,255,255,0.45);
-		--bg-white-55: rgba(255,255,255,0.55);
 
-		--bg-white-65: rgba(255,255,255,0.65);
-		--bg-white-70: rgba(255,255,255, 0.7);
-		--bg-white-75: rgba(255,255,255,0.75);
-		--bg-white-80: rgba(255,255,255, 0.8);
-		--bg-white-85: rgba(255,255,255,0.85);
-		--bg-white-90: rgba(255,255,255, 0.9);
-		--bg-white-95: rgba(255,255,255,0.95);
-		--bg-white-100: #ffffff;
-
-
-
-		--bg-white-45: rgba(255,255,255, 0.45);
-		--bg-white-40: rgba(255,255,255, 0.4);
-
-
-
-		--bg-black-85: rgba(0,0,0, 0.85);
-		--bg-black-75: rgba(0,0,0, 0.75);
-		--bg-black-70: rgba(0,0,0, 0.70);
-		--bg-black-65: rgba(0,0,0, 0.65);
-		--bg-black-55: rgba(0,0,0, 0.55);
-		--bg-black-45: rgba(0,0,0, 0.45);
-		--bg-black-40: rgba(0,0,0, 0.40);
-		--bg-black-35: rgba(0,0,0, 0.35);
-		--bg-black-30: rgba(0,0,0, 0.30);
-		--bg-black-25: rgba(0,0,0, 0.25);
-		--bg-black-20: rgba(0,0,0, 0.20);
-		--bg-black-15: rgba(0,0,0, 0.15);
-		--bg-black-05: rgba(0,0,0, 0.05);
-
-		--navbarIconWidth: 3rem;
-		--navbarIconBorderRadius: 1rem;
-
-		--font-size-smallest: 0.75rem;
-		--font-size-small: 1rem;
-		--font-size-medium-minus: 1.25rem;
-		--font-size-medium: 1.5rem;
-		--font-size-big: 1.75rem;
-		--font-size-bigest: 2.25rem;
-		
-	}
-
-	// let's go dynamise dark/light
 	:root {
 
 		--stepHeight: calc(100vh - 180px);
@@ -110,14 +58,86 @@ const { title } = Astro.props;
 		--transitionDurationVeryLong: 1.7s;
 		--transitionDurationVeryVeryLong: 2.4s;
 
+		--navbarIconWidth: 3rem;
+		--navbarIconBorderRadius: 1rem;
+
+		--font-size-smallest: 0.75rem;
+		--font-size-small: 1rem;
+		--font-size-medium-minus: 1.25rem;
+		--font-size-medium: 1.5rem;
+		--font-size-big: 1.75rem;
+		--font-size-bigest: 2.25rem;
+
 		&.light {
 			--some-value: black;
 			--some-other-value: white;
+
+			--bg-main-015: rgba(255,255,255,0.015);
+			--bg-main-05: rgba(255,255,255, 0.05);
+			--bg-main-15: rgba(255,255,255, 0.15);
+			--bg-main-25: rgba(255,255,255, 0.25);
+			--bg-main-35: rgba(255,255,255, 0.35);
+			--bg-main-45: rgba(255,255,255, 0.45);
+			--bg-main-55: rgba(255,255,255, 0.55);
+
+			--bg-main-65: rgba(255,255,255, 0.65);
+			--bg-main-70: rgba(255,255,255, 0.7);
+			--bg-main-75: rgba(255,255,255, 0.75);
+			--bg-main-80: rgba(255,255,255, 0.8);
+			--bg-main-85: rgba(255,255,255, 0.85);
+			--bg-main-90: rgba(255,255,255, 0.9);
+			--bg-main-95: rgba(255,255,255, 0.95);
+			--bg-main-100: rgba(255,255,255, 1);
+
+
+			--bg-contrast-05: rgba(0,0,0, 0.05);
+			--bg-contrast-15: rgba(0,0,0, 0.15);
+			--bg-contrast-20: rgba(0,0,0, 0.20);
+			--bg-contrast-25: rgba(0,0,0, 0.25);
+			--bg-contrast-30: rgba(0,0,0, 0.30);
+			--bg-contrast-35: rgba(0,0,0, 0.35);
+			--bg-contrast-40: rgba(0,0,0, 0.40);
+			--bg-contrast-45: rgba(0,0,0, 0.45);
+			--bg-contrast-55: rgba(0,0,0, 0.55);
+			--bg-contrast-65: rgba(0,0,0, 0.65);
+			--bg-contrast-70: rgba(0,0,0, 0.70);
+			--bg-contrast-75: rgba(0,0,0, 0.75);
+			--bg-contrast-85: rgba(0,0,0, 0.85);
 		}
 
 		.dark {
 			--some-value: white;
 			--some-other-value: black;
+
+			--bg-main-015: rgba(0,0,0, 0.015);
+			--bg-main-05: rgba(0,0,0, 0.05);
+			--bg-main-15: rgba(0,0,0, 0.15);
+			--bg-main-25: rgba(0,0,0, 0.25);
+			--bg-main-35: rgba(0,0,0, 0.35);
+			--bg-main-45: rgba(0,0,0, 0.45);
+			--bg-main-55: rgba(0,0,0, 0.55);
+			--bg-main-65: rgba(0,0,0, 0.65);
+			--bg-main-70: rgba(0,0,0,  0.7);
+			--bg-main-75: rgba(0,0,0, 0.75);
+			--bg-main-80: rgba(0,0,0,  0.8);
+			--bg-main-85: rgba(0,0,0, 0.85);
+			--bg-main-90: rgba(0,0,0,  0.9);
+			--bg-main-95: rgba(0,0,0, 0.95);
+			--bg-main-100:rgba(0,0,0, 1);
+			
+			--bg-contrast-05: rgba(255,255,255, 0.05);
+			--bg-contrast-15: rgba(255,255,255, 0.15);
+			--bg-contrast-20: rgba(255,255,255, 0.20);
+			--bg-contrast-25: rgba(255,255,255, 0.25);
+			--bg-contrast-30: rgba(255,255,255, 0.30);
+			--bg-contrast-35: rgba(255,255,255, 0.35);
+			--bg-contrast-40: rgba(255,255,255, 0.40);
+			--bg-contrast-45: rgba(255,255,255, 0.45);
+			--bg-contrast-55: rgba(255,255,255, 0.55);
+			--bg-contrast-65: rgba(255,255,255, 0.65);
+			--bg-contrast-70: rgba(255,255,255, 0.70);
+			--bg-contrast-75: rgba(255,255,255, 0.75);
+			--bg-contrast-85: rgba(255,255,255, 0.85);
 		}
 	}
 

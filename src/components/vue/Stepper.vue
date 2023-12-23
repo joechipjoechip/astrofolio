@@ -203,7 +203,7 @@ const scaleRatio = ref(0.9)
 		overflow: hidden;
 		top: calc((100vh - var(--stepHeight)) / 2);
 		transform: translateX(0) scale(1);
-		background-color: var(--bg-white-05);
+		background-color: var(--bg-main-05);
 		border: solid 2px transparent;
 
 		will-change: opacity, transform, left, background-color, border-color;
@@ -229,7 +229,7 @@ const scaleRatio = ref(0.9)
 
 			border-radius: var(--borderRadiusBig);
 
-			background-color: var(--bg-white-05);
+			background-color: var(--bg-main-05);
 
 
 			will-change: background-color;
@@ -246,7 +246,7 @@ const scaleRatio = ref(0.9)
 			z-index: 100;
 			// position: relative;
 			transform: translateX(0) scale(1);
-			background: linear-gradient(405deg, var(--bg-white-65) -140%, transparent 50%);
+			background: linear-gradient(405deg, var(--bg-main-65) -140%, transparent 50%);
 			
 			&::after {
 				border-radius: var(--borderRadiusBig) var(--borderRadiusMedium) var(--borderRadiusBig) var(--borderRadiusBig);
@@ -260,7 +260,7 @@ const scaleRatio = ref(0.9)
 			opacity: 1;
 			z-index: 50;
 			backdrop-filter: blur(5px);
-			background-color: var(--bg-white-05);
+			background-color: var(--bg-main-05);
 
 			:deep(.step-wrapper > *){
 				display: none;
@@ -269,7 +269,7 @@ const scaleRatio = ref(0.9)
 			&:hover {
 
 				&::after {
-					background-color: var(--bg-black-65);
+					background-color: var(--bg-contrast-65);
 				}
 
 			}

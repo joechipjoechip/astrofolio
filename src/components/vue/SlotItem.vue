@@ -411,7 +411,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			&.isExpanded {
 
 				.step-slot-inner {	
-					background-color: var(--bg-black-75);
+					background-color: var(--bg-contrast-75);
 				}
 
 				.level-1,
@@ -419,7 +419,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				.step-slot-body {
 
 					.year {
-						color: var(--bg-white-55);
+						color: var(--bg-main-55);
 					}
 	
 					.duration,
@@ -429,7 +429,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					}
 
 					.name {
-						color: var(--bg-white-75);
+						color: var(--bg-main-75);
 					}
 					
 				}
@@ -445,7 +445,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			height: 100%;
 			backdrop-filter: blur(15px);
 			border-radius: 0 0 85rem 0;
-			background-color: var(--bg-black-40);
+			background-color: var(--bg-contrast-40);
 			
 
 			box-sizing: border-box;
@@ -480,7 +480,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			.duration {
 				font-style: italic;
 				font-weight: 300;
-				color: var(--bg-white-45);
+				color: var(--bg-main-45);
 
 				will-change: color;
 				
@@ -564,7 +564,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					top: 2.25rem;
 					left: 0;
 					font-size: 1.3rem;
-					color: var(--bg-white-45);
+					color: var(--bg-main-45);
 	
 					opacity: 0;
 					transform: translateY(1rem);
@@ -583,15 +583,15 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					text-transform: uppercase;
 					text-align: right;
 					line-height: 2rem;
-					// color: var(--bg-white-100);
+					// color: var(--bg-main-100);
 					color: currentColor;
 					border-radius: 0 56rem var(--borderRadiusSmallest) 85rem;
 					padding-right: 3rem;
-					color: var(--bg-white-90);
+					color: var(--bg-main-90);
 
-					text-shadow: 0 0 18px var(--bg-white-25);
+					text-shadow: 0 0 18px var(--bg-main-25);
 	
-					background: linear-gradient(to left top, var(--bg-black-15) 25%, transparent 70%);
+					background: linear-gradient(to left top, var(--bg-contrast-15) 25%, transparent 70%);
 
 					transition: 
 						font-size var(--transitionDurationLong),
@@ -617,7 +617,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					letter-spacing: 0.005rem;
 					transform: translateY(0);
 					
-					background: linear-gradient(to right top, var(--bg-black-15) 25%, transparent 70%);
+					background: linear-gradient(to right top, var(--bg-contrast-15) 25%, transparent 70%);
 
 					transition:
 						opacity var(--transitionDurationMedium),
@@ -626,7 +626,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						letter-spacing var(--transitionDurationVeryVeryLong) cubic-bezier(.12,1.24,.1,1.08);
 
 					p {
-						color: var(--bg-white-70);
+						color: var(--bg-main-70);
 						margin-top: 0;
 						margin-left: 3rem;
 						margin-bottom: 0.15rem;
@@ -641,7 +641,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 	
 				.name,
 				.description {
-					background-color: var(--bg-black-15);
+					background-color: var(--bg-contrast-15);
 					display: flex;
 					flex-flow: column nowrap;
 					justify-content: center;
@@ -754,7 +754,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 							opacity: 0.75;
 
 							overflow: hidden;
-							background-color: var(--bg-white-100);
+							background-color: var(--bg-main-100);
 
 							cursor: default;
 
@@ -799,7 +799,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						right: 3rem;
 						
 						padding: 1rem 0.5rem;
-						background-color: var(--bg-black-55);
+						background-color: var(--bg-contrast-55);
 						border-radius: var(--borderRadiusSmall) var(--borderRadiusSmall);
 						backdrop-filter: blur(15px);
 
@@ -811,7 +811,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 							margin: 0 1rem;
 							padding: 0.25rem 0.75rem;
 
-							background-color: var(--bg-white-15);
+							background-color: var(--bg-main-15);
 							border-radius: var(--borderRadiusSmallest);
 
 							&:first-of-type {
@@ -860,7 +860,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 							transform: translateX(-50%);
 							height: 1px;
 							width: 70%;
-							background-color: var(--bg-white-15);
+							background-color: var(--bg-main-15);
 						}
 					}
 					

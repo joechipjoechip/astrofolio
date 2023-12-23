@@ -13,6 +13,10 @@ const props = defineProps({
 	}
 })
 
+function handleClick(){
+    window.toggleColorMode()
+}
+
 </script>
 
 <template>
@@ -26,6 +30,7 @@ const props = defineProps({
 
                     <h2 class="step-head-title"
                         v-if="isActive"
+                        @click="handleClick"
                         v-motion
                         :initial="{ y: 335, opacity: 0 }"
                         :delay="100"
@@ -142,9 +147,9 @@ const props = defineProps({
                     text-align: center;
                     text-transform: uppercase;
                     font-size: 2.7rem;
-                    color: var(--bg-white-55);
+                    color: var(--bg-main-55);
 
-                    background-color: var(--bg-black-45);
+                    background-color: var(--bg-contrast-45);
                     padding: 0.5rem 3rem;
                     border-radius: 999px;
                     backdrop-filter: blur(8px);
