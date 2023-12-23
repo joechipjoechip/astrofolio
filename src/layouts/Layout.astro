@@ -69,6 +69,9 @@ const { title } = Astro.props;
 		--font-size-bigest: 2.25rem;
 
 		&.light {
+			color: rgba(255,255,255, 0.8);
+			background-color: rgba(255,255,255, 0.9);
+
 			--color-main-015: rgba(255,255,255,0.015);
 			--color-main-05: rgba(255,255,255, 0.05);
 			--color-main-15: rgba(255,255,255, 0.15);
@@ -113,7 +116,10 @@ const { title } = Astro.props;
 			--color-contrast-100: rgba(0,0,0, 1);
 		}
 
-		.dark {
+		&.dark {
+			color: rgba(0,0,0, 0.8);
+			background-color: rgba(0,0,0, 0.9);
+
 			--color-main-015: rgba(0,0,0,0.015);
 			--color-main-05: rgba(0,0,0, 0.05);
 			--color-main-15: rgba(0,0,0, 0.15);
@@ -186,10 +192,6 @@ const { title } = Astro.props;
 		font-weight: 300;
 
 		/* // letter-spacing: 1.7px; */
-
-		background-color: rgb(18, 18, 18);
-
-		color: var(--color-main-80);
 
 		-webkit-touch-callout: none; /* iOS Safari */
 		-webkit-user-select: none; /* Safari */
