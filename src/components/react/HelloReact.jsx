@@ -7,126 +7,233 @@ import "./HelloReact.css"
 import { useEffect } from "react"
 
 import { useStore } from '@nanostores/react';
-import { globalStore } from "@/stores/globalStore.js"
+import { globalStore, setColorMode } from "@/stores/globalStore.js"
 
-let changingDistance = 3.3
+// shaderBackup = {
+//     animate: "on",
+//     axesHelper: "off",
+//     bgColor1: "#000000",
+//     bgColor2: "#000000",
+//     brightness: "1.2",
+//     cAzimuthAngle: "180",
+//     cDistance: "3.9",
+//     cPolarAngle: "90",
+//     cameraZoom: "9.1",
+//     color1: "ff52b4",
+//     color2: "ffbd96",
+//     color3: "f6eddb",
+//     destination: "onCanvas",
+//     embedMode: "off",
+//     // envPreset: "city",
+//     format: "gif",
+//     fov: "20",
+//     frameRate: "10",
+//     gizmoHelper: "hide",
+//     grain: "off",
+//     lightType: "3d",
+//     pixelDensity: "1",
+//     positionX: "0",
+//     positionY: "0.7",
+//     positionZ: "0",
+//     range: "disabled",
+//     rangeEnd: "40",
+//     rangeStart: "0",
+//     reflection: "0.1",
+//     rotationX: "50",
+//     rotationY: "0",
+//     rotationZ: "0",
+//     shader: "defaults",
+//     type: "waterPlane",
+//     uAmplitude: "0",
+//     uDensity: "2.5",
+//     uFrequency: "0",
+//     uSpeed: "0.1",
+//     uStrength: "1",
+//     uTime: "8",
+//     wireframe: "false",
+// }
+
+const targetNode = document.querySelector("html")
+const observerConfig = { attributes: true, childList: false }
+const observer = new MutationObserver(observerCallback);
+
+observer.observe(targetNode, observerConfig);
+
+function observerCallback( event ){
+    if( event[0].target.classList.contains("light") ){
+        console.log("set color mode to : light")
+        setColorMode("light")
+    } else {
+        console.log("set color mode to : dark")
+        setColorMode("dark")
+    }
+}
+
 
 export default function HelloReact(){
+    // const shaderDark = {
+    //     orbitControls: "disabled",
     
-    const $store = useStore(globalStore)
+    //     brightness: 1.1,
+    //     cAzimuthAngle: 180,
+    //     cDistance: 3.9,
+    //     cPolarAngle: 115,
+    //     cameraZoom: 1,
+    //     color1: "5606FF",
+    //     color2: "FE8989",
+    //     color3: "000000",
+    //     destination: "onCanvas",
+    //     embedMode: "off",
+    //     envPreset: "city",
+    //     format: "gif",
+    //     fov: 45,
+    //     frameRate: 10,
+    //     grain: "off",
+    //     lightType: "3d",
+    //     pixelDensity: 1,
+    //     positionX: -0.5,
+    //     positionY: 0.1,
+    //     positionZ: 0,
+    //     range: "enabled",
+    //     rangeEnd: 40,
+    //     rangeStart: 0,
+    //     reflection: 0.1,
+    //     rotationX: 0,
+    //     rotationY: 0,
+    //     rotationZ: 235,
+    //     shader: "defaults",
+    //     type: "waterPlane",
+    //     uAmplitude: 0,
+    //     uDensity: 2.1,
+    //     uFrequency: 5.5,
+    //     uSpeed: 0.1,
+    //     uStrength: 1.1,
+    //     uTime: 0.2,
+    //     wireframe: false,
+    // }
 
-    useEffect(() => {
-        console.log("from react store changed : ", $store.currentStepIndex)
-
-        if( $store.currentStepIndex === 1 ){
-            changingDistance = 3.9
-        } else {
-            changingDistance = 6.5
-        }
-
-    }, [$store.currentStepIndex])
-
-    const params = {
-        orbitControls: "disabled",
-
-        brightness: 1.1,
-        cAzimuthAngle: 180,
-        // cDistance: 3.9,
-        cPolarAngle: 115,
-        cameraZoom: 1,
-        color1: "5606FF",
-        color2: "FE8989",
-        color3: "000000",
+    const shaderDark = {
+        animate: "on",
+        axesHelper: "off",
+        bgColor1: "#000000",
+        bgColor2: "#000000",
+        brightness: "1.2",
+        cAzimuthAngle: "180",
+        cDistance: "3.9",
+        cPolarAngle: "90",
+        cameraZoom: "9.1",
+        color1: "ff52b4",
+        color2: "ffbd96",
+        color3: "f6eddb",
         destination: "onCanvas",
         embedMode: "off",
-        envPreset: "city",
+        // envPreset: "city",
         format: "gif",
-        // fov: 45,
-        frameRate: 10,
+        fov: "20",
+        frameRate: "10",
+        gizmoHelper: "hide",
+        grain: "off",
+        lightType: "3d",
+        pixelDensity: "1",
+        positionX: "0",
+        positionY: "0.7",
+        positionZ: "0",
+        range: "disabled",
+        rangeEnd: "40",
+        rangeStart: "0",
+        reflection: "0.1",
+        rotationX: "50",
+        rotationY: "0",
+        rotationZ: "0",
+        shader: "defaults",
+        type: "waterPlane",
+        uAmplitude: "0",
+        uDensity: "2.5",
+        uFrequency: "0",
+        uSpeed: "0.1",
+        uStrength: "1",
+        uTime: "8",
+        wireframe: "false",
+    }
+    
+    const shaderLight = {
+        animate: "on",
+        axesHelper: "on",
+        bgColor1: "ffffff",
+        bgColor2: "ffffff",
+        brightness: 1.15,
+        cAzimuthAngle: 190,
+        cDistance: 9.2,
+        cPolarAngle: 55,
+        cameraZoom: 9,
+        color1: "fffcfa",
+        color2: "ff82de",
+        color3: "9f94ff",
+        destination: "onCanvas",
+        embedMode: "off",
+        envPreset: "lobby",
+        format: "gif",
+        fov: 20,
+        frameRate: 50,
         grain: "off",
         lightType: "3d",
         pixelDensity: 1,
-        positionX: -0.5,
-        positionY: 0.1,
+        positionX: 0,
+        positionY: 0,
         positionZ: 0,
-        range: "enabled",
+        range: "disabled",
         rangeEnd: 40,
         rangeStart: 0,
         reflection: 0.1,
         rotationX: 0,
-        rotationY: 0,
-        rotationZ: 235,
+        rotationY: 90,
+        rotationZ: 315,
         shader: "defaults",
-        type: "waterPlane",
-        uAmplitude: 0,
-        uDensity: 2.1,
-        uFrequency: 5.5,
-        uSpeed: 0.1,
-        uStrength: 1.1,
+        toggleAxis: false,
+        type: "sphere",
+        uAmplitude: 3.8,
+        uDensity: 2.5,
+        uFrequency: 4.5,
+        uSpeed: 0.03,
+        uStrength: 0.8,
         uTime: 0.2,
-        wireframe: false,
+        wireframe: true,
+        zoomOut: false,
+    
     }
-
-    // const params = {
-    //     animate: "on",
-    //     axesHelper: "off",
-    //     bgColor1: "#000000",
-    //     bgColor2: "#000000",
-    //     brightness: "1.2",
-    //     cAzimuthAngle: "180",
-    //     // cDistance: changingDistance,
-    //     cPolarAngle: "90",
-    //     cameraZoom: "9.1",
-    //     color1: "ff52b4",
-    //     color2: "ffbd96",
-    //     color3: "f6eddb",
-    //     destination: "onCanvas",
-    //     embedMode: "off",
-    //     // envPreset: "city",
-    //     format: "gif",
-    //     fov: "20",
-    //     frameRate: "10",
-    //     gizmoHelper: "hide",
-    //     grain: "off",
-    //     lightType: "3d",
-    //     pixelDensity: "1",
-    //     positionX: "0",
-    //     positionY: "0.7",
-    //     positionZ: "0",
-    //     range: "disabled",
-    //     rangeEnd: "40",
-    //     rangeStart: "0",
-    //     reflection: "0.1",
-    //     rotationX: "50",
-    //     rotationY: "0",
-    //     rotationZ: "0",
-    //     shader: "defaults",
-    //     type: "waterPlane",
-    //     uAmplitude: "0",
-    //     uDensity: "2.5",
-    //     uFrequency: "0",
-    //     uSpeed: "0.1",
-    //     uStrength: "1",
-    //     uTime: "8",
-    //     wireframe: "false",
-    // }
+    
+    const $store = useStore(globalStore)
 
   return (
     <>
         <div className='react-canvas-wrapper'>
-            <ShaderGradientCanvas
-                // ref={ gradientWrapper }
-                importedfiber={{ ...fiber, ...drei, ...reactSpring }}
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                }}
-            >
-                <ShaderGradient 
-                    {...params}
-                    cDistance={changingDistance}
-                />
-            </ShaderGradientCanvas>
+
+            {$store.colorMode === 'light' && <ShaderGradientCanvas
+                    importedfiber={{ ...fiber, ...drei, ...reactSpring }}
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                    }}
+                >
+                    <ShaderGradient 
+                        {...shaderLight}
+                    />
+                </ShaderGradientCanvas>
+            }
+
+            {$store.colorMode === 'dark' && <ShaderGradientCanvas
+                    importedfiber={{ ...fiber, ...drei, ...reactSpring }}
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                    }}
+                >
+                    <ShaderGradient 
+                        {...shaderDark}
+                    />
+                </ShaderGradientCanvas>
+            }
+
         </div>
     </>
   )

@@ -1,6 +1,7 @@
 import { map } from "nanostores"
 
 export const globalStore = map({
+	colorMode: "light",
 	name: "Paul",
 	currentStepIndex: 0,
 	stepsCount: 0,
@@ -20,6 +21,11 @@ export const globalStore = map({
 
 export function setName( newName ){
 	globalStore.setKey("name", newName)
+}
+
+export function setColorMode(newColor){
+	console.log("setColorMode du store : triggered")
+	globalStore.setKey("colorMode", newColor)
 }
 
 

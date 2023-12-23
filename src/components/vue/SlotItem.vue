@@ -439,13 +439,13 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 		}
 
 		&-inner {
-			@include glassMorph;
+			// @include glassMorph;
 			overflow: hidden;
 			width: 100%;
 			height: 100%;
+			background-color: var(--color-contrast-40);
 			backdrop-filter: blur(15px);
 			border-radius: 0 0 85rem 0;
-			background-color: var(--color-contrast-40);
 			
 
 			box-sizing: border-box;
@@ -478,9 +478,10 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 			.year,
 			.duration {
+				font-size: var(--font-size-medium-minus);
 				font-style: italic;
 				font-weight: 300;
-				color: var(--color-main-45);
+				color: var(--color-main-80);
 
 				will-change: color;
 				
@@ -557,6 +558,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					width: 35%;
 					text-align: left;
 					text-transform: capitalize;
+					color: var(--color-main-90);
 				}
 	
 				.location {
@@ -606,7 +608,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				
 				.description {
 					display: block;
-					font-size: 1.25rem;
+					font-size: var(--font-size-medium);
 					width: 40%;
 					font-weight: 300;
 					text-align: left;
@@ -626,7 +628,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						letter-spacing var(--transitionDurationVeryVeryLong) cubic-bezier(.12,1.24,.1,1.08);
 
 					p {
-						color: var(--color-main-70);
+						color: var(--color-main-65);
 						margin-top: 0;
 						margin-left: 3rem;
 						margin-bottom: 0.15rem;
@@ -754,7 +756,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 							opacity: 0.75;
 
 							overflow: hidden;
-							background-color: var(--color-main-100);
+							// background-color: var(--color-main-100);
 
 							cursor: default;
 
