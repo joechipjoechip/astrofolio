@@ -25,24 +25,20 @@ export function setName( newName ){
 
 // STEPS
 export function setCurrentStepIndex(newIndex){
-	if( newIndex <= globalStore.get().stepsCount - 1 ){
-		globalStore.setKey("currentStepIndex", newIndex)
-	}
+	globalStore.setKey("currentStepIndex", newIndex)
 }
 
 export function setCurrentStepIndexIncrement(){
 	const currentStepIndex = globalStore.get().currentStepIndex
-
 	if( currentStepIndex < globalStore.get().stepsCount - 1 ){
-		globalStore.setKey("currentStepIndex", currentStepIndex + 1)
+		setCurrentStepIndex(currentStepIndex + 1)
 	}
 }
 
 export function setCurrentStepIndexDecrement(){
 	const currentStepIndex = globalStore.get().currentStepIndex
-	
 	if( currentStepIndex > 0 ){
-		globalStore.setKey("currentStepIndex", currentStepIndex - 1)
+		setCurrentStepIndex(currentStepIndex - 1)
 	}
 }
 
