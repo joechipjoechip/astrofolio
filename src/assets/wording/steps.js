@@ -8,16 +8,27 @@ export const stepsWording = {
 		placeholder: "Ruby, HTML, ..",
 		slots: [
 			{
-				title: "Self learning",
+				title: "Self - Continuous learnings",
+				body: "web<br>Front-End",
+				location: "Online",
+				date: {
+					year: "2022 - 2023",
+				},
+				description: [
+					"Astro, React, React-Three-Fiber, TroisJS",
+					"Vue3, vueUse, Nuxt3, Strapi v4, graphQL, .."
+				]
+			},
+			{
+				title: "Self - ThreejsJourney",
 				body: "web<br>& creative",
 				location: "Online",
 				date: {
 					year: "2021 - 2022",
 				},
 				description: [
-					"Figma, Blender, ..",
-					"ThreeJS (webgl), Shaders (glsl), TroisJS, ..",
-					"Vue3, vueUse, Nuxt3, Strapi v4, graphQL, .."
+					"ThreeJS (3D in browser), Shaders (glsl)",
+					"Figma, Blender 3",
 				]
 			},
 			{
@@ -34,7 +45,7 @@ export const stepsWording = {
 				]
 			},
 			{
-				title: "FreeCodeCamp.org",
+				title: "Self - FreeCodeCamp.org",
 				body: "Pure<br>Algorythm",
 				location: "Online",
 				date: {
@@ -46,7 +57,7 @@ export const stepsWording = {
 				]
 			},
 			{
-				title: "30 days of JS by Wes Bos",
+				title: "Self - 30 days of JS by Wes Bos",
 				body: "Web<br>Front-end",
 				location: "Online",
 				date: {
@@ -59,7 +70,7 @@ export const stepsWording = {
 				]
 			},
 			{
-				title: "OpenClassrooms.com",
+				title: "Self - OpenClassrooms.com",
 				body: "web<br>back-end",
 				location: "online",
 				date: {
