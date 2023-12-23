@@ -34,13 +34,13 @@
 	  	}
 	   
 		&::-webkit-scrollbar-track {
-			background: var(--bg-main-15);
+			background: var(--color-main-15);
 	  	}
 	   
 		&::-webkit-scrollbar-thumb {
-			background: var(--bg-main-65);
+			background: var(--color-main-65);
 	  	}
 
-	scrollbar-color: var(--bg-main-45) var(--bg-main-25);
+	scrollbar-color: var(--color-main-45) var(--color-main-25);
   	scrollbar-width: thin;
 }

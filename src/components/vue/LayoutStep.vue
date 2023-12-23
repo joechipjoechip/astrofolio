@@ -147,9 +147,9 @@ function handleClick(){
                     text-align: center;
                     text-transform: uppercase;
                     font-size: 2.7rem;
-                    color: var(--bg-main-55);
+                    color: var(--color-main-55);
 
-                    background-color: var(--bg-contrast-45);
+                    background-color: var(--color-contrast-45);
                     padding: 0.5rem 3rem;
                     border-radius: 999px;
                     backdrop-filter: blur(8px);

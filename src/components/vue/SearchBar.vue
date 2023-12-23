@@ -50,7 +50,7 @@ const textInputRef = ref(null)
 	.search {
 
 		&-wrapper {
-			background-color: var(--bg-contrast-45);
+			background-color: var(--color-contrast-45);
 			border-radius: 999px;
 			backdrop-filter: blur(8px);
 
@@ -78,7 +78,7 @@ const textInputRef = ref(null)
 					transform: translateY(-50%) translateX(-50%);
 					border-radius: 50%;
 
-					background-color: var(--bg-main-100);
+					background-color: var(--color-main-100);
 				}
 
 				svg {
@@ -101,7 +101,7 @@ const textInputRef = ref(null)
 				cursor: pointer;
 				
 			
-				color: var(--bg-main-80);
+				color: var(--color-main-80);
 				margin-left: 0.5rem;
 				padding-right: 3rem;
 
@@ -110,7 +110,7 @@ const textInputRef = ref(null)
 				}
 				
 				&::placeholder {
-					color: var(--bg-main-25);
+					color: var(--color-main-25);
 				}
 
 			}
