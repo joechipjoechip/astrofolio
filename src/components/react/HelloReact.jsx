@@ -26,10 +26,6 @@ export default function HelloReact(){
 
     }, [$store.currentStepIndex])
 
-    // fiber.useFrame((state, thing) => {
-    //     console.log("test useFrame : ", state)
-    // })
-
     const params = {
         orbitControls: "disabled",
 
