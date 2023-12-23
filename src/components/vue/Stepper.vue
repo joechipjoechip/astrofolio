@@ -215,29 +215,6 @@ const scaleRatio = ref(0.9)
 			background-color .7s,
 			border-color .4s;
 
-		&::after {
-			content: "";
-			z-index: 20;
-			display: block;
-			position: absolute;
-			width: 95%;
-			height: 95%;
-
-			top: 50%;
-			left: 50%;
-			transform: translate3d(-50%, -50%, 0);
-
-			border-radius: var(--borderRadiusBig);
-
-			// background-color: var(--color-main-05);
-
-
-			will-change: background-color;
-
-			transition: background-color .7s;
-
-		}
-
 		&.grabing-x {
 			border-color: coral;
 		}
@@ -247,11 +224,6 @@ const scaleRatio = ref(0.9)
 			// position: relative;
 			transform: translateX(0) scale(1);
 			background: transparent;
-			
-			&::after {
-				border-radius: var(--borderRadiusBig) var(--borderRadiusMedium) var(--borderRadiusBig) var(--borderRadiusBig);
-				background: transparent;
-			}
 		}
 	
 		&.isPrevious,
@@ -265,15 +237,6 @@ const scaleRatio = ref(0.9)
 			:deep(.step-wrapper > *){
 				display: none;
 			}
-
-			&:hover {
-
-				&::after {
-					// background-color: var(--color-main-65);
-				}
-
-			}
-
 		}
 	
 		&.isPrevious {

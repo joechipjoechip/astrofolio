@@ -163,6 +163,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					<IconsUiDoubleChevronDown 
 						v-if="slotData.expand"
 						class="expand-button"
+						color="white"
 					/>
 					<h5 class="title"
 						v-motion
@@ -443,8 +444,8 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			overflow: hidden;
 			width: 100%;
 			height: 100%;
-			background-color: var(--color-contrast-40);
 			backdrop-filter: blur(15px);
+			background-color: var(--color-contrast-40);
 			border-radius: 0 0 85rem 0;
 			
 
