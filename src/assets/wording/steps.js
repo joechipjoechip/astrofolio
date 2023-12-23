@@ -40,8 +40,8 @@ export const stepsWording = {
 					duration: "4 intensive months"
 				},
 				description: [
-					"Ruby + Rails, Javascript, API Twitter,",
-					"Unit tests Mocha, Scrapping, Algo Cardio, .."
+					"Ruby, Rails, Javascript, API Twitter,",
+					"Unit tests, Scrapping, Algo Cardio, .."
 				]
 			},
 			{

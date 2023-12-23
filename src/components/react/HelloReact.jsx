@@ -161,7 +161,7 @@ export default function HelloReact(){
         axesHelper: "on",
         bgColor1: "ffffff",
         bgColor2: "ffffff",
-        brightness: 1.15,
+        brightness: 1,
         cAzimuthAngle: 190,
         cDistance: 9.2,
         cPolarAngle: 55,
