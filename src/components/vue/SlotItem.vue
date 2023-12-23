@@ -412,27 +412,18 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			&.isExpanded {
 
 				.step-slot-inner {	
-					background-color: var(--color-contrast-75);
+					background-color: var(--color-contrast-55);
 				}
 
 				.level-1,
 				.step-slot-head,
 				.step-slot-body {
 
-					.year {
-						color: var(--color-main-55);
-					}
-	
 					.duration,
 					.location {
 						opacity: 1;
 						transform: translateX(0) translateY(0);
 					}
-
-					.name {
-						color: var(--color-main-75);
-					}
-					
 				}
 
 			}
@@ -440,16 +431,13 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 		}
 
 		&-inner {
-			// @include glassMorph;
 			overflow: hidden;
 			width: 100%;
 			height: 100%;
-			backdrop-filter: blur(15px);
-			background-color: var(--color-contrast-40);
-			border-radius: 0 0 85rem 0;
-			
-
+			backdrop-filter: blur(8px);
+			background-color: var(--color-contrast-30);
 			box-sizing: border-box;
+			border-radius: 0 0 85rem 0;
 
 			margin: 0;
 			padding: 0;
@@ -567,7 +555,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					top: 2.25rem;
 					left: 0;
 					font-size: 1.3rem;
-					color: var(--color-main-45);
+					color: var(--color-main-65);
 	
 					opacity: 0;
 					transform: translateY(1rem);
@@ -581,25 +569,19 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				
 				.name {
 					width: 25%;
-					font-size: 1.5rem;
+					font-size: var(--font-size-medium-minus);
 					font-weight: bold;
 					text-transform: uppercase;
 					text-align: right;
-					line-height: 2rem;
-					// color: var(--color-main-100);
 					color: currentColor;
 					border-radius: 0 56rem var(--borderRadiusSmallest) 85rem;
 					padding-right: 3rem;
-					color: var(--color-main-90);
-
-					text-shadow: 0 0 18px var(--color-main-25);
+					color: var(--color-main-65);
 	
-					background: linear-gradient(to left top, var(--color-contrast-15) 25%, transparent 70%);
+					background: var(--color-contrast-15);
 
 					transition: 
-						font-size var(--transitionDurationLong),
-						color var(--transitionDurationVeryLong),
-						background var(--transitionDurationVeryLong);
+						font-size var(--transitionDurationMedium);
 				
 	
 					span {
@@ -620,7 +602,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					letter-spacing: 0.005rem;
 					transform: translateY(0);
 					
-					background: linear-gradient(to right top, var(--color-contrast-15) 25%, transparent 70%);
+					background: var(--color-contrast-15);
 
 					transition:
 						opacity var(--transitionDurationMedium),
@@ -685,9 +667,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 							.techno-slot {
 								width: 26%;
 							}
-
 						}
-
 
 						.texts-wrapper {
 							
@@ -696,9 +676,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 							.text-block {
 								margin-top: 0rem;
 							}
-							
 						}
-
 					}
 
 					&.withAnchors {
@@ -708,9 +686,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 							.text-block {
 								margin-top: 26%;
 							}
-							
 						}
-						
 					}
 
 				.technos,
@@ -753,12 +729,8 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 							width: 100%;
 							border-radius: 50%;
-							padding: 0.5rem;
 							opacity: 0.75;
-
 							overflow: hidden;
-							// background-color: var(--color-main-100);
-
 							cursor: default;
 
 							transition: 
@@ -802,9 +774,9 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						right: 3rem;
 						
 						padding: 1rem 0.5rem;
-						background-color: var(--color-contrast-55);
+						background-color: var(--color-contrast-65);
 						border-radius: var(--borderRadiusSmall) var(--borderRadiusSmall);
-						backdrop-filter: blur(15px);
+						backdrop-filter: blur(8px);
 
 						text-transform: uppercase;
 
@@ -876,9 +848,11 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 							font-style: italic;
 							margin-bottom: var(--font-size-small);
 							margin-left: 1rem;
+							color: var(--color-main-65);
 						}
 						
 						p {
+							color: var(--color-main-85);
 							font-size: var(--font-size-medium);
 							font-weight: 100;
 							margin: 0 2rem 0 3rem;

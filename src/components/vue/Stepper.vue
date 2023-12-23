@@ -182,8 +182,8 @@ const scaleRatio = ref(0.9)
 .stepper {
 	&-wrapper {
 		position: relative;
-		width: 65%;
-		max-width: 1200px;
+		width: 75%;
+		max-width: 1400px;
 		margin: 0 auto;
 		height: 100vh;
 
