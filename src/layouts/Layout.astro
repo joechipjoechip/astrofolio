@@ -15,30 +15,29 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<slot />
+		<script>
+			window.toggleColorMode = () => {
+				if (document.documentElement.classList.contains("light")) {
+					document.documentElement.classList.remove("light")
+					document.documentElement.classList.add("dark")
+				} else if (document.documentElement.classList.contains("dark")) {
+					document.documentElement.classList.remove("dark")
+					document.documentElement.classList.add("light")
+				} else {
+					if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						document.documentElement.classList.add("dark")
+					} else {
+						document.documentElement.classList.add("light")
+					}
+				}
+			}
+			window.toggleColorMode()
+		</script>
 	</body>
 </html>
 <style lang="scss" is:global>
 	:root {
 		/* Customs */
-		--stepHeight: calc(100vh - 180px);
-		--stepHeight: 90vh;
-		--margeSmall: 0.5rem;
-		--margeMedium: 0.75rem;
-		--margeBig: 1.25rem;
-		
-		--borderRadiusBig: 6rem;
-		--borderRadiusMedium: 3rem;
-		--borderRadiusSmall: 2rem;
-		--borderRadiusSmallest: 1rem;
-
-		--scrollbar-width: 0.25rem;
-
-		--transitionDurationMedium: 0.3s;
-		--transitionDurationShort: 0.18s;
-		--transitionDurationLong: 0.7s;
-		--transitionDurationVeryLong: 1.7s;
-		--transitionDurationVeryVeryLong: 2.4s;
-
 		--bg-white-015: rgba(255,255,255,0.015);
 		--bg-white-05: rgba(255,255,255,0.05);
 		--bg-white-15: rgba(255,255,255,0.15);
@@ -88,6 +87,40 @@ const { title } = Astro.props;
 		--font-size-bigest: 2.25rem;
 		
 	}
+
+	// let's go dynamise dark/light
+	:root {
+
+		--stepHeight: calc(100vh - 180px);
+		--stepHeight: 90vh;
+		--margeSmall: 0.5rem;
+		--margeMedium: 0.75rem;
+		--margeBig: 1.25rem;
+		
+		--borderRadiusBig: 6rem;
+		--borderRadiusMedium: 3rem;
+		--borderRadiusSmall: 2rem;
+		--borderRadiusSmallest: 1rem;
+
+		--scrollbar-width: 0.25rem;
+
+		--transitionDurationMedium: 0.3s;
+		--transitionDurationShort: 0.18s;
+		--transitionDurationLong: 0.7s;
+		--transitionDurationVeryLong: 1.7s;
+		--transitionDurationVeryVeryLong: 2.4s;
+
+		&.light {
+			--some-value: black;
+			--some-other-value: white;
+		}
+
+		.dark {
+			--some-value: white;
+			--some-other-value: black;
+		}
+	}
+
 	html {
 		font-family: system-ui, sans-serif;
 
