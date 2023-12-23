@@ -60,7 +60,7 @@ on("main-touch-start", onTouchStart)
 on("main-touch-end", onTouchEnd)
 
 function onTouchStart( event ){
-	const currentStepGrabed = event.target.closest(".step-item")?.dataset.index
+	const currentStepGrabed = event.target.closest(".step-slot")?.dataset.index
 	const { x } = useGetEventPosition(event)
 
 	setStepGrabed(true)
@@ -157,7 +157,7 @@ const scaleRatio = ref(0.9)
 			v-for="(step, index) in goodSteps" :key="index"
 			:is="step.component"
 			
-			class="step-item isActive"
+			class="step-slot isActive"
 			:class="[
 				`step-${step.name.toLowerCase()}`,
 				defineDynamicClasses(index),
@@ -195,7 +195,7 @@ const scaleRatio = ref(0.9)
 
 .step {
 
-	&-item {
+	&-slot {
 		z-index: 10;
 		position: absolute;
 		width: 100%;
@@ -229,7 +229,7 @@ const scaleRatio = ref(0.9)
 
 			border-radius: var(--borderRadiusBig);
 
-			background-color: var(--color-main-05);
+			// background-color: var(--color-main-05);
 
 
 			will-change: background-color;
@@ -246,7 +246,7 @@ const scaleRatio = ref(0.9)
 			z-index: 100;
 			// position: relative;
 			transform: translateX(0) scale(1);
-			background: linear-gradient(405deg, var(--color-main-65) -140%, transparent 50%);
+			background: transparent;
 			
 			&::after {
 				border-radius: var(--borderRadiusBig) var(--borderRadiusMedium) var(--borderRadiusBig) var(--borderRadiusBig);
@@ -260,7 +260,7 @@ const scaleRatio = ref(0.9)
 			opacity: 1;
 			z-index: 50;
 			backdrop-filter: blur(5px);
-			background-color: var(--color-main-05);
+			background-color: var(--color-contrast-45);
 
 			:deep(.step-wrapper > *){
 				display: none;
@@ -269,7 +269,7 @@ const scaleRatio = ref(0.9)
 			&:hover {
 
 				&::after {
-					background-color: var(--color-contrast-65);
+					// background-color: var(--color-main-65);
 				}
 
 			}
