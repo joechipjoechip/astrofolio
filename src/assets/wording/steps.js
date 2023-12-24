@@ -173,6 +173,148 @@ export const stepsWording = {
 		placeholder: "Vue, GSAP, Three, ..",
 		slots: [
 			{
+				title: "Carré Basset Agency",
+				body: "CreaTech<br>Front-End Dev.",
+				location: "Full remote",
+				date: {
+					year: "2023",
+					duration: "Freelance : 1 week mission"
+				},
+				description: [
+					"Vue3, Nuxt3, Canvas"
+				],
+				expand: {
+					technos: [
+						{
+							name: "Vue 3",
+							logoSrc: "./images/logos/vue.jpg"
+						},
+						{
+							name: "Nuxt 3",
+							logoSrc: "./images/logos/nuxt.jpg"
+						},
+						{
+							name: "HTML5",
+							logoSrc: "./images/logos/html.jpg"
+						},
+						{
+							name: "CSS3",
+							logoSrc: "./images/logos/css.jpg"
+						},
+						{
+							name: "JS ES6",
+							logoSrc: "./images/logos/javascript.jpg"
+						},
+						{
+							name: "SASS",
+							logoSrc: "./images/logos/sass.jpg"
+						},
+						{
+							name: "Git",
+							logoSrc: "./images/logos/git.jpg"
+						},
+					],
+					texts: [
+						[
+							{
+								title: "Contexte",
+								lines: [
+									'<a href="https://www.carrebasset2024.com" target="Blank">www.carrebasset2024.com</a>',
+									"Pour la nouvelle année (2024) le besoin de l'agence était une carte de voeux digitale avec un mini jeu à envoyer à ses clients"
+								]
+							},
+							{
+								title: "Interventions",
+								lines: [
+									"Développement Canvas",
+									"Développement Front-end",
+									"Mise en ligne",
+								]
+							}
+						]
+					]
+				}
+			},
+			{
+				title: "Omakase Recordings",
+				body: "CreaTech<br>Front-End Dev.",
+				location: "Full remote",
+				date: {
+					year: "2023",
+					duration: "Freelance : 9 months mission"
+				},
+				description: [
+					"Vue2, Nuxt2, ThreeJS",
+					"Blender 3, Miaxamo"
+				],
+				expand: {
+					technos: [
+						{
+							name: "Vue 2",
+							logoSrc: "./images/logos/vue.jpg"
+						},
+						{
+							name: "Nuxt 2",
+							logoSrc: "./images/logos/nuxt.jpg"
+						},
+						{
+							name: "ThreeJS",
+							logoSrc: "./images/logos/threejs.jpg"
+						},
+						{
+							name: "Blender 3",
+							logoSrc: "./images/logos/blender.jpg"
+						},
+						{
+							name: "HTML5",
+							logoSrc: "./images/logos/html.jpg"
+						},
+						{
+							name: "CSS3",
+							logoSrc: "./images/logos/css.jpg"
+						},
+						{
+							name: "JS ES6",
+							logoSrc: "./images/logos/javascript.jpg"
+						},
+						{
+							name: "SASS",
+							logoSrc: "./images/logos/sass.jpg"
+						},
+						{
+							name: "Git",
+							logoSrc: "./images/logos/git.jpg"
+						},
+					],
+					texts: [
+						[
+							{
+								title: "Contexte",
+								lines: [
+									'<a href="https://www.onyi.fr" target="Blank">www.onyi.fr</a>',
+									"Pour la promotion d'une sortie d'album, le besoin du label était de mettre en ligne un objet créatif, expérienciel et innovant.",
+									"C'est dans ce contexte que j'ai été sollicité en tant que Creative Dev et Dev Front-End."
+								]
+							},
+							{
+								title: "Interventions",
+								lines: [
+									"Concept, Direction Artistique, Scénographie",
+									"Prototypage",
+									"&nbsp;",
+									"Conceptualisation, maquettage et développement de l'expérience web interactive en 3D et du site écrin",
+									"&nbsp;",
+									"Developpement ThreeJS",
+									"Ecriture de shaders Glsl",
+									"&nbsp;",
+									"Mise en ligne"
+								]
+							}
+						]
+					]
+				}
+			},
+			{
 				title: "Zadig & Voltaire",
 				body: "Front-end dev.",
 				location: "Full remote",
@@ -263,10 +405,12 @@ export const stepsWording = {
 							{
 								title: "Interventions",
 								lines: [
-									"TMA :",
-									"Corrective : Correction de bugs",
+									"Maintenance Corrective et Evolutive",
 									"&nbsp;",
-									"Evolutive : Réharmonisation / refactorisation du système de sidebars (panier, recherche, mon compte, etc)"
+									"Réharmonisation / Refactorisation des sidebars du site (panier, recherche, mon compte, etc)",
+									"&nbsp;",
+									"Code review",
+									"Correction de bugs : ticketing"
 								]
 							}
 						]
@@ -275,7 +419,7 @@ export const stepsWording = {
 			},
 			{
 				title: "Danone",
-				body: "Front-end dev.<br>UI Consultant",
+				body: "Front-end dev.",
 				location: "Full remote",
 				date: {
 					year: "2021 - 2022",
@@ -326,17 +470,17 @@ export const stepsWording = {
 							{
 								title: "Contexte",
 								lines: [
-									"DAM (Digital Asset Management) sur archi AEM (Adobe Experience Manager)"
+									"Danone compte près de 100 000 collaborateurs dans le monde. La société avait un fort besoin de centralisation des assets commerciaux (documentations techniques des produits distribués).",
+									"C'est dans ce contexte que j'ai été sollicité afin de développer le front-end de ces outils de centralisations : DAM (Digital Asset Manager) sur leur archi AEM"
 								]
 							},
 							{
 								title: "Missions",
 								lines: [
-									"- intra : \"Medical Portal\" : Implémentation custom du Front-end pour le DAM de la division Nutrition Médicale",
+									"\"Medical Portal\" : Implémentation custom du Front-end pour le DAM de la division Nutrition Médicale",
 									"&nbsp;",
-									"- intra : \"DAM One Portal\" : Implémentation custom du Front-end pour le portail unifié des DAM de toutes les divisions",
-									"&nbsp;",
-									"- extra : Prototypage/Refonte (POC) de la section Newsroom du futur Danone.com (en GlassMorphism)"
+									"\"DAM One Portal\" : Implémentation custom du Front-end pour le portail unifié des DAM de toutes les divisions",
+									"&nbsp;"
 								]
 							},
 							{
@@ -376,11 +520,11 @@ export const stepsWording = {
 							logoSrc: "./images/logos/css.jpg"
 						},
 						{
-							name: "JS ES5 to ES2021",
+							name: "JS ES5 / ES6",
 							logoSrc: "./images/logos/javascript.jpg"
 						},
 						{
-							name: "Vue",
+							name: "Vue 2",
 							logoSrc: "./images/logos/vue.jpg"
 						},
 						{
@@ -410,6 +554,10 @@ export const stepsWording = {
 						{
 							name: "Drupal",
 							logoSrc: "./images/logos/drupal.jpg"
+						},
+						{
+							name: "NodeJS",
+							logoSrc: "./images/logos/nodejs.jpg"
 						},
 						{
 							name: "Blade",
