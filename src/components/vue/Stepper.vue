@@ -202,7 +202,7 @@ function defineDynamicClasses(index){
 		transform: translateX(0) scale(1);
 		border: solid 2px transparent;
 
-		will-change: opacity, transform, left, background-color, border-color;
+		// will-change: opacity, transform, left, background-color, border-color;
 		
 		transition: 
 			opacity 1.2s,
@@ -219,7 +219,7 @@ function defineDynamicClasses(index){
 			z-index: 100;
 			// position: relative;
 			transform: translateX(0) scale(1);
-			background: transparent;
+			background-color: transparent;
 		}
 	
 		&.isPrevious,

@@ -435,9 +435,8 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			overflow: hidden;
 			width: 100%;
 			height: 100%;
-			// backdrop-filter: blur(8px);
 			background-color: var(--color-contrast-40);
-			box-sizing: border-box;
+			backdrop-filter: blur(15px);
 			border-radius: 0 0 85rem 0;
 
 			margin: 0;

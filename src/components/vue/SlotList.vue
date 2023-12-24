@@ -82,7 +82,7 @@ function handleMouseLeave(){
     height: 100%;
     display: flex;
     flex-flow: row wrap;
-    row-gap: 0.65rem;
+    row-gap: 0.5rem;
 
     
     margin-left: 2.5%;
