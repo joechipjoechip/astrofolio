@@ -210,6 +210,10 @@ export const stepsWording = {
 							logoSrc: "./images/logos/sass.jpg"
 						},
 						{
+							name: "BEM",
+							logoSrc: "./images/logos/bem.jpg"
+						},
+						{
 							name: "Git",
 							logoSrc: "./images/logos/git.jpg"
 						},
@@ -280,6 +284,10 @@ export const stepsWording = {
 						{
 							name: "SASS",
 							logoSrc: "./images/logos/sass.jpg"
+						},
+						{
+							name: "BEM",
+							logoSrc: "./images/logos/bem.jpg"
 						},
 						{
 							name: "Git",
@@ -357,7 +365,7 @@ export const stepsWording = {
 							logoSrc: "./images/logos/css.jpg"
 						},
 						{
-							name: "JS ES2021",
+							name: "JS ES6",
 							logoSrc: "./images/logos/javascript.jpg"
 						},
 						{
@@ -449,7 +457,7 @@ export const stepsWording = {
 							logoSrc: "./images/logos/css.jpg"
 						},
 						{
-							name: "JS ES2021",
+							name: "JS ES6",
 							logoSrc: "./images/logos/javascript.jpg"
 						},
 						{
@@ -972,12 +980,12 @@ export const stepsWording = {
 				}
 			},
 			{
-				title: "Freelance Designer",
+				title: "Art & Graphic design",
 				body: "Graphic<br>Designer",
 				location: "Marseille - Aix-en-Provence",
 				date: {
 					year: "2008 - 2015",
-					duration: "while studying & working"
+					duration: "Freelancing while studying"
 				},
 				description: [
 					"Various printed communication supports",
@@ -986,11 +994,11 @@ export const stepsWording = {
 			},
 			{
 				title: "ArtKom Agency",
-				body: "Designer<br>(stage)",
+				body: "Graphic<br>Designer",
 				location: "Marseille",
 				date: {
 					year: "2006",
-					duration: "1 month"
+					duration: "Stage : 1 month"
 				},
 				description: [
 					"Various communication supports",
@@ -999,11 +1007,11 @@ export const stepsWording = {
 			},
 			{
 				title: "Atos",
-				body: "Designer<br>(stage)",
+				body: "Graphic<br>Designer",
 				location: "Paris",
 				date: {
 					year: "2005",
-					duration: "3 weeks"
+					duration: "Stage : 1 month"
 				},
 				description: [
 					"Intern communication supports",
