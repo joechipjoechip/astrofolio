@@ -48,16 +48,15 @@ const goodSteps = [
 setStepsCount(goodSteps.length)
 
 // - - - - TOUCH LOGIC - - - -
-const dynamicLeft = ref("0px")
-const leftTransitionValue = ref("0s")
-const touchOriginX = ref(null)
-const threshold = 0.6
-
 const { on } = useEmitter()
-
 on("main-touch-move", onTouchMove)
 on("main-touch-start", onTouchStart)
 on("main-touch-end", onTouchEnd)
+
+const dynamicLeft = ref("0px")
+const leftTransitionValue = ref("0s")
+const touchOriginX = ref(null)
+const threshold = 0.55
 
 function onTouchStart( event ){
 	const currentStepGrabed = event.target.closest(".step-slot")?.dataset.index
@@ -97,19 +96,17 @@ function onTouchMove( event ){
 function computePositionDiff( movingX ){
 	const diffX = touchOriginX.value - movingX
 
-	if( diffX === 0 ){ return }
-
-	const direction = diffX < 0 ? "left" : "right"
-
 	if( Math.abs(diffX / window.innerWidth) < threshold ){
 
 		return diffX
 
 	} else {
 		
-		if( direction === "left" ){
+		if( diffX < 0 ){
+			// go left
 			setCurrentStepIndexDecrement()
 		} else {
+			// go right
 			setCurrentStepIndexIncrement()
 		}
 
@@ -117,7 +114,15 @@ function computePositionDiff( movingX ){
 
 	}
 }
-// - - - - - - - - - - - - -
+
+
+// - - - - DYNAMIC STYLE LOGIC - - - -
+const baseDecayX = 105
+const decayX = ref(baseDecayX)
+const decayXPositiveString = computed(() => `${decayX.value}%`)
+const decayXNegativeString = computed(() => `${-decayX.value}%`)
+const scaleRatio = ref(0.9)
+
 
 
 // - - - COMPONENT STATUS / CLASS LOGIC - - - -
@@ -138,15 +143,6 @@ function defineDynamicClasses(index){
 	}
 
 }
-// - - - - - - - - - - - -
-
-
-// - - - - DYNAMIC STYLE LOGIC - - - -
-const baseDecayX = 105
-const decayX = ref(baseDecayX)
-const decayXPositiveString = computed(() => `${decayX.value}%`)
-const decayXNegativeString = computed(() => `${-decayX.value}%`)
-const scaleRatio = ref(0.9)
 
 </script>
 
@@ -158,7 +154,7 @@ const scaleRatio = ref(0.9)
 			v-for="(step, index) in goodSteps" :key="index"
 			:is="step.component"
 			
-			class="step-slot isActive"
+			class="step-slot"
 			:class="[
 				`step-${step.name.toLowerCase()}`,
 				defineDynamicClasses(index),
@@ -204,7 +200,6 @@ const scaleRatio = ref(0.9)
 		overflow: hidden;
 		top: calc((100vh - var(--stepHeight)) / 2);
 		transform: translateX(0) scale(1);
-		background-color: var(--color-main-05);
 		border: solid 2px transparent;
 
 		will-change: opacity, transform, left, background-color, border-color;
@@ -233,7 +228,7 @@ const scaleRatio = ref(0.9)
 			opacity: 1;
 			z-index: 50;
 			backdrop-filter: blur(5px);
-			background-color: var(--color-contrast-45);
+			background-color: var(--color-contrast-15);
 
 			:deep(.step-wrapper > *){
 				display: none;

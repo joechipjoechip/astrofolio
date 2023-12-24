@@ -95,7 +95,7 @@ function handleClick(){
     &-wrapper {
 
         border-radius: var(--borderRadiusBig);
-        overflow: hidden;
+        // overflow: hidden;
 
         :deep(.step-slot-wrapper){
     
