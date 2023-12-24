@@ -115,9 +115,6 @@ function handleClick(){
         position: relative;
         height: 100%;
 
-        will-change: background;
-        transition: background 2s;
-
         .step {
         
             &-wrapper {
