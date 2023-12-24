@@ -51,7 +51,7 @@ setStepsCount(goodSteps.length)
 const dynamicLeft = ref("0px")
 const leftTransitionValue = ref("0s")
 const touchOriginX = ref(null)
-const threshold = 0.35
+const threshold = 0.6
 
 const { on } = useEmitter()
 
@@ -114,6 +114,7 @@ function computePositionDiff( movingX ){
 		}
 
 		onTouchEnd()
+
 	}
 }
 // - - - - - - - - - - - - -

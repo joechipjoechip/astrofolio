@@ -431,10 +431,11 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 		}
 
 		&-inner {
+			z-index: 10;
 			overflow: hidden;
 			width: 100%;
 			height: 100%;
-			backdrop-filter: blur(8px);
+			// backdrop-filter: blur(8px);
 			background-color: var(--color-contrast-40);
 			box-sizing: border-box;
 			border-radius: 0 0 85rem 0;
@@ -455,6 +456,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 		}
 
 		&-head {
+			z-index: 20;
 			position: absolute;
 			top: 0.8rem;
 			left: 0;
@@ -495,7 +497,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 		}
 
 		&-body {
-
+			z-index: 30;
 			width: calc(100% - 9rem);
 			height: 100%;
 			padding-left: 7rem;
@@ -593,11 +595,9 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					width: 40%;
 					font-weight: 300;
 					text-align: left;
-					// line-height: 0.75rem;
 					border-radius: 56rem 0 85rem 0;
 					margin-left: 1.4rem;
 					margin-right: 0rem;
-					letter-spacing: 0.005rem;
 					transform: translateY(0);
 
 					transition:
@@ -622,7 +622,9 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 	
 				.name,
 				.description {
+					z-index: 40;
 					background-color: var(--color-contrast-40);
+					backdrop-filter: blur(8px);
 					display: flex;
 					flex-flow: column nowrap;
 					justify-content: center;
