@@ -18,5 +18,8 @@ import Stepper from './Stepper.vue';
 
     width: 100%;
     height: 100%;
+    /* max-width: 100vh;
+    max-height: 100vh; */
+    overflow: hidden;
 }
 </style>

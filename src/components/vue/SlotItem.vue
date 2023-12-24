@@ -435,7 +435,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			width: 100%;
 			height: 100%;
 			backdrop-filter: blur(8px);
-			background-color: var(--color-contrast-30);
+			background-color: var(--color-contrast-40);
 			box-sizing: border-box;
 			border-radius: 0 0 85rem 0;
 
@@ -577,8 +577,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					border-radius: 0 56rem var(--borderRadiusSmallest) 85rem;
 					padding-right: 3rem;
 					color: var(--color-main-65);
-	
-					background: var(--color-contrast-15);
 
 					transition: 
 						font-size var(--transitionDurationMedium);
@@ -601,8 +599,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					margin-right: 0rem;
 					letter-spacing: 0.005rem;
 					transform: translateY(0);
-					
-					background: var(--color-contrast-15);
 
 					transition:
 						opacity var(--transitionDurationMedium),
@@ -626,7 +622,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 	
 				.name,
 				.description {
-					background-color: var(--color-contrast-15);
+					background-color: var(--color-contrast-40);
 					display: flex;
 					flex-flow: column nowrap;
 					justify-content: center;
