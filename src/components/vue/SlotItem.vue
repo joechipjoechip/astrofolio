@@ -337,8 +337,24 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			&.isExpanded {
 				height: 75vh;
 
+				@media #{$desktop} {
+					.step-slot {
+						&-inner {
+							border-radius: 0 var(--borderRadiusSmallest) var(--borderRadiusSmallest) 0;
+							padding-bottom: 0;
+						}
+					}
+				}
+
 				.step-slot-body {
 					.level-1 {
+						height: 20%;
+
+						@media #{$desktop} {
+							.name {
+								font-size: 2rem;
+							}
+						}
 
 						.expand-button {
 							transform: translateY(-50%) rotate(-90deg);
@@ -360,39 +376,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					}
 				}
 
-				@media #{$desktop} {
-					.step-slot {
-	
-						&-inner {
-							border-radius: 0 var(--borderRadiusSmallest) var(--borderRadiusSmallest) 0;
-							padding-bottom: 0;
-						}
-	
-					}
-
-				}
-
-				.level-1 {
-					height: 20%;
-
-					@media #{$desktop} {
-						.name {
-							font-size: 2rem;
-						}
-					}
-
-					.description {
-						opacity: 0 !important;
-					}
-					
-					.description,
-					.name {
-						background: none;
-						background-color: transparent;
-						box-shadow: none;
-					}
-				}
-
+				
 				.level-2 {
 					display: flex;
 					height: calc(80% - 2rem);
@@ -756,10 +740,10 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				}
 
 				.texts-wrapper {
-					@include scrollbar;
+					// @include scrollbar;
 					flex-direction: column;
 					
-					overflow-y: scroll;
+					// overflow-y: scroll;
 					
 					* {
 						margin: 0;
