@@ -5,6 +5,7 @@ import { ref, onMounted, watch, nextTick } from "vue"
 import IconsUiDoubleChevronDown from "./icons/uiDoubleChevronDown.vue"
 
 import { uiConfig } from "@/assets/uiConfig.js"
+import SlotVideo from "@/components/vue/SlotVideo.vue";
 
 const props = defineProps({
 	slotData: {
@@ -140,6 +141,13 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				},
 			}"
 		>
+
+			<SlotVideo 
+				v-if="slotData.special?.video"
+				:src="slotData.special.video"
+				:isHovered="isHovered"
+				:isExpanded="isExpanded"
+			/>
 			
 			<div class="step-slot-head">
 		
@@ -371,7 +379,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					.step-slot {
 	
 						&-inner {
-							border-radius: 0 14rem var(--borderRadiusSmallest) 14rem;
+							border-radius: var(--borderRadiusSmallest);
 							padding-bottom: 0;
 						}
 	
@@ -432,6 +440,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 		&-inner {
 			z-index: 10;
+			position: relative;
 			overflow: hidden;
 			width: 100%;
 			height: 100%;
@@ -524,6 +533,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				.expand {
 
 					&-button {
+						z-index: 40;
 						width: 1.25rem;
 						height: 1.25rem;
 						cursor: pointer;
@@ -542,6 +552,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				}
 
 				.title {
+					z-index: 40;
 					position: relative;
 					font-weight: 300;
 					font-size: 2rem;
@@ -640,6 +651,8 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			}
 
 			.level-2 {
+				z-index: 40;
+				position: relative;
 				width: 100%;
 				height: 0%;
 				opacity: 0;

@@ -517,6 +517,9 @@ export const stepsWording = {
 					"Vanilla Javascript, Vue, React, Node, PHP,",
 					"Twig, Blade, Drupal, Wordpress, Laravel, .."
 				],
+				special: {
+					video: "./videos/mazarine/cartier.mp4"
+				},
 				expand: {
 					technos: [
 						{
