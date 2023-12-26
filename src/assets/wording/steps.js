@@ -242,7 +242,7 @@ export const stepsWording = {
 			{
 				title: "Omakase Recordings",
 				body: "Director, CreaTech<br>Front-End Dev.",
-				location: "Full remote",
+				location: "Marseille",
 				date: {
 					year: "2023",
 					duration: "Freelance : 9 months mission"

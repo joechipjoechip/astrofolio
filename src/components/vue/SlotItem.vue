@@ -85,7 +85,7 @@ const textsWrapper = ref(null)
 const technosWrapper = ref(null)
 
 function scrollSlotAtTop(){
-	slotWrapperElement.value.scrollIntoView({block: "start", behavior: "smooth"});
+	slotWrapperElement.value.scrollIntoView({inline: "start", behavior: "smooth"});
 }
 
 // // - - - - - - - - - - - - - 
@@ -341,13 +341,19 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						&-inner {
 							border-radius: 0 var(--borderRadiusSmallest) var(--borderRadiusSmallest) 0;
 							padding-bottom: 0;
+							margin: 0;
 						}
+					}
+
+					& + .step-slot-wrapper {
+						margin-top: 0;
 					}
 				}
 
 				.step-slot-body {
 					.level-1 {
 						height: 10rem;
+						cursor: pointer;
 
 						@media #{$desktop} {
 							.name {
