@@ -197,7 +197,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						ref="technosWrapper" 
 						class="technos-wrapper" 
 						v-show="isExpanded"
-						:class="{ 'technos-displayed-on-video': slotData.special?.video }"
 					>
 
 						<div 
@@ -335,7 +334,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			}
 
 			&.isExpanded {
-				height: 75vh;
+				height: 52vh;
 
 				@media #{$desktop} {
 					.step-slot {
@@ -424,7 +423,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				background-color var(--transitionDurationMedium),
 				margin var(--transitionDurationLong),
 				padding var(--transitionDurationMedium),
-				border-radius var(--transitionDurationLong);
+				border-radius var(--transitionDurationMedium);
 
 				@media #{$mobile} {
 					border-radius: var(--borderRadiusSmallest);
@@ -631,8 +630,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				flex-flow: row nowrap;
 				column-gap: 1.5rem;
 
-				padding-top: 1rem;
-
 				border-radius: 0;
 				
 				transition: 
@@ -669,7 +666,9 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 				.technos-wrapper {
 					@include scrollbar;
-					overflow-y: scroll;
+					overflow-y: auto;
+					overflow-x: hidden;
+					width: 35%;
 
 					flex-flow: row wrap;
 					column-gap: 2rem;
@@ -679,25 +678,12 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					align-content: flex-start;
 					padding-right: 1.5rem;
 					padding-left: 0.5rem;
-					
-					&.technos-displayed-on-video {
-						width: 30%;
-						overflow: hidden;
-
-						.techno-slot {
-							width: 18%;
-						}
-
-						& + .texts-wrapper {
-							overflow: hidden;
-						}
-					}
 
 					.techno {
 
 						&-slot {
 							position: relative;
-							width: 20%;
+							width: 18%;
 							display: flex;
 							flex-direction: column;
 							align-items: center;
@@ -740,10 +726,12 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				}
 
 				.texts-wrapper {
-					// @include scrollbar;
+					@include scrollbar;
 					flex-direction: column;
+					width: 65%;
 					
-					// overflow-y: scroll;
+					overflow-y: auto;
+					overflow-x: hidden;
 					
 					* {
 						margin: 0;
