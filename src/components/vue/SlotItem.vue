@@ -347,7 +347,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 				.step-slot-body {
 					.level-1 {
-						height: 20%;
+						height: 10rem;
 
 						@media #{$desktop} {
 							.name {
