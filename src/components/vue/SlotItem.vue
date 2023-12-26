@@ -334,7 +334,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			}
 
 			&.isExpanded {
-				height: 53vh;
+				height: 45rem;
 
 				@media #{$desktop} {
 					.step-slot {
