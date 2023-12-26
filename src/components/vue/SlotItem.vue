@@ -361,10 +361,12 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 						.description {
 							width: 0%;
+							margin: 0;
 						}
 						
 						.name {
-							width: 60%;
+							width: 100%;
+							padding: 0;
 						}
 						
 						.description,
