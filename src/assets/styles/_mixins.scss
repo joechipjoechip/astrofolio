@@ -26,6 +26,7 @@
 		box-sizing: border-box;
 		&::-webkit-scrollbar {
 			width: var(--scrollbar-width);
+			height: var(--scrollbar-width);
 	  	}
 	   
 		&::-webkit-scrollbar-track {
@@ -38,4 +39,5 @@
 
 	scrollbar-color: var(--color-main-45) var(--color-main-25);
   	scrollbar-width: thin;
+  	scrollbar-height: thin;
 }
