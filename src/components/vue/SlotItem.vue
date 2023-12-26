@@ -451,6 +451,8 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			justify-content: flex-start;
 			align-items: center;
 
+			pointer-events: none;
+
 			.year,
 			.duration {
 				font-size: var(--font-size-medium-minus);
