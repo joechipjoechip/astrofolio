@@ -140,8 +140,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					{{ slotData.date.year }}
 				</time>
 		
-				<time class="duration">
-					{{ slotData.date.duration }}
+				<time class="duration" v-html="slotData.date.duration">
 				</time>
 		
 			</div>
@@ -198,7 +197,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						ref="technosWrapper" 
 						class="technos-wrapper" 
 						v-show="isExpanded"
-						:class="{ 'technos-displayed-on-video': slotData.expand.technosDisplayedOnVideo }"
+						:class="{ 'technos-displayed-on-video': slotData.special?.video }"
 					>
 
 						<div 
@@ -343,6 +342,19 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 						.expand-button {
 							transform: translateY(-50%) rotate(-90deg);
+						}
+
+						.description {
+							width: 0%;
+						}
+						
+						.name {
+							width: 60%;
+						}
+						
+						.description,
+						.name {
+							background-color: transparent;
 						}
 
 					}
@@ -554,7 +566,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				
 				.name {
 					width: 25%;
-					font-size: var(--font-size-medium-minus);
+					font-size: var(--font-size-medium);
 					font-weight: bold;
 					text-transform: uppercase;
 					text-align: right;
@@ -564,6 +576,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					color: var(--color-main-65);
 
 					transition: 
+						width var(--transitionDurationShort),
 						font-size var(--transitionDurationMedium);
 				
 	
@@ -584,6 +597,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					transform: translateY(0);
 
 					transition:
+						width var(--transitionDurationShort),
 						opacity var(--transitionDurationMedium),
 						margin-right var(--transitionDurationLong),
 						margin-left var(--transitionDurationVeryVeryLong) cubic-bezier(.12,1.24,.1,1.08),
@@ -607,7 +621,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				.description {
 					z-index: 40;
 					background-color: var(--color-contrast-40);
-					backdrop-filter: blur(8px);
 					display: flex;
 					flex-flow: column nowrap;
 					justify-content: center;
@@ -730,8 +743,12 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						&-name {
 							margin-bottom: 0;
 							font-size: var(--font-size-medium-minus);
+							line-height: var(--font-size-medium-minus);
 							text-align: center;
 							white-space: nowrap;
+							background-color: var(--color-contrast-30);
+							padding: 0.25rem 0.75rem 0.45rem 0.75rem;
+							border-radius: 9rem;
 						}
 
 					}

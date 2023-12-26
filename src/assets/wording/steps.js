@@ -241,7 +241,7 @@ export const stepsWording = {
 			},
 			{
 				title: "Omakase Recordings",
-				body: "CreaTech<br>Front-End Dev.",
+				body: "Director, CreaTech<br>Front-End Dev.",
 				location: "Full remote",
 				date: {
 					year: "2023",
@@ -251,6 +251,9 @@ export const stepsWording = {
 					"Vue2, Nuxt2, ThreeJS",
 					"Blender 3, Miaxamo"
 				],
+				special: {
+					video: "./videos/onyi/teaser.mp4"
+				},
 				expand: {
 					technos: [
 						{
@@ -294,32 +297,33 @@ export const stepsWording = {
 							logoSrc: "./images/logos/git.jpg"
 						},
 					],
-					texts: [
-						[
-							{
-								title: "Contexte",
-								lines: [
-									'<a href="https://www.onyi.fr" target="Blank">www.onyi.fr</a>',
-									"Pour la promotion d'une sortie d'album, le besoin du label était de mettre en ligne un objet créatif, expérienciel et innovant.",
-									"C'est dans ce contexte que j'ai été sollicité en tant que Creative Dev et Dev Front-End."
-								]
-							},
-							{
-								title: "Interventions",
-								lines: [
-									"Concept, Direction Artistique, Scénographie",
-									"Prototypage",
-									"&nbsp;",
-									"Conceptualisation, maquettage et développement de l'expérience web interactive en 3D et du site écrin",
-									"&nbsp;",
-									"Developpement ThreeJS",
-									"Ecriture de shaders Glsl",
-									"&nbsp;",
-									"Mise en ligne"
-								]
-							}
-						]
-					]
+					// texts: [
+					// 	[
+					// 		{
+					// 			title: "Contexte",
+					// 			lines: [
+					// 				'<a href="https://www.onyi.fr" target="Blank">www.onyi.fr</a>',
+					// 				"Pour la promotion d'une sortie d'album, le besoin du label était de mettre en ligne un objet créatif, expérienciel et innovant.",
+					// 				"C'est dans ce contexte que j'ai été sollicité en tant que Creative Dev et Dev Front-End."
+					// 			]
+					// 		},
+					// 		{
+					// 			title: "Interventions",
+					// 			lines: [
+					// 				"Concept, Direction Artistique, Scénographie",
+					// 				"Prototypage",
+					// 				"&nbsp;",
+					// 				"Conceptualisation, maquettage et développement de l'expérience web interactive en 3D et du site écrin",
+					// 				"&nbsp;",
+					// 				"Developpement ThreeJS",
+					// 				"Ecriture de shaders Glsl",
+					// 				"&nbsp;",
+					// 				"Mise en ligne"
+					// 			]
+					// 		}
+					// 	]
+					// ],
+
 				}
 			},
 			{
@@ -511,7 +515,7 @@ export const stepsWording = {
 				location: "Paris",
 				date: {
 					year: "2017 - 2021",
-					duration: "CDI : 3 years and 7 months (of ❤)"
+					duration: "CDI : 3 years and 7 months (of <span class='color-love-font'>❤</span>)"
 				},
 				description: [
 					"Vanilla Javascript, Vue, React, Node, PHP,",
@@ -588,61 +592,6 @@ export const stepsWording = {
 						}
 						// rajouter : nodeJS / dialogFlow / googleMap api / canvas / GTM / webpack / gulp / npm / composer / jira / redmine / confluence
 					],
-					technosDisplayedOnVideo: true
-					// anchorLinks: [
-					// 	{
-					// 		label: "Chanel",
-					// 		anchor: "chanel"
-					// 	},
-					// 	{
-					// 		label: "Dior",
-					// 		anchor: "dior"
-					// 	},
-					// 	{
-					// 		label: "Balmain",
-					// 		anchor: "balmain"
-					// 	},
-					// 	{
-					// 		label: "Opéra de Paris",
-					// 		anchor: "opera"
-					// 	},
-					// 	{
-					// 		label: "Van Cleef & Arpels",
-					// 		anchor: "vancleef"
-					// 	},
-					// 	{
-					// 		label: "Breitling",
-					// 		anchor: "breitling"
-					// 	},
-					// 	{
-					// 		label: "Paco Rabanne",
-					// 		anchor: "paco"
-					// 	},
-					// 	{
-					// 		label: "Prada",
-					// 		anchor: "prada"
-					// 	},
-					// 	{
-					// 		label: "Offwhite",
-					// 		anchor: "offwhite"
-					// 	},
-					// 	{
-					// 		label: "Victor & Rolf",
-					// 		anchor: "victor"
-					// 	},
-					// 	{
-					// 		label: "Ritz",
-					// 		anchor: "ritz"
-					// 	},
-					// 	{
-					// 		label: "Mugler",
-					// 		anchor: "mugler"
-					// 	},
-					// 	{
-					// 		label: "SmartPlayer",
-					// 		anchor: "smart"
-					// 	},
-					// ],
 					// texts: [
 					// 	[
 					// 		{

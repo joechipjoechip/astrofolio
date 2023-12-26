@@ -22,7 +22,7 @@ const props = defineProps({
         :class="{ isExpanded, isHovered }"
     >
         <video 
-            muted autoplay loop
+            muted loop autoplay playsinline
             class="video-player"
         >
             <source :src="src" type="video/mp4" />
@@ -56,13 +56,12 @@ const props = defineProps({
         &.isHovered {
 
             .video-player {
-                opacity: 0.35;
+                opacity: 0.5;
             }
         }
         &.isExpanded {
 
             &::before {
-                height: 100%;
                 opacity: 1;
             }
 
