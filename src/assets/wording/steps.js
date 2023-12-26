@@ -588,200 +588,200 @@ export const stepsWording = {
 						}
 						// rajouter : nodeJS / dialogFlow / googleMap api / canvas / GTM / webpack / gulp / npm / composer / jira / redmine / confluence
 					],
-					asymetric: true,
-					anchorLinks: [
-						{
-							label: "Chanel",
-							anchor: "chanel"
-						},
-						{
-							label: "Dior",
-							anchor: "dior"
-						},
-						{
-							label: "Balmain",
-							anchor: "balmain"
-						},
-						{
-							label: "Opéra de Paris",
-							anchor: "opera"
-						},
-						{
-							label: "Van Cleef & Arpels",
-							anchor: "vancleef"
-						},
-						{
-							label: "Breitling",
-							anchor: "breitling"
-						},
-						{
-							label: "Paco Rabanne",
-							anchor: "paco"
-						},
-						{
-							label: "Prada",
-							anchor: "prada"
-						},
-						{
-							label: "Offwhite",
-							anchor: "offwhite"
-						},
-						{
-							label: "Victor & Rolf",
-							anchor: "victor"
-						},
-						{
-							label: "Ritz",
-							anchor: "ritz"
-						},
-						{
-							label: "Mugler",
-							anchor: "mugler"
-						},
-						{
-							label: "SmartPlayer",
-							anchor: "smart"
-						},
-					],
-					texts: [
-						[
-							{
-								id: "chanel",
-								title: "Client",
-								lines: [
-									'<a href="https://www.chanel.com" target="Blank">www.chanel.com</a>',
-									"Site corporate / eCommerce i18n à fort traffic"
-								]
-							},
-							{
-								title: "Interventions",
-								lines: [
-									"Intégrations minutées pendant les défilés de la marque.",
-									"Pixel perfect mandatory avec scope ultra large",
-									"&nbsp;",
-									"TMA",
-									"&nbsp;",
+					technosDisplayedOnVideo: true
+					// anchorLinks: [
+					// 	{
+					// 		label: "Chanel",
+					// 		anchor: "chanel"
+					// 	},
+					// 	{
+					// 		label: "Dior",
+					// 		anchor: "dior"
+					// 	},
+					// 	{
+					// 		label: "Balmain",
+					// 		anchor: "balmain"
+					// 	},
+					// 	{
+					// 		label: "Opéra de Paris",
+					// 		anchor: "opera"
+					// 	},
+					// 	{
+					// 		label: "Van Cleef & Arpels",
+					// 		anchor: "vancleef"
+					// 	},
+					// 	{
+					// 		label: "Breitling",
+					// 		anchor: "breitling"
+					// 	},
+					// 	{
+					// 		label: "Paco Rabanne",
+					// 		anchor: "paco"
+					// 	},
+					// 	{
+					// 		label: "Prada",
+					// 		anchor: "prada"
+					// 	},
+					// 	{
+					// 		label: "Offwhite",
+					// 		anchor: "offwhite"
+					// 	},
+					// 	{
+					// 		label: "Victor & Rolf",
+					// 		anchor: "victor"
+					// 	},
+					// 	{
+					// 		label: "Ritz",
+					// 		anchor: "ritz"
+					// 	},
+					// 	{
+					// 		label: "Mugler",
+					// 		anchor: "mugler"
+					// 	},
+					// 	{
+					// 		label: "SmartPlayer",
+					// 		anchor: "smart"
+					// 	},
+					// ],
+					// texts: [
+					// 	[
+					// 		{
+					// 			id: "chanel",
+					// 			title: "Client",
+					// 			lines: [
+					// 				'<a href="https://www.chanel.com" target="Blank">www.chanel.com</a>',
+					// 				"Site corporate / eCommerce i18n à fort traffic"
+					// 			]
+					// 		},
+					// 		{
+					// 			title: "Interventions",
+					// 			lines: [
+					// 				"Intégrations minutées pendant les défilés de la marque.",
+					// 				"Pixel perfect mandatory avec scope ultra large",
+					// 				"&nbsp;",
+					// 				"TMA",
+					// 				"&nbsp;",
 
-									"Correction de bugs sur le Storelocator",
-									"-> HTML5 / CSS3 / JS ES6 / Google Map API",
-									"&nbsp;",
+					// 				"Correction de bugs sur le Storelocator",
+					// 				"-> HTML5 / CSS3 / JS ES6 / Google Map API",
+					// 				"&nbsp;",
 
-									"Correction de bugs sur la Wishlist",
-									"-> React / Redux",
-									"&nbsp;",
+					// 				"Correction de bugs sur la Wishlist",
+					// 				"-> React / Redux",
+					// 				"&nbsp;",
 
-									"Correction de bugs sur les services coporates :",
-									"FAQ, Newsletters subscriptions, Careers Legals, etc ..",
-									"Validations de formulaires avec règles métiers i18n complexes",
-									"-> HTML5 / CSS3 / PHP / JS ES5",
+					// 				"Correction de bugs sur les services coporates :",
+					// 				"FAQ, Newsletters subscriptions, Careers Legals, etc ..",
+					// 				"Validations de formulaires avec règles métiers i18n complexes",
+					// 				"-> HTML5 / CSS3 / PHP / JS ES5",
 									
-									"&nbsp;",
+					// 				"&nbsp;",
 									
-									"Correction de templates pour langues arabes (right to left)",
-									"-> HTML5 / CSS3 / JS ES5",
-									"&nbsp;",
-									"Implémentations de plans de tracking, GTM Google Tag Manager, Datalayer",
+					// 				"Correction de templates pour langues arabes (right to left)",
+					// 				"-> HTML5 / CSS3 / JS ES5",
+					// 				"&nbsp;",
+					// 				"Implémentations de plans de tracking, GTM Google Tag Manager, Datalayer",
 									
-								]
-							},
-						],
-						[
-							{
-								id: "dior",
-								title: "Client",
-								lines: [
-									'<a href="https://www.dior.com" target="Blank">www.dior.com</a>',
-									"Site corporate i18n à fort traffic"
-								]
-							},
-							{
-								title: "Interventions",
-								lines: [
-									"TMA",
-									"Correction de bugs sur les services coporates",
-									"Newsletters subscriptions, Careers, Legals, etc ..",
-									"-> HTML5 / CSS3 / PHP / JS ES5",
-								]
-							},
-						],
-						[
-							{
-								id:"balmain",
-								title: "Client",
-								lines: [
-									'<a href="https://www.balmain.com" target="Blank">www.balmain.com</a>',
-									"Site eCommerce à fort traffic"
-								]
-							},
-							{
-								title: "Interventions",
-								lines: [
-									"Accessibility (A11y)",
-									"Implémentation intégrale de la couche a11y sur l'ensemble du site, en autonomie (audit de 90pages fournit)",
-								]
-							},
-						],
-						[
-							{
-								id:"opera",
-								title: "Client",
-								lines: [
-									'<a href="https://www.operadeparis.fr" target="Blank">www.operadeparis.fr</a>',
-									"Site institutionnel / eCommerce à fort traffic"
-								]
-							},
-							{
-								title: "Projets / Rôles",
-								lines: [
-									"TMA :",
-									"&nbsp;",
-									"Correction de bugs + refactorisations",
-									"&nbsp;",
-									"&nbsp;",
-									"REFONTE TUNNEL ABONNEMENTS :",
-									"&nbsp;",
-									"Developement d’une serie de pages et de modules",
-									"&nbsp;",
-									"Login, mon compte, recherche (avec filtres)",
-									"&nbsp;",
-									"Page spectacle : calendrier dynamique des représentations, placement dans les salles (svg + vanilla js), etc ..)",
-									"&nbsp;",
-									"Construction à la volée des modules fronts après réception d’XHR (manipulations massives du DOM via JS à base d’injections de template strings d'ES6)",
-									"&nbsp;",
-									"Assurer la viabilité de l’asynchonicité des données de la page (y compris pour le tracking)",
-									"&nbsp;",
-									"Sliders dynamiques pure vanilla",
-									"&nbsp;",
-									"Force de propositions UX/UI",
-									"&nbsp;",
-									"Implémenter intégralement les plans de tracking des pages et des modules dynamiques en assurant la cohérence des données remontées",
-									"&nbsp;",
-									"Assurer le pixel perfect partout",
-									"&nbsp;",
-									"&nbsp;",
-									"&nbsp;",
-									"REFONTE OCTAVE MAGAZINE :",
-									"&nbsp;",
-									"Autonome sur l’intégralité du front de la refonte",
-									"&nbsp;",
-									"Architecture des différents modules avec le backend",
-									"&nbsp;",
-									"Développement front des différents templates",
-									"&nbsp;",
-									"Développement front pure vanilla des différents modules (slider vidéos youtube, card swipers, animations, lightbox, load mores, etc..)",
-									"&nbsp;",
-									"Rendre la lightBox et les sliders vidéos compatibles avec les players : Youtube (youtube player API), Vimeo (iframe), Arte (iframe), et natifs (HTML5 API)",
-									"&nbsp;",
-									"Implémentation intégrale du plan de tracking",
-									"&nbsp;",
-									"Responsive propre, pixel perfect",
-									"&nbsp;",
-									"Force de proposition UX/UI",
+					// 			]
+					// 		},
+					// 	],
+					// 	[
+					// 		{
+					// 			id: "dior",
+					// 			title: "Client",
+					// 			lines: [
+					// 				'<a href="https://www.dior.com" target="Blank">www.dior.com</a>',
+					// 				"Site corporate i18n à fort traffic"
+					// 			]
+					// 		},
+					// 		{
+					// 			title: "Interventions",
+					// 			lines: [
+					// 				"TMA",
+					// 				"Correction de bugs sur les services coporates",
+					// 				"Newsletters subscriptions, Careers, Legals, etc ..",
+					// 				"-> HTML5 / CSS3 / PHP / JS ES5",
+					// 			]
+					// 		},
+					// 	],
+					// 	[
+					// 		{
+					// 			id:"balmain",
+					// 			title: "Client",
+					// 			lines: [
+					// 				'<a href="https://www.balmain.com" target="Blank">www.balmain.com</a>',
+					// 				"Site eCommerce à fort traffic"
+					// 			]
+					// 		},
+					// 		{
+					// 			title: "Interventions",
+					// 			lines: [
+					// 				"Accessibility (A11y)",
+					// 				"Implémentation intégrale de la couche a11y sur l'ensemble du site, en autonomie (audit de 90pages fournit)",
+					// 			]
+					// 		},
+					// 	],
+					// 	[
+					// 		{
+					// 			id:"opera",
+					// 			title: "Client",
+					// 			lines: [
+					// 				'<a href="https://www.operadeparis.fr" target="Blank">www.operadeparis.fr</a>',
+					// 				"Site institutionnel / eCommerce à fort traffic"
+					// 			]
+					// 		},
+					// 		{
+					// 			title: "Projets / Rôles",
+					// 			lines: [
+					// 				"TMA :",
+					// 				"&nbsp;",
+					// 				"Correction de bugs + refactorisations",
+					// 				"&nbsp;",
+					// 				"&nbsp;",
+					// 				"REFONTE TUNNEL ABONNEMENTS :",
+					// 				"&nbsp;",
+					// 				"Developement d’une serie de pages et de modules",
+					// 				"&nbsp;",
+					// 				"Login, mon compte, recherche (avec filtres)",
+					// 				"&nbsp;",
+					// 				"Page spectacle : calendrier dynamique des représentations, placement dans les salles (svg + vanilla js), etc ..)",
+					// 				"&nbsp;",
+					// 				"Construction à la volée des modules fronts après réception d’XHR (manipulations massives du DOM via JS à base d’injections de template strings d'ES6)",
+					// 				"&nbsp;",
+					// 				"Assurer la viabilité de l’asynchonicité des données de la page (y compris pour le tracking)",
+					// 				"&nbsp;",
+					// 				"Sliders dynamiques pure vanilla",
+					// 				"&nbsp;",
+					// 				"Force de propositions UX/UI",
+					// 				"&nbsp;",
+					// 				"Implémenter intégralement les plans de tracking des pages et des modules dynamiques en assurant la cohérence des données remontées",
+					// 				"&nbsp;",
+					// 				"Assurer le pixel perfect partout",
+					// 				"&nbsp;",
+					// 				"&nbsp;",
+					// 				"&nbsp;",
+					// 				"REFONTE OCTAVE MAGAZINE :",
+					// 				"&nbsp;",
+					// 				"Autonome sur l’intégralité du front de la refonte",
+					// 				"&nbsp;",
+					// 				"Architecture des différents modules avec le backend",
+					// 				"&nbsp;",
+					// 				"Développement front des différents templates",
+					// 				"&nbsp;",
+					// 				"Développement front pure vanilla des différents modules (slider vidéos youtube, card swipers, animations, lightbox, load mores, etc..)",
+					// 				"&nbsp;",
+					// 				"Rendre la lightBox et les sliders vidéos compatibles avec les players : Youtube (youtube player API), Vimeo (iframe), Arte (iframe), et natifs (HTML5 API)",
+					// 				"&nbsp;",
+					// 				"Implémentation intégrale du plan de tracking",
+					// 				"&nbsp;",
+					// 				"Responsive propre, pixel perfect",
+					// 				"&nbsp;",
+					// 				"Force de proposition UX/UI",
 
-								]
-							}
-						]
-					]
+					// 			]
+					// 		}
+					// 	]
+					// ]
 				}
 			},
 			{

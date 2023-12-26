@@ -83,25 +83,10 @@ watch(isExpanded, newVal => {
 const slotWrapperElement = ref(null)
 const textsWrapper = ref(null)
 const technosWrapper = ref(null)
-const anchorWrapper = ref(null)
 
 function scrollSlotAtTop(){
 	slotWrapperElement.value.scrollIntoView({block: "start", behavior: "smooth"});
 }
-
-function handleAnchorClick( event ){
-
-	const elementToScrollAt = textsWrapper.value.querySelector(`#${event.target.dataset.destination}`).closest(".text-block")
-
-	const levelToScroll = elementToScrollAt.offsetTop - (parseInt(window.getComputedStyle(elementToScrollAt).marginTop.replace("px", ""))) - anchorWrapper.value.getBoundingClientRect().height - 20
-	
-	textsWrapper.value.scrollTo({
-		top: levelToScroll,
-		behavior: "smooth"
-	})
-
-}
-
 
 // // - - - - - - - - - - - - - 
 // // ANIMATION LOGIC - - - - -
@@ -206,13 +191,15 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				</div>
 
 				<div class="level-2" v-if="slotData.expand" 
-					:class="{ 
-						'asymetric': slotData.expand.asymetric,
-						'withAnchors': slotData.expand.anchorLinks
-					}"
+					:class="{ 'asymetric': slotData.expand.asymetric }"
 				>
 
-					<section ref="technosWrapper" class="technos-wrapper" v-show="isExpanded">
+					<section 
+						ref="technosWrapper" 
+						class="technos-wrapper" 
+						v-show="isExpanded"
+						:class="{ 'technos-displayed-on-video': slotData.expand.technosDisplayedOnVideo }"
+					>
 
 						<div 
 							v-if="technosAreVisible"
@@ -250,20 +237,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					</section>
 
 					<section ref="textsWrapper" class="texts-wrapper" v-if="isExpanded">
-
-						<div ref="anchorWrapper" class="anchor-wrapper" v-if="slotData.expand.anchorLinks">
-
-							<span 
-								class="anchor-item"
-								v-for="anchorObj in slotData.expand.anchorLinks" 
-								:key="anchorObj.id"
-								v-html="anchorObj.label"
-								:data-destination="anchorObj.anchor"
-								@click="handleAnchorClick"
-							>
-							</span>
-
-						</div>
 
 						<div v-for="block in slotData.expand.texts" :key="block.id" class="text-block">
 
@@ -379,7 +352,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					.step-slot {
 	
 						&-inner {
-							border-radius: var(--borderRadiusSmallest);
+							border-radius: 0 var(--borderRadiusSmallest) var(--borderRadiusSmallest) 0;
 							padding-bottom: 0;
 						}
 	
@@ -661,7 +634,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				flex-flow: row nowrap;
 				column-gap: 1.5rem;
 
-				padding: 2rem 0;
+				padding-top: 1rem;
 
 				border-radius: 0;
 				
@@ -689,16 +662,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						}
 					}
 
-					&.withAnchors {
-
-						.texts-wrapper {
-
-							.text-block {
-								margin-top: 26%;
-							}
-						}
-					}
-
 				.technos,
 				.texts {
 					&-wrapper {
@@ -719,6 +682,19 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					align-content: flex-start;
 					padding-right: 1.5rem;
 					padding-left: 0.5rem;
+					
+					&.technos-displayed-on-video {
+						width: 30%;
+						overflow: hidden;
+
+						.techno-slot {
+							width: 18%;
+						}
+
+						& + .texts-wrapper {
+							overflow: hidden;
+						}
+					}
 
 					.techno {
 
@@ -771,47 +747,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					* {
 						margin: 0;
 						padding: 0;
-					}
-
-					.anchor-wrapper {
-						z-index: 15;
-						position: fixed;
-						display: flex;
-						flex-flow: row wrap;
-						row-gap: 1rem;
-						justify-content: center;
-						width: calc(70% - 10rem);
-						right: 3rem;
-						
-						padding: 1rem 0.5rem;
-						background-color: var(--color-contrast-65);
-						border-radius: var(--borderRadiusSmall) var(--borderRadiusSmall);
-						backdrop-filter: blur(8px);
-
-						text-transform: uppercase;
-
-						span {
-							font-size: var(--font-size-medium-minus);
-							cursor: pointer;
-							margin: 0 1rem;
-							padding: 0.25rem 0.75rem;
-
-							background-color: var(--color-main-15);
-							border-radius: var(--borderRadiusSmallest);
-
-							&:first-of-type {
-								margin-left: 0;
-							}
-
-							&:last-of-type {
-								margin-right: 0;
-							}
-						}
-
-						& + .text-block {
-							margin-top: 29%;
-						}
-
 					}
 
 					.text-block {
