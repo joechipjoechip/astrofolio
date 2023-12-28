@@ -403,7 +403,11 @@ export const stepsWording = {
 						{
 							name: "GitLab",
 							logoSrc: "./images/logos/gitlab.jpg"
-						}
+						},
+						{
+							name: "Jira",
+							logoSrc: "./images/logos/jira.jpg"
+						},
 					],
 					texts: [
 						[
@@ -447,10 +451,6 @@ export const stepsWording = {
 							name: "AEM",
 							logoSrc: "./images/logos/aem.jpg"
 						},
-						// {
-						// 	name: "Confluence",
-						// 	logoSrc: "./images/logos/confluence.jpg"
-						// },
 						{
 							name: "HTML5",
 							logoSrc: "./images/logos/html.jpg"
@@ -464,6 +464,10 @@ export const stepsWording = {
 							logoSrc: "./images/logos/javascript.jpg"
 						},
 						{
+							name: "Webpack",
+							logoSrc: "./images/logos/webpack.jpg"
+						},
+						{
 							name: "LESS",
 							logoSrc: "./images/logos/less.jpg"
 						},
@@ -475,14 +479,22 @@ export const stepsWording = {
 							name: "Git",
 							logoSrc: "./images/logos/git.jpg"
 						},
+						{
+							name: "Confluence",
+							logoSrc: "./images/logos/confluence.jpg"
+						},
+						{
+							name: "Jira",
+							logoSrc: "./images/logos/jira.jpg"
+						},
 					],
 					texts: [
 						[
 							{
 								title: "Contexte",
 								lines: [
-									"Danone compte près de 100 000 collaborateurs dans le monde. La société avait un fort besoin de centralisation des assets commerciaux (documentations techniques des produits distribués).",
-									"C'est dans ce contexte que j'ai été sollicité afin de développer le front-end de ces outils de centralisations : DAM (Digital Asset Manager) sur leur archi AEM"
+									"Danone compte près de 100 000 collaborateurs dans le monde. La société avait un fort besoin de centralisation de ses assets commerciaux (documentations techniques des produits distribués).",
+									"C'est dans ce contexte que j'ai été sollicité afin de développer le front-end de ces outils de centralisations : DAM (Digital Assets Manager) sur leur architecture AEM (Adobe Experience Manager)"
 								]
 							},
 							{
@@ -497,7 +509,7 @@ export const stepsWording = {
 							{
 								title: "Livrables",
 								lines: [
-									"- Développements et intégrations customs des Client-Side-Librairies nécessaires",
+									"- Développements et intégrations customs des Client-Side-Librairies nécessaires (CSS et JS from scratch)",
 									"&nbsp;",
 									"- Mises en place des conditions propices à leurs évolutivités et maintenabilités dans le temps (clean code, BEM conventions, doc)",
 									"&nbsp;",
@@ -703,12 +715,24 @@ export const stepsWording = {
 							logoSrc: "./images/logos/javascript.jpg"
 						},
 						{
-							name: "Vue 2",
+							name: "Vue",
 							logoSrc: "./images/logos/vue.jpg"
 						},
 						{
 							name: "React",
 							logoSrc: "./images/logos/react.jpg"
+						},
+						{
+							name: "Webpack",
+							logoSrc: "./images/logos/webpack.jpg"
+						},
+						{
+							name: "GTM",
+							logoSrc: "./images/logos/gtm.jpg"
+						},
+						{
+							name: "DialogFlow",
+							logoSrc: "./images/logos/dialogflow.jpg"
 						},
 						{
 							name: "SASS",
@@ -753,8 +777,12 @@ export const stepsWording = {
 						{
 							name: "GitLab",
 							logoSrc: "./images/logos/gitlab.jpg"
-						}
-						// rajouter : nodeJS / dialogFlow / googleMap api / canvas / GTM / webpack / gulp / npm / composer / jira / redmine / confluence
+						},
+						{
+							name: "Jira",
+							logoSrc: "./images/logos/jira.jpg"
+						},
+						// rajouter : dialogFlow / googleMap api / canvas / GTM / webpack / gulp / npm / composer / jira / redmine / confluence
 					],
 					// texts: [
 					// 	[
