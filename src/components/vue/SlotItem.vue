@@ -676,6 +676,18 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 							flex-direction: column;
 							align-items: center;
 							justify-content: flex-start;
+
+							&:hover {
+								.techno {
+									&-logo {
+										opacity: 1;
+									}
+	
+									&-name {
+										background-color: var(--color-contrast-95);
+									}
+								}
+							}
 						}
 
 						&-logo {
@@ -688,10 +700,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 							transition: 
 								opacity var(--transitionDurationMedium);
-
-							&:hover {
-								opacity: 1;
-							}
 						}
 
 						&-name {
@@ -703,6 +711,8 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 							background-color: var(--color-contrast-30);
 							padding: 0.25rem 0.75rem 0.45rem 0.75rem;
 							border-radius: 9rem;
+
+							transition: background-color var(--transitionDurationMedium);
 						}
 
 					}
