@@ -20,7 +20,10 @@ function handleClick(){
 </script>
 
 <template>
-    <div class="layout-step-wrapper">
+    <div 
+        class="layout-step-wrapper"
+        :class="{ isActive }"
+    >
 
         <section class="layout-step-inner">
 
@@ -95,7 +98,12 @@ function handleClick(){
     &-wrapper {
 
         border-radius: var(--borderRadiusBig);
-        // overflow: hidden;
+
+        transition: border-radius var(--transitionDurationLong);
+        
+        &.isActive {
+            border-radius: 0;
+        }
 
         :deep(.step-slot-wrapper){
     

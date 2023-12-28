@@ -89,6 +89,5 @@ function handleMouseLeave(){
     margin-right: 2rem;
     direction: ltr;
     margin-bottom: 30rem;
-
 }
 </style>

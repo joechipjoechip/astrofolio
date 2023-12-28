@@ -440,9 +440,9 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 		&-head {
 			z-index: 20;
 			position: absolute;
-			top: 0.8rem;
+			top: 0.85rem;
 			left: 0;
-			margin-left: 4.1rem;
+			margin-left: 3rem;
 
 			display: flex;
 			flex-flow: row nowrap;
@@ -551,8 +551,8 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					will-change: opacity, transform;
 	
 					transition: 
-						opacity var(--transitionDurationMedium),
-						transform var(--transitionDurationMedium);
+						opacity var(--transitionDurationLong),
+						transform var(--transitionDurationLong);
 				}
 				
 				.name {
