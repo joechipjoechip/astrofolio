@@ -442,7 +442,6 @@ export const stepsWording = {
 					"Vanilla Javascript, LESS CSS (BEM), ..",
 				],
 				expand: {
-					asymetric: true,
 					technos: [
 						{
 							name: "AEM",
@@ -746,7 +745,6 @@ export const stepsWording = {
 					"for the app agency."
 				],
 				expand: {
-					asymetric: true,
 					technos: [
 						{
 							name: "GoodBarber",
@@ -824,7 +822,6 @@ export const stepsWording = {
 					"Parfum & SkinCare brand launch"
 				],
 				expand: {
-					asymetric: true,
 					technos: [
 						{
 							name: "HTML5",

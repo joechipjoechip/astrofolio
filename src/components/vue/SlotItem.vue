@@ -189,9 +189,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					</div>
 				</div>
 
-				<div class="level-2" v-if="slotData.expand" 
-					:class="{ 'asymetric': slotData.expand.asymetric }"
-				>
+				<div class="level-2" v-if="slotData.expand">
 
 					<section 
 						ref="technosWrapper" 
@@ -645,26 +643,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				transition: 
 					height var(--transitionDurationMedium),
 					border-radius var(--transitionDurationLong);
-
-					&.asymetric {
-
-						.technos-wrapper {
-							width: 30%;
-
-							.techno-slot {
-								width: 26%;
-							}
-						}
-
-						.texts-wrapper {
-							
-							width: 70%;
-
-							.text-block {
-								margin-top: 0rem;
-							}
-						}
-					}
 
 				.technos,
 				.texts {
