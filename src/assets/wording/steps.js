@@ -174,7 +174,7 @@ export const stepsWording = {
 		slots: [
 			{
 				title: "Carré Basset Agency",
-				body: "CreaTech<br>Front-End Dev.",
+				body: "Front-End Dev.<br>CreaTech",
 				location: "Full remote",
 				date: {
 					year: "2023",
@@ -601,7 +601,7 @@ export const stepsWording = {
 			},
 			{
 				title: "Services Généraux Agency",
-				body: "CréaTech<br>Front-end Dev",
+				body: "Front-end Dev.<br>CreaTech",
 				location: "Paris",
 				date: {
 					year: "2021",
@@ -652,7 +652,7 @@ export const stepsWording = {
 								lines: [
 									"Création d'un site événementiel pour accompagner le vernissage d'une exposition organisée par l'agence.",
 									'<a href="http://www.oasis.paris" target="Blank">www.oasis.paris</a>',
-									"&nbsp;"
+									"(offline now)"
 								]
 							},
 							{
@@ -989,6 +989,18 @@ export const stepsWording = {
 				expand: {
 					technos: [
 						{
+							name: "Photoshop",
+							logoSrc: "./images/logos/photoshop.jpg"
+						},
+						{
+							name: "Illustrator",
+							logoSrc: "./images/logos/illustrator.jpg"
+						},
+						{
+							name: "Angular 1",
+							logoSrc: "./images/logos/angular.jpg"
+						},
+						{
 							name: "HTML5",
 							logoSrc: "./images/logos/html.jpg"
 						},
@@ -997,9 +1009,10 @@ export const stepsWording = {
 							logoSrc: "./images/logos/css.jpg"
 						},
 						{
-							name: "Angular 1",
-							logoSrc: "./images/logos/angular.jpg"
-						}
+							name: "JS ES5",
+							logoSrc: "./images/logos/javascript.jpg"
+						},
+						
 						// rajouter : photoshop
 					],
 					texts: [
@@ -1034,6 +1047,66 @@ export const stepsWording = {
 				
 			},
 			{
+				title: "La Maison des Sushis",
+				body: "Front-end Dev.<br>Designer",
+				location: "Marseille",
+				date: {
+					year: "2015",
+					duration: "Freelance : 2 months mission"
+				},
+				description: [
+					"Angular 1 SPA website"
+				],
+				expand: {
+					technos: [
+						{
+							name: "Photoshop",
+							logoSrc: "./images/logos/photoshop.jpg"
+						},
+						{
+							name: "Illustrator",
+							logoSrc: "./images/logos/illustrator.jpg"
+						},
+						{
+							name: "Angular 1",
+							logoSrc: "./images/logos/angular.jpg"
+						},
+						{
+							name: "HTML5",
+							logoSrc: "./images/logos/html.jpg"
+						},
+						{
+							name: "CSS3",
+							logoSrc: "./images/logos/css.jpg"
+						},
+						{
+							name: "JS ES5",
+							logoSrc: "./images/logos/javascript.jpg"
+						},
+						
+					],
+					texts: [
+						[
+							{
+								title: "Contexte",
+								lines: [
+									"Site vitrine pour un restaurant de sushis"
+								]
+							},
+							{
+								title: "Missions",
+								lines: [
+									"Maquettage de la carte print",
+									"Maquettage du site",
+									"Intégration from scratch",
+									"Développement d'un outil de recherche par ingrédient",
+								]
+							}
+						]
+					]
+				}
+			},
+			{
 				title: "RG Design Agency",
 				body: "Integrator<br>Designer",
 				location: "Marseille",
@@ -1066,15 +1139,22 @@ export const stepsWording = {
 						{
 							name: "Joomla",
 							logoSrc: "./images/logos/joomla.jpg"
+						},
+						{
+							name: "Photoshop",
+							logoSrc: "./images/logos/photoshop.jpg"
+						},
+						{
+							name: "Illustrator",
+							logoSrc: "./images/logos/illustrator.jpg"
 						}
-						// rajouter : photoshop, prestashop
 					],
 					texts: [
 						[
 							{
 								title: "Contexte",
 								lines: [
-									"Web agency"
+									"Agence web qui personnalise des CMS"
 								]
 							},
 							{
