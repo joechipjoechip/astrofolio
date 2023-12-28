@@ -162,12 +162,13 @@ function handleClick(){
         
             &-body {
                 z-index: 50;
-                @include scrollbar;
+                // @include scrollbar;
                 position: relative;
                 height: 90%;
                 // padding-right: 2rem;
-                overflow-y: scroll;
-                overflow-x: hidden;
+                // overflow-y: scroll;
+                // overflow-x: hidden;
+                overflow: hidden;
 
                 direction: rtl;
             }
