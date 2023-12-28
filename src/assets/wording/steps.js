@@ -357,10 +357,6 @@ export const stepsWording = {
 							logoSrc: "./images/logos/tailwind.jpg"
 						},
 						{
-							name: "Typescript",
-							logoSrc: "./images/logos/typescript.jpg"
-						},
-						{
 							name: "HTML5",
 							logoSrc: "./images/logos/html.jpg"
 						},
@@ -371,6 +367,10 @@ export const stepsWording = {
 						{
 							name: "JS ES6",
 							logoSrc: "./images/logos/javascript.jpg"
+						},
+						{
+							name: "Typescript",
+							logoSrc: "./images/logos/typescript.jpg"
 						},
 						{
 							name: "SASS",
@@ -504,6 +504,171 @@ export const stepsWording = {
 									"- Rédactions des documentations idoines (Confluence)"
 								]
 							}
+						]
+					]
+				}
+			},
+			{
+				title: "Judith Creative Agency",
+				body: "Fullstack dev.",
+				location: "Marseille",
+				date: {
+					year: "2021",
+					duration: "Freelance : 2 months mission"
+				},
+				description: [
+					"Fullstack dev : CMS custom"
+				],
+				expand: {
+					technos: [
+						{
+							name: "Vue 2",
+							logoSrc: "./images/logos/vue.jpg"
+						},
+						{
+							name: "Nuxt 2",
+							logoSrc: "./images/logos/nuxt.jpg"
+						},
+						{
+							name: "Strapi 4",
+							logoSrc: "./images/logos/strapi.jpg"
+						},
+						{
+							name: "PostgreSQL",
+							logoSrc: "./images/logos/postgresql.jpg"
+						},
+						{
+							name: "GraphQL",
+							logoSrc: "./images/logos/graphql.jpg"
+						},
+						{
+							name: "Apollo",
+							logoSrc: "./images/logos/apollo.jpg"
+						},
+						{
+							name: "Heroku",
+							logoSrc: "./images/logos/heroku.jpg"
+						},
+						{
+							name: "AWS",
+							logoSrc: "./images/logos/aws.jpg"
+						},
+						{
+							name: "HTML5",
+							logoSrc: "./images/logos/html.jpg"
+						},
+						{
+							name: "CSS3",
+							logoSrc: "./images/logos/css.jpg"
+						},
+						{
+							name: "JS ES6",
+							logoSrc: "./images/logos/javascript.jpg"
+						},
+						{
+							name: "SASS",
+							logoSrc: "./images/logos/sass.jpg"
+						},
+						{
+							name: "BEM",
+							logoSrc: "./images/logos/bem.jpg"
+						},
+						{
+							name: "Git",
+							logoSrc: "./images/logos/git.jpg"
+						},
+					],
+					texts: [
+						[
+							{
+								title: "Contexte",
+								lines: [
+									"Création d'un CMS custom pour une agence de social content",
+									'<a href="http://www.judithcreativeagency.fr" target="Blank">www.judithcreativeagency.fr</a>',
+									"&nbsp;"
+								]
+							},
+							{
+								title: "Bilan",
+								lines: [
+									"Le site a été livré, dans les temps et 100% fonctionnel, malheureusement l'agence n'a toujours pas pris en main la contribution de son contenu"
+								]
+							},
+							
+						]
+					]
+				}
+			},
+			{
+				title: "Services Généraux Agency",
+				body: "CréaTech<br>Front-end Dev",
+				location: "Paris",
+				date: {
+					year: "2021",
+					duration: "Freelance : 1 months mission"
+				},
+				description: [
+					"Mini-site évenementiel pour une expo"
+				],
+				expand: {
+					technos: [
+						{
+							name: "Vue 2",
+							logoSrc: "./images/logos/vue.jpg"
+						},
+						{
+							name: "Nuxt 2",
+							logoSrc: "./images/logos/nuxt.jpg"
+						},
+						{
+							name: "HTML5",
+							logoSrc: "./images/logos/html.jpg"
+						},
+						{
+							name: "CSS3",
+							logoSrc: "./images/logos/css.jpg"
+						},
+						{
+							name: "JS ES6",
+							logoSrc: "./images/logos/javascript.jpg"
+						},
+						{
+							name: "SASS",
+							logoSrc: "./images/logos/sass.jpg"
+						},
+						{
+							name: "BEM",
+							logoSrc: "./images/logos/bem.jpg"
+						},
+						{
+							name: "Git",
+							logoSrc: "./images/logos/git.jpg"
+						},
+					],
+					texts: [
+						[
+							{
+								title: "Contexte",
+								lines: [
+									"Création d'un site événementiel pour accompagner le vernissage d'une exposition organisée par l'agence.",
+									'<a href="http://www.oasis.paris" target="Blank">www.oasis.paris</a>',
+									"&nbsp;"
+								]
+							},
+							{
+								title: "Brief",
+								lines: [
+									"Le concept était d'avoir un site qui se navigue comme Google Map"
+								]
+							},
+							{
+								title: "Interventions",
+								lines: [
+									"Développement du front-end du site",
+									"Développement de toute la partie interaction sur la map (grab / drag / zoom-dezoom / autoplay de vidéos) en vanilla JS"
+								]
+							},
+							
 						]
 					]
 				}
@@ -893,6 +1058,10 @@ export const stepsWording = {
 						{
 							name: "Wordpress",
 							logoSrc: "./images/logos/wordpress.jpg"
+						},
+						{
+							name: "Prestashop",
+							logoSrc: "./images/logos/prestashop.jpg"
 						},
 						{
 							name: "Joomla",

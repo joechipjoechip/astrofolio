@@ -518,7 +518,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						background-color: v-bind(stepColor);
 
 						position: absolute;
-						top: 50%;
+						top: 51%;
 						left: -4rem;
 						transform: translateY(-50%) rotate(0deg);
 
