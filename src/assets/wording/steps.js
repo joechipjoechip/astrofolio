@@ -257,20 +257,20 @@ export const stepsWording = {
 				expand: {
 					technos: [
 						{
-							name: "Vue 2",
-							logoSrc: "./images/logos/vue.jpg"
-						},
-						{
-							name: "Nuxt 2",
-							logoSrc: "./images/logos/nuxt.jpg"
+							name: "Blender 3",
+							logoSrc: "./images/logos/blender.jpg"
 						},
 						{
 							name: "ThreeJS",
 							logoSrc: "./images/logos/threejs.jpg"
 						},
 						{
-							name: "Blender 3",
-							logoSrc: "./images/logos/blender.jpg"
+							name: "Vue 2",
+							logoSrc: "./images/logos/vue.jpg"
+						},
+						{
+							name: "Nuxt 2",
+							logoSrc: "./images/logos/nuxt.jpg"
 						},
 						{
 							name: "HTML5",
@@ -940,8 +940,28 @@ export const stepsWording = {
 				expand: {
 					technos: [
 						{
+							name: "Photoshop",
+							logoSrc: "./images/logos/photoshop.jpg"
+						},
+						{
+							name: "Illustrator",
+							logoSrc: "./images/logos/illustrator.jpg"
+						},
+						{
+							name: "AppStore",
+							logoSrc: "./images/logos/appstore.jpg"
+						},
+						{
+							name: "Google Play",
+							logoSrc: "./images/logos/googleplay.jpg"
+						},
+						{
 							name: "GoodBarber",
 							logoSrc: "./images/logos/goodbarber.jpg"
+						},
+						{
+							name: "Angular 1",
+							logoSrc: "./images/logos/angular.jpg"
 						},
 						{
 							name: "HTML5",
@@ -955,10 +975,8 @@ export const stepsWording = {
 							name: "JS ES5",
 							logoSrc: "./images/logos/javascript.jpg"
 						},
-						{
-							name: "Angular 1",
-							logoSrc: "./images/logos/angular.jpg"
-						}
+						
+						
 						// rajouter : photoshop / appStore / google Play / jQuery
 					],
 					texts: [

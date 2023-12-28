@@ -704,8 +704,8 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 						&-name {
 							margin-bottom: 0;
-							font-size: var(--font-size-medium-minus);
-							line-height: var(--font-size-medium-minus);
+							font-size: var(--font-size-medium-small);
+							line-height: var(--font-size-medium-small);
 							text-align: center;
 							white-space: nowrap;
 							background-color: var(--color-contrast-30);
