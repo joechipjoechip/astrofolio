@@ -7,8 +7,6 @@ import IconsUiDoubleChevronDown from "./icons/uiDoubleChevronDown.vue"
 import { uiConfig } from "@/assets/uiConfig.js"
 import SlotVideo from "@/components/vue/SlotVideo.vue";
 
-import { Smoothie } from "vue-smoothie";
-
 const props = defineProps({
 	slotData: {
 		type: Object,
@@ -87,7 +85,7 @@ const textsWrapper = ref(null)
 const technosWrapper = ref(null)
 
 function scrollSlotAtTop(){
-	slotWrapperElement.value.scrollIntoView({ behavior: "smooth" });
+	slotWrapperElement.value.scrollIntoView({behavior: "smooth"});
 }
 
 // // - - - - - - - - - - - - - 
@@ -237,64 +235,59 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					</section>
 
 					<section ref="textsWrapper" class="texts-wrapper" v-if="isExpanded">
-						
-						<Smoothie class="smoothie-container">
 
-							<div v-for="block in slotData.expand.texts" :key="block.id" class="text-block">
-	
-								<div 
-									v-for="text in block" 
-									:key="text.id" 
-									class="text-item"
-								>
-	
-									<h6 :id="text.id"
-										v-motion
-										style="will-change: opacity, transform;"
-										:initial="{ 
-											opacity: 0,
-											x:  -280 * speed,
-										}"
-										:delay="175"
-										
-										:enter="{ 
-											opacity: 1,
-											x: 0,
-	
-											transition: {
-												duration: uiConfig.animation.medium,
-												ease: 'backOut'
-											},
-										}"
-									>{{ text.title }}</h6>
-	
-									<p 	v-for="line in text.lines" :key="line.index"
-										v-motion
-										style="will-change: opacity, transform;"
-										:initial="{ 
-											opacity: 0,
-											y:  350 * speed,
-										}"
-										:delay="100"
-										:enter="{ 
-											opacity: 1,
-											y: 0,
-	
-											transition: {
-												duration: uiConfig.animation.medium,
-												ease: 'backOut'
-											},
-										}"
-	
-										v-html="line"
-									></p>
-	
-								</div>
-	
+						<div v-for="block in slotData.expand.texts" :key="block.id" class="text-block">
+
+							<div 
+								v-for="text in block" 
+								:key="text.id" 
+								class="text-item"
+							>
+
+								<h6 :id="text.id"
+									v-motion
+									style="will-change: opacity, transform;"
+									:initial="{ 
+										opacity: 0,
+										x:  -280 * speed,
+									}"
+									:delay="175"
+									
+									:enter="{ 
+										opacity: 1,
+										x: 0,
+
+										transition: {
+											duration: uiConfig.animation.medium,
+											ease: 'backOut'
+										},
+									}"
+								>{{ text.title }}</h6>
+
+								<p 	v-for="line in text.lines" :key="line.index"
+									v-motion
+									style="will-change: opacity, transform;"
+									:initial="{ 
+										opacity: 0,
+										y:  350 * speed,
+									}"
+									:delay="100"
+									:enter="{ 
+										opacity: 1,
+										y: 0,
+
+										transition: {
+											duration: uiConfig.animation.medium,
+											ease: 'backOut'
+										},
+									}"
+
+									v-html="line"
+								></p>
+
 							</div>
 
-						</Smoothie>
-
+						</div>
 
 					</section>
 
@@ -311,11 +304,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 <style lang="scss" scoped>
 
-.smoothie-container {
-	@include scrollbar;
-	height: 100%;
-	width: 100%;
-}
 
 .step {
 
