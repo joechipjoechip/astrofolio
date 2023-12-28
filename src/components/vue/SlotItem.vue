@@ -85,7 +85,7 @@ const textsWrapper = ref(null)
 const technosWrapper = ref(null)
 
 function scrollSlotAtTop(){
-	slotWrapperElement.value.scrollIntoView({behavior: "smooth"});
+	slotWrapperElement.value.scrollIntoView({ behavior: "smooth" });
 }
 
 // // - - - - - - - - - - - - - 
