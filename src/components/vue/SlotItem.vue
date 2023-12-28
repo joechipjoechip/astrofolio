@@ -678,7 +678,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					@include scrollbar;
 					overflow-y: auto;
 					overflow-x: hidden;
-					width: 35%;
+					width: 45%;
 
 					flex-flow: row wrap;
 					column-gap: 2rem;
@@ -686,8 +686,8 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 					justify-content: flex-start;
 					align-content: flex-start;
-					padding-right: 1.5rem;
-					padding-left: 0.5rem;
+					// padding-right: 1.5rem;
+					// padding-left: 0.5rem;
 
 					.techno {
 
