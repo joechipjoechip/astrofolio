@@ -2,6 +2,7 @@
 import { ref, watch, nextTick } from "vue"
 import SlotItem from "@/components/vue/SlotItem.vue"
 import { uiConfig } from "@/assets/uiConfig.js"
+import { Smoothie } from "vue-smoothie";
 
 const props = defineProps({
 	slots: {
@@ -38,45 +39,55 @@ function handleMouseLeave(){
 
 <template>
 
-    <div class="list"
-        ref="listWrapper"
-        @mousemove="handleMouseMove"
-        @mouseleave="handleMouseLeave"
-    >
+    <Smoothie class="smoothie-container">
 
-        <!-- :soundEnabled="$store.sound.enabled" -->
-        <SlotItem
-            v-if="stepIsActive"
-            v-for="(slotData, index) in slots" :key="index"
-
-            :slotData="slotData"
-            :stepColor="stepColor"
-            :stepIsActive="stepIsActive"
-            :slotIndex="index"
-            :isHovered="index === focusedSlotIndex"
-            
+        <div class="list"
+            ref="listWrapper"
+            @mousemove="handleMouseMove"
+            @mouseleave="handleMouseLeave"
+        >
     
-            v-motion
-            :initial="{ 
-                y: 500,
-                scale: 0.001,
-            }"
-            :enter="{ 
-                y: 0,
-                scale: 1,
+            <!-- :soundEnabled="$store.sound.enabled" -->
+            <SlotItem
+                v-if="stepIsActive"
+                v-for="(slotData, index) in slots" :key="index"
     
-                transition: {
-                    duration: uiConfig.animation.long,
-                    ease: 'backInOut',
-                }
-            }"
-        />
+                :slotData="slotData"
+                :stepColor="stepColor"
+                :stepIsActive="stepIsActive"
+                :slotIndex="index"
+                :isHovered="index === focusedSlotIndex"
+                
+        
+                v-motion
+                :initial="{ 
+                    y: 500,
+                    scale: 0.001,
+                }"
+                :enter="{ 
+                    y: 0,
+                    scale: 1,
+        
+                    transition: {
+                        duration: uiConfig.animation.long,
+                        ease: 'backInOut',
+                    }
+                }"
+            />
+    
+        </div>
 
-    </div>
+    </Smoothie>
 
 </template>
 
 <style lang="scss" scoped>
+
+.smoothie-container {
+    @include scrollbar;
+  height: 100%;
+  width: 100%;
+}
 .list {
     // width: 100%;
     height: 100%;

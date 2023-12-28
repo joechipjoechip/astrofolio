@@ -29,7 +29,8 @@
     "react-dom": "^18.2.0",
     "shadergradient": "^1.2.5",
     "three": "^0.150.0",
-    "vue": "^3.3.12"
+    "vue": "^3.3.12",
+    "vue-smoothie": "^1.2.0"
   },
   "devDependencies": {
     "sass": "^1.69.5"
