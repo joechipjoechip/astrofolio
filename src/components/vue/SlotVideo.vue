@@ -78,6 +78,7 @@ const props = defineProps({
         object-fit: cover;
         opacity: 0;
         transition: opacity var(--transitionDurationMedium);
+        pointer-events: none;
     }
 }
 </style>
