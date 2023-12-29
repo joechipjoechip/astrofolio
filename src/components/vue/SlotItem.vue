@@ -140,7 +140,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 
 				<IconUiPin 
 					v-if="slotData.pinable" 
-					:color="isPined ? stepColor : 'currentColor'"
+					:color="isPined ? 'var(--color-main-90)' : 'currentColor'"
 					class="pin"
 					@click="handlePin"
 				/>

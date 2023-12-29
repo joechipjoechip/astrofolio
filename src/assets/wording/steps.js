@@ -206,6 +206,10 @@ export const stepsWording = {
 							logoSrc: "./images/logos/javascript.jpg"
 						},
 						{
+							name: "GSAP",
+							logoSrc: "./images/logos/gsap.jpg"
+						},
+						{
 							name: "SASS",
 							logoSrc: "./images/logos/sass.jpg"
 						},
@@ -283,6 +287,10 @@ export const stepsWording = {
 						{
 							name: "JS ES6",
 							logoSrc: "./images/logos/javascript.jpg"
+						},
+						{
+							name: "GSAP",
+							logoSrc: "./images/logos/gsap.jpg"
 						},
 						{
 							name: "SASS",
@@ -645,6 +653,10 @@ export const stepsWording = {
 							logoSrc: "./images/logos/javascript.jpg"
 						},
 						{
+							name: "GSAP",
+							logoSrc: "./images/logos/gsap.jpg"
+						},
+						{
 							name: "SASS",
 							logoSrc: "./images/logos/sass.jpg"
 						},
@@ -726,6 +738,10 @@ export const stepsWording = {
 						{
 							name: "React",
 							logoSrc: "./images/logos/react.jpg"
+						},
+						{
+							name: "GSAP",
+							logoSrc: "./images/logos/gsap.jpg"
 						},
 						{
 							name: "GTM",

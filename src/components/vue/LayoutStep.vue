@@ -78,7 +78,7 @@ function handleClick(){
 
                 <div class="step-body">
                     
-                    <!-- here comes : Formation.vue || Bio.vue || Experience.vue > -->
+                    <!-- here comes the <SlotList> of : Formation.vue || Bio.vue || Experience.vue > -->
                     <slot :stepIsActive="isActive" />
 
                 </div>

@@ -47,21 +47,28 @@ const props = defineProps({
             top: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(170deg, var(--color-contrast-80) 0%, transparent 50%);
+            background: linear-gradient(170deg, var(--color-contrast-80) 0%, transparent 75%);
 
             opacity: 0;
-            transition: opacity var(--transitionDurationMedium);
+            transition: 
+                opacity var(--transitionDurationMedium),
+                background var(--transitionDurationMedium);
         }
 
         &.isHovered {
 
+            &::before {
+                opacity: 1;
+            }
+
             .video-player {
-                opacity: 0.5;
+                opacity: 0.75;
             }
         }
         &.isExpanded {
 
             &::before {
+                background: linear-gradient(170deg, var(--color-contrast-80) -25%, transparent 60%);
                 opacity: 1;
             }
 
