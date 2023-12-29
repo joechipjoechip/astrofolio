@@ -340,7 +340,7 @@ export const stepsWording = {
 				location: "Full remote",
 				date: {
 					year: "2022",
-					duration: "Freelance : 4 months mission"
+					duration: "Freelance : 6 months mission"
 				},
 				description: [
 					"Vue2, Nuxt2, VueStorefront, SSR,",

@@ -244,7 +244,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 
 					<section class="texts-wrapper" v-if="isExpanded">
 
-						<div v-for="block in slotData.expand.texts" :key="block.id" class="text-block">
+						<div v-for="(block, index) in slotData.expand.texts" :key="block.id" class="text-block">
 
 							<div 
 								v-for="text in block" 
@@ -259,7 +259,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 										opacity: 0,
 										x:  -280 * speed,
 									}"
-									:delay="175"
+									:delay="375 * (index + 1)"
 									
 									:enter="{ 
 										opacity: 1,
@@ -272,20 +272,20 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 									}"
 								>{{ text.title }}</h6>
 
-								<p 	v-for="line in text.lines" :key="line.index"
+								<p 	v-for="(line, index) in text.lines" :key="line.index"
 									v-motion
 									style="will-change: opacity, transform;"
 									:initial="{ 
 										opacity: 0,
 										y:  350 * speed,
 									}"
-									:delay="100"
+									:delay="100 * (index + 3)"
 									:enter="{ 
 										opacity: 1,
 										y: 0,
 
 										transition: {
-											duration: uiConfig.animation.medium,
+											duration: uiConfig.animation.mediumPlus,
 											ease: 'backOut'
 										},
 									}"
