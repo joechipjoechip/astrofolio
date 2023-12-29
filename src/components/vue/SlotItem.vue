@@ -135,7 +135,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 
 				<IconUiPin 
 					v-if="slotData.pinable" 
-					:color="stepColor"
+					:color="isPined ? stepColor : 'currentColor'"
 					class="pin"
 					@click="handlePin"
 				/>
@@ -457,6 +457,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 				padding: 0.35rem;
 				border-radius: 50%;
 				cursor: pointer;
+				color: var(--color-main-25);
 			}
 
 			.year,
