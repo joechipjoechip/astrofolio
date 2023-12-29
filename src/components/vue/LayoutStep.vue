@@ -107,7 +107,8 @@ function handleClick(){
 
         :deep(.slot-wrapper){
     
-            &:first-of-type {
+            &:first-of-type,
+            &.isPined {
                 margin-top: 0.25rem;
             }
         

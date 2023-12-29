@@ -104,7 +104,8 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 		class="slot-wrapper"
 		:class="{
 			isHovered,
-			isExpanded
+			isExpanded,
+			isPined
 		}"
 		:data-slot-index="slotIndex"
 		:style="{ order: isPined ? '01' : (slotIndex + 1) * 10 }"
