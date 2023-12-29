@@ -1,7 +1,6 @@
 export const stepsWording = {
 	
 	"formation": {
-		id: "formation",
 		title: "Education",
 		catcher: "hey, ici cest la formation",
 		stepStyle: "squared",
@@ -159,7 +158,6 @@ export const stepsWording = {
 	},
 
 	"bio": {
-		id: "bio",
 		title: "Bio",
 		catcher: "hey, ici cest la bio",
 		stepStyle: "line",
@@ -168,7 +166,6 @@ export const stepsWording = {
 	},
 
 	"experience": {
-		id: "experience",
 		title: "Experiences",
 		catcher: "hey, ici cest la experience",
 		stepStyle: "line",
@@ -525,7 +522,7 @@ export const stepsWording = {
 			},
 			{
 				title: "Judith Creative Agency",
-				body: "Fullstack dev.<br>Mentoring",
+				body: "Fullstack dev.",
 				location: "Marseille",
 				date: {
 					year: "2021",
@@ -599,14 +596,8 @@ export const stepsWording = {
 								title: "Contexte",
 								lines: [
 									"Création d'un CMS custom pour une agence de social content",
-									'<a href="http://www.judithcreativeagency.fr" target="Blank">www.judithcreativeagency.fr</a>'
-								]
-							},
-							{
-								title: "Mentoring",
-								lines: [
-									"Prestation réalisée avec un Dev. Front-End junior",
-									"Encadrements, conseils et assistances",
+									'<a href="http://www.judithcreativeagency.fr" target="Blank">www.judithcreativeagency.fr</a>',
+									"&nbsp;"
 								]
 							},
 							{
@@ -698,8 +689,6 @@ export const stepsWording = {
 				title: "Mazarine agency",
 				body: "Front-end dev.<br>createch",
 				location: "Paris",
-				pinable: true,
-				isPined: false,
 				date: {
 					year: "2017 - 2021",
 					duration: "CDI : 3 years and 7 months (of <span class='color-love-font'>❤</span>)"

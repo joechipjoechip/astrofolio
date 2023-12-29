@@ -23,7 +23,6 @@ const props = defineProps({
 	>
 		<SlotList 
 			:slots="wording.slots"
-			:slotName="wording.id"
 			:stepIsActive="isActive"
 			:stepColor="wording.color"
 		/>

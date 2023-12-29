@@ -3,7 +3,6 @@
 import { ref, onMounted, watch, nextTick } from "vue"
 
 import IconsUiDoubleChevronDown from "./icons/uiDoubleChevronDown.vue"
-import IconsUiPin from "./icons/uiPin.vue"
 
 import { uiConfig } from "@/assets/uiConfig.js"
 import SlotVideo from "@/components/vue/SlotVideo.vue";
@@ -28,17 +27,18 @@ const props = defineProps({
 	isHovered: {
 		type: Boolean,
 		required: true
-	},
-	emiter: {
-		type: Function,
-		required: false
 	}
 })
 
+// - - - - - - - - - - - - - 
 // BASIC LOGIC - - - - -
+
 const isExpanded = ref(false)
 
+// - - - - - - - - - - - - - 
 
+
+// - - - - - - - - - - - - - 
 // EXPAND LOGIC - - - - -
 const technosAreVisible = ref(true)
 // initialized at true to trigger the loads of images
@@ -75,6 +75,10 @@ watch(isExpanded, newVal => {
 	}
 })
 
+// - - - - - - - - - - - - - 
+
+
+// - - - - - - - - - - - - - 
 // SCROLLS LOGIC - - - - - -
 const slotWrapperElement = ref(null)
 const textsWrapper = ref(null)
@@ -84,18 +88,10 @@ function scrollSlotAtTop(){
 	slotWrapperElement.value.scrollIntoView({behavior: "smooth"});
 }
 
-// ANIMATION LOGIC - - - - -
+// // - - - - - - - - - - - - - 
+// // ANIMATION LOGIC - - - - -
 const speed = ref(0.2)
 const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
-
-// PIN LOGIC
-function handlePin(){
-	props.emiter("slot-pin", { 
-		from: props.slotData.title, 
-		slotIndex: props.slotIndex, 
-		isPined: props.slotData.isPined
-	})
-}
 
 </script>
 
@@ -104,6 +100,7 @@ function handlePin(){
 	<article 
 		ref="slotWrapperElement"
 		class="step-slot-wrapper"
+		style="will-change: margin-top;"
 		:class="{
 			isHovered,
 			isExpanded
@@ -112,6 +109,7 @@ function handlePin(){
 	>
 
 		<div class="step-slot-inner"
+			style="will-change: opacity, transform, margin;"
 			v-motion
 			:initial="{ 
 				opacity: 0,
@@ -137,13 +135,6 @@ function handlePin(){
 			/>
 			
 			<div class="step-slot-head">
-
-				<IconsUiPin 
-					v-if="slotData.pinable" 
-					class="pin"
-					@click="handlePin"
-					:color="slotData.isPined ? stepColor : 'currentColor'"
-				/>
 		
 				<time class="year">
 					{{ slotData.date.year }}
@@ -323,8 +314,6 @@ function handlePin(){
 			box-sizing: border-box;
 			margin-top: 0;
 
-			will-change: margin-top, height;
-
 			transition: 
 				margin-top var(--transitionDurationMedium),
 				height var(--transitionDurationMedium);
@@ -435,8 +424,6 @@ function handlePin(){
 
 			margin: 0;
 			padding: 0;
-
-			will-change: opacity, transform, margin, padding, background-color, border-radius;
 			
 			transition: 
 				background-color var(--transitionDurationMedium),
@@ -462,16 +449,7 @@ function handlePin(){
 			justify-content: flex-start;
 			align-items: center;
 
-			.pin {
-				position: absolute;
-				left: -2.5rem;
-				background-color: var(--color-contrast-20);
-				border-radius: 50%;
-				width: 1.15rem;
-				height: 1.15rem;
-				padding: 0.35rem;
-				cursor: pointer;
-			}
+			pointer-events: none;
 
 			.year,
 			.duration {
@@ -479,7 +457,6 @@ function handlePin(){
 				font-style: italic;
 				font-weight: 300;
 				color: var(--color-main-80);
-				pointer-events: none;
 
 				will-change: color;
 				
@@ -765,19 +742,35 @@ function handlePin(){
 							padding-bottom: 2.5rem;
 						}
 
+						.text-item {
+
+							&:nth-of-type(1){
+								h6 {
+									margin-top: 0;
+								}
+							}
+
+							h6 {
+								margin-top: 2.5rem;
+							}
+						}
+
+						&:not(:last-of-type):before {
+							content: "";
+							position: absolute;
+							bottom: -5rem;
+							left: 50%;
+							transform: translateX(-50%);
+							height: 1px;
+							width: 70%;
+							background-color: var(--color-main-15);
+						}
 					}
 					
 					.text-item {
 						position: relative;
 
-						&:nth-of-type(1){
-							h6 {
-								margin-top: 0;
-							}
-						}
-						
 						h6 {
-							margin-top: 2.5rem;
 							font-size: var(--font-size-big);
 							font-weight: bold;
 							font-style: italic;
@@ -805,8 +798,7 @@ function handlePin(){
 							color: v-bind(stepColor);
 							text-decoration: none;
 							text-transform: uppercase;
-							font-weight: normal;
-							font-style: italic;
+							font-weight: bold;
 						}
 
 					}
