@@ -78,13 +78,17 @@ function scrollSlotAtTop(){
 	// timeout because of misunderstanding block size because of margin animations
 	setTimeout(() => {
 		slotWrapperElement.value.scrollIntoView({behavior: "smooth", inline: "start", block: "start"});
-	}, 200)
+	}, isPined.value ? 300 : 200)
 }
 
 // PIN LOGIC
 const isPined = ref(props.slotData.pinable)
 function handlePin(){
 	isPined.value = !isPined.value
+
+	if( isPined.value ){
+		scrollSlotAtTop()
+	}
 }
 
 // ANIMATION LOGIC
@@ -509,6 +513,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 			flex-flow: row nowrap;
 			justify-content: space-between;
 			align-items: center;
+			cursor: pointer;
 
 			transition: height var(--transitionDurationMedium);
 
