@@ -159,6 +159,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 				<div 
 					class="level-1"
 					@click="handleExpand"
+					:style="{ cursor: slotData.expand ? 'pointer' : 'default' }"
 				>
 					<IconsUiDoubleChevronDown 
 						v-if="slotData.expand"
@@ -513,7 +514,6 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 			flex-flow: row nowrap;
 			justify-content: space-between;
 			align-items: center;
-			cursor: pointer;
 
 			transition: height var(--transitionDurationMedium);
 
