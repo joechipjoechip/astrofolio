@@ -689,6 +689,7 @@ export const stepsWording = {
 				title: "Mazarine agency",
 				body: "Front-end dev.<br>createch",
 				location: "Paris",
+				pinable: true,
 				date: {
 					year: "2017 - 2021",
 					duration: "CDI : 3 years and 7 months (of <span class='color-love-font'>❤</span>)"

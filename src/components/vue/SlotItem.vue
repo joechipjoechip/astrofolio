@@ -3,6 +3,7 @@
 import { ref, onMounted, watch, nextTick } from "vue"
 
 import IconsUiDoubleChevronDown from "./icons/uiDoubleChevronDown.vue"
+import IconUiPin from "./icons/uiPin.vue"
 
 import { uiConfig } from "@/assets/uiConfig.js"
 import SlotVideo from "@/components/vue/SlotVideo.vue";
@@ -30,16 +31,10 @@ const props = defineProps({
 	}
 })
 
-// - - - - - - - - - - - - - 
-// BASIC LOGIC - - - - -
-
+// BASIC LOGIC
 const isExpanded = ref(false)
 
-// - - - - - - - - - - - - - 
-
-
-// - - - - - - - - - - - - - 
-// EXPAND LOGIC - - - - -
+// EXPAND LOGIC
 const technosAreVisible = ref(true)
 // initialized at true to trigger the loads of images
 // ( see v-show and v-if at .technos-wrapper )
@@ -67,7 +62,7 @@ watch(isExpanded, newVal => {
 
 		nextTick(() => {
 			technosWrapper.value.scrollTo(0,0)
-			scrollSlotAtTop()
+			// scrollSlotAtTop()
 		})
 
 	} else {
@@ -75,21 +70,16 @@ watch(isExpanded, newVal => {
 	}
 })
 
-// - - - - - - - - - - - - - 
-
-
-// - - - - - - - - - - - - - 
-// SCROLLS LOGIC - - - - - -
+// SCROLLS LOGIC
 const slotWrapperElement = ref(null)
-const textsWrapper = ref(null)
 const technosWrapper = ref(null)
 
 function scrollSlotAtTop(){
+	// TODO : patch it
 	slotWrapperElement.value.scrollIntoView({behavior: "smooth"});
 }
 
-// // - - - - - - - - - - - - - 
-// // ANIMATION LOGIC - - - - -
+// // ANIMATION LOGIC
 const speed = ref(0.2)
 const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
@@ -100,7 +90,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 	<article 
 		ref="slotWrapperElement"
 		class="step-slot-wrapper"
-		style="will-change: margin-top;"
 		:class="{
 			isHovered,
 			isExpanded
@@ -109,7 +98,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 	>
 
 		<div class="step-slot-inner"
-			style="will-change: opacity, transform, margin;"
 			v-motion
 			:initial="{ 
 				opacity: 0,
@@ -135,6 +123,12 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			/>
 			
 			<div class="step-slot-head">
+
+				<IconUiPin 
+					v-if="slotData.pinable" 
+					:color="stepColor"
+					class="pin"
+				/>
 		
 				<time class="year">
 					{{ slotData.date.year }}
@@ -159,7 +153,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					/>
 					<h5 class="title"
 						v-motion
-						style="will-change: opacity, transform;"
+						style="will-change: transform;"
 						:initial="{ 
 							x: -1000 * speed,
 						}"
@@ -232,7 +226,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						</div>
 					</section>
 
-					<section ref="textsWrapper" class="texts-wrapper" v-if="isExpanded">
+					<section class="texts-wrapper" v-if="isExpanded">
 
 						<div v-for="block in slotData.expand.texts" :key="block.id" class="text-block">
 
@@ -314,25 +308,20 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			box-sizing: border-box;
 			margin-top: 0;
 
+			will-change: margin, height;
+
 			transition: 
-				margin-top var(--transitionDurationMedium),
+				margin var(--transitionDurationMedium),
 				height var(--transitionDurationMedium);
 
 			&.isHovered {
+				margin: 2rem 0;
 				height: 14rem;
-
-				.step-slot-inner {
-					margin: 2rem 0;
-				}
-
-				& + .step-slot-wrapper {
-					margin-top: 4rem;
-				}
-
 			}
 
 			&.isExpanded {
 				height: 45rem;
+				margin: 0;
 
 				@media #{$desktop} {
 					.step-slot {
@@ -343,9 +332,6 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 						}
 					}
 
-					& + .step-slot-wrapper {
-						margin-top: 0;
-					}
 				}
 
 				.step-slot-body {
@@ -424,6 +410,8 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 
 			margin: 0;
 			padding: 0;
+
+			will-change: background-color, padding, border-radius, transform, opacity, margin;
 			
 			transition: 
 				background-color var(--transitionDurationMedium),
@@ -449,7 +437,17 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			justify-content: flex-start;
 			align-items: center;
 
-			pointer-events: none;
+			.pin {
+				position: absolute;
+				// top: 0.01rem;
+				left: -2.4rem;
+				width: 1.2rem;
+				height: 1.2rem;
+				background-color: var(--color-contrast-30);
+				padding: 0.35rem;
+				border-radius: 50%;
+				cursor: pointer;
+			}
 
 			.year,
 			.duration {
@@ -457,6 +455,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 				font-style: italic;
 				font-weight: 300;
 				color: var(--color-main-80);
+				pointer-events: none;
 
 				will-change: color;
 				
