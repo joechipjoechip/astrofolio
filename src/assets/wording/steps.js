@@ -704,7 +704,7 @@ export const stepsWording = {
 				pinable: true,
 				date: {
 					year: "2017 - 2021",
-					duration: "CDI : 3 years and 7 months (of <span class='color-love-font'>❤</span>)"
+					duration: "CDI : 3 years and 6 months (of <span class='color-love-font'>❤</span>)"
 				},
 				description: [
 					"Vanilla Javascript, Vue, React, Node, PHP,",
@@ -1185,6 +1185,14 @@ export const stepsWording = {
 				expand: {
 					technos: [
 						{
+							name: "Photoshop",
+							logoSrc: "./images/logos/photoshop.jpg"
+						},
+						{
+							name: "Illustrator",
+							logoSrc: "./images/logos/illustrator.jpg"
+						},
+						{
 							name: "HTML5",
 							logoSrc: "./images/logos/html.jpg"
 						},
@@ -1204,14 +1212,6 @@ export const stepsWording = {
 							name: "Joomla",
 							logoSrc: "./images/logos/joomla.jpg"
 						},
-						{
-							name: "Photoshop",
-							logoSrc: "./images/logos/photoshop.jpg"
-						},
-						{
-							name: "Illustrator",
-							logoSrc: "./images/logos/illustrator.jpg"
-						}
 					],
 					texts: [
 						[
