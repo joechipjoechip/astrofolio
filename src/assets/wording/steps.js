@@ -716,16 +716,16 @@ export const stepsWording = {
 							logoSrc: "./images/logos/javascript.jpg"
 						},
 						{
+							name: "Webpack",
+							logoSrc: "./images/logos/webpack.jpg"
+						},
+						{
 							name: "Vue",
 							logoSrc: "./images/logos/vue.jpg"
 						},
 						{
 							name: "React",
 							logoSrc: "./images/logos/react.jpg"
-						},
-						{
-							name: "Webpack",
-							logoSrc: "./images/logos/webpack.jpg"
 						},
 						{
 							name: "GTM",
@@ -744,6 +744,14 @@ export const stepsWording = {
 							logoSrc: "./images/logos/bem.jpg"
 						},
 						{
+							name: "Jira",
+							logoSrc: "./images/logos/jira.jpg"
+						},
+						{
+							name: "NodeJS",
+							logoSrc: "./images/logos/nodejs.jpg"
+						},
+						{
 							name: "PHP",
 							logoSrc: "./images/logos/php.jpg"
 						},
@@ -758,10 +766,6 @@ export const stepsWording = {
 						{
 							name: "Drupal",
 							logoSrc: "./images/logos/drupal.jpg"
-						},
-						{
-							name: "NodeJS",
-							logoSrc: "./images/logos/nodejs.jpg"
 						},
 						{
 							name: "Blade",
@@ -779,10 +783,7 @@ export const stepsWording = {
 							name: "GitLab",
 							logoSrc: "./images/logos/gitlab.jpg"
 						},
-						{
-							name: "Jira",
-							logoSrc: "./images/logos/jira.jpg"
-						},
+						
 						// rajouter : dialogFlow / googleMap api / canvas / GTM / webpack / gulp / npm / composer / jira / redmine / confluence
 					],
 					// texts: [
