@@ -62,7 +62,7 @@ watch(isExpanded, newVal => {
 
 		nextTick(() => {
 			technosWrapper.value.scrollTo(0,0)
-			// scrollSlotAtTop()
+			scrollSlotAtTop()
 		})
 
 	} else {
@@ -75,13 +75,21 @@ const slotWrapperElement = ref(null)
 const technosWrapper = ref(null)
 
 function scrollSlotAtTop(){
-	// TODO : patch it
-	slotWrapperElement.value.scrollIntoView({behavior: "smooth"});
+	// timeout because of misunderstanding block size because of margin animations
+	setTimeout(() => {
+		slotWrapperElement.value.scrollIntoView({behavior: "smooth", inline: "start", block: "start"});
+	}, 200)
 }
 
-// // ANIMATION LOGIC
+// PIN LOGIC
+const isPined = ref(props.slotData.pinable)
+function handlePin(){
+	isPined.value = !isPined.value
+}
+
+// ANIMATION LOGIC
 const speed = ref(0.2)
-const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
+const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.slotIndex +2)) * 0.8)
 
 </script>
 
@@ -95,6 +103,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 			isExpanded
 		}"
 		:data-slot-index="slotIndex"
+		:style="{ order: isPined ? '01' : (slotIndex + 1) * 10 }"
 	>
 
 		<div class="step-slot-inner"
@@ -128,6 +137,7 @@ const idealDelay = ref(uiConfig.animation.short * props.slotIndex * 0.8)
 					v-if="slotData.pinable" 
 					:color="stepColor"
 					class="pin"
+					@click="handlePin"
 				/>
 		
 				<time class="year">
