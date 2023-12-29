@@ -27,7 +27,7 @@ watch(() => props.stepIsActive, newVal => newVal && nextTick(() => listWrapper.v
 const focusedSlotIndex = ref(null)
 
 function handleMouseMove( event ){
-    focusedSlotIndex.value = event.target.closest(".step-slot-wrapper")?.dataset.slotIndex ? parseInt(event.target.closest(".step-slot-wrapper")?.dataset.slotIndex) : null
+    focusedSlotIndex.value = event.target.closest(".slot-wrapper")?.dataset.slotIndex ? parseInt(event.target.closest(".slot-wrapper")?.dataset.slotIndex) : null
 }
 
 function handleMouseLeave(){

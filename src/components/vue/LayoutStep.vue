@@ -105,7 +105,7 @@ function handleClick(){
             border-radius: 0;
         }
 
-        :deep(.step-slot-wrapper){
+        :deep(.slot-wrapper){
     
             &:first-of-type {
                 margin-top: 0.25rem;

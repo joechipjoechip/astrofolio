@@ -59,7 +59,7 @@ const touchOriginX = ref(null)
 const threshold = 0.55
 
 function onTouchStart( event ){
-	const currentStepGrabed = event.target.closest(".step-slot")?.dataset.index
+	const currentStepGrabed = event.target.closest(".slot")?.dataset.index
 	const { x } = useGetEventPosition(event)
 
 	setStepGrabed(true)
