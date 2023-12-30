@@ -46,18 +46,21 @@ function handleMouseLeave(){
 }
 
 // SEARCH LOGIC
-// const searchIsActive = ref(false)
+const videoIsActive = ref(true)
 const rafinedSlots = computed(() => {
-    console.log("computed triggered")
+    // videoIsActive comes to solve a weeiird display bug
+    // when a search is active, the videos can slot change (wtf?!)
+    // the good src is in the DOM but the repaint juste goes wrong
+    // so this bollean comes to solve this tricky shit
+    videoIsActive.value = false
 
     if( props.stepIsActive ){
     
         if( $searchStore.value[props.stepID] === "" ){
-            // searchIsActive.value = false
+            activeVideo()
             return props.slots
         } else {
-            // searchIsActive.value = true
-            console.log("return : ")
+            activeVideo()
             return props.slots.filter(slot => {
                 
                 const returnThisSlot = 
@@ -67,17 +70,21 @@ const rafinedSlots = computed(() => {
                 
                 if( returnThisSlot ){
                     return slot
-                } else {
-                    return
                 }
             })
+
         }
 
     } else {
+        activeVideo()
         return props.slots
     }
     
 })
+
+function activeVideo(){
+    nextTick(() => videoIsActive.value = true)
+}
 
 
 </script>
@@ -95,13 +102,14 @@ const rafinedSlots = computed(() => {
         <SlotItem
             v-for="(slotData, index) in rafinedSlots" :key="index"
 
-            :slotData="slotData"
             :stepColor="stepColor"
+            :slotData="slotData"
+
             :stepIsActive="stepIsActive"
             :slotIndex="index"
             :isHovered="index === focusedSlotIndex"
+            :videoIsActive="videoIsActive"
             
-    
             v-motion
             :initial="{ 
                 y: 500,

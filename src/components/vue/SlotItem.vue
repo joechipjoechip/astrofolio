@@ -28,6 +28,10 @@ const props = defineProps({
 	isHovered: {
 		type: Boolean,
 		required: true
+	},
+	videoIsActive: {
+		type: Boolean,
+		default: false
 	}
 })
 
@@ -108,7 +112,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 			isPined
 		}"
 		:data-slot-index="slotIndex"
-		:style="{ order: isPined ? '01' : (slotIndex + 1) * 10 }"
+		:style="{ order: (slotData.pinable && isPined) ? '01' : (slotIndex + 1) * 10 }"
 	>
 
 		<div class="slot-inner"
@@ -130,7 +134,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 		>
 
 			<SlotVideo 
-				v-if="slotData.special?.video"
+				v-if="slotData.special?.video && videoIsActive"
 				:src="slotData.special.video"
 				:isHovered="isHovered"
 				:isExpanded="isExpanded"

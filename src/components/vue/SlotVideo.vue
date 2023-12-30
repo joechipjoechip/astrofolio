@@ -1,4 +1,6 @@
 <script setup>
+import { onMounted } from 'vue';
+
 const props = defineProps({
     src: {
         type: String,
@@ -12,6 +14,10 @@ const props = defineProps({
         type: Boolean,
         default: false
     }
+})
+
+onMounted(() => {
+    console.log("onMounted de video : ", props.src)
 })
 
 </script>

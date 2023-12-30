@@ -256,7 +256,7 @@ export const stepsWording = {
 				},
 				description: [
 					"Vue2, Nuxt2, ThreeJS",
-					"Blender 3, Miaxamo"
+					"Blender 3, Mixamo"
 				],
 				special: {
 					video: "./videos/onyi/teaser.mp4"
