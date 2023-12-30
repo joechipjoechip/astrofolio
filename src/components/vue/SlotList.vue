@@ -2,7 +2,7 @@
 import { ref, watch, computed, nextTick } from "vue"
 import SlotItem from "@/components/vue/SlotItem.vue"
 import { uiConfig } from "@/assets/uiConfig.js"
-import { searchStore } from "@/stores/globalStore.js"
+import { searchStore } from "@/stores/searchStore.js"
 
 import { useStore } from '@nanostores/vue';
 

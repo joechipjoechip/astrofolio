@@ -18,12 +18,6 @@ export const globalStore = map({
 	}
 })
 
-export const searchStore = map({
-	formation: "",
-	experience: "",
-	bio: ""
-})
-
 export function setName( newName ){
 	globalStore.setKey("name", newName)
 }
@@ -80,12 +74,4 @@ export function setNavigationNavbarIsMoving( bool ){
 	globalStore.setKey("navigation.navbar",
 		Object.assign(globalStore.get().navigation.navbar,  { navbar: { isMoving: bool } })
 	)
-}
-
-
-// SEARCH
-export function setCurrentSearch( payload ){
-	const { key, searchString } = payload
-	searchStore.setKey(key, searchString)
-	console.log("depuis le store : ", searchStore.get()[key])
 }

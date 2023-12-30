@@ -5,7 +5,7 @@ import UiSearch from './icons/uiSearch.vue'
 import { 
 	searchStore, 
 	setCurrentSearch
-} from "@/stores/globalStore.js"
+} from "@/stores/searchStore.js"
 
 import { useStore } from '@nanostores/vue';
 
