@@ -1,7 +1,12 @@
 <script setup>
-import { ref, watch, nextTick } from "vue"
+import { ref, watch, computed, nextTick } from "vue"
 import SlotItem from "@/components/vue/SlotItem.vue"
 import { uiConfig } from "@/assets/uiConfig.js"
+import { searchStore } from "@/stores/globalStore.js"
+
+import { useStore } from '@nanostores/vue';
+
+const $searchStore = useStore(searchStore)
 
 const props = defineProps({
 	slots: {
@@ -17,9 +22,15 @@ const props = defineProps({
     stepColor: {
         type: String,
         required: true
+    },
+
+    stepID: {
+        type: String,
+        required: true
     }
 })
 
+// BASIC LOGIC
 const listWrapper = ref(null)
 
 watch(() => props.stepIsActive, newVal => newVal && nextTick(() => listWrapper.value.scrollIntoView({block: "start"})))
@@ -34,20 +45,56 @@ function handleMouseLeave(){
     focusedSlotIndex.value = null
 }
 
+// SEARCH LOGIC
+const searchIsActive = ref(false)
+const rafinedSlots = computed(() => {
+
+    if( props.stepIsActive ){
+
+        console.log("computed : ", $searchStore.value[props.stepID])
+    
+        if( $searchStore.value[props.stepID] === "" ){
+            searchIsActive.value = false
+            return props.slots
+        } else {
+            searchIsActive.value = true
+            console.log("return : ")
+            return props.slots.filter(slot => {
+                
+                const returnThisSlot = 
+                    slot.expand?.technos?.filter(techno => techno.name.toLowerCase().includes($searchStore.value[props.stepID].toLowerCase())).length 
+                    || slot.description?.filter(descriptionLine => descriptionLine.toLowerCase().includes($searchStore.value[props.stepID].toLowerCase())).length 
+    
+                
+                if( returnThisSlot ){
+                    return slot
+                } else {
+                    return
+                }
+            })
+        }
+
+    } else {
+        return props.slots
+    }
+    
+})
+
+
 </script>
 
 <template>
 
     <div class="list"
+        v-if="stepIsActive"
         ref="listWrapper"
         @mousemove="handleMouseMove"
         @mouseleave="handleMouseLeave"
     >
 
-        <!-- :soundEnabled="$store.sound.enabled" -->
+        <!-- :soundEnabled="$searchStore.sound.enabled" -->
         <SlotItem
-            v-if="stepIsActive"
-            v-for="(slotData, index) in slots" :key="index"
+            v-for="(slotData, index) in rafinedSlots" :key="index"
 
             :slotData="slotData"
             :stepColor="stepColor"
@@ -81,10 +128,9 @@ function handleMouseLeave(){
     // width: 100%;
     height: 100%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     row-gap: 0.5rem;
 
-    
     margin-left: 2.5%;
     margin-right: 2rem;
     direction: ltr;

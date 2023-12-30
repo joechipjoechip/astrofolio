@@ -25,6 +25,7 @@ const props = defineProps({
 			:slots="wording.slots"
 			:stepIsActive="isActive"
 			:stepColor="wording.color"
+			:stepID="wording.id"
 		/>
 	</LayoutStep>
 

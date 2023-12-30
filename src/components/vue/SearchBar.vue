@@ -3,13 +3,13 @@ import { ref } from "vue"
 import UiSearch from './icons/uiSearch.vue'
 
 import { 
-	globalStore, 
+	searchStore, 
 	setCurrentSearch
 } from "@/stores/globalStore.js"
 
 import { useStore } from '@nanostores/vue';
 
-const $store = useStore(globalStore)
+const $store = useStore(searchStore)
 
 const props = defineProps({
 	color: {
@@ -53,7 +53,7 @@ function handleKeyUp(){
 			type="text"
 			ref="textInputRef"
 			:placeholder="placeholder"
-			:value="$store.currentSearch[stepID]"
+			:value="$store[stepID]"
 			@keyup="handleKeyUp"
 		>
 
