@@ -64,6 +64,8 @@ export function setIsCurrentlyManipulatedIndex( payload ){
 }
 
 // TODO : à tester (si la key fonctionne)
+// response : ca marche pas, le niveau de profondeur n'est pas géré par le map
+// enfin, si, mais on perd la réactivité
 export function setNavigationNavbarPosition( obj ){
 	globalStore.setKey("navigation.navbar",
 		Object.assign(globalStore.get().navigation.navbar,  { navbar: { position: obj } })
