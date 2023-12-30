@@ -396,7 +396,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 		&.isExpanded {
 
 			.slot-inner {	
-				background-color: var(--color-contrast-55);
+				background-color: var(--color-contrast-80);
 			}
 
 			.level-1,
@@ -420,7 +420,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 		overflow: hidden;
 		width: 100%;
 		height: 100%;
-		background-color: var(--color-contrast-40);
+		background-color: var(--color-contrast-55);
 		backdrop-filter: blur(15px);
 		border-radius: 0 0 85rem 0;
 
@@ -552,6 +552,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 				text-align: left;
 				text-transform: capitalize;
 				color: var(--color-main-90);
+				font-style: italic;
 			}
 
 			.location {
@@ -627,7 +628,7 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 			.name,
 			.description {
 				z-index: 40;
-				background-color: var(--color-contrast-40);
+				background-color: var(--color-contrast-70);
 				display: flex;
 				flex-flow: column nowrap;
 				justify-content: center;

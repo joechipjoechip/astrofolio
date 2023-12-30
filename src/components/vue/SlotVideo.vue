@@ -58,7 +58,7 @@ const props = defineProps({
         &.isHovered {
 
             &::before {
-                opacity: 1;
+                opacity: 0.25;
             }
 
             .video-player {
