@@ -46,18 +46,17 @@ function handleMouseLeave(){
 }
 
 // SEARCH LOGIC
-const searchIsActive = ref(false)
+// const searchIsActive = ref(false)
 const rafinedSlots = computed(() => {
+    console.log("computed triggered")
 
     if( props.stepIsActive ){
-
-        console.log("computed : ", $searchStore.value[props.stepID])
     
         if( $searchStore.value[props.stepID] === "" ){
-            searchIsActive.value = false
+            // searchIsActive.value = false
             return props.slots
         } else {
-            searchIsActive.value = true
+            // searchIsActive.value = true
             console.log("return : ")
             return props.slots.filter(slot => {
                 
@@ -125,10 +124,11 @@ const rafinedSlots = computed(() => {
 
 <style lang="scss" scoped>
 .list {
-    // width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
     row-gap: 0.5rem;
 
     margin-left: 2.5%;
