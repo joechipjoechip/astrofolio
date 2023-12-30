@@ -312,9 +312,6 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 
 <style lang="scss" scoped>
 
-
-
-
 .slot {
 
 	&-wrapper {
@@ -363,6 +360,10 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 
 					.expand-button {
 						transform: translateY(-50%) rotate(-90deg);
+					}
+
+					.title {
+						width: 50%;
 					}
 
 					.description {
@@ -553,6 +554,9 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 				text-transform: capitalize;
 				color: var(--color-main-90);
 				font-style: italic;
+
+				will-change: width;
+				transition: width var(--transitionDurationMedium);
 			}
 
 			.location {
@@ -827,7 +831,5 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 	}
 
 }
-
-
 
 </style>
