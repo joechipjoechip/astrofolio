@@ -1,6 +1,7 @@
 export const stepsWording = {
 	
 	"formation": {
+		id: "formation",
 		title: "Education",
 		catcher: "hey, ici cest la formation",
 		stepStyle: "squared",
@@ -158,6 +159,7 @@ export const stepsWording = {
 	},
 
 	"bio": {
+		id: "bio",
 		title: "Bio",
 		catcher: "hey, ici cest la bio",
 		stepStyle: "line",
@@ -166,6 +168,7 @@ export const stepsWording = {
 	},
 
 	"experience": {
+		id: "experience",
 		title: "Experiences",
 		catcher: "hey, ici cest la experience",
 		stepStyle: "line",

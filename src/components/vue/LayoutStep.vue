@@ -56,6 +56,7 @@ function handleClick(){
                         class="step-head-search"
                         :color="wording.color" 
                         :placeholder="wording.placeholder"
+                        :stepID="wording.id"
 
                         v-motion
                         :initial="{ 

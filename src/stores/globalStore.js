@@ -16,7 +16,10 @@ export const globalStore = map({
 	sound: {
 		enabled: true
 	},
-	currentSearch: ""
+	currentSearch: {
+		formation: "",
+		experience: ""
+	}
 })
 
 export function setName( newName ){
@@ -64,7 +67,7 @@ export function setIsCurrentlyManipulatedIndex( payload ){
 	)
 }
 
-// TDO : à tester (si la key fonctionne)
+// TODO : à tester (si la key fonctionne)
 export function setNavigationNavbarPosition( obj ){
 	globalStore.setKey("navigation.navbar",
 		Object.assign(globalStore.get().navigation.navbar,  { navbar: { position: obj } })
@@ -80,5 +83,9 @@ export function setNavigationNavbarIsMoving( bool ){
 
 // SEARCH
 export function setCurrentSearch( payload ){
-	globalStore.setKey("currentSearch", payload)
+	const { key, searchString } = payload
+	const alteredObject = globalStore.get().currentSearch
+	alteredObject[key] = searchString
+
+	globalStore.setKey("currentSearch", alteredObject)
 }

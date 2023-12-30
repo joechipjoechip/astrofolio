@@ -4,7 +4,6 @@ import * as drei from '@react-three/drei'
 import * as fiber from '@react-three/fiber'
 
 import "./HelloReact.css"
-import { useEffect } from "react"
 
 import { useStore } from '@nanostores/react';
 import { globalStore, setColorMode } from "@/stores/globalStore.js"

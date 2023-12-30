@@ -2,6 +2,15 @@
 import { ref } from "vue"
 import UiSearch from './icons/uiSearch.vue'
 
+import { 
+	globalStore, 
+	setCurrentSearch
+} from "@/stores/globalStore.js"
+
+import { useStore } from '@nanostores/vue';
+
+const $store = useStore(globalStore)
+
 const props = defineProps({
 	color: {
 		type: String,
@@ -10,15 +19,21 @@ const props = defineProps({
 	placeholder: {
 		type: String,
 		default: "search somthing"
+	},
+	stepID: {
+		type: String,
+		required: true
 	}
 })
 
 const textInputRef = ref(null)
 
-// function handleKeyUp(){
-// 	console.log("event keydown : textInputRef value : ", textInputRef.value.value)
-// 	store.setCurrentSearch(textInputRef.value.value)
-// }
+function handleKeyUp(){
+	setCurrentSearch({
+		key: props.stepID,
+		searchString: textInputRef.value.value
+	})
+}
 
 
 </script>
@@ -38,6 +53,7 @@ const textInputRef = ref(null)
 			type="text"
 			ref="textInputRef"
 			:placeholder="placeholder"
+			:value="$store.currentSearch[stepID]"
 			@keyup="handleKeyUp"
 		>
 
