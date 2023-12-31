@@ -33,9 +33,13 @@ const props = defineProps({
 // BASIC LOGIC
 const listWrapper = ref(null)
 
-watch(() => props.stepIsActive, newVal => newVal && nextTick(() => listWrapper.value.scrollIntoView({block: "start"})))
+watch(() => props.stepIsActive, newVal => newVal && nextTick(() => scrollListToTop()))
 
 const focusedSlotIndex = ref(null)
+
+function scrollListToTop(){
+    listWrapper.value.scrollIntoView({block: "start", behavior: "smooth"})
+}
 
 function handleMouseMove( event ){
     focusedSlotIndex.value = event.target.closest(".slot-wrapper")?.dataset.slotIndex ? parseInt(event.target.closest(".slot-wrapper")?.dataset.slotIndex) : null
@@ -46,53 +50,48 @@ function handleMouseLeave(){
 }
 
 // SEARCH LOGIC
-const videoIsActive = ref(true)
-const rafinedSlots = computed(() => {
-    // videoIsActive comes to solve a weeiird display bug
-    // when a search is active, the videos can slot change (wtf?!)
-    // the good src is in the DOM but the repaint juste goes wrong
-    // so this bollean comes to solve this tricky shit
-    videoIsActive.value = false
-
-    if( props.stepIsActive ){
-    
-        if( $searchStore.value[props.stepID] === "" ){
-            activeVideo()
-            return props.slots
-        } else {
-            activeVideo()
-            return props.slots.filter(slot => {
-                
-                const returnThisSlot = 
-                    slot.expand?.technos?.filter(techno => techno.name.toLowerCase().includes($searchStore.value[props.stepID].toLowerCase())).length 
-                    || slot.description?.filter(descriptionLine => descriptionLine.toLowerCase().includes($searchStore.value[props.stepID].toLowerCase())).length 
-    
-                
-                if( returnThisSlot ){
-                    return slot
-                }
-            })
-
-        }
-
+const searchIsActive = computed(() => {
+    if( $searchStore.value[props.stepID] !== "" ){
+        scrollListToTop()
+        return true
     } else {
-        activeVideo()
-        return props.slots
+        return false
     }
     
 })
+const rafinedData = computed(() => {
 
-function activeVideo(){
-    nextTick(() => videoIsActive.value = true)
-}
+    if( !searchIsActive.value ){
 
+        props.slots.forEach(slot => {
+            slot.isDisplayed = true
+        });
+
+        return props.slots
+
+    } else {
+
+        props.slots.forEach(slot => {
+            const returnThisSlot = 
+                slot.expand?.technos?.filter(techno => techno.name.toLowerCase().includes($searchStore.value[props.stepID].toLowerCase())).length 
+                || slot.description?.filter(descriptionLine => descriptionLine.toLowerCase().includes($searchStore.value[props.stepID].toLowerCase())).length 
+     
+            slot.isDisplayed = returnThisSlot
+           
+        });
+
+        return props.slots
+
+    }
+
+})
 
 </script>
 
 <template>
 
     <div class="list"
-        v-if="stepIsActive"
+        v-show="stepIsActive"
         ref="listWrapper"
         @mousemove="handleMouseMove"
         @mouseleave="handleMouseLeave"
@@ -100,30 +99,16 @@ function activeVideo(){
 
         <!-- :soundEnabled="$searchStore.sound.enabled" -->
         <SlotItem
-            v-for="(slotData, index) in rafinedSlots" :key="index"
-
+            v-for="(slotData, index) in rafinedData" :key="index"
+            v-show="slotData.isDisplayed && stepIsActive"
+            
             :stepColor="stepColor"
             :slotData="slotData"
 
             :stepIsActive="stepIsActive"
             :slotIndex="index"
             :isHovered="index === focusedSlotIndex"
-            :videoIsActive="videoIsActive"
-            
-            v-motion
-            :initial="{ 
-                y: 500,
-                scale: 0.001,
-            }"
-            :enter="{ 
-                y: 0,
-                scale: 1,
-    
-                transition: {
-                    duration: uiConfig.animation.long,
-                    ease: 'backInOut',
-                }
-            }"
+            :searchIsActive="searchIsActive"
         />
 
     </div>

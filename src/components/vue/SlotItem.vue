@@ -1,6 +1,6 @@
 <script setup>
 
-import { ref, onMounted, watch, nextTick } from "vue"
+import { ref, computed, onMounted, watch, nextTick } from "vue"
 
 import IconsUiDoubleChevronDown from "./icons/uiDoubleChevronDown.vue"
 import IconUiPin from "./icons/uiPin.vue"
@@ -17,6 +17,10 @@ const props = defineProps({
 		type: String,
 		default: "currentColor"
 	},
+	stepIsActive: {
+		type: Boolean,
+		default: false
+	},
 	slotIndex: {
 		type: Number,
 		required: true
@@ -29,7 +33,7 @@ const props = defineProps({
 		type: Boolean,
 		required: true
 	},
-	videoIsActive: {
+	searchIsActive: {
 		type: Boolean,
 		default: false
 	}
@@ -97,231 +101,224 @@ function handlePin(){
 
 // ANIMATION LOGIC
 const speed = ref(0.2)
-const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.slotIndex +2)) * 0.8)
+const idealDelay = computed(() => uiConfig.animation.short * (isPined.value ? 1 : (props.slotIndex +2)) * 0.8)
+const idealDelayString = computed(() => props.searchIsActive ? "0s" : `${idealDelay.value / 1000}s`)
 
 </script>
 
 <template>
-
-	<article 
-		ref="slotWrapperElement"
-		class="slot-wrapper"
-		:class="{
-			isHovered,
-			isExpanded,
-			isPined
-		}"
-		:data-slot-index="slotIndex"
-		:style="{ order: (slotData.pinable && isPined) ? '01' : (slotIndex + 1) * 10 }"
-	>
-
-		<div class="slot-inner"
-			v-motion
-			:initial="{ 
-				opacity: 0,
-				y:  1000 * speed,
+	<Transition name="animation-slot">
+		<article 
+			ref="slotWrapperElement"
+			class="slot-wrapper"
+			:class="{
+				isHovered,
+				isExpanded,
+				isPined,
+				searchIsActive
 			}"
-			:delay="idealDelay"
-			:enter="{ 
-				opacity: 1,
-				y: 0,
-
-				transition: {
-					duration: uiConfig.animation.medium,
-					ease: 'easeInOut'
-				},
-			}"
+			:data-slot-index="slotIndex"
+			:style="{ order: (slotData.pinable && isPined) ? '01' : (slotIndex + 1) * 10 }"
 		>
-
-			<SlotVideo 
-				v-if="slotData.special?.video && videoIsActive"
-				:src="slotData.special.video"
-				:isHovered="isHovered"
-				:isExpanded="isExpanded"
-			/>
-			
-			<div class="slot-head">
-
-				<IconUiPin 
-					v-if="slotData.pinable" 
-					:color="isPined ? 'var(--color-main-90)' : 'currentColor'"
-					class="pin"
-					@click="handlePin"
-				/>
-		
-				<time class="year">
-					{{ slotData.date.year }}
-				</time>
-		
-				<time class="duration" v-html="slotData.date.duration">
-				</time>
-		
-			</div>
-		
-		
-			<div class="slot-body">
-				
-				<div 
-					class="level-1"
-					@click="handleExpand"
-					:style="{ cursor: slotData.expand ? 'pointer' : 'default' }"
-				>
-					<IconsUiDoubleChevronDown 
-						v-if="slotData.expand"
-						class="expand-button"
-						color="white"
-					/>
-					<h5 class="title"
-						v-motion
-						style="will-change: transform;"
-						:initial="{ 
-							x: -1000 * speed,
-						}"
-						:enter="{ 
-							x: 0,
 	
-							transition: {
-								duration: uiConfig.animation.long,
-								// onPlay: handleStart,
-								delay: (idealDelay * 0.8) + 100,
-								ease: 'backInOut'
-							}
-						}"
-					>
-						{{ slotData.title }}
-						<span class="location">{{ slotData.location }}</span>
-					</h5>
+			<div class="slot-inner">
+	
+				<SlotVideo 
+					v-if="slotData.special?.video"
+					:src="slotData.special.video"
+					:isHovered="isHovered"
+					:isExpanded="isExpanded"
+				/>
+				
+				<div class="slot-head">
+	
+					<IconUiPin 
+						v-if="slotData.pinable" 
+						:color="isPined ? 'var(--color-main-90)' : 'currentColor'"
+						class="pin"
+						@click="handlePin"
+					/>
 			
-					<h4 class="name" v-html="slotData.body"></h4>
+					<time class="year">
+						{{ slotData.date.year }}
+					</time>
 			
-					<div class="description">
+					<time class="duration" v-html="slotData.date.duration">
+					</time>
 			
-						<p v-for="sentence in slotData.description" :key="sentence.id" 
-							v-html="sentence"
-						></p>
-			
-					</div>
 				</div>
-
-				<div class="level-2" v-if="slotData.expand">
-
-					<section 
-						ref="technosWrapper" 
-						class="technos-wrapper" 
-						v-show="isExpanded"
+			
+			
+				<div class="slot-body">
+					
+					<div 
+						v-if="stepIsActive"
+						class="level-1"
+						@click="handleExpand"
+						:style="{ cursor: slotData.expand ? 'pointer' : 'default' }"
 					>
-
-						<div 
-							v-if="technosAreVisible"
-							v-for="(techno, technoIndex) in slotData.expand.technos" :key="technoIndex"
-							class="techno-slot"
+						<IconsUiDoubleChevronDown 
+							v-if="slotData.expand"
+							class="expand-button"
+							color="white"
+						/>
+						<h5 class="title"
 							v-motion
-							style="will-change: opacity, transform;"
+							style="will-change: transform, opacity;"
 							:initial="{ 
-								opacity: 0,
-								x:  -800 * speed,
+								x: -1000 * speed,
+								opacity: 0
 							}"
-							:delay="technoIndex * 70"
 							:enter="{ 
-								opacity: 1,
 								x: 0,
-
+								opacity: 1,
+		
 								transition: {
-									duration: uiConfig.animation.medium,
-									ease: 'backOut'
-								},
+									duration: uiConfig.animation.long,
+									// onPlay: handleStart,
+									delay: idealDelay - 100,
+									ease: 'backInOut'
+								}
 							}"
 						>
-
-							<img 
-								class="techno-logo"
-								:src="techno.logoSrc" 
-								alt=""
-							>
-
-							<p class="techno-name">
-								{{  techno.name }}
-							</p>
-
+							{{ slotData.title }}
+							<span class="location">{{ slotData.location }}</span>
+						</h5>
+				
+						<h4 class="name" v-html="slotData.body"></h4>
+				
+						<div class="description">
+				
+							<p v-for="sentence in slotData.description" :key="sentence.id" 
+								v-html="sentence"
+							></p>
+				
 						</div>
-					</section>
-
-					<section class="texts-wrapper" v-if="isExpanded">
-
-						<div v-for="(block, index) in slotData.expand.texts" :key="block.id" class="text-block">
-
+					</div>
+	
+					<div class="level-2" v-if="slotData.expand">
+	
+						<section 
+							ref="technosWrapper" 
+							class="technos-wrapper" 
+							v-show="isExpanded"
+						>
+	
 							<div 
-								v-for="text in block" 
-								:key="text.id" 
-								class="text-item"
+								v-if="technosAreVisible"
+								v-for="(techno, technoIndex) in slotData.expand.technos" :key="technoIndex"
+								class="techno-slot"
+								v-motion
+								style="will-change: opacity, transform;"
+								:initial="{ 
+									opacity: 0,
+									x:  -800 * speed,
+								}"
+								:delay="technoIndex * 70"
+								:enter="{ 
+									opacity: 1,
+									x: 0,
+	
+									transition: {
+										duration: uiConfig.animation.medium,
+										ease: 'backOut'
+									},
+								}"
 							>
-
-								<h6 :id="text.id"
-									v-motion
-									style="will-change: opacity, transform;"
-									:initial="{ 
-										opacity: 0,
-										x:  -280 * speed,
-									}"
-									:delay="375 * (index + 1)"
-									
-									:enter="{ 
-										opacity: 1,
-										x: 0,
-
-										transition: {
-											duration: uiConfig.animation.medium,
-											ease: 'backOut'
-										},
-									}"
-								>{{ text.title }}</h6>
-
-								<p 	v-for="(line, index) in text.lines" :key="line.index"
-									v-motion
-									style="will-change: opacity, transform;"
-									:initial="{ 
-										opacity: 0,
-										y:  350 * speed,
-									}"
-									:delay="100 * (index + 3)"
-									:enter="{ 
-										opacity: 1,
-										y: 0,
-
-										transition: {
-											duration: uiConfig.animation.mediumPlus,
-											ease: 'backOut'
-										},
-									}"
-
-									v-html="line"
-								></p>
-
+	
+								<img 
+									class="techno-logo"
+									:src="techno.logoSrc" 
+									alt=""
+								>
+	
+								<p class="techno-name">
+									{{  techno.name }}
+								</p>
+	
 							</div>
-
-						</div>
-
-					</section>
-
-				</div>
-		
-			</div>
+						</section>
+	
+						<section class="texts-wrapper" v-if="isExpanded">
+	
+							<div v-for="(block, index) in slotData.expand.texts" :key="block.id" class="text-block">
+	
+								<div 
+									v-for="text in block" 
+									:key="text.id" 
+									class="text-item"
+								>
+	
+									<h6 :id="text.id"
+										v-motion
+										style="will-change: opacity, transform;"
+										:initial="{ 
+											opacity: 0,
+											x:  -280 * speed,
+										}"
+										:delay="375 * (index + 1)"
+										
+										:enter="{ 
+											opacity: 1,
+											x: 0,
+	
+											transition: {
+												duration: uiConfig.animation.medium,
+												ease: 'backOut'
+											},
+										}"
+									>{{ text.title }}</h6>
+	
+									<p 	v-for="(line, index) in text.lines" :key="line.index"
+										v-motion
+										style="will-change: opacity, transform;"
+										:initial="{ 
+											opacity: 0,
+											y:  350 * speed,
+										}"
+										:delay="100 * (index + 3)"
+										:enter="{ 
+											opacity: 1,
+											y: 0,
+	
+											transition: {
+												duration: uiConfig.animation.mediumPlus,
+												ease: 'backOut'
+											},
+										}"
+	
+										v-html="line"
+									></p>
+	
+								</div>
+	
+							</div>
+	
+						</section>
+	
+					</div>
 			
-		</div>
-
-
-	</article>
+				</div>
+				
+			</div>
+	
+	
+		</article>
+	</Transition>
 
 </template>
 
 <style lang="scss" scoped>
 
+$slotHeightBase: 9rem;
+$slotHeightHovered: 14rem;
+$slotHeightExpanded: 45rem;
 .slot {
 
 	&-wrapper {
 		
 		width: 100%;
-		height: 9rem;
+		height: $slotHeightBase;
 		box-sizing: border-box;
 		margin-top: 0;
 
@@ -333,11 +330,11 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 
 		&.isHovered {
 			margin: 2rem 0;
-			height: 14rem;
+			height: $slotHeightHovered;
 		}
 
 		&.isExpanded {
-			height: 45rem;
+			height: $slotHeightExpanded;
 			margin: 0;
 
 			@media #{$desktop} {
@@ -834,6 +831,54 @@ const idealDelay = ref(uiConfig.animation.short * (isPined.value ? 1 : (props.sl
 
 	}
 
+}
+
+.animation-slot {
+	&-enter-active,
+	&-leave-active {
+		&.slot-wrapper {
+			pointer-events: none !important;
+			position: relative;
+
+			will-change: transform, opacity, height;
+			transition: 
+				transform .35s v-bind(idealDelayString) ease-out, 
+				opacity .35s v-bind(idealDelayString),
+				height .35s v-bind(idealDelayString);
+		}
+	}
+
+	&-enter-from,
+	&-leave-to {
+		// begin
+		&.slot-wrapper {
+			transform: translate3d(0, 25rem, 0) scale(0.75);
+			opacity: 0;
+
+			&.searchIsActive {
+				height: 0;
+			}
+		}
+	}
+	
+	&-enter-to,
+	&-leave-from {
+		// end
+		&.slot-wrapper {
+			pointer-events: all;
+			transform: translate3d(0, 0, 0) scale(1);
+			opacity: 1;
+
+			&.searchIsActive {
+				height: $slotHeightBase;
+				&.isExpanded {
+					height: $slotHeightExpanded;
+				}
+			}
+
+		
+		}
+	}
 }
 
 </style>
