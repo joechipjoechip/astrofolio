@@ -101,7 +101,14 @@ function handlePin(){
 
 // ANIMATION LOGIC
 const speed = ref(0.2)
-const idealDelay = computed(() => uiConfig.animation.short * (isPined.value ? 1 : (props.slotIndex +2)) * 0.8)
+const idealDelay = computed(() => {
+	if( props.searchIsActive ){
+		return 0
+	} else {
+		return uiConfig.animation.short * (isPined.value ? 1 : (props.slotIndex +2)) * 0.8
+	}
+
+})
 const idealDelayString = computed(() => props.searchIsActive ? "0s" : `${idealDelay.value / 1000}s`)
 
 </script>
@@ -388,7 +395,7 @@ $slotHeightExpanded: 45rem;
 			
 			.level-2 {
 				display: flex;
-				height: calc(80% - 2rem);
+				height: calc(80% - 1rem);
 				opacity: 1;
 			}
 
@@ -698,6 +705,10 @@ $slotHeightExpanded: 45rem;
 						flex-direction: column;
 						align-items: center;
 						justify-content: flex-start;
+
+						&:last-of-type {
+							padding-bottom: 1rem;
+						}
 
 						&:hover {
 							.techno {
