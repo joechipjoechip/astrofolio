@@ -38,7 +38,7 @@ watch(() => props.stepIsActive, newVal => newVal && nextTick(() => scrollListToT
 const focusedSlotIndex = ref(null)
 
 function scrollListToTop(){
-    listWrapper.value.scrollIntoView({block: "start", behavior: "smooth"})
+    listWrapper.value && listWrapper.value.scrollIntoView({block: "start", behavior: "smooth"})
 }
 
 function handleMouseMove( event ){
@@ -50,8 +50,9 @@ function handleMouseLeave(){
 }
 
 // SEARCH LOGIC
+const searchRegEx = computed(() => new RegExp($searchStore.value[props.stepID], "gi"))
 const searchIsActive = computed(() => {
-    if( $searchStore.value[props.stepID] !== "" ){
+    if( $searchStore.value[props.stepID].length > 0 ){
         scrollListToTop()
         return true
     } else {
@@ -59,6 +60,7 @@ const searchIsActive = computed(() => {
     }
     
 })
+
 const rafinedData = computed(() => {
 
     if( !searchIsActive.value ){
@@ -72,11 +74,8 @@ const rafinedData = computed(() => {
     } else {
 
         props.slots.forEach(slot => {
-            const returnThisSlot = 
-                slot.expand?.technos?.filter(techno => techno.name.toLowerCase().includes($searchStore.value[props.stepID].toLowerCase())).length 
-                || slot.description?.filter(descriptionLine => descriptionLine.toLowerCase().includes($searchStore.value[props.stepID].toLowerCase())).length 
-     
-            slot.isDisplayed = returnThisSlot
+            
+            slot.isDisplayed = defineSlotVisibility(slot)
            
         });
 
@@ -85,6 +84,41 @@ const rafinedData = computed(() => {
     }
 
 })
+
+function defineSlotVisibility( slot ){
+    let isVisible = false
+
+    Object.keys(slot).forEach(baseKey => {
+        // console.log("baseKey : ", typeof slot[baseKey])
+
+        if( typeof slot[baseKey] === "object" ){
+
+            // console.log("typeof object")
+            // TODO : do recursive shit
+
+        } else if( typeof slot[baseKey] === "string" ){
+
+            console.log("typeof string")
+
+            if( slot[baseKey].match(searchRegEx.value) ){
+
+                isVisible = true
+
+            }
+
+        } else {
+
+            // console.log("typeof default")
+
+        }
+
+    })
+
+    return isVisible
+
+}
+
+
 
 </script>
 
@@ -109,6 +143,7 @@ const rafinedData = computed(() => {
             :slotIndex="index"
             :isHovered="index === focusedSlotIndex"
             :searchIsActive="searchIsActive"
+            :searchRegEx="searchRegEx"
         />
 
     </div>

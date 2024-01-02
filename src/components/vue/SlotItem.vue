@@ -36,6 +36,10 @@ const props = defineProps({
 	searchIsActive: {
 		type: Boolean,
 		default: false
+	},
+	searchRegEx: {
+		type: Object,
+		required: true
 	}
 })
 
@@ -110,6 +114,12 @@ const idealDelay = computed(() => {
 
 })
 const idealDelayString = computed(() => props.searchIsActive ? "0s" : `${idealDelay.value / 1000}s`)
+
+// SEARCH LOGIC
+function insertHighlight( string ){
+	const captured = string.match(props.searchRegEx)
+	return string.replace(captured, `<span class="highlight">${captured}</span>`)
+}
 
 </script>
 
@@ -187,14 +197,18 @@ const idealDelayString = computed(() => props.searchIsActive ? "0s" : `${idealDe
 									ease: 'backInOut'
 								}
 							}"
-						>
-							{{ slotData.title }}
-							<span class="location">{{ slotData.location }}</span>
-						</h5>
+							v-html="searchIsActive ? insertHighlight(slotData.title) : slotData.title"
+						/>
+						<span 
+							class="location"
+							v-html="searchIsActive ? insertHighlight(slotData.location) : slotData.location"
+						/>
 				
-						<h4 class="name" v-html="slotData.body"></h4>
+						<div class="name-container">
+							<h4 class="name-inner" v-html="searchIsActive ? insertHighlight(slotData.body) : slotData.body" />
+						</div>
 				
-						<div class="description">
+						<div class="description-container">
 				
 							<p v-for="sentence in slotData.description" :key="sentence.id" 
 								v-html="sentence"
@@ -320,6 +334,12 @@ const idealDelayString = computed(() => props.searchIsActive ? "0s" : `${idealDe
 $slotHeightBase: 9rem;
 $slotHeightHovered: 14rem;
 $slotHeightExpanded: 45rem;
+
+:deep(.highlight) {
+	background-color: orange !important;
+	border-radius: 0.35rem;
+	overflow: hidden;
+}
 .slot {
 
 	&-wrapper {
@@ -328,6 +348,7 @@ $slotHeightExpanded: 45rem;
 		height: $slotHeightBase;
 		box-sizing: border-box;
 		margin-top: 0;
+		text-transform: none;
 
 		will-change: margin, height;
 
@@ -374,19 +395,21 @@ $slotHeightExpanded: 45rem;
 						width: 50%;
 					}
 
-					.description {
+					.description-container {
 						width: 0%;
 						margin: 0;
 					}
 					
-					.name {
+					.name-container {
 						width: 100%;
 						padding: 0;
 					}
 					
 					.description,
 					.name {
-						background-color: transparent;
+						&-container {
+							background-color: transparent;
+						}
 					}
 
 				}
@@ -559,7 +582,7 @@ $slotHeightExpanded: 45rem;
 				font-size: 2rem;
 				width: 35%;
 				text-align: left;
-				text-transform: capitalize;
+				// text-transform: capitalize;
 				color: var(--color-main-90);
 				font-style: italic;
 
@@ -584,7 +607,7 @@ $slotHeightExpanded: 45rem;
 					transform var(--transitionDurationLong);
 			}
 			
-			.name {
+			.name-container {
 				width: 25%;
 				font-size: var(--font-size-medium);
 				font-weight: bold;
@@ -605,7 +628,7 @@ $slotHeightExpanded: 45rem;
 				}
 			}
 			
-			.description {
+			.description-container {
 				display: block;
 				font-size: var(--font-size-medium);
 				width: 40%;
@@ -639,12 +662,14 @@ $slotHeightExpanded: 45rem;
 
 			.name,
 			.description {
-				z-index: 40;
-				background-color: var(--color-contrast-70);
-				display: flex;
-				flex-flow: column nowrap;
-				justify-content: center;
-				height: 80%;
+				&-container {
+					z-index: 40;
+					background-color: var(--color-contrast-70);
+					display: flex;
+					flex-flow: column nowrap;
+					justify-content: center;
+					height: 80%;
+				}
 			}
 
 			.title,
