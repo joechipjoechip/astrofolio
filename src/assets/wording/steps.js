@@ -729,7 +729,7 @@ export const stepsWording = {
 					duration: "CDI : 3 years and 6 months (of <span class='color-love-font'>❤</span>)"
 				},
 				description: [
-					"Vanilla Javascript, Vue, React, Node, PHP,",
+					"Vanilla Javascript, Vue, React, NodeJS, PHP,",
 					"Twig, Blade, Drupal, Wordpress, Laravel, .."
 				],
 				special: {
