@@ -50,7 +50,11 @@ function handleMouseLeave(){
 }
 
 // SEARCH LOGIC
-const searchRegEx = computed(() => new RegExp($searchStore.value[props.stepID], "gi"))
+const searchRegEx = computed(() => new RegExp(escapeRegExp($searchStore.value[props.stepID]), "gi"))
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 const searchIsActive = computed(() => {
     scrollListToTop()
 
