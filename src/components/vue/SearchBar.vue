@@ -103,7 +103,7 @@ function handleKeyUp(){
 					transform: translateY(-50%) translateX(-50%);
 					border-radius: 50%;
 
-					background-color: var(--color-main-100);
+					background-color: white;
 				}
 
 				svg {
