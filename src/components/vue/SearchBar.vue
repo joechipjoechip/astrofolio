@@ -40,7 +40,10 @@ function handleKeyUp(){
 
 <template>
 
-	<div class="search-wrapper">
+	<div 
+		class="search-wrapper"
+		:class="{ isActive: $store[stepID].length > 1 }"
+	>
 
 		<div class="icon">
 			<div class="icon-bg"></div>
@@ -69,14 +72,20 @@ function handleKeyUp(){
 			background-color: var(--color-contrast-45);
 			border-radius: 999px;
 			backdrop-filter: blur(8px);
+			border: 2px solid transparent;
 
 			display: flex;
 			flex-flow: row nowrap;
 			justify-content: flex-start;
 			align-items: center;
 			padding: 0.25rem;
-
 			cursor: pointer;
+
+			transition: border var(--transitionDurationMediumPlus);
+
+			&.isActive {
+				border: 2px solid v-bind(color);
+			}
 
 			.icon {
 				position: relative;

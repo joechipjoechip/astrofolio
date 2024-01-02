@@ -442,7 +442,7 @@ export const stepsWording = {
 							{
 								title: "Interventions",
 								lines: [
-									"Maintenance Corrective et Evolutive",
+									"TMA : Maintenance Corrective et Evolutive",
 									"&nbsp;",
 									"Réharmonisation / Refactorisation des sidebars du site (panier, recherche, mon compte, etc)",
 									"&nbsp;",
