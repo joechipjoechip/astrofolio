@@ -225,12 +225,17 @@ export const stepsWording = {
 							logoSrc: "./images/logos/git.jpg"
 						},
 					],
+					links: [
+						{
+							href: "https://www.carrebasset2024.com",
+							text: "www.carrebasset2024.com"
+						}
+					],
 					texts: [
 						[
 							{
 								title: "Contexte",
 								lines: [
-									'<a href="https://www.carrebasset2024.com" target="Blank">www.carrebasset2024.com</a>',
 									"Pour la nouvelle année (2024) le besoin de l'agence était une carte de voeux digitale avec un mini jeu à envoyer à ses clients"
 								]
 							},
@@ -420,12 +425,17 @@ export const stepsWording = {
 							logoSrc: "./images/logos/jira.jpg"
 						},
 					],
+					links: [
+						{
+							href: "https://www.zadig-et-voltaire.com",
+							text: "www.zadig-et-voltaire.com"
+						}
+					],
 					texts: [
 						[
 							{
 								title: "Contexte",
 								lines: [
-									'<a href="https://www.zadig-et-voltaire.com" target="Blank">www.zadig-et-voltaire.com</a>',
 									"Site eCommerce i18n à fort traffic"
 								]
 							},
@@ -601,14 +611,18 @@ export const stepsWording = {
 							logoSrc: "./images/logos/git.jpg"
 						},
 					],
+					links: [
+						{
+							href: "http://www.judithcreativeagency.fr",
+							text: "www.judithcreativeagency.fr"
+						}
+					],
 					texts: [
 						[
 							{
 								title: "Contexte",
 								lines: [
-									"Création d'un CMS custom pour une agence de social content",
-									'<a href="http://www.judithcreativeagency.fr" target="Blank">www.judithcreativeagency.fr</a>',
-									"&nbsp;"
+									"Création d'un CMS custom pour une agence de social content"
 								]
 							},
 							{
@@ -672,14 +686,19 @@ export const stepsWording = {
 							logoSrc: "./images/logos/git.jpg"
 						},
 					],
+					links: [
+						{
+							href: "http://www.oasis.paris",
+							text: "www.oasis.paris"
+						}
+					],
 					texts: [
 						[
 							{
 								title: "Contexte",
 								lines: [
+									"(offline nowaday)",
 									"Création d'un site événementiel pour accompagner le vernissage d'une exposition organisée par l'agence.",
-									'<a href="http://www.oasis.paris" target="Blank">www.oasis.paris</a>',
-									"(offline now)"
 								]
 							},
 							{
@@ -1082,6 +1101,12 @@ export const stepsWording = {
 						
 						// rajouter : photoshop
 					],
+					links: [
+						{
+							href: "http://gfgf.surge.sh",
+							text: "Backup host"
+						}
+					],
 					texts: [
 						[
 							{
@@ -1105,7 +1130,7 @@ export const stepsWording = {
 									"&nbsp;",
 									"&nbsp;",
 									
-									'La société a depuis refondu le site pour en faire un Wordpress, mais voici un backup de mon travail : <a href="http://gfgf.surge.sh/" target="_blank">ici</a>'
+									'La société a depuis refondu le site, mais vous trouverez un backup de mon travail ci-dessus'
 								]
 							}
 						]

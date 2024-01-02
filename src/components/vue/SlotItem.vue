@@ -261,13 +261,18 @@ function insertHighlight( string ){
 									class="techno-name" 
 									v-html="searchIsActive ? insertHighlight(techno.name) : techno.name"
 								/>
-									
-								
-	
+
 							</div>
 						</section>
 	
 						<section class="texts-wrapper" v-if="isExpanded">
+
+							
+							<a v-for="link in slotData.expand.links"
+								class="text-link"
+								:href="link.href"
+								v-html="searchIsActive ? insertHighlight(link.text) : link.text"
+							/>
 	
 							<div v-for="(block, index) in slotData.expand.texts" :key="block.id" class="text-block">
 	
@@ -295,7 +300,8 @@ function insertHighlight( string ){
 												ease: 'backOut'
 											},
 										}"
-									>{{ text.title }}</h6>
+										v-html="searchIsActive ? insertHighlight(text.title) : text.title"
+									/>
 	
 									<p 	v-for="(line, index) in text.lines" :key="line.index"
 										v-motion
@@ -314,9 +320,8 @@ function insertHighlight( string ){
 												ease: 'backOut'
 											},
 										}"
-	
-										v-html="line"
-									></p>
+										v-html="searchIsActive ? insertHighlight(line) : line"
+									/>
 	
 								</div>
 	
@@ -802,79 +807,81 @@ $slotHeightExpanded: 45rem;
 					padding: 0;
 				}
 
-				.text-block {
-					z-index: 10;
-					margin-top: 0rem;
-					position: relative;
-					display: block;
+				.text {
 
-					&:last-of-type {
-						padding-bottom: 2.5rem;
+					&-block {
+						z-index: 10;
+						margin-top: 0rem;
+						position: relative;
+						display: block;
+	
+						&:last-of-type {
+							padding-bottom: 2.5rem;
+						}
+	
+						&:not(:last-of-type):before {
+							content: "";
+							position: absolute;
+							bottom: -5rem;
+							left: 50%;
+							transform: translateX(-50%);
+							height: 1px;
+							width: 70%;
+							background-color: var(--color-main-15);
+						}
 					}
-
-					.text-item {
-
+	
+					&-item {
+						position: relative;
+	
 						&:nth-of-type(1){
 							h6 {
 								margin-top: 0;
 							}
 						}
-
+	
 						h6 {
-							margin-top: 2.5rem;
+							font-size: var(--font-size-big);
+							font-weight: bold;
+							font-style: italic;
+							margin-bottom: var(--font-size-small);
+							margin-left: 1rem;
+							color: var(--color-main-65);
 						}
+						
+						p {
+							color: var(--color-main-85);
+							font-size: var(--font-size-medium);
+							font-weight: 100;
+							margin: 0 2rem 0 3rem;
+						}
+	
 					}
 
-					&:not(:last-of-type):before {
-						content: "";
-						position: absolute;
-						bottom: -5rem;
-						left: 50%;
-						transform: translateX(-50%);
-						height: 1px;
-						width: 70%;
-						background-color: var(--color-main-15);
-					}
-				}
-				
-				.text-item {
-					position: relative;
-
-					h6 {
-						font-size: var(--font-size-big);
-						font-weight: bold;
-						font-style: italic;
-						margin-bottom: var(--font-size-small);
-						margin-left: 1rem;
-						color: var(--color-main-65);
-					}
-					
-					p {
-						color: var(--color-main-85);
-						font-size: var(--font-size-medium);
-						font-weight: 100;
-						margin: 0 2rem 0 3rem;
-					}
-					
+					&-link,
 					:deep(
 						a,
 						a:link,
 						a:visited,
 						a:active
 						) {
-						z-index: 10;
-						position: relative;
-						display: inline-block;
-						color: v-bind(stepColor);
-						text-decoration: none;
-						text-transform: uppercase;
-						font-weight: bold;
+						&:link,
+						&:visited,
+						&:active {
+							font-size: var(--font-size-medium);
+							z-index: 40;
+							position: relative;
+							display: inline-block;
+							color: v-bind(stepColor);
+							text-decoration: none;
+							text-transform: uppercase;
+							font-weight: bold;
+						}
 					}
 
 				}
 
 			}
-			
 		}
 
 	}
