@@ -94,7 +94,7 @@ function parseObject( objectToParse ){
 
     Object.keys(objectToParse).forEach(key => {
 
-        if( key !== "isDisplayed" ){
+        if( key !== "isDisplayed" && !key.toLowerCase().includes("src") ){
     
             if( typeof objectToParse[key] === "string" ){
     
