@@ -259,7 +259,7 @@ export const stepsWording = {
 					"Blender 3, Mixamo"
 				],
 				special: {
-					video: "./videos/onyi/teaser.mp4"
+					videoSrc: "./videos/onyi/teaser.mp4"
 				},
 				expand: {
 					technos: [
@@ -701,8 +701,8 @@ export const stepsWording = {
 				}
 			},
 			{
-				title: "Mazarine agency",
-				body: "Front-end dev.<br>createch",
+				title: "Mazarine Agency",
+				body: "Front-end dev.<br>Createch",
 				location: "Paris",
 				pinable: true,
 				date: {
@@ -714,7 +714,7 @@ export const stepsWording = {
 					"Twig, Blade, Drupal, Wordpress, Laravel, .."
 				],
 				special: {
-					video: "./videos/mazarine/cartier.mp4"
+					videoSrc: "./videos/mazarine/cartier.mp4"
 				},
 				expand: {
 					technos: [

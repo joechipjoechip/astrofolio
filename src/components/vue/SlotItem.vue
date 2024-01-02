@@ -118,7 +118,11 @@ const idealDelayString = computed(() => props.searchIsActive ? "0s" : `${idealDe
 // SEARCH LOGIC
 function insertHighlight( string ){
 	const captured = string.match(props.searchRegEx)
-	return string.replace(captured, `<span class="highlight">${captured}</span>`)
+	if( captured ){
+		return string.replaceAll(captured[0], `<span class="highlight">${captured[0]}</span>`)
+	} else {
+		return string
+	}
 }
 
 </script>
@@ -141,8 +145,8 @@ function insertHighlight( string ){
 			<div class="slot-inner">
 	
 				<SlotVideo 
-					v-if="slotData.special?.video"
-					:src="slotData.special.video"
+					v-if="slotData.special?.videoSrc"
+					:src="slotData.special.videoSrc"
 					:isHovered="isHovered"
 					:isExpanded="isExpanded"
 				/>
@@ -211,7 +215,7 @@ function insertHighlight( string ){
 						<div class="description-container">
 				
 							<p v-for="sentence in slotData.description" :key="sentence.id" 
-								v-html="sentence"
+								v-html="searchIsActive ? insertHighlight(sentence) : sentence"
 							></p>
 				
 						</div>
@@ -253,9 +257,12 @@ function insertHighlight( string ){
 									alt=""
 								>
 	
-								<p class="techno-name">
-									{{  techno.name }}
-								</p>
+								<p 
+									class="techno-name" 
+									v-html="searchIsActive ? insertHighlight(techno.name) : techno.name"
+								/>
+									
+								
 	
 							</div>
 						</section>
@@ -393,6 +400,10 @@ $slotHeightExpanded: 45rem;
 
 					.title {
 						width: 50%;
+					}
+
+					.location {
+						bottom: 2.25rem;
 					}
 
 					.description-container {
@@ -591,6 +602,7 @@ $slotHeightExpanded: 45rem;
 			}
 
 			.location {
+				z-index: 40;
 				position: absolute;
 				bottom: 4.25rem;
 				left: 0;

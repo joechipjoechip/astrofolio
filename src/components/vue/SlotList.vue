@@ -86,37 +86,60 @@ const rafinedData = computed(() => {
 })
 
 function defineSlotVisibility( slot ){
+    return parseObject(slot)
+}
+
+function parseObject( objectToParse ){
     let isVisible = false
 
-    Object.keys(slot).forEach(baseKey => {
-        // console.log("baseKey : ", typeof slot[baseKey])
+    Object.keys(objectToParse).forEach(key => {
 
-        if( typeof slot[baseKey] === "object" ){
-
-            // console.log("typeof object")
-            // TODO : do recursive shit
-
-        } else if( typeof slot[baseKey] === "string" ){
-
-            console.log("typeof string")
-
-            if( slot[baseKey].match(searchRegEx.value) ){
-
-                isVisible = true
-
+        if( key !== "isDisplayed" ){
+    
+            if( typeof objectToParse[key] === "string" ){
+    
+                isVisible = isVisible || parseString(objectToParse[key])
+    
+            } else if( typeof objectToParse[key] === "object" ){
+    
+                if( objectToParse[key].length ){
+                    isVisible = isVisible || parseArray(objectToParse[key])
+                } else {
+                    isVisible = isVisible || parseObject(objectToParse[key])
+                }
+    
             }
-
-        } else {
-
-            // console.log("typeof default")
 
         }
 
     })
 
     return isVisible
-
 }
+
+function parseArray( arrayToParse ){
+    let isVisible = false
+
+    arrayToParse.filter(element => {
+        if( typeof element === "string" ){
+            isVisible = isVisible || element.match(searchRegEx.value)?.length
+        } else {
+            if( element.length ){
+                isVisible = isVisible || parseArray(element)
+            } else {
+                isVisible = isVisible || parseObject(element)
+            }
+        }
+    })
+
+    return isVisible
+}
+
+function parseString( stringToParse ){
+    return stringToParse.match(searchRegEx.value)
+}
+
+
 
 
 
