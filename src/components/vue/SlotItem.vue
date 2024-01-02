@@ -371,7 +371,7 @@ $expandButtonBorderWidth: 2px;
 		will-change: margin, height;
 
 		transition: 
-			margin var(--transitionDurationMediumPlus),
+			margin var(--transitionDurationMedium),
 			height var(--transitionDurationMedium);
 
 		&.isHovered {
