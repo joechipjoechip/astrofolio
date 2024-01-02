@@ -117,11 +117,12 @@ const idealDelayString = computed(() => props.searchIsActive ? "0s" : `${idealDe
 
 // SEARCH LOGIC
 function insertHighlight( string ){
-	const captured = string.match(props.searchRegEx)
+	const goodString = new String(string)
+	const captured = goodString.match(props.searchRegEx)
 	if( captured ){
-		return string.replaceAll(captured[0], `<span class="highlight">${captured[0]}</span>`)
+		return goodString.replaceAll(captured[0], `<span class="highlight">${captured[0]}</span>`)
 	} else {
-		return string
+		return goodString
 	}
 }
 
@@ -272,6 +273,7 @@ function insertHighlight( string ){
 
 							
 							<a v-for="link in slotData.expand.links"
+								v-if="slotData.expand.links"
 								class="text-link"
 								:href="link.href"
 								target="_blank"
