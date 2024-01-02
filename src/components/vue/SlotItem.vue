@@ -271,6 +271,7 @@ function insertHighlight( string ){
 							<a v-for="link in slotData.expand.links"
 								class="text-link"
 								:href="link.href"
+								target="_blank"
 								v-html="searchIsActive ? insertHighlight(link.text) : link.text"
 							/>
 	
@@ -348,7 +349,7 @@ $slotHeightHovered: 14rem;
 $slotHeightExpanded: 45rem;
 
 :deep(.highlight) {
-	background-color: orange !important;
+	background-color: v-bind(stepColor) !important;
 	border-radius: 0.35rem;
 	overflow: hidden;
 }

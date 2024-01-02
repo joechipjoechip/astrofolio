@@ -52,7 +52,7 @@ function handleMouseLeave(){
 // SEARCH LOGIC
 const searchRegEx = computed(() => new RegExp($searchStore.value[props.stepID], "gi"))
 const searchIsActive = computed(() => {
-    if( $searchStore.value[props.stepID].length > 0 ){
+    if( $searchStore.value[props.stepID].length > 1 ){
         scrollListToTop()
         return true
     } else {
