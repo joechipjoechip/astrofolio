@@ -592,19 +592,19 @@ $slotHeightExpanded: 45rem;
 
 			.location {
 				position: absolute;
-				top: 2.25rem;
+				bottom: 4.25rem;
 				left: 0;
 				font-size: 1.3rem;
-				color: var(--color-main-65);
+				color: var(--color-main-75);
 
 				opacity: 0;
-				transform: translateY(1rem);
+				transform: translateY(3rem);
 
 				will-change: opacity, transform;
 
 				transition: 
-					opacity var(--transitionDurationLong),
-					transform var(--transitionDurationLong);
+					opacity var(--transitionDurationMediumPlus),
+					transform var(--transitionDurationMediumPlus);
 			}
 			
 			.name-container {
