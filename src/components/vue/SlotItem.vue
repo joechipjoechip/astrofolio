@@ -359,6 +359,7 @@ $expandButtonBorderWidth: 2px;
 	border-radius: 0.35rem;
 	overflow: hidden;
 	font-weight: 500;
+	color: var(--color-main-100);
 }
 .slot {
 
