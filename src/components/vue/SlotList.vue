@@ -1,8 +1,8 @@
 <script setup>
 import { ref, watch, computed, nextTick } from "vue"
 import SlotItem from "@/components/vue/SlotItem.vue"
-import { uiConfig } from "@/assets/uiConfig.js"
 import { searchStore } from "@/stores/searchStore.js"
+import { useDefineSlotVisibility } from "@/composables/searchParser"
 
 import { useStore } from '@nanostores/vue';
 
@@ -75,7 +75,7 @@ const rafinedData = computed(() => {
 
         props.slots.forEach(slot => {
             
-            slot.isDisplayed = defineSlotVisibility(slot)
+            slot.isDisplayed = useDefineSlotVisibility(slot, searchRegEx)
            
         });
 
@@ -84,64 +84,6 @@ const rafinedData = computed(() => {
     }
 
 })
-
-function defineSlotVisibility( slot ){
-    return parseObject(slot)
-}
-
-function parseObject( objectToParse ){
-    let isVisible = false
-
-    Object.keys(objectToParse).forEach(key => {
-
-        if( key !== "isDisplayed" && !key.toLowerCase().includes("src") ){
-    
-            if( typeof objectToParse[key] === "string" ){
-    
-                isVisible = isVisible || parseString(objectToParse[key])
-    
-            } else if( typeof objectToParse[key] === "object" ){
-    
-                if( objectToParse[key].length ){
-                    isVisible = isVisible || parseArray(objectToParse[key])
-                } else {
-                    isVisible = isVisible || parseObject(objectToParse[key])
-                }
-    
-            }
-
-        }
-
-    })
-
-    return isVisible
-}
-
-function parseArray( arrayToParse ){
-    let isVisible = false
-
-    arrayToParse.filter(element => {
-        if( typeof element === "string" ){
-            isVisible = isVisible || element.match(searchRegEx.value)?.length
-        } else {
-            if( element.length ){
-                isVisible = isVisible || parseArray(element)
-            } else {
-                isVisible = isVisible || parseObject(element)
-            }
-        }
-    })
-
-    return isVisible
-}
-
-function parseString( stringToParse ){
-    return stringToParse.match(searchRegEx.value)
-}
-
-
-
-
 
 </script>
 
