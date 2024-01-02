@@ -52,7 +52,8 @@ function handleMouseLeave(){
 // SEARCH LOGIC
 const searchRegEx = computed(() => new RegExp(escapeRegExp($searchStore.value[props.stepID]), "gi"))
 function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    //.replaceAll(/\s/g, "");
 }
 
 const searchIsActive = computed(() => {

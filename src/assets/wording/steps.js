@@ -189,11 +189,11 @@ export const stepsWording = {
 				expand: {
 					technos: [
 						{
-							name: "Vue 3",
+							name: "Vue3",
 							logoSrc: "./images/logos/vue.jpg"
 						},
 						{
-							name: "Nuxt 3",
+							name: "Nuxt3",
 							logoSrc: "./images/logos/nuxt.jpg"
 						},
 						{
@@ -277,11 +277,11 @@ export const stepsWording = {
 							logoSrc: "./images/logos/threejs.jpg"
 						},
 						{
-							name: "Vue 2",
+							name: "Vue2",
 							logoSrc: "./images/logos/vue.jpg"
 						},
 						{
-							name: "Nuxt 2",
+							name: "Nuxt2",
 							logoSrc: "./images/logos/nuxt.jpg"
 						},
 						{
@@ -357,7 +357,7 @@ export const stepsWording = {
 				expand: {
 					technos: [
 						{
-							name: "Vue 2",
+							name: "Vue2",
 							logoSrc: "./images/logos/vue.jpg"
 						},
 						{
@@ -365,7 +365,7 @@ export const stepsWording = {
 							logoSrc: "./images/logos/vuestorefront.jpg"
 						},
 						{
-							name: "Nuxt 2",
+							name: "Nuxt2",
 							logoSrc: "./images/logos/nuxt.jpg"
 						},
 						{
@@ -555,11 +555,11 @@ export const stepsWording = {
 				expand: {
 					technos: [
 						{
-							name: "Vue 2",
+							name: "Vue2",
 							logoSrc: "./images/logos/vue.jpg"
 						},
 						{
-							name: "Nuxt 2",
+							name: "Nuxt2",
 							logoSrc: "./images/logos/nuxt.jpg"
 						},
 						{
@@ -650,11 +650,11 @@ export const stepsWording = {
 				expand: {
 					technos: [
 						{
-							name: "Vue 2",
+							name: "Vue2",
 							logoSrc: "./images/logos/vue.jpg"
 						},
 						{
-							name: "Nuxt 2",
+							name: "Nuxt2",
 							logoSrc: "./images/logos/nuxt.jpg"
 						},
 						{

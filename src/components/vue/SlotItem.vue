@@ -184,7 +184,7 @@ function insertHighlight( string ){
 						<IconsUiDoubleChevronDown 
 							v-if="slotData.expand"
 							class="expand-button"
-							color="white"
+							:color="currentColor"
 						/>
 						<h5 class="title"
 							v-motion
@@ -355,6 +355,7 @@ $slotHeightExpanded: 45rem;
 	background-color: v-bind(stepColor) !important;
 	border-radius: 0.35rem;
 	overflow: hidden;
+	font-weight: 500;
 }
 .slot {
 
@@ -574,25 +575,23 @@ $slotHeightExpanded: 45rem;
 				flex-flow: row wrap;
 			}
 
-			.expand {
+			.expand-button {
 
-				&-button {
-					z-index: 40;
-					width: 1.25rem;
-					height: 1.25rem;
-					cursor: pointer;
-					padding: 0.5rem;
-					border-radius: 50%;
-					background-color: v-bind(stepColor);
+				z-index: 40;
+				width: 1.25rem;
+				height: 1.25rem;
+				cursor: pointer;
+				padding: 0.5rem;
+				border-radius: 50%;
+				background-color: transparent;
+				border: solid 2px var(--color-main-15);
 
-					position: absolute;
-					top: 51%;
-					left: -4rem;
-					transform: translateY(-50%) rotate(0deg);
+				position: absolute;
+				top: 51%;
+				left: -4rem;
+				transform: translateY(-50%) rotate(0deg);
 
-					transition: transform var(--transitionDurationMedium);
-				}
-
+				transition: transform var(--transitionDurationMedium);
 			}
 
 			.title {
