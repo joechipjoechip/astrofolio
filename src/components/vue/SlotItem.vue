@@ -184,7 +184,7 @@ function insertHighlight( string ){
 						<IconsUiDoubleChevronDown 
 							v-if="slotData.expand"
 							class="expand-button"
-							:color="currentColor"
+							color="currentColor"
 						/>
 						<h5 class="title"
 							v-motion
@@ -350,6 +350,7 @@ function insertHighlight( string ){
 $slotHeightBase: 9rem;
 $slotHeightHovered: 14rem;
 $slotHeightExpanded: 45rem;
+$expandButtonBorderWidth: 2px;
 
 :deep(.highlight) {
 	background-color: v-bind(stepColor) !important;
@@ -370,7 +371,7 @@ $slotHeightExpanded: 45rem;
 		will-change: margin, height;
 
 		transition: 
-			margin var(--transitionDurationMedium),
+			margin var(--transitionDurationMediumPlus),
 			height var(--transitionDurationMedium);
 
 		&.isHovered {
@@ -405,7 +406,7 @@ $slotHeightExpanded: 45rem;
 					}
 
 					.expand-button {
-						transform: translateY(-50%) rotate(-90deg);
+						transform: translateY(-50%) rotate(-180deg);
 					}
 
 					.title {
@@ -452,14 +453,20 @@ $slotHeightExpanded: 45rem;
 				background-color: var(--color-contrast-80);
 			}
 
-			.level-1,
-			.slot-head,
-			.slot-body {
+			.slot-head {
 
 				.duration,
 				.location {
 					opacity: 1;
 					transform: translateX(0) translateY(0);
+				}
+			}
+
+			.slot-body {
+				.level-1 {
+					.expand-button {
+						border: solid $expandButtonBorderWidth var(--color-main-70)
+					}
 				}
 			}
 
@@ -578,20 +585,22 @@ $slotHeightExpanded: 45rem;
 			.expand-button {
 
 				z-index: 40;
-				width: 1.25rem;
-				height: 1.25rem;
+				width: 1rem;
+				height: 1rem;
 				cursor: pointer;
 				padding: 0.5rem;
 				border-radius: 50%;
 				background-color: transparent;
-				border: solid 2px var(--color-main-15);
+				border: solid $expandButtonBorderWidth var(--color-main-15);
 
 				position: absolute;
 				top: 51%;
 				left: -4rem;
 				transform: translateY(-50%) rotate(0deg);
 
-				transition: transform var(--transitionDurationMedium);
+				transition: 
+					transform var(--transitionDurationMedium),
+					border var(--transitionDurationMedium);
 			}
 
 			.title {
