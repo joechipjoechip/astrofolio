@@ -162,11 +162,13 @@ function insertHighlight( string ){
 					/>
 			
 					<time 
+						v-if="slotData.date.year"
 						class="year"
 						v-html="searchIsActive ? insertHighlight(slotData.date.year) : slotData.date.year"
 					/>
 			
 					<time 
+						v-if="slotData.date.duration"
 						class="duration" 
 						v-html="searchIsActive ? insertHighlight(slotData.date.duration) : slotData.date.duration"
 					/>
@@ -458,15 +460,18 @@ $expandButtonBorderWidth: 2px;
 
 			.slot-head {
 
-				.duration,
-				.location {
-					opacity: 1;
-					transform: translateX(0) translateY(0);
-				}
+				
 			}
 
 			.slot-body {
 				.level-1 {
+
+					.duration,
+					.location {
+						opacity: 1;
+						transform: translateX(0) translateY(0);
+					}
+					
 					.expand-button {
 						border: solid $expandButtonBorderWidth var(--color-main-70)
 					}
