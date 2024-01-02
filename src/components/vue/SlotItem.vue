@@ -160,12 +160,15 @@ function insertHighlight( string ){
 						@click="handlePin"
 					/>
 			
-					<time class="year">
-						{{ slotData.date.year }}
-					</time>
+					<time 
+						class="year"
+						v-html="searchIsActive ? insertHighlight(slotData.date.year) : slotData.date.year"
+					/>
 			
-					<time class="duration" v-html="slotData.date.duration">
-					</time>
+					<time 
+						class="duration" 
+						v-html="searchIsActive ? insertHighlight(slotData.date.duration) : slotData.date.duration"
+					/>
 			
 				</div>
 			
