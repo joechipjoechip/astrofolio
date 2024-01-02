@@ -458,24 +458,19 @@ $expandButtonBorderWidth: 2px;
 				background-color: var(--color-contrast-80);
 			}
 
+			.slot-body,
 			.slot-head {
-
-				
-			}
-
-			.slot-body {
-				.level-1 {
-
-					.duration,
-					.location {
-						opacity: 1;
-						transform: translateX(0) translateY(0);
-					}
-					
-					.expand-button {
-						border: solid $expandButtonBorderWidth var(--color-main-70)
-					}
+			
+				.duration,
+				.location {
+					opacity: 1;
+					transform: translateX(0) translateY(0);
 				}
+				
+				.expand-button {
+					border: solid $expandButtonBorderWidth var(--color-main-70)
+				}
+				
 			}
 
 		}
