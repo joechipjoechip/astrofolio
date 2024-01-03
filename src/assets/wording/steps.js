@@ -198,6 +198,10 @@ export const stepsWording = {
 							logoSrc: "./images/logos/vue.jpg"
 						},
 						{
+							name: "VueUse",
+							logoSrc: "./images/logos/vueuse.jpg"
+						},
+						{
 							name: "R3F",
 							logoSrc: "./images/logos/react.jpg"
 						},
