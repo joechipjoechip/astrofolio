@@ -176,6 +176,102 @@ export const stepsWording = {
 		placeholder: "Vue, GSAP, Three, ..",
 		slots: [
 			{
+				title: "This CV / Portfolio (WIP)",
+				body: "Front-End Dev.<br>CreaTech",
+				location: "Marseille",
+				date: {
+					year: "2023-2024",
+					duration: "On my freetime"
+				},
+				description: [
+					"Astro4, Vue3, Nuxt3, React-Three-Fiber (R3f)",
+					"VueUse, V-Motion"
+				],
+				expand: {
+					technos: [
+						{
+							name: "Astro4",
+							logoSrc: "./images/logos/astro.jpg"
+						},
+						{
+							name: "Vue3",
+							logoSrc: "./images/logos/vue.jpg"
+						},
+						{
+							name: "R3F",
+							logoSrc: "./images/logos/react.jpg"
+						},
+						{
+							name: "Nanostore",
+							logoSrc: "./images/logos/nanostore.jpg"
+						},
+						{
+							name: "HTML5",
+							logoSrc: "./images/logos/html.jpg"
+						},
+						{
+							name: "CSS3",
+							logoSrc: "./images/logos/css.jpg"
+						},
+						{
+							name: "JS ES6",
+							logoSrc: "./images/logos/javascript.jpg"
+						},
+						{
+							name: "GSAP",
+							logoSrc: "./images/logos/gsap.jpg"
+						},
+						{
+							name: "SASS",
+							logoSrc: "./images/logos/sass.jpg"
+						},
+						{
+							name: "BEM",
+							logoSrc: "./images/logos/bem.jpg"
+						},
+						{
+							name: "Git",
+							logoSrc: "./images/logos/git.jpg"
+						},
+						{
+							name: "Netlifly",
+							logoSrc: "./images/logos/netlifly.jpg"
+						},
+					],
+					links: [
+						{
+							href: "https://github.com/joechipjoechip/astrofolio",
+							text: "See the git repo"
+						}
+					],
+					texts: [
+						[
+							{
+								title: "Contexte",
+								lines: [
+									"CV / Portfolio que je dev sur mon temps libre",
+									"Le but est de mettre à disposition des RH et recruteurs l'exhaustivité de mon parcours de manière visuellement digeste",
+								]
+							},
+							{
+								title: "Précision",
+								lines: [
+									"Ce site est WIP (Work in Progress) et en déploiement continue (pipe : Github -> Netlifly)",
+									"Pour l'instant il manque encore beaucoup de choses (NAV, Accueil, Traductions, etc..)",
+									"Mais il est déjà consultable et exhaustif, la recherche est fonctionnelle également",
+								]
+							},
+							{
+								title: "Note pour les DEVs",
+								lines: [
+									"Je travaille solo sur ce projet, donc ne pas prêter attention à la propreté/consistence des commits"
+								]
+							}
+						]
+					]
+				}
+			},
+			{
 				title: "Carré Basset Agency",
 				body: "Front-End Dev.<br>CreaTech",
 				location: "Full remote",
