@@ -550,7 +550,8 @@ export const stepsWording = {
 					duration: "Freelance : 2 months mission"
 				},
 				description: [
-					"Fullstack dev : CMS custom"
+					"Fullstack dev : CMS custom",
+					"Vue2, Nuxt2, Strapi4, Heroku, AWS",
 				],
 				expand: {
 					technos: [
@@ -563,7 +564,7 @@ export const stepsWording = {
 							logoSrc: "./images/logos/nuxt.jpg"
 						},
 						{
-							name: "Strapi 4",
+							name: "Strapi4",
 							logoSrc: "./images/logos/strapi.jpg"
 						},
 						{
@@ -645,7 +646,8 @@ export const stepsWording = {
 					duration: "Freelance : 1 months mission"
 				},
 				description: [
-					"Mini-site évenementiel pour une expo"
+					"Mini-site évenementiel pour une expo",
+					"Vue2, Nuxt2"
 				],
 				expand: {
 					technos: [
