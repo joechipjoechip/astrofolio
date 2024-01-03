@@ -835,7 +835,7 @@ export const stepsWording = {
 					"Twig, Blade, Drupal, Wordpress, Laravel, .."
 				],
 				special: {
-					videoSrc: "./videos/mazarine/cartier.mp4"
+					videoSrc: "./videos/mazarine/teaser.mp4"
 				},
 				expand: {
 					technos: [
