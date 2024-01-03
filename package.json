@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.0.7",
+    "@astrojs/svelte": "^5.0.3",
     "@astrojs/vue": "^4.0.4",
     "@nanostores/react": "^0.7.1",
     "@nanostores/vue": "^0.10.0",
@@ -28,6 +29,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "shadergradient": "^1.2.5",
+    "svelte": "^4.2.8",
     "three": "^0.150.0",
     "vue": "^3.3.12"
   },
