@@ -184,7 +184,7 @@ export const stepsWording = {
 					duration: "On my freetime"
 				},
 				description: [
-					"Astro4, Vue3, Nuxt3, React-Three-Fiber (R3f)",
+					"Astro4, Vue3, React-Three-Fiber (R3f)",
 					"VueUse, V-Motion"
 				],
 				expand: {
