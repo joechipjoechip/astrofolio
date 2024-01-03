@@ -16,10 +16,6 @@ const props = defineProps({
     }
 })
 
-onMounted(() => {
-    console.log("onMounted de video : ", props.src)
-})
-
 </script>
 
 <template>
