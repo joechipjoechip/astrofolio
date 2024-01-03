@@ -191,55 +191,55 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "Astro4",
-							logoSrc: "./images/logos/astro.jpg"
+							logoSrc: "./images/logos/technos/astro.jpg"
 						},
 						{
 							name: "Vue3",
-							logoSrc: "./images/logos/vue.jpg"
-						},
-						{
-							name: "VueUse",
-							logoSrc: "./images/logos/vueuse.jpg"
+							logoSrc: "./images/logos/technos/vue.jpg"
 						},
 						{
 							name: "R3F",
-							logoSrc: "./images/logos/react.jpg"
+							logoSrc: "./images/logos/technos/react.jpg"
 						},
 						{
 							name: "Nanostore",
-							logoSrc: "./images/logos/nanostore.jpg"
+							logoSrc: "./images/logos/technos/nanostore.jpg"
+						},
+						{
+							name: "VueUse",
+							logoSrc: "./images/logos/technos/vueuse.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES6",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						{
 							name: "GSAP",
-							logoSrc: "./images/logos/gsap.jpg"
+							logoSrc: "./images/logos/technos/gsap.jpg"
 						},
 						{
 							name: "SASS",
-							logoSrc: "./images/logos/sass.jpg"
+							logoSrc: "./images/logos/technos/sass.jpg"
 						},
 						{
 							name: "BEM",
-							logoSrc: "./images/logos/bem.jpg"
+							logoSrc: "./images/logos/technos/bem.jpg"
 						},
 						{
 							name: "Git",
-							logoSrc: "./images/logos/git.jpg"
+							logoSrc: "./images/logos/technos/git.jpg"
 						},
 						{
 							name: "Netlifly",
-							logoSrc: "./images/logos/netlifly.jpg"
+							logoSrc: "./images/logos/technos/netlifly.jpg"
 						},
 					],
 					links: [
@@ -290,39 +290,39 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "Vue3",
-							logoSrc: "./images/logos/vue.jpg"
+							logoSrc: "./images/logos/technos/vue.jpg"
 						},
 						{
 							name: "Nuxt3",
-							logoSrc: "./images/logos/nuxt.jpg"
+							logoSrc: "./images/logos/technos/nuxt.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES6",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						{
 							name: "GSAP",
-							logoSrc: "./images/logos/gsap.jpg"
+							logoSrc: "./images/logos/technos/gsap.jpg"
 						},
 						{
 							name: "SASS",
-							logoSrc: "./images/logos/sass.jpg"
+							logoSrc: "./images/logos/technos/sass.jpg"
 						},
 						{
 							name: "BEM",
-							logoSrc: "./images/logos/bem.jpg"
+							logoSrc: "./images/logos/technos/bem.jpg"
 						},
 						{
 							name: "Git",
-							logoSrc: "./images/logos/git.jpg"
+							logoSrc: "./images/logos/technos/git.jpg"
 						},
 					],
 					links: [
@@ -370,47 +370,47 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "Blender 3",
-							logoSrc: "./images/logos/blender.jpg"
+							logoSrc: "./images/logos/technos/blender.jpg"
 						},
 						{
 							name: "ThreeJS",
-							logoSrc: "./images/logos/threejs.jpg"
+							logoSrc: "./images/logos/technos/threejs.jpg"
 						},
 						{
 							name: "Vue2",
-							logoSrc: "./images/logos/vue.jpg"
+							logoSrc: "./images/logos/technos/vue.jpg"
 						},
 						{
 							name: "Nuxt2",
-							logoSrc: "./images/logos/nuxt.jpg"
+							logoSrc: "./images/logos/technos/nuxt.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES6",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						{
 							name: "GSAP",
-							logoSrc: "./images/logos/gsap.jpg"
+							logoSrc: "./images/logos/technos/gsap.jpg"
 						},
 						{
 							name: "SASS",
-							logoSrc: "./images/logos/sass.jpg"
+							logoSrc: "./images/logos/technos/sass.jpg"
 						},
 						{
 							name: "BEM",
-							logoSrc: "./images/logos/bem.jpg"
+							logoSrc: "./images/logos/technos/bem.jpg"
 						},
 						{
 							name: "Git",
-							logoSrc: "./images/logos/git.jpg"
+							logoSrc: "./images/logos/technos/git.jpg"
 						},
 					],
 					// texts: [
@@ -458,71 +458,71 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "Vue2",
-							logoSrc: "./images/logos/vue.jpg"
+							logoSrc: "./images/logos/technos/vue.jpg"
 						},
 						{
 							name: "Vue Storefront",
-							logoSrc: "./images/logos/vuestorefront.jpg"
+							logoSrc: "./images/logos/technos/vuestorefront.jpg"
 						},
 						{
 							name: "Nuxt2",
-							logoSrc: "./images/logos/nuxt.jpg"
+							logoSrc: "./images/logos/technos/nuxt.jpg"
 						},
 						{
 							name: "Tailwind CSS",
-							logoSrc: "./images/logos/tailwind.jpg"
+							logoSrc: "./images/logos/technos/tailwind.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES6",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						{
 							name: "Typescript",
-							logoSrc: "./images/logos/typescript.jpg"
+							logoSrc: "./images/logos/technos/typescript.jpg"
 						},
 						{
 							name: "SASS",
-							logoSrc: "./images/logos/sass.jpg"
+							logoSrc: "./images/logos/technos/sass.jpg"
 						},
 						{
 							name: "BEM",
-							logoSrc: "./images/logos/bem.jpg"
+							logoSrc: "./images/logos/technos/bem.jpg"
 						},
 						{
 							name: "Storybook",
-							logoSrc: "./images/logos/storybook.jpg"
+							logoSrc: "./images/logos/technos/storybook.jpg"
 						},
 						{
 							name: "GraphQL",
-							logoSrc: "./images/logos/graphql.jpg"
+							logoSrc: "./images/logos/technos/graphql.jpg"
 						},
 						{
 							name: "Apollo",
-							logoSrc: "./images/logos/apollo.jpg"
+							logoSrc: "./images/logos/technos/apollo.jpg"
 						},
 						{
 							name: "Elastic Search",
-							logoSrc: "./images/logos/elasticsearch.jpg"
+							logoSrc: "./images/logos/technos/elasticsearch.jpg"
 						},
 						{
 							name: "Git",
-							logoSrc: "./images/logos/git.jpg"
+							logoSrc: "./images/logos/technos/git.jpg"
 						},
 						{
 							name: "GitLab",
-							logoSrc: "./images/logos/gitlab.jpg"
+							logoSrc: "./images/logos/technos/gitlab.jpg"
 						},
 						{
 							name: "Jira",
-							logoSrc: "./images/logos/jira.jpg"
+							logoSrc: "./images/logos/technos/jira.jpg"
 						},
 					],
 					links: [
@@ -570,43 +570,43 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "AEM",
-							logoSrc: "./images/logos/aem.jpg"
+							logoSrc: "./images/logos/technos/aem.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES6",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						{
 							name: "Webpack",
-							logoSrc: "./images/logos/webpack.jpg"
+							logoSrc: "./images/logos/technos/webpack.jpg"
 						},
 						{
 							name: "LESS",
-							logoSrc: "./images/logos/less.jpg"
+							logoSrc: "./images/logos/technos/less.jpg"
 						},
 						{
 							name: "BEM",
-							logoSrc: "./images/logos/bem.jpg"
+							logoSrc: "./images/logos/technos/bem.jpg"
 						},
 						{
 							name: "Git",
-							logoSrc: "./images/logos/git.jpg"
+							logoSrc: "./images/logos/technos/git.jpg"
 						},
 						{
 							name: "Confluence",
-							logoSrc: "./images/logos/confluence.jpg"
+							logoSrc: "./images/logos/technos/confluence.jpg"
 						},
 						{
 							name: "Jira",
-							logoSrc: "./images/logos/jira.jpg"
+							logoSrc: "./images/logos/technos/jira.jpg"
 						},
 					],
 					texts: [
@@ -657,59 +657,59 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "Vue2",
-							logoSrc: "./images/logos/vue.jpg"
+							logoSrc: "./images/logos/technos/vue.jpg"
 						},
 						{
 							name: "Nuxt2",
-							logoSrc: "./images/logos/nuxt.jpg"
+							logoSrc: "./images/logos/technos/nuxt.jpg"
 						},
 						{
 							name: "Strapi4",
-							logoSrc: "./images/logos/strapi.jpg"
+							logoSrc: "./images/logos/technos/strapi.jpg"
 						},
 						{
 							name: "PostgreSQL",
-							logoSrc: "./images/logos/postgresql.jpg"
+							logoSrc: "./images/logos/technos/postgresql.jpg"
 						},
 						{
 							name: "GraphQL",
-							logoSrc: "./images/logos/graphql.jpg"
+							logoSrc: "./images/logos/technos/graphql.jpg"
 						},
 						{
 							name: "Apollo",
-							logoSrc: "./images/logos/apollo.jpg"
+							logoSrc: "./images/logos/technos/apollo.jpg"
 						},
 						{
 							name: "Heroku",
-							logoSrc: "./images/logos/heroku.jpg"
+							logoSrc: "./images/logos/technos/heroku.jpg"
 						},
 						{
 							name: "AWS",
-							logoSrc: "./images/logos/aws.jpg"
+							logoSrc: "./images/logos/technos/aws.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES6",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						{
 							name: "SASS",
-							logoSrc: "./images/logos/sass.jpg"
+							logoSrc: "./images/logos/technos/sass.jpg"
 						},
 						{
 							name: "BEM",
-							logoSrc: "./images/logos/bem.jpg"
+							logoSrc: "./images/logos/technos/bem.jpg"
 						},
 						{
 							name: "Git",
-							logoSrc: "./images/logos/git.jpg"
+							logoSrc: "./images/logos/technos/git.jpg"
 						},
 					],
 					links: [
@@ -753,39 +753,39 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "Vue2",
-							logoSrc: "./images/logos/vue.jpg"
+							logoSrc: "./images/logos/technos/vue.jpg"
 						},
 						{
 							name: "Nuxt2",
-							logoSrc: "./images/logos/nuxt.jpg"
+							logoSrc: "./images/logos/technos/nuxt.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES6",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						{
 							name: "GSAP",
-							logoSrc: "./images/logos/gsap.jpg"
+							logoSrc: "./images/logos/technos/gsap.jpg"
 						},
 						{
 							name: "SASS",
-							logoSrc: "./images/logos/sass.jpg"
+							logoSrc: "./images/logos/technos/sass.jpg"
 						},
 						{
 							name: "BEM",
-							logoSrc: "./images/logos/bem.jpg"
+							logoSrc: "./images/logos/technos/bem.jpg"
 						},
 						{
 							name: "Git",
-							logoSrc: "./images/logos/git.jpg"
+							logoSrc: "./images/logos/technos/git.jpg"
 						},
 					],
 					links: [
@@ -841,87 +841,87 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES5 / ES6",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						{
 							name: "Webpack",
-							logoSrc: "./images/logos/webpack.jpg"
+							logoSrc: "./images/logos/technos/webpack.jpg"
 						},
 						{
 							name: "Vue",
-							logoSrc: "./images/logos/vue.jpg"
+							logoSrc: "./images/logos/technos/vue.jpg"
 						},
 						{
 							name: "React",
-							logoSrc: "./images/logos/react.jpg"
+							logoSrc: "./images/logos/technos/react.jpg"
 						},
 						{
 							name: "GSAP",
-							logoSrc: "./images/logos/gsap.jpg"
+							logoSrc: "./images/logos/technos/gsap.jpg"
 						},
 						{
 							name: "GTM",
-							logoSrc: "./images/logos/gtm.jpg"
+							logoSrc: "./images/logos/technos/gtm.jpg"
 						},
 						{
 							name: "DialogFlow",
-							logoSrc: "./images/logos/dialogflow.jpg"
+							logoSrc: "./images/logos/technos/dialogflow.jpg"
 						},
 						{
 							name: "SASS",
-							logoSrc: "./images/logos/sass.jpg"
+							logoSrc: "./images/logos/technos/sass.jpg"
 						},
 						{
 							name: "BEM",
-							logoSrc: "./images/logos/bem.jpg"
+							logoSrc: "./images/logos/technos/bem.jpg"
 						},
 						{
 							name: "Jira",
-							logoSrc: "./images/logos/jira.jpg"
+							logoSrc: "./images/logos/technos/jira.jpg"
 						},
 						{
 							name: "NodeJS",
-							logoSrc: "./images/logos/nodejs.jpg"
+							logoSrc: "./images/logos/technos/nodejs.jpg"
 						},
 						{
 							name: "PHP",
-							logoSrc: "./images/logos/php.jpg"
+							logoSrc: "./images/logos/technos/php.jpg"
 						},
 						{
 							name: "Laravel",
-							logoSrc: "./images/logos/laravel.jpg"
+							logoSrc: "./images/logos/technos/laravel.jpg"
 						},
 						{
 							name: "Symfony",
-							logoSrc: "./images/logos/symfony.jpg"
+							logoSrc: "./images/logos/technos/symfony.jpg"
 						},
 						{
 							name: "Drupal",
-							logoSrc: "./images/logos/drupal.jpg"
+							logoSrc: "./images/logos/technos/drupal.jpg"
 						},
 						{
 							name: "Blade",
-							logoSrc: "./images/logos/blade.jpg"
+							logoSrc: "./images/logos/technos/blade.jpg"
 						},
 						{
 							name: "Twig",
-							logoSrc: "./images/logos/twig.jpg"
+							logoSrc: "./images/logos/technos/twig.jpg"
 						},
 						{
 							name: "Git",
-							logoSrc: "./images/logos/git.jpg"
+							logoSrc: "./images/logos/technos/git.jpg"
 						},
 						{
 							name: "GitLab",
-							logoSrc: "./images/logos/gitlab.jpg"
+							logoSrc: "./images/logos/technos/gitlab.jpg"
 						},
 						
 						// rajouter : dialogFlow / googleMap api / canvas / GTM / webpack / gulp / npm / composer / jira / redmine / confluence
@@ -1083,39 +1083,39 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "Photoshop",
-							logoSrc: "./images/logos/photoshop.jpg"
+							logoSrc: "./images/logos/technos/photoshop.jpg"
 						},
 						{
 							name: "Illustrator",
-							logoSrc: "./images/logos/illustrator.jpg"
+							logoSrc: "./images/logos/technos/illustrator.jpg"
 						},
 						{
 							name: "AppStore",
-							logoSrc: "./images/logos/appstore.jpg"
+							logoSrc: "./images/logos/technos/appstore.jpg"
 						},
 						{
 							name: "Google Play",
-							logoSrc: "./images/logos/googleplay.jpg"
+							logoSrc: "./images/logos/technos/googleplay.jpg"
 						},
 						{
 							name: "GoodBarber",
-							logoSrc: "./images/logos/goodbarber.jpg"
+							logoSrc: "./images/logos/technos/goodbarber.jpg"
 						},
 						{
 							name: "Angular 1",
-							logoSrc: "./images/logos/angular.jpg"
+							logoSrc: "./images/logos/technos/angular.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES5",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						
 						
@@ -1178,27 +1178,27 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "Photoshop",
-							logoSrc: "./images/logos/photoshop.jpg"
+							logoSrc: "./images/logos/technos/photoshop.jpg"
 						},
 						{
 							name: "Illustrator",
-							logoSrc: "./images/logos/illustrator.jpg"
+							logoSrc: "./images/logos/technos/illustrator.jpg"
 						},
 						{
 							name: "Angular 1",
-							logoSrc: "./images/logos/angular.jpg"
+							logoSrc: "./images/logos/technos/angular.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES5",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						
 						// rajouter : photoshop
@@ -1255,27 +1255,27 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "Photoshop",
-							logoSrc: "./images/logos/photoshop.jpg"
+							logoSrc: "./images/logos/technos/photoshop.jpg"
 						},
 						{
 							name: "Illustrator",
-							logoSrc: "./images/logos/illustrator.jpg"
+							logoSrc: "./images/logos/technos/illustrator.jpg"
 						},
 						{
 							name: "Angular 1",
-							logoSrc: "./images/logos/angular.jpg"
+							logoSrc: "./images/logos/technos/angular.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "JS ES5",
-							logoSrc: "./images/logos/javascript.jpg"
+							logoSrc: "./images/logos/technos/javascript.jpg"
 						},
 						
 					],
@@ -1316,31 +1316,31 @@ export const stepsWording = {
 					technos: [
 						{
 							name: "Photoshop",
-							logoSrc: "./images/logos/photoshop.jpg"
+							logoSrc: "./images/logos/technos/photoshop.jpg"
 						},
 						{
 							name: "Illustrator",
-							logoSrc: "./images/logos/illustrator.jpg"
+							logoSrc: "./images/logos/technos/illustrator.jpg"
 						},
 						{
 							name: "HTML5",
-							logoSrc: "./images/logos/html.jpg"
+							logoSrc: "./images/logos/technos/html.jpg"
 						},
 						{
 							name: "CSS3",
-							logoSrc: "./images/logos/css.jpg"
+							logoSrc: "./images/logos/technos/css.jpg"
 						},
 						{
 							name: "Wordpress",
-							logoSrc: "./images/logos/wordpress.jpg"
+							logoSrc: "./images/logos/technos/wordpress.jpg"
 						},
 						{
 							name: "Prestashop",
-							logoSrc: "./images/logos/prestashop.jpg"
+							logoSrc: "./images/logos/technos/prestashop.jpg"
 						},
 						{
 							name: "Joomla",
-							logoSrc: "./images/logos/joomla.jpg"
+							logoSrc: "./images/logos/technos/joomla.jpg"
 						},
 					],
 					texts: [
