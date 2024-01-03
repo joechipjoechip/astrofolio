@@ -257,8 +257,8 @@ export const stepsWording = {
 								title: "Précision",
 								lines: [
 									"Ce site est WIP (Work in Progress) et en déploiement continue (pipe : Github -> Netlifly)",
-									"Pour l'instant il manque encore beaucoup de choses (NAV, Accueil, Traductions, etc..)",
-									"Mais il est déjà consultable et exhaustif, la recherche est fonctionnelle également",
+									"Pour l'instant il manque encore beaucoup de choses (NAV, Accueil, Traductions, Détails de certaines expériences, etc..)",
+									"Mais il est déjà consultable et relativement exhaustif, la recherche est fonctionnelle également",
 								]
 							},
 							{
