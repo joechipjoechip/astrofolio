@@ -2,8 +2,10 @@
 
 import { ref, computed, onMounted, watch, nextTick } from "vue"
 
-import IconsUiDoubleChevronDown from "./icons/uiDoubleChevronDown.vue"
+import IconUiDoubleChevronDown from "./icons/uiDoubleChevronDown.vue"
 import IconUiPin from "./icons/uiPin.vue"
+import IconUiOnline from "./icons/uiOnline.vue"
+import IconUiStudent from "./icons/uiStudent.vue"
 
 import { uiConfig } from "@/assets/uiConfig.js"
 import SlotVideo from "@/components/vue/SlotVideo.vue";
@@ -184,11 +186,21 @@ function insertHighlight( string ){
 						@click="handleExpand"
 						:style="{ cursor: slotData.expand ? 'pointer' : 'default' }"
 					>
-						<IconsUiDoubleChevronDown 
+						<div 
 							v-if="slotData.expand"
-							class="expand-button"
-							color="currentColor"
-						/>
+							class="icon-expand"
+						>
+							<IconUiDoubleChevronDown color="currentColor" />
+						</div>
+
+						<div 
+							class="icon-student"
+							v-if="slotData.hasOwnProperty('self')"
+						>
+							<IconUiOnline v-if="slotData.self" />
+							<IconUiStudent v-else />
+						</div>
+
 						<h5 class="title"
 							v-motion
 							style="will-change: transform, opacity;"
@@ -366,7 +378,6 @@ $expandButtonBorderWidth: 2px;
 .slot {
 
 	&-wrapper {
-		
 		width: 100%;
 		height: $slotHeightBase;
 		box-sizing: border-box;
@@ -410,7 +421,7 @@ $expandButtonBorderWidth: 2px;
 						}
 					}
 
-					.expand-button {
+					.icon-expand svg {
 						transform: translateY(-50%) rotate(-180deg);
 					}
 
@@ -467,7 +478,7 @@ $expandButtonBorderWidth: 2px;
 					transform: translateX(0) translateY(0);
 				}
 				
-				.expand-button {
+				.icon-expand svg {
 					border: solid $expandButtonBorderWidth var(--color-main-70)
 				}
 				
@@ -585,25 +596,38 @@ $expandButtonBorderWidth: 2px;
 				flex-flow: row wrap;
 			}
 
-			.expand-button {
+			.icon {
+				&-expand,
+				&-student {
+					svg {
+						z-index: 40;
+						width: 1rem;
+						height: 1rem;
+						cursor: pointer;
+						padding: 0.5rem;
+						border-radius: 50%;
+						background-color: transparent;
+						border: solid $expandButtonBorderWidth var(--color-main-15);
+		
+						position: absolute;
+						top: 51%;
+						left: -4rem;
+						transform: translateY(-50%) rotate(0deg);
+		
+						transition: 
+							transform var(--transitionDurationMedium),
+							border var(--transitionDurationMedium);
+					}
+				}
 
-				z-index: 40;
-				width: 1rem;
-				height: 1rem;
-				cursor: pointer;
-				padding: 0.5rem;
-				border-radius: 50%;
-				background-color: transparent;
-				border: solid $expandButtonBorderWidth var(--color-main-15);
-
-				position: absolute;
-				top: 51%;
-				left: -4rem;
-				transform: translateY(-50%) rotate(0deg);
-
-				transition: 
-					transform var(--transitionDurationMedium),
-					border var(--transitionDurationMedium);
+				&-student {
+					svg {
+						width: 1.5rem;
+						height: 1.5rem;
+						cursor: default;
+						padding: 0.25rem;
+					}
+				}
 			}
 
 			.title {

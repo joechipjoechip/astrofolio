@@ -11,6 +11,7 @@ export const stepsWording = {
 			{
 				title: "Self - Continuous learnings",
 				body: "web<br>Front-End",
+				self: true,
 				location: "Online",
 				date: {
 					year: "2022 - 2023",
@@ -23,6 +24,7 @@ export const stepsWording = {
 			{
 				title: "Self - ThreejsJourney",
 				body: "web<br>& creative",
+				self: true,
 				location: "Online",
 				date: {
 					year: "2021 - 2022",
@@ -35,6 +37,7 @@ export const stepsWording = {
 			{
 				title: "The Hacking Project",
 				body: "web<br>full-stack",
+				self: true,
 				location: "Paris",
 				date: {
 					year: "2017",
@@ -48,6 +51,7 @@ export const stepsWording = {
 			{
 				title: "Self - FreeCodeCamp.org",
 				body: "Pure<br>Algorythm",
+				self: true,
 				location: "Online",
 				date: {
 					year: "2017",
@@ -60,6 +64,7 @@ export const stepsWording = {
 			{
 				title: "Self - 30 days of JS by Wes Bos",
 				body: "Web<br>Front-end",
+				self: true,
 				location: "Online",
 				date: {
 					year: "2017",
@@ -73,6 +78,7 @@ export const stepsWording = {
 			{
 				title: "Self - OpenClassrooms.com",
 				body: "web<br>back-end",
+				self: true,
 				location: "online",
 				date: {
 					year: "2015",
@@ -85,6 +91,7 @@ export const stepsWording = {
 			{
 				title: "3W Academy",
 				body: "web<br>full-stack",
+				self: false,
 				location: "Marseille",
 				date: {
 					year: "2015",
@@ -98,6 +105,7 @@ export const stepsWording = {
 			{
 				title: "INFA Crear",
 				body: "Designer<br>Multimedia",
+				self: false,
 				location: "Marseille",
 				date: {
 					year: "2014",
@@ -111,6 +119,7 @@ export const stepsWording = {
 			{
 				title: "Fine Arts studies",
 				body: "Hypermedia<br>Graphism",
+				self: false,
 				location: "Aix-en-Provence (Beaux-Arts)",
 				date: {
 					year: "2010 - 2013"
@@ -123,6 +132,7 @@ export const stepsWording = {
 			{
 				title: "Graphic Design school",
 				body: "graphic<br>design",
+				self: false,
 				location: "Marseille (Condé School, old AxeSud)",
 				date: {
 					year: "2004 - 2006"
@@ -135,6 +145,7 @@ export const stepsWording = {
 			{
 				title: "CPU Secondary Degree",
 				body: "BTS Info<br>Sys@dmin",
+				self: false,
 				location: "Marseille",
 				date: {
 					year: "2002 - 2004",
@@ -147,6 +158,7 @@ export const stepsWording = {
 			{
 				title: "French Baccalauréat",
 				body: "BAC STT",
+				self: false,
 				location: "Luynes",
 				date: {
 					year: 2002
