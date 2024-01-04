@@ -23,7 +23,6 @@ export function setName( newName ){
 }
 
 export function setColorMode(newColor){
-	console.log("setColorMode du store : triggered")
 	globalStore.setKey("colorMode", newColor)
 }
 

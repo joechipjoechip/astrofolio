@@ -6,7 +6,9 @@ import HelloReact from '../components/react/HelloReact'
 ---
 <Layout title="LIO PORTFOLIO">
 	<main>
-		<Navigation />
+		<Navigation
+			client:only="svelte"
+		/>
 		<Shell 
 			client:only="vue"
 		/>
