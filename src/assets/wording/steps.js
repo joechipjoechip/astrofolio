@@ -37,7 +37,7 @@ export const stepsWording = {
 			{
 				title: "The Hacking Project",
 				body: "web<br>full-stack",
-				self: true,
+				self: false,
 				location: "Paris",
 				date: {
 					year: "2017",
@@ -212,6 +212,10 @@ export const stepsWording = {
 						{
 							name: "R3F",
 							logoSrc: "./images/logos/technos/react.jpg"
+						},
+						{
+							name: "Svelte",
+							logoSrc: "./images/logos/technos/svelte.jpg"
 						},
 						{
 							name: "Nanostore",

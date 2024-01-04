@@ -160,8 +160,8 @@ const props = defineProps({
 
                 &-search {
                     position: absolute;
-                    right: 0;
-                    margin-right: 2rem;
+                    left: 0;
+                    margin-left: 3rem;
                 }
         
             }

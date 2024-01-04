@@ -6,19 +6,38 @@
         setColorMode,
     } from "@/stores/globalStore.js"
 
-    const message = "hello there, it's svelte"
+    const message = "hello there, imma svelte component"
 
-    function handleColorModeSwitch(){
-        window.toggleColorMode()
-    }
 </script>
-<div style="z-index: 999; position: absolute;">
-    <h2>message - {message}</h2>
-    <h2>store data - {globalStore.value.name}</h2>
-    <button on:click={() => setCurrentStepIndex(1) }>
+
+<nav class="nav-wrapper">
+    <!-- <h2>store data - {globalStore.value.name}</h2> -->
+    <h2>message -> {message}</h2>
+    <button 
+        class="nav-item"
+        on:click={() => setCurrentStepIndex(1) }
+    >
         go formation
     </button>
-    <button on:click={() => handleColorModeSwitch() }>
+
+    <button 
+        class="nav-item"
+        on:click={() => window.toggleColorMode() }
+    >
         switch dark/light
     </button>
-</div>
+</nav>
+
+<style lang="scss">
+    .nav {
+        &-wrapper {
+            z-index: 999; 
+            position: absolute;
+            right: 0;
+        }
+
+        &-item {
+            border: solid 5px orange;
+        }
+    }
+</style>
