@@ -9,11 +9,7 @@
     const message = "hello there, it's svelte"
 
     function handleColorModeSwitch(){
-        if( globalStore.value.colorMode === "dark" ){
-            setColorMode("light")
-        } else {
-            setColorMode("dark")
-        }
+        window.toggleColorMode()
     }
 </script>
 <div style="z-index: 999; position: absolute;">

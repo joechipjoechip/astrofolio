@@ -13,9 +13,6 @@ const props = defineProps({
 	}
 })
 
-function handleClick(){
-    window.toggleColorMode()
-}
 
 </script>
 
@@ -33,7 +30,6 @@ function handleClick(){
 
                     <h2 class="step-head-title"
                         v-if="isActive"
-                        @click="handleClick"
                         v-motion
                         :initial="{ y: 335, opacity: 0 }"
                         :delay="100"
