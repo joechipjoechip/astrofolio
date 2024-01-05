@@ -6,7 +6,7 @@ import Experience from "./Experience.vue";
 
 import { stepsWording } from "@/assets/wording/steps.js"
 
-import { ref, computed } from "vue"
+import { ref, computed, watch } from "vue"
 
 import { useEmitter } from "@/composables/Emitter"
 import { useUserInteractions } from "@/composables/UserInteractions"
@@ -56,7 +56,7 @@ on("main-touch-end", onTouchEnd)
 const dynamicLeft = ref("0px")
 const leftTransitionValue = ref("0s")
 const touchOriginX = ref(null)
-const threshold = 0.55
+const threshold = 0.15
 
 function onTouchStart( event ){
 	const currentStepGrabed = event.target.closest(".slot")?.dataset.index
@@ -117,12 +117,11 @@ function computePositionDiff( movingX ){
 
 
 // - - - - DYNAMIC STYLE LOGIC - - - -
-const baseDecayX = 105
+const baseDecayX = 100
 const decayX = ref(baseDecayX)
 const decayXPositiveString = computed(() => `${decayX.value}%`)
 const decayXNegativeString = computed(() => `${-decayX.value}%`)
-const scaleRatio = ref(0.9)
-
+const scaleRatio = ref(0.92)
 
 
 // - - - COMPONENT STATUS / CLASS LOGIC - - - -
@@ -201,6 +200,7 @@ function defineDynamicClasses(index){
 		top: calc((100vh - var(--stepHeight)) / 2);
 		transform: translateX(0) scale(1);
 		border: solid 2px transparent;
+		background-color: transparent;
 
 		// will-change: opacity, transform, left, background-color, border-color;
 		
@@ -228,7 +228,7 @@ function defineDynamicClasses(index){
 			opacity: 1;
 			z-index: 50;
 			backdrop-filter: blur(5px);
-			background-color: var(--color-contrast-15);
+			// background-color: var(--color-contrast-15);
 
 			:deep(.step-wrapper > *){
 				display: none;
@@ -236,19 +236,19 @@ function defineDynamicClasses(index){
 		}
 	
 		&.isPrevious {
-			transform: translateX(v-bind(decayXNegativeString)) scale(v-bind(scaleRatio));
+			// transform: translateX(v-bind(decayXNegativeString)) scale(v-bind(scaleRatio));
 			
-			&:hover {
-				transform: translateX(v-bind(decayXNegativeString)) scale(0.97);
-			}
+			// &:hover {
+			// 	transform: translateX(v-bind(decayXNegativeString)) scale(0.97);
+			// }
 		}
 	
 		&.isNext {
-			transform: translateX(v-bind(decayXPositiveString)) scale(v-bind(scaleRatio));
+			// transform: translateX(v-bind(decayXPositiveString)) scale(v-bind(scaleRatio));
 			
-			&:hover {
-				transform: translateX(v-bind(decayXPositiveString)) scale(0.97);
-			}
+			// &:hover {
+			// 	transform: translateX(v-bind(decayXPositiveString)) scale(0.97);
+			// }
 		}
 	
 		&.isOutPrevious,

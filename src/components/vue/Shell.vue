@@ -20,6 +20,6 @@ import Stepper from './Stepper.vue';
     height: 100%;
     /* max-width: 100vh;
     max-height: 100vh; */
-    overflow: hidden;
+    overflow: hidden !important;
 }
 </style>
