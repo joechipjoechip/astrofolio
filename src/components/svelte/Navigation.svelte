@@ -68,10 +68,18 @@
         {#if menusAreOpen}
         <!-- svelte-ignore a11y-no-static-element-interactions -->
         <div 
-            class="nav-sub-vertical"
-            on:mouseleave={() => handleSubMouseLeave()}
+        class="nav-sub-vertical"
+        on:mouseleave={() => handleSubMouseLeave()}
         >
+            
             <p>vertical</p>
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
+            <button 
+                class="nav-item"
+                on:click={() => window.toggleColorMode() }
+            >
+                switch dark/light
+            </button>
         </div>
         {/if}
 
