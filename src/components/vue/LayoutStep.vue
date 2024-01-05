@@ -73,7 +73,10 @@ const props = defineProps({
 
                 </div>
 
-                <div class="step-body">
+                <div 
+                    class="step-body"
+                    :class="{ withScrollbar: wording.withScrollbar }"
+                >
                     
                     <!-- here comes the <SlotList> of : Formation.vue || Bio.vue || Experience.vue > -->
                     <slot :stepIsActive="isActive" />
@@ -168,14 +171,18 @@ const props = defineProps({
         
             &-body {
                 z-index: 50;
-                @include scrollbar;
                 position: relative;
                 height: 90%;
                 // padding-right: 2rem;
-                overflow-y: scroll;
-                overflow-x: hidden;
-
+                
+                
                 direction: rtl;
+                
+                &.withScrollbar {
+                    @include scrollbar;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                }
             }
         
             &-footer {

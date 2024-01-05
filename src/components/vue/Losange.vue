@@ -10,15 +10,15 @@ const wording = {
 	},
 	"top-right": {
 		title: "transparency",
-		text: "Rise alerts when it's consistent (to avoid time wasting)"
+		text: "todo : find wording 2"
 	},
 	"bottom-left": {
 		title: "team work",
-		text: "Happiness and dialog with team workers"
+		text: "todo : find wording 3"
 	},
 	"bottom-right": {
 		title: "responsible",
-		text: "Involved in every part of my work"
+		text: "todo : find wording 4"
 	}
 }
 
@@ -132,7 +132,7 @@ function onTouchMove( event ){
 			height: inherit;
 			position: absolute;
 			width: 100%;
-			height: 100%;
+			height: 90%;
 			overflow: hidden;
 			
 		}

@@ -7,6 +7,7 @@ export const stepsWording = {
 		stepStyle: "line",
 		color: "#FF4E4E",
 		searchEnabled: false,
+		withScrollbar: false,
 		slots: []
 	},
 	
@@ -17,6 +18,7 @@ export const stepsWording = {
 		stepStyle: "squared",
 		color: "orange",
 		searchEnabled: true,
+		withScrollbar: true,
 		placeholder: "Javascript, HTML, ..",
 		slots: [
 			{
@@ -188,6 +190,7 @@ export const stepsWording = {
 		stepStyle: "line",
 		color: "#4E6AFF",
 		searchEnabled: true,
+		withScrollbar: true,
 		placeholder: "Vue, GSAP, Three, ..",
 		slots: [
 			{
