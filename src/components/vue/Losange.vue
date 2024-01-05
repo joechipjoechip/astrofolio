@@ -5,12 +5,12 @@ import { reactive, ref, watch } from 'vue';
 const wording = reactive({
     descriptionDisplayed: false,
     descriptionText: {
-        transparence: "wording to define 1",
-        sociable: "wording to define 2",
-        bienveillant: "wording to define 3",
-        responsable: "wording to define 4"
+        transparency: "wording to define 1",
+        advocacy: "wording to define 2",
+        insightfullness: "wording to define 3",
+        accountability: "wording to define 4"
     },
-    notions: ["transparence", "sociable", "bienveillant", "responsable"],
+    notions: ["transparency", "advocacy", "insightfullness", "accountability"],
     positions: {
         transparency: "top",
         advocacy: "left",
