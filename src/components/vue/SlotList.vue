@@ -122,7 +122,6 @@ const rafinedData = computed(() => {
 
 <style lang="scss" scoped>
 .list {
-    width: 100%;
     height: auto;
     display: flex;
     flex-flow: row wrap;
@@ -130,7 +129,7 @@ const rafinedData = computed(() => {
     align-items: center;
     row-gap: 0.5rem;
 
-    margin-left: 2.5%;
+    margin-left: 2rem;
     margin-right: 2rem;
     direction: ltr;
     margin-bottom: 30rem;
