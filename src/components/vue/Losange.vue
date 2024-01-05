@@ -149,11 +149,11 @@ function onTouchMove( event ){
 
 			.big-square {
 				position: relative;
-				border: solid 1px var(--color-contrast-90);
+				border: solid 1px var(--color-contrast-95);
 				font-size: 2rem;
 				border-radius: $bigSquareBorderRadius;
 
-				background-color: var(--color-main-05);
+				background-color: var(--color-contrast-15);
 				backdrop-filter: blur(30px);
 
 				width: $bigSquareSize;
@@ -206,11 +206,15 @@ function onTouchMove( event ){
 				text-transform: uppercase;
 				letter-spacing: 0.25rem;
 				color: var(--color-main-30);
+				text-shadow: 0 0 1.5rem var(--color-main-05);
 
-				transition: color var(--transitionDurationMedium);
+				transition: 
+					color var(--transitionDurationMedium),
+					text-shadow var(--transitionDurationLong);
 
 				&.is-active {
 					color: var(--color-main-100);
+					text-shadow: 0 0 1.5rem var(--color-main-35);
 				}
 
 				&[class*="-top-right"]{
@@ -277,6 +281,8 @@ function onTouchMove( event ){
 					color: var(--color-white);
 					font-size: 2rem;
 					margin: 0 3rem;
+					color: var(--color-main-100);
+					text-shadow: 0 0 1.5rem var(--color-main-75);
 				}
 
 
