@@ -122,6 +122,7 @@ const rafinedData = computed(() => {
 
 <style lang="scss" scoped>
 .list {
+    width: 100%;
     height: auto;
     display: flex;
     flex-flow: row wrap;
