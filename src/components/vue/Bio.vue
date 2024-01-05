@@ -1,6 +1,6 @@
 <script setup>
 import LayoutStep from './LayoutStep.vue';
-import SlotList from './SlotList.vue';
+import Losange from './Losange.vue';
 
 const props = defineProps({
 	isActive: {
@@ -21,12 +21,7 @@ const props = defineProps({
 		:isActive="isActive" 
 		:wording="wording"
 	>
-		<SlotList 
-			:slots="wording.slots"
-			:stepIsActive="isActive"
-			:stepColor="wording.color"
-			:stepID="wording.id"
-		/>
+		<Losange />
 	</LayoutStep>
 
 </template>
