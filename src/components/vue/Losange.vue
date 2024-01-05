@@ -271,9 +271,12 @@ function onTouchMove( event ){
 				}
 
 				&-text {
+					// position: absolute;
+					// top: 0;
 					text-align: center;
 					color: var(--color-white);
 					font-size: 2rem;
+					margin: 0 3rem;
 				}
 
 
@@ -281,6 +284,38 @@ function onTouchMove( event ){
 
 		}
 
+	}
+
+	.transition-description {
+		&-enter-active,
+		&-leave-active {
+			transform: translate3d(0,0,0);
+			opacity: 1;
+	
+			
+		}
+
+		&-leave-active {
+			transition: 
+				opacity var(--transitionDurationMediumPlus),
+				transform var(--transitionDurationMediumPlus) cubic-bezier(0,.72,.23,1.26);
+		}
+
+		&-enter-active {
+			transition: 
+				opacity var(--transitionDurationMedium),
+				transform var(--transitionDurationMedium) cubic-bezier(0,.72,.23,1.26);
+		}
+
+		&-enter-from {
+			opacity: 0;
+			transform: translate3d(0,4rem,0);
+		}
+
+		&-leave-to {
+			opacity: 0;
+			transform: translate3d(0,-8rem,0);
+		}
 	}
 
 </style>
