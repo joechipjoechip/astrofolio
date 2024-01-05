@@ -1,105 +1,109 @@
 <script setup>
+import { ref, computed } from 'vue';
+import { useEmitter } from "@/composables/Emitter"
+import { useGetEventPosition } from "@/composables/GetEventPosition"
 
-import { reactive, ref, watch } from 'vue';
-
-const wording = reactive({
-    descriptionDisplayed: false,
-    descriptionText: {
-        transparency: "wording to define 1",
-        advocacy: "wording to define 2",
-        insightfullness: "wording to define 3",
-        accountability: "wording to define 4"
-    },
-    notions: ["transparency", "advocacy", "insightfullness", "accountability"],
-    positions: {
-        transparency: "top",
-        advocacy: "left",
-        insightfullness: "bottom",
-        accountability: "right"
-    }
-})
-
-const currentKey = ref("")
-const currentBorderClass = ref("")
-
-function letterEventHandler( event ){
-
-    currentKey.value = event.target.dataset.text;
-
+const wording = {
+	"top-left": {
+		title: "clean code",
+		text: "Rigourous respect of project guide lines. Proper and elegant code writing"
+	},
+	"top-right": {
+		title: "transparency",
+		text: "Rise alerts when it's consistent (to avoid time wasting)"
+	},
+	"bottom-left": {
+		title: "team work",
+		text: "Happiness and dialog with team workers"
+	},
+	"bottom-right": {
+		title: "responsible",
+		text: "Involved in every part of my work"
+	}
 }
 
-watch(currentKey, newVal => {
-    currentBorderClass.value = `active-border-${wording.positions[newVal]}`;
-})
+const currentPosition = ref("")
+const currentBorderClass = computed(() => `active-border-${currentPosition.value}`)
 
+const { on } = useEmitter()
+on("main-touch-move", onTouchMove)
+
+function onTouchMove( event ){
+	const { x, y } = useGetEventPosition(event)
+
+	if( x < window.innerWidth / 2 ){
+
+		if( y < window.innerHeight / 2 ){
+
+			currentPosition.value = "top-left"
+			
+		} else {
+			
+			currentPosition.value = "bottom-left"
+		}
+
+	} else {
+
+		if( y < window.innerHeight / 2 ){
+
+			currentPosition.value = "top-right"
+
+		} else {
+
+			currentPosition.value = "bottom-right"
+		}
+
+	}
+
+}
 
 </script>
 
 <template>
-	<div class="philosophy-container">
+	<div class="losange-wrapper">
 
-		<div class="philosophy-wrapper">
+		<div class="losange-inner">
 
-			<div class="philosophy-inner">
+			<!-- Referential big square -->
+			<div 
+				class="big-square anim-shadow"
+				:class="currentBorderClass"
+			>
 
-				<!-- Referential big square -->
-				<div :class="['big-square', 'anim-shadow', currentBorderClass]">
+				<!-- TITLES -->
+				<div v-for="(key, index) in Object.keys(wording)" :key="index" 
+					:class="[
+						`wording-${key}`, 
+						{ 'is-active': currentPosition === key }
+					]"
+				>
+					{{ wording[key].title }}
+				</div>
 
-					<!-- WORDINGS -->
-					<div v-for="(notion, index, id) in wording.notions" :key="id" 
-						:class="[
-							'wording-' + (index + 1), 
-							{ 'is-active': currentKey === notion }
-						]"
-						@mouseenter="letterEventHandler"
-						:data-text="notion"
+				<!-- TEXTS -->
+				<div class="description-wrapper">
+
+					<div 
+						v-for="(key, index) in  Object.keys(wording)" :key="index"
+						class="description-item"
 					>
-						{{notion}}
-					</div>
 
-					<div class="description-wrapper">
+						<transition name="transition-description">
 
-						<div 
-							v-for="(notion, index, id) in  wording.notions" :key="id"
-							class="description-container">
+							<div 
+								v-if="key === currentPosition"
+								class="description-text"
+							>
+								{{ wording[key].text }}
+							</div>
 
-							<transition name="transition-description">
-
-								<div v-if="notion === currentKey"
-									class="description">
-									{{ wording.descriptionText[currentKey] }}
-								</div>
-
-							</transition>
-							
-						</div>
-
-					</div>
-
-					<!--  SQUARES -->
-					<!-- Inside -->
-					<div v-for="index in 2" :key="index"
-						:class="[
-							'little-square-inside-' + index
-						]">
-						{{ currentKey ? currentKey.substring(0, 1) : "" }}
-					</div>
-
-					<!-- Outside -->
-					<div v-for="(notion, index, id) in wording.notions" :key="id" 
-						:class="[
-							'little-square-outside-' + (index + 1), 
-							{ 'is-active': currentKey === notion },
-							`${currentKey === notion ? currentBorderClass : ''}`
-						]"
-						@mouseenter="letterEventHandler"
-						:data-text="notion"
-					>
-						{{ notion.substring(0,1) }}
+						</transition>
+						
 					</div>
 
 				</div>
 
+				
 			</div>
 
 		</div>
@@ -108,52 +112,29 @@ watch(currentKey, newVal => {
 </template>
 
 <style lang="scss" scoped>
-
-
-	.philosophy {
-
-		// only css property (which can be override with an inline-style)
-		$bigSquareSize: 38vh;
-
-		// all relatives variables
-		$littleSquareSize: 10%;
+	.losange {
+		$bigSquareSize: 35rem;
+		$bigSquareBorderRadius: 7rem;
 	
-		$wordingFontSize: 1.8vh;
-		$wordingDecay: 40px;
-		$calcWordingMargin: calc($wordingFontSize * -1 - $wordingDecay);
-	
-	
-		$calcDecayInside: calc($littleSquareSize / 2);
-		$calcDecay1: calc(-50% - ($littleSquareSize / 2));
-		$calcDecay2: calc(50% - ($littleSquareSize / 2));
+		$wordingFontSize: 2rem;
+		$wordingDecay: 4rem;
+		$calcWordingMargin: calc(($wordingFontSize * -1) - $wordingDecay);
 
-		$borderColorWhiteFaded: rgba(255,255,255, 0.4);
-
-		$delayTransition1: .3s;
-		$delayTransition2: .5s;
-
-		$activeBorderMainSize: 12px;
-		$activeBorderSecondSize: 5px;
-
-		$activeBorderMainSizeOutside: 6px;
-		$activeBorderSecondSizeOutside: 3px;
-
-		&-container {
-			display: block;
-
-			margin-top: 150px;
-			margin-bottom: 200px;
-
-			.logo-j {
-				display: block;
-				margin: 0 auto;
-			}
-
-		}
+		$activeBorderMainSize: 2rem;
+		$activeBorderSecondSize: 0.5rem;
 
 		&-wrapper {
-			display: block;
-			// here : if we need a global margin-top or bottom
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			align-items: center;
+			width: inherit;
+			height: inherit;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			
 		}
 
 		&-inner {
@@ -161,21 +142,19 @@ watch(currentKey, newVal => {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-
-			// width: $innerSize;
-			// height: $innerSize;
-			margin: 20vh auto 15vh auto;
 			box-sizing: border-box;
 
 			transform-origin: center;
 			transform: rotate(45deg);
 
-			// border: solid 1px white;
-
 			.big-square {
 				position: relative;
-				border: solid 1px currentColor;
-				font-size: 20px;
+				border: solid 1px var(--color-contrast-90);
+				font-size: 2rem;
+				border-radius: $bigSquareBorderRadius;
+
+				background-color: var(--color-main-05);
+				backdrop-filter: blur(30px);
 
 				width: $bigSquareSize;
 				height: $bigSquareSize;
@@ -187,65 +166,58 @@ watch(currentKey, newVal => {
 				justify-content: center;
 				align-items: center;
 
-				will-change: border-width;
+				// will-change: border-width;
 
-				transition: border-width .7s;
+				transition: border var(--transitionDurationMediumPlus);
 
 				&.active-border {
 
-					&-top {
-						border-top-width: $activeBorderMainSize;
-						border-right-width: $activeBorderSecondSize;
+					&-top-left {
+						border-left-width: $activeBorderMainSize;
+						border-top-width: $activeBorderSecondSize;
 					}
 
-					&-right {
-						border-right-width: $activeBorderMainSize;
-						border-bottom-width: $activeBorderSecondSize;
-					}
-
-					&-bottom {
+					&-bottom-left {
 						border-bottom-width: $activeBorderMainSize;
 						border-left-width: $activeBorderSecondSize;
 					}
 
-					&-left {
-						border-left-width: $activeBorderMainSize;
-						border-top-width: $activeBorderSecondSize;
+					&-top-right {
+						border-top-width: $activeBorderMainSize;
+						border-right-width: $activeBorderSecondSize;
 					}
+
+					&-bottom-right {
+						border-right-width: $activeBorderMainSize;
+						border-bottom-width: $activeBorderSecondSize;
+					}
+
 				}
 
-			}
-
-			// font styles
-			.description,
-			*[class^="wording"],
-			*[class^="little-square"] {
-				font-family: "AktivGrotesk";
-				font-size: $wordingFontSize;
-				text-transform: uppercase;
-				letter-spacing: 2.4px;
-				color: $borderColorWhiteFaded;
 			}
 
 			*[class^="wording"]{
 				position: absolute;
 				width: 100%;
 				text-align: center;
-				cursor: pointer;
 
-				will-change: color;
+				font-size: $wordingFontSize;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: 0.25rem;
+				color: var(--color-main-30);
 
-				transition: color $delayTransition1;
+				transition: color var(--transitionDurationMedium);
 
 				&.is-active {
-					color: currentColor;
+					color: var(--color-main-100);
 				}
 
-				&[class*="-1"]{
+				&[class*="-top-right"]{
 					top: $calcWordingMargin;
 				}
 
-				&[class*="-2"]{
+				&[class*="-top-left"]{
 					transform-origin: left;
 					transform: rotate(-90deg);
 
@@ -253,11 +225,11 @@ watch(currentKey, newVal => {
 					bottom: calc($wordingFontSize / -2);
 				}
 
-				&[class*="-3"]{
+				&[class*="-bottom-left"]{
 					bottom: $calcWordingMargin;
 				}
 
-				&[class*="-4"]{
+				&[class*="-bottom-right"]{
 					transform-origin: right;
 					transform: rotate(-90deg);
 
@@ -268,129 +240,47 @@ watch(currentKey, newVal => {
 			}
 
 			.description {
-				text-align: center;
-				color: var(--color-white);
-				font-size: 1.5vh;
-				line-height: 1.7em;
-
-				&-container {
-					transform-origin: center;
-					transform: rotate(-45deg);
-					position: absolute;
-					width: 70%;
-					height: 70%;
-					top: 30%;
-					left: 30%;
-				}
 
 				&-wrapper {
 					width: 100%;
 					height: 100%;
 
-					font-size: 1.8vh;
-					line-height: 30px;
+					font-size: 2rem;
 					color: var(--color-white);
 					text-transform: none;
+
+					display: flex;
+					flex-flow: column nowrap;
+					justify-content: center;
+					align-items: center;		
 				}
 
-
-			}
-
-			*[class^="little-square"] {
-				width: $littleSquareSize;
-				height: $littleSquareSize;
-				border: solid 1px $borderColorWhiteFaded;
-
-				display: flex;
-				justify-content: center;
-				align-items: center;
-
-				transform-origin: center;
-				transform: rotate(-45deg);
-			}
-
-			*[class^="little-square-inside"] {
-				position: absolute;
-				border-color: currentColor;
-				color: currentColor;
-
-				&[class*="-1"] {
-					top: $calcDecayInside;
-					left: $calcDecayInside;
+				&-item {
+					transform-origin: center;
+					transform: rotate(-45deg);
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					
+					display: flex;
+					flex-flow: column nowrap;
+					justify-content: center;
+					align-items: center;
 				}
 
-				&[class*="-2"] {
-					bottom: $calcDecayInside;
-					right: $calcDecayInside;
+				&-text {
+					text-align: center;
+					color: var(--color-white);
+					font-size: 2rem;
 				}
 
-			}
-
-			*[class^="little-square-outside"] {
-				position: absolute;
-				cursor: pointer;
-
-				will-change: color, border-color, border-width;
-
-				transition: color $delayTransition1,
-							border-color $delayTransition2,
-							border-width .7s;
-
-				&.is-active {
-					color: currentColor;
-					border-color: currentColor;
-				}
-
-				&.active-border {
-
-					&-top {
-						border-top-width: $activeBorderMainSizeOutside;
-						border-right-width: $activeBorderSecondSizeOutside;
-					}
-
-					&-right {
-						border-right-width: $activeBorderMainSizeOutside;
-						border-bottom-width: $activeBorderSecondSizeOutside;
-					}
-
-					&-bottom {
-						border-bottom-width: $activeBorderMainSizeOutside;
-						border-left-width: $activeBorderSecondSizeOutside;
-					}
-
-					&-left {
-						border-left-width: $activeBorderMainSizeOutside;
-						border-top-width: $activeBorderSecondSizeOutside;
-					}
-
-				}
-
-				&[class*="-1"] {
-					top: $calcDecay1;
-					left: $calcDecay2;
-				}
-
-				&[class*="-2"] {
-					top: $calcDecay2;
-					left: $calcDecay1;
-				}
-
-				&[class*="-3"] {
-					bottom: $calcDecay1;
-					right: $calcDecay2;
-				}
-
-				&[class*="-4"] {
-					bottom: $calcDecay2;
-					right: $calcDecay1;
-				}
 
 			}
 
 		}
 
 	}
-
-
 
 </style>
