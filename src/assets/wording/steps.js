@@ -1,4 +1,14 @@
 export const stepsWording = {
+
+	"bio": {
+		id: "bio",
+		title: "Bio",
+		catcher: "hey, ici cest la bio",
+		stepStyle: "line",
+		color: "#FF4E4E",
+		searchEnabled: false,
+		slots: []
+	},
 	
 	"formation": {
 		id: "formation",
@@ -6,7 +16,8 @@ export const stepsWording = {
 		catcher: "hey, ici cest la formation",
 		stepStyle: "squared",
 		color: "orange",
-		placeholder: "Ruby, HTML, ..",
+		searchEnabled: true,
+		placeholder: "Javascript, HTML, ..",
 		slots: [
 			{
 				title: "Self - Continuous learnings",
@@ -170,21 +181,13 @@ export const stepsWording = {
 		]
 	},
 
-	"bio": {
-		id: "bio",
-		title: "Bio",
-		catcher: "hey, ici cest la bio",
-		stepStyle: "line",
-		color: "#FF4E4E",
-		slots: []
-	},
-
 	"experience": {
 		id: "experience",
 		title: "Experiences",
 		catcher: "hey, ici cest la experience",
 		stepStyle: "line",
 		color: "#4E6AFF",
+		searchEnabled: true,
 		placeholder: "Vue, GSAP, Three, ..",
 		slots: [
 			{

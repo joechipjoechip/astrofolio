@@ -48,7 +48,7 @@ const props = defineProps({
                     </h2>
 
                     <SearchBar 
-                        v-if="isActive"
+                        v-if="isActive && wording.searchEnabled"
                         class="step-head-search"
                         :color="wording.color" 
                         :placeholder="wording.placeholder"
