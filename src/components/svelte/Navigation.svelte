@@ -1,44 +1,27 @@
 
 <script>
-    import IconMain from "./icons/uiMenu.svelte"
+import { stepsWording } from "@/assets/wording/steps.js"
+import IconMain from "./icons/uiMenu.svelte"
 
-    import { 
-        globalStore, 
-        setCurrentStepIndex,
-        setColorMode,
-    } from "@/stores/globalStore.js"
+import { 
+    globalStore, 
+    setCurrentStepIndex,
+    setColorMode,
+} from "@/stores/globalStore.js"
 
-    const message = "hello, imma wip svelte component"
-    let menusAreOpen = false
+let menusAreOpen = false
 
-    function handleMainMouseEnter(){
-        console.log("mouse enter menu")
-        menusAreOpen = true
-    }
-    
-    function handleSubMouseLeave(){
-        menusAreOpen = false
-    }
+function handleMainMouseEnter(){
+    menusAreOpen = true
+}
+
+function handleSubMouseLeave(){
+    menusAreOpen = false
+}
 
 </script>
 
 <nav class="nav-wrapper">
-    
-    <!-- <h2>store data - {globalStore.value.name}</h2> -->
-    <!-- <h2>message : {message}</h2>
-        <button 
-        class="nav-item"
-        on:click={() => setCurrentStepIndex(1) }
-        >
-        go formation
-    </button>
-    
-    <button 
-    class="nav-item"
-    on:click={() => window.toggleColorMode() }
-    >
-    switch dark/light
-</button> -->
 
     <div class="nav-inner">
         <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -54,34 +37,43 @@
         </div>
     
         <!-- HORIZONTAL -->
-        {#if menusAreOpen}
+        
         <!-- svelte-ignore a11y-no-static-element-interactions -->
         <div 
-            class="nav-sub-horizontal"
+            class="nav-sub-horizontal-wrapper"
+            class:opened={menusAreOpen}
             on:mouseleave={() => handleSubMouseLeave()}
         >
-            <p>horizontal</p>
+            {#each Object.keys(stepsWording) as sectionName, index }
+                <button 
+                    class="nav-sub-horizontal-item"
+                    on:click={() => setCurrentStepIndex(index)}
+                >
+                    {sectionName}
+                </button>
+            {/each}
         </div>
-        {/if}
+        
 
         <!-- VERTICAL -->
-        {#if menusAreOpen}
-        <!-- svelte-ignore a11y-no-static-element-interactions -->
+        
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
         <div 
-        class="nav-sub-vertical"
-        on:mouseleave={() => handleSubMouseLeave()}
+            class="nav-sub-vertical-wrapper"
+            class:opened={menusAreOpen}
+            on:mouseleave={() => handleSubMouseLeave()}
         >
             
             <p>vertical</p>
             <!-- svelte-ignore a11y-no-static-element-interactions -->
             <button 
-                class="nav-item"
+                class="nav-sub-vertical-item"
                 on:click={() => window.toggleColorMode() }
             >
                 switch dark/light
             </button>
         </div>
-        {/if}
+        
 
     </div>
 </nav>
@@ -109,20 +101,64 @@
 
         &-sub {
             &-horizontal {
-                position: absolute;
-                right: $subEdgeFromMain;
-                top: 0;
-                height: 100%;
+                &-wrapper {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    justify-content: flex-end;
+                    align-items: center;
+                    column-gap: 1rem;
+
+                    position: absolute;
+                    right: $subEdgeFromMain;
+                    top: 0;
+                    height: 100%;
+                    width: 0%;
+    
+                    transition: width var(--transitionDurationMediumPlus);
+    
+                    &.opened {
+                        width: 20rem;
+                    }
+                }
+
+                &-item {
+                    //
+                }
             }
             &-vertical {
-                position: absolute;
-                top: $subEdgeFromMain;
-                width: 100%;
+                &-wrapper {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    position: absolute;
+                    top: $subEdgeFromMain;
+                    width: 100%;
+                    height: 0%;
+    
+                    transition: height var(--transitionDurationMediumPlus);
+    
+                    &.opened {
+                        height: 100%;
+                    }
+                }
+
+                &-item {
+                    //
+                }
             }
 
             &-horizontal,
             &-vertical {
-                border: solid 1px lime;
+                &-wrapper {
+                    border: solid 1px lime;
+                    overflow: hidden;
+                }
+
+                &-item {
+                    text-transform: uppercase;
+                }
             }
         }
     }
