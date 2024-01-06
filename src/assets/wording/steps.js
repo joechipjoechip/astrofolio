@@ -191,7 +191,7 @@ export const stepsWording = {
 		color: "#4E6AFF",
 		searchEnabled: true,
 		withScrollbar: true,
-		placeholder: "Search techno, company, date, etc..",
+		placeholder: "Search techno, company, role, date, etc..",
 		slots: [
 			// {
 			// 	title: "This CV / Portfolio (WIP)",
@@ -305,7 +305,7 @@ export const stepsWording = {
 				logoSrcNoRevert: true,
 				date: {
 					year: "2023",
-					duration: "Freelance : 1 week mission"
+					duration: "Freelance : 1 week sniper project"
 				},
 				description: [
 					"Vue3, Nuxt3, Canvas"

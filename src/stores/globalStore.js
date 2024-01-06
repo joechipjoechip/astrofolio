@@ -3,7 +3,7 @@ import { map } from "nanostores"
 export const globalStore = map({
 	colorMode: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light",
 	name: "Paul",
-	currentStepIndex: 2,
+	currentStepIndex: 0,
 	stepsCount: 0,
 	stepGrabed: false,
 	navigation: {
