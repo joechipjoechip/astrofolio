@@ -93,6 +93,8 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 
+$headHeight: 6rem;
+
 .layout-step {
 
     &-wrapper {
@@ -134,8 +136,8 @@ const props = defineProps({
             &-head {
                 z-index: 30;
                 position: relative;
-                margin-bottom: -0.3rem;
-                height: 9rem;
+                // margin-bottom: -0.3rem;
+                height: $headHeight;
                 display: flex;
                 flex-flow: column nowrap;
                 justify-content: center;
@@ -143,7 +145,7 @@ const props = defineProps({
                 
                 & > * {
                     margin: 0;
-                    margin-top: 2rem;
+                    // margin-top: 2rem;
                 }
                 
                 &-title {
@@ -164,7 +166,7 @@ const props = defineProps({
                 &-search {
                     position: absolute;
                     left: 0;
-                    margin-left: 2rem;
+                    margin-left: 1rem;
                 }
         
             }
@@ -172,7 +174,7 @@ const props = defineProps({
             &-body {
                 z-index: 50;
                 position: relative;
-                height: 90%;
+                height: calc(100% - $headHeight);
                 // padding-right: 2rem;
                 
                 

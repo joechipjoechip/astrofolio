@@ -129,8 +129,8 @@ const rafinedData = computed(() => {
     align-items: center;
     row-gap: 0.5rem;
 
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     direction: ltr;
     margin-bottom: 30rem;
 }

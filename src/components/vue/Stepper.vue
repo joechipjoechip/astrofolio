@@ -219,7 +219,8 @@ function defineDynamicClasses(index){
 			z-index: 100;
 			// position: relative;
 			transform: translateX(0) scale(1);
-			background-color: transparent;
+			background-color: var(--color-contrast-10);
+			border-radius: var(--borderRadiusMedium) var(--borderRadiusBig) var(--borderRadiusSmall) var(--borderRadiusSmall);
 		}
 	
 		&.isPrevious,
