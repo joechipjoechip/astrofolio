@@ -193,110 +193,110 @@ export const stepsWording = {
 		withScrollbar: true,
 		placeholder: "Vue, GSAP, Three, ..",
 		slots: [
-			{
-				title: "This CV / Portfolio (WIP)",
-				body: "Front-End Dev.<br>CreaTech",
-				location: "Marseille",
-				date: {
-					year: "2023-2024",
-					duration: "On my freetime"
-				},
-				description: [
-					"Astro4, Vue3, React-Three-Fiber (R3f)",
-					"VueUse, V-Motion"
-				],
-				expand: {
-					technos: [
-						{
-							name: "Astro4",
-							logoSrc: "./images/logos/technos/astro.jpg"
-						},
-						{
-							name: "Vue3",
-							logoSrc: "./images/logos/technos/vue.jpg"
-						},
-						{
-							name: "R3F",
-							logoSrc: "./images/logos/technos/react.jpg"
-						},
-						{
-							name: "Svelte",
-							logoSrc: "./images/logos/technos/svelte.jpg"
-						},
-						{
-							name: "Nanostore",
-							logoSrc: "./images/logos/technos/nanostore.jpg"
-						},
-						{
-							name: "VueUse",
-							logoSrc: "./images/logos/technos/vueuse.jpg"
-						},
-						{
-							name: "HTML5",
-							logoSrc: "./images/logos/technos/html.jpg"
-						},
-						{
-							name: "CSS3",
-							logoSrc: "./images/logos/technos/css.jpg"
-						},
-						{
-							name: "JS ES6",
-							logoSrc: "./images/logos/technos/javascript.jpg"
-						},
-						{
-							name: "GSAP",
-							logoSrc: "./images/logos/technos/gsap.jpg"
-						},
-						{
-							name: "SASS",
-							logoSrc: "./images/logos/technos/sass.jpg"
-						},
-						{
-							name: "BEM",
-							logoSrc: "./images/logos/technos/bem.jpg"
-						},
-						{
-							name: "Git",
-							logoSrc: "./images/logos/technos/git.jpg"
-						},
-						{
-							name: "Netlifly",
-							logoSrc: "./images/logos/technos/netlifly.jpg"
-						},
-					],
-					links: [
-						{
-							href: "https://github.com/joechipjoechip/astrofolio",
-							text: "See the git repo"
-						}
-					],
-					texts: [
-						[
-							{
-								title: "Contexte",
-								lines: [
-									"CV / Portfolio que je dev sur mon temps libre",
-									"Le but est de mettre à disposition des RH et recruteurs l'exhaustivité de mon parcours de manière visuellement digeste",
-								]
-							},
-							{
-								title: "Précision",
-								lines: [
-									"Ce site est WIP (Work in Progress) et en déploiement continue (pipe : Github -> Netlifly)",
-									"Pour l'instant il manque encore beaucoup de choses (NAV, Accueil, Traductions, Détails de certaines expériences, etc..)",
-									"Mais il est déjà consultable et relativement exhaustif, la recherche est fonctionnelle également",
-								]
-							},
-							{
-								title: "Note pour les DEVs",
-								lines: [
-									"Je travaille solo sur ce projet, donc ne pas prêter attention à la propreté/consistence des commits"
-								]
-							}
-						]
-					]
-				}
-			},
+			// {
+			// 	title: "This CV / Portfolio (WIP)",
+			// 	body: "Front-End Dev.<br>CreaTech",
+			// 	location: "Marseille",
+			// 	date: {
+			// 		year: "2023-2024",
+			// 		duration: "On my freetime"
+			// 	},
+			// 	description: [
+			// 		"Astro4, Vue3, React-Three-Fiber (R3f)",
+			// 		"VueUse, V-Motion"
+			// 	],
+			// 	expand: {
+			// 		technos: [
+			// 			{
+			// 				name: "Astro4",
+			// 				logoSrc: "./images/logos/technos/astro.jpg"
+			// 			},
+			// 			{
+			// 				name: "Vue3",
+			// 				logoSrc: "./images/logos/technos/vue.jpg"
+			// 			},
+			// 			{
+			// 				name: "R3F",
+			// 				logoSrc: "./images/logos/technos/react.jpg"
+			// 			},
+			// 			{
+			// 				name: "Svelte",
+			// 				logoSrc: "./images/logos/technos/svelte.jpg"
+			// 			},
+			// 			{
+			// 				name: "Nanostore",
+			// 				logoSrc: "./images/logos/technos/nanostore.jpg"
+			// 			},
+			// 			{
+			// 				name: "VueUse",
+			// 				logoSrc: "./images/logos/technos/vueuse.jpg"
+			// 			},
+			// 			{
+			// 				name: "HTML5",
+			// 				logoSrc: "./images/logos/technos/html.jpg"
+			// 			},
+			// 			{
+			// 				name: "CSS3",
+			// 				logoSrc: "./images/logos/technos/css.jpg"
+			// 			},
+			// 			{
+			// 				name: "JS ES6",
+			// 				logoSrc: "./images/logos/technos/javascript.jpg"
+			// 			},
+			// 			{
+			// 				name: "GSAP",
+			// 				logoSrc: "./images/logos/technos/gsap.jpg"
+			// 			},
+			// 			{
+			// 				name: "SASS",
+			// 				logoSrc: "./images/logos/technos/sass.jpg"
+			// 			},
+			// 			{
+			// 				name: "BEM",
+			// 				logoSrc: "./images/logos/technos/bem.jpg"
+			// 			},
+			// 			{
+			// 				name: "Git",
+			// 				logoSrc: "./images/logos/technos/git.jpg"
+			// 			},
+			// 			{
+			// 				name: "Netlifly",
+			// 				logoSrc: "./images/logos/technos/netlifly.jpg"
+			// 			},
+			// 		],
+			// 		links: [
+			// 			{
+			// 				href: "https://github.com/joechipjoechip/astrofolio",
+			// 				text: "See the git repo"
+			// 			}
+			// 		],
+			// 		texts: [
+			// 			[
+			// 				{
+			// 					title: "Contexte",
+			// 					lines: [
+			// 						"CV / Portfolio que je dev sur mon temps libre",
+			// 						"Le but est de mettre à disposition des RH et recruteurs l'exhaustivité de mon parcours de manière visuellement digeste",
+			// 					]
+			// 				},
+			// 				{
+			// 					title: "Précision",
+			// 					lines: [
+			// 						"Ce site est WIP (Work in Progress) et en déploiement continue (pipe : Github -> Netlifly)",
+			// 						"Pour l'instant il manque encore beaucoup de choses (NAV, Accueil, Traductions, Détails de certaines expériences, etc..)",
+			// 						"Mais il est déjà consultable et relativement exhaustif, la recherche est fonctionnelle également",
+			// 					]
+			// 				},
+			// 				{
+			// 					title: "Note pour les DEVs",
+			// 					lines: [
+			// 						"Je travaille solo sur ce projet, donc ne pas prêter attention à la propreté/consistence des commits"
+			// 					]
+			// 				}
+			// 			]
+			// 		]
+			// 	}
+			// },
 			{
 				title: "Carré Basset Agency",
 				body: "Front-End Dev.<br>CreaTech",
