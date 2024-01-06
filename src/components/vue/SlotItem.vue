@@ -300,11 +300,12 @@ function insertHighlight( string ){
 	
 						<section class="texts-wrapper" v-if="isExpanded">
 
+							<!-- :class="{ 'links-specials': slotData.special?.linksSrcSpecials }" -->
 							
-							<a v-for="link in slotData.expand.links"
+							<a v-for="link, index in slotData.expand.links"
 								v-if="slotData.expand.links"
 								class="text-link"
-								:class="{ 'links-specials': slotData.special.linksSrcSpecials }"
+								:style="{ top: `${index * 2}rem` }"
 								:href="link.href"
 								target="_blank"
 								v-html="searchIsActive ? insertHighlight(link.text) : link.text"
@@ -861,6 +862,7 @@ $expandButtonBorderWidth: 2px;
 				@include scrollbar;
 				flex-direction: column;
 				width: 65%;
+				position: relative;
 				
 				overflow-y: auto;
 				overflow-x: hidden;
@@ -934,25 +936,23 @@ $expandButtonBorderWidth: 2px;
 						&:active {
 							font-size: var(--font-size-medium);
 							z-index: 40;
-							position: relative;
+							position: absolute;
+							right: 0;
 							display: inline-block;
 							color: v-bind(stepColor);
 							text-decoration: none;
 							text-transform: uppercase;
 							font-weight: bold;
-							margin-bottom: 2rem;
 							margin-left: 1rem;
 							// text-align: right;
 							font-style: italic;
-							font-size: var(--font-size-big);
 							
-							&.links-specials {
-								font-size: var(--font-size-small);
-								margin-bottom: 1rem;
-								text-align: right;
-								color: var(--color-main-100);
-								text-shadow: 0 0 0.25rem var(--color-contrast-60);
-							}
+							
+							font-size: var(--font-size-small);
+							margin-bottom: 1rem;
+							text-align: right;
+							color: var(--color-main-100);
+							text-shadow: 0 0 0.25rem var(--color-contrast-60);
 						}
 					}
 

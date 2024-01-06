@@ -389,7 +389,7 @@ export const stepsWording = {
 					"Blender 3, Mixamo"
 				],
 				special: {
-					videoSrc: "./videos/onyi/teaser.mp4"
+					videoSrc: "./videos/onyi/teaser.mp4",
 				},
 				expand: {
 					technos: [
@@ -486,6 +486,9 @@ export const stepsWording = {
 					"Vue2, Nuxt2, VueStorefront, SSR,",
 					"graphQL, ElasticSearch, TypeScript.."
 				],
+				special: {
+
+				},
 				expand: {
 					technos: [
 						{
@@ -873,7 +876,6 @@ export const stepsWording = {
 				],
 				special: {
 					videoSrc: "./videos/mazarine/teaser.mp4",
-					linksSrcSpecials: true
 				},
 				expand: {
 					technos: [
@@ -1198,7 +1200,7 @@ export const stepsWording = {
 					links: [
 						{
 							href: "http://gfgf.surge.sh",
-							text: "Backup host"
+							text: "Backup hosting"
 						}
 					],
 					texts: [
