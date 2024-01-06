@@ -19,7 +19,7 @@ export const stepsWording = {
 		color: "orange",
 		searchEnabled: true,
 		withScrollbar: true,
-		placeholder: "Javascript, HTML, ..",
+		placeholder: "Search techno, school, date, etc..",
 		slots: [
 			{
 				title: "Self - Continuous learnings",
@@ -191,7 +191,7 @@ export const stepsWording = {
 		color: "#4E6AFF",
 		searchEnabled: true,
 		withScrollbar: true,
-		placeholder: "Vue, GSAP, Three, ..",
+		placeholder: "Search techno, company, date, etc..",
 		slots: [
 			// {
 			// 	title: "This CV / Portfolio (WIP)",

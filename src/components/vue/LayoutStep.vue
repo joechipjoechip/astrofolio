@@ -167,6 +167,7 @@ $headHeight: 6rem;
                     position: absolute;
                     left: 0;
                     margin-left: 1rem;
+                    width: 30%;
                 }
         
             }

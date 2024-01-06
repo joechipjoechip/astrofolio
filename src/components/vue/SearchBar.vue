@@ -122,6 +122,7 @@ function handleKeyUp(){
 				border: none;
 				border-radius: 999px;
 				background-color: transparent;
+				width: 75%;
 
 				cursor: pointer;
 				

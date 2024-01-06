@@ -693,7 +693,7 @@ $expandButtonBorderWidth: 2px;
 				color: currentColor;
 				border-radius: 0 56rem var(--borderRadiusSmallest) 85rem;
 				padding-right: 3rem;
-				color: var(--color-main-65);
+				color: var(--color-main-80);
 				font-style: italic;
 
 				transition: 
@@ -725,9 +725,10 @@ $expandButtonBorderWidth: 2px;
 					letter-spacing var(--transitionDurationVeryVeryLong) cubic-bezier(.12,1.24,.1,1.08);
 
 				p {
-					color: var(--color-main-65);
+					color: var(--color-main-75);
 					margin-top: 0;
 					margin-left: 3rem;
+					margin-left: 2rem;
 					margin-bottom: 0.15rem;
 
 					transition: color var(--transitionDurationVeryLong);
