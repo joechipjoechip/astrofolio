@@ -27,7 +27,7 @@ export const stepsWording = {
 				self: true,
 				location: "Online",
 				date: {
-					year: "2022 - 2023",
+					year: "2023",
 				},
 				description: [
 					"Astro, React, React-Three-Fiber, TroisJS",
@@ -40,7 +40,7 @@ export const stepsWording = {
 				self: true,
 				location: "Online",
 				date: {
-					year: "2021 - 2022",
+					year: "2021",
 				},
 				description: [
 					"ThreeJS (3D in browser), Shaders (glsl)",

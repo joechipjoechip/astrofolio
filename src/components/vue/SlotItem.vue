@@ -694,6 +694,7 @@ $expandButtonBorderWidth: 2px;
 				border-radius: 0 56rem var(--borderRadiusSmallest) 85rem;
 				padding-right: 3rem;
 				color: var(--color-main-65);
+				font-style: italic;
 
 				transition: 
 					width var(--transitionDurationShort),
