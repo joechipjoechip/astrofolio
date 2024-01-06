@@ -301,6 +301,8 @@ export const stepsWording = {
 				title: "Carré Basset Agency",
 				body: "Front-End Dev.<br>CreaTech",
 				location: "Full remote",
+				logoSrc: "carrebasset.png",
+				logoSrcNoRevert: true,
 				date: {
 					year: "2023",
 					duration: "Freelance : 1 week mission"
@@ -377,6 +379,7 @@ export const stepsWording = {
 				title: "Omakase Recordings",
 				body: "Director, CreaTech<br>Front-End Dev.",
 				location: "Marseille",
+				logoSrc: "omakase.png",
 				date: {
 					year: "2023",
 					duration: "Freelance : 9 months mission"
@@ -468,6 +471,7 @@ export const stepsWording = {
 				title: "Zadig & Voltaire",
 				body: "Front-end dev.",
 				location: "Full remote",
+				logoSrc: "zadig.png",
 				date: {
 					year: "2022",
 					duration: "Freelance : 6 months mission"
@@ -580,6 +584,8 @@ export const stepsWording = {
 				title: "Danone",
 				body: "Front-end dev.",
 				location: "Full remote",
+				logoSrc: "danone.png",
+				logoSrcNoRevert: true,
 				date: {
 					year: "2021 - 2022",
 					duration: "Freelance : 6 months mission"
@@ -667,6 +673,7 @@ export const stepsWording = {
 				title: "Judith Creative Agency",
 				body: "Fullstack dev.",
 				location: "Marseille",
+				logoSrc: "judith.png",
 				date: {
 					year: "2021",
 					duration: "Freelance : 2 months mission"
@@ -763,6 +770,7 @@ export const stepsWording = {
 				title: "Services Généraux Agency",
 				body: "Front-end Dev.<br>CreaTech",
 				location: "Paris",
+				logoSrc: "servicesgeneraux.png",
 				date: {
 					year: "2021",
 					duration: "Freelance : 1 months mission"
@@ -847,6 +855,7 @@ export const stepsWording = {
 				title: "Mazarine Agency",
 				body: "Front-end dev.<br>Createch",
 				location: "Paris",
+				logoSrc: "mazarine.png",
 				pinable: true,
 				date: {
 					year: "2017 - 2021",
@@ -1090,6 +1099,85 @@ export const stepsWording = {
 				}
 			},
 			{
+				title: "Gellé & Frères",
+				body: "Front-end dev.<br>Designer",
+				location: "Paris",
+				logoSrc: "gellefreres.png",
+				date: {
+					year: "2017",
+					duration: "Freelance : 1 month mission"
+				},
+				description: [
+					"Freelance oneshot for",
+					"Parfum & SkinCare brand launch"
+				],
+				expand: {
+					technos: [
+						{
+							name: "Photoshop",
+							logoSrc: "./images/logos/technos/photoshop.jpg"
+						},
+						{
+							name: "Illustrator",
+							logoSrc: "./images/logos/technos/illustrator.jpg"
+						},
+						{
+							name: "Angular 1",
+							logoSrc: "./images/logos/technos/angular.jpg"
+						},
+						{
+							name: "HTML5",
+							logoSrc: "./images/logos/technos/html.jpg"
+						},
+						{
+							name: "CSS3",
+							logoSrc: "./images/logos/technos/css.jpg"
+						},
+						{
+							name: "JS ES5",
+							logoSrc: "./images/logos/technos/javascript.jpg"
+						},
+						
+						// rajouter : photoshop
+					],
+					links: [
+						{
+							href: "http://gfgf.surge.sh",
+							text: "Backup host"
+						}
+					],
+					texts: [
+						[
+							{
+								title: "Contexte",
+								lines: [
+									"Parfum & SkinCare Brand launch"
+								]
+							},
+							{
+								title: "Missions",
+								lines: [
+									"Maquettage + Développement intégral du site pour le lancement de la marque.",
+									"&nbsp;",
+									"Structuration des données (json)",
+									"Gestion du multi-langue sans rechargement de page",
+									"Gestion d'un lecteur audio dynamique",
+									"Routage pure front vanilla",
+									"Responsive ready",
+									"Animations CSS3",
+									"Création d'un diagnostic stylé ainsi que sa version standalone pour pouvoir tourner sans connexion sur des ipads lors des salons cosmétiques",
+									"&nbsp;",
+									"&nbsp;",
+									
+									'La société a depuis refondu le site, mais vous trouverez un backup de mon travail ci-dessus'
+								]
+							}
+						]
+					]
+				}
+				
+			},
+			{
 				title: "Applyface",
 				body: "designer / dev.<br>Project manager",
 				location: "Paris",
@@ -1183,84 +1271,6 @@ export const stepsWording = {
 						]
 					]
 				}
-			},
-			{
-				title: "Gellé & Frères",
-				body: "Front-end dev.<br>Designer",
-				location: "Paris",
-				date: {
-					year: "2016",
-					duration: "Freelance : 1 month mission"
-				},
-				description: [
-					"Freelance oneshot for",
-					"Parfum & SkinCare brand launch"
-				],
-				expand: {
-					technos: [
-						{
-							name: "Photoshop",
-							logoSrc: "./images/logos/technos/photoshop.jpg"
-						},
-						{
-							name: "Illustrator",
-							logoSrc: "./images/logos/technos/illustrator.jpg"
-						},
-						{
-							name: "Angular 1",
-							logoSrc: "./images/logos/technos/angular.jpg"
-						},
-						{
-							name: "HTML5",
-							logoSrc: "./images/logos/technos/html.jpg"
-						},
-						{
-							name: "CSS3",
-							logoSrc: "./images/logos/technos/css.jpg"
-						},
-						{
-							name: "JS ES5",
-							logoSrc: "./images/logos/technos/javascript.jpg"
-						},
-						
-						// rajouter : photoshop
-					],
-					links: [
-						{
-							href: "http://gfgf.surge.sh",
-							text: "Backup host"
-						}
-					],
-					texts: [
-						[
-							{
-								title: "Contexte",
-								lines: [
-									"Parfum & SkinCare Brand launch"
-								]
-							},
-							{
-								title: "Missions",
-								lines: [
-									"Maquettage + Développement intégral du site pour le lancement de la marque.",
-									"&nbsp;",
-									"Structuration des données (json)",
-									"Gestion du multi-langue sans rechargement de page",
-									"Gestion d'un lecteur audio dynamique",
-									"Routage pure front vanilla",
-									"Responsive ready",
-									"Animations CSS3",
-									"Création d'un diagnostic stylé ainsi que sa version standalone pour pouvoir tourner sans connexion sur des ipads lors des salons cosmétiques",
-									"&nbsp;",
-									"&nbsp;",
-									
-									'La société a depuis refondu le site, mais vous trouverez un backup de mon travail ci-dessus'
-								]
-							}
-						]
-					]
-				}
-				
 			},
 			{
 				title: "La Maison des Sushis",

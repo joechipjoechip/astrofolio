@@ -201,7 +201,8 @@ function insertHighlight( string ){
 							<IconUiStudent v-else />
 						</div>
 
-						<h5 class="title"
+						<div 
+							class="title"
 							v-motion
 							style="will-change: transform, opacity;"
 							:initial="{ 
@@ -219,8 +220,22 @@ function insertHighlight( string ){
 									ease: 'backInOut'
 								}
 							}"
-							v-html="searchIsActive ? insertHighlight(slotData.title) : slotData.title"
-						/>
+						>
+
+							<h5
+								v-show="!slotData.hasOwnProperty('logoSrc')"
+								v-html="searchIsActive ? insertHighlight(slotData.title) : slotData.title"
+							/>
+							
+							<img 
+								v-if="slotData.hasOwnProperty('logoSrc')"
+								class="logo-company"
+								:class="{ 'no-revert': slotData.logoSrcNoRevert }"
+								:src="`/images/logos/companies/${slotData.logoSrc}`"
+							/>
+
+						</div>
+
 						<span 
 							class="location"
 							v-html="searchIsActive ? insertHighlight(slotData.location) : slotData.location"
@@ -363,7 +378,7 @@ function insertHighlight( string ){
 
 <style lang="scss" scoped>
 
-$slotHeightBase: 9rem;
+$slotHeightBase: 8rem;
 $slotHeightHovered: 14rem;
 $slotHeightExpanded: 45rem;
 $expandButtonBorderWidth: 2px;
@@ -594,6 +609,12 @@ $expandButtonBorderWidth: 2px;
 
 			@media #{$mobile} {
 				flex-flow: row wrap;
+			}
+
+			.logo-company {
+				max-height: 2.35rem;
+				max-width: 28rem;
+				overflow: hidden;
 			}
 
 			.icon {
