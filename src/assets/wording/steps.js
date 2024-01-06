@@ -438,6 +438,12 @@ export const stepsWording = {
 							logoSrc: "./images/logos/technos/git.jpg"
 						},
 					],
+					links: [
+						{
+							href: "https://www.onyi.fr",
+							text: "www.onyi.fr"
+						}
+					],
 					// texts: [
 					// 	[
 					// 		{
@@ -866,7 +872,8 @@ export const stepsWording = {
 					"Twig, Blade, Drupal, Wordpress, Laravel, .."
 				],
 				special: {
-					videoSrc: "./videos/mazarine/teaser.mp4"
+					videoSrc: "./videos/mazarine/teaser.mp4",
+					linksSrcSpecials: true
 				},
 				expand: {
 					technos: [
@@ -957,6 +964,54 @@ export const stepsWording = {
 						
 						// rajouter : dialogFlow / googleMap api / canvas / GTM / webpack / gulp / npm / composer / jira / redmine / confluence
 					],
+					links: [
+						{
+							href: "https://www.Chanel.com",
+							text: "Chanel.com"
+						},
+						{
+							href: "https://www.dior.com",
+							text: "dior.com"
+						},
+						{
+							href: "https://www.Balmain.com",
+							text: "Balmain.com"
+						},
+						{
+							href: "https://www.OperaDeParis.fr",
+							text: "OperaDeParis.fr"
+						},
+						{
+							href: "https://www.RitzParis.com",
+							text: "RitzParis.com"
+						},
+						{
+							href: "https://www.VanCleefArpels.com",
+							text: "VanCleefArpels.com"
+						},
+						{
+							href: "https://www.PacoRabanne.com",
+							text: "PacoRabanne.com"
+						},
+						{
+							href: "https://www.Mugler.fr",
+							text: "Mugler.fr"
+						},
+						{
+							href: "https://www.Viktor-rolf.com",
+							text: "Viktor-rolf.com"
+						},
+						{
+							href: "https://www.Numero.com",
+							text: "Numero.com"
+						},
+						{
+							href: "https://www.Mazarine.com",
+							text: "Mazarine.com"
+						},
+					],
+					
+					
 					// texts: [
 					// 	[
 					// 		{

@@ -304,6 +304,7 @@ function insertHighlight( string ){
 							<a v-for="link in slotData.expand.links"
 								v-if="slotData.expand.links"
 								class="text-link"
+								:class="{ 'links-specials': slotData.special.linksSrcSpecials }"
 								:href="link.href"
 								target="_blank"
 								v-html="searchIsActive ? insertHighlight(link.text) : link.text"
@@ -908,6 +909,7 @@ $expandButtonBorderWidth: 2px;
 							font-style: italic;
 							margin-bottom: var(--font-size-small);
 							margin-left: 1rem;
+							margin-top: 2rem;
 							color: var(--color-main-65);
 						}
 						
@@ -938,6 +940,19 @@ $expandButtonBorderWidth: 2px;
 							text-decoration: none;
 							text-transform: uppercase;
 							font-weight: bold;
+							margin-bottom: 2rem;
+							margin-left: 1rem;
+							// text-align: right;
+							font-style: italic;
+							font-size: var(--font-size-big);
+							
+							&.links-specials {
+								font-size: var(--font-size-small);
+								margin-bottom: 1rem;
+								text-align: right;
+								color: var(--color-main-100);
+								text-shadow: 0 0 0.25rem var(--color-contrast-60);
+							}
 						}
 					}
 

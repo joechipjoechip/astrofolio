@@ -56,8 +56,7 @@ function handleSubMouseLeave(){
         
 
         <!-- VERTICAL -->
-        
-            <!-- svelte-ignore a11y-no-static-element-interactions -->
+        <!-- svelte-ignore a11y-no-static-element-interactions -->
         <div 
             class="nav-sub-vertical-wrapper"
             class:opened={menusAreOpen}
