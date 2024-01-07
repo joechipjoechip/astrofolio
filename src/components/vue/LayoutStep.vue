@@ -3,6 +3,7 @@ import SearchBar from './SearchBar.vue'
 
 import { ref } from 'vue';
 import { useEmitter } from "@/composables/Emitter"
+import { uiConfig } from '@/assets/uiConfig';
 
 const props = defineProps({
 	isActive: {
@@ -19,16 +20,18 @@ const stepBody = ref(null)
 const outsideScrollAmount = 200
 
 // SCROLL PROCURATION
-const { on } = useEmitter()
-on("wheel-from-shell", handleWheelFromShell)
-
-function handleWheelFromShell( event ){
-    if( props.isActive ){
-        stepBody.value.scroll({
-            top: stepBody.value.scrollTop + (event.deltaY > 0 ? outsideScrollAmount : -outsideScrollAmount),
-            left: 0,
-            behavior: "smooth"
-        });
+if( uiConfig.scroll.procuration ){
+    const { on } = useEmitter()
+    on("wheel-from-shell", handleWheelFromShell)
+    
+    function handleWheelFromShell( event ){
+        if( props.isActive ){
+            stepBody.value.scroll({
+                top: stepBody.value.scrollTop + (event.deltaY > 0 ? outsideScrollAmount : -outsideScrollAmount),
+                left: 0,
+                behavior: "smooth"
+            });
+        }
     }
 }
 

@@ -4,5 +4,8 @@ export const uiConfig = {
         medium: 300,
         mediumPlus: 400,
         long: 700
+    },
+    scroll: {
+        procuration: true
     }
 }
