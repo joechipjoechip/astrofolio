@@ -9,7 +9,6 @@ import { stepsWording } from "@/assets/wording/steps.js"
 import { ref, computed } from "vue"
 
 import { useEmitter } from "@/composables/Emitter"
-import { useUserInteractions } from "@/composables/UserInteractions"
 import { useGetEventPosition } from "@/composables/GetEventPosition"
 
 
@@ -24,7 +23,7 @@ import {
 
 import { useStore } from '@nanostores/vue';
 
-useUserInteractions()
+
 
 const $store = useStore(globalStore);
 

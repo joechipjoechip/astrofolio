@@ -1,6 +1,9 @@
 <script setup>
 import Stepper from './Stepper.vue';
 import { useEmitter } from "@/composables/Emitter"
+import { useUserInteractions } from "@/composables/UserInteractions"
+
+useUserInteractions()
 
 const { emit } = useEmitter()
 
