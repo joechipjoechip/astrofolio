@@ -8,30 +8,26 @@ import { useRef } from "react"
 
 export default function Experience(){
 
-    let dynamicLeft = window.innerWidth / 2
-
     const planeRef = useRef()
 
 
     // le vignette va fonctionner mais pas sur le background de l'expérience
     // pour résoudre ça il suffit de rajouter un background, avec <color> par exemple
 
-    useFrame(() => {
-        console.log('check frame')
-        // console.log("document : ", document)
-        const goodElement = document.querySelector("body .layout-step-wrapper.isActive.step-slot.step-portfolio.isActive")
-        console.log(goodElement)
+    // useFrame(() => {
+    //     console.log('check frame')
+    //     // console.log("document : ", document)
+    //     // const goodElement = document.querySelector("body .layout-step-wrapper.isActive.step-slot.step-portfolio.isActive")
+    //     console.log(goodElement)
 
-        if(goodElement){
-            console.log(goodElement.getBoundingClientRect())
-            const {left } = goodElement.getBoundingClientRect()
+    //     if(goodElement){
+    //         console.log(goodElement.getBoundingClientRect())
+    //         const {left } = goodElement.getBoundingClientRect()
 
-            dynamicLeft = left
+    //         planeRef.current.rotation.y += (left * 10000)
 
-            planeRef.current.rotation.z += (dynamicLeft / 100000)
-
-        }
-    })
+    //     }
+    // })
 
     return <>
         <>
@@ -96,7 +92,7 @@ export default function Experience(){
 
             <mesh receiveShadow 
                 ref={planeRef}
-                position-y={ - 1 } 
+                // position-y={ - 1 } 
                 rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
                 <planeGeometry />
                 <meshStandardMaterial color="greenyellow" />

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useMemo } from 'react'
 import { OrbitControls, TransformControls, Html, Text, Float, useHelper, AccumulativeShadows, RandomizedLight, ContactShadows, Sky, Environment, Lightformer } from '@react-three/drei'
+import { Bloom, DepthOfField, EffectComposer, Glitch, Noise, Vignette } from '@react-three/postprocessing'
 import { useControls } from 'leva'
 import Cube from './Cube'
 import { Perf } from 'r3f-perf'
@@ -7,18 +8,25 @@ import * as THREE from "three"
 import { CuboidCollider, InstancedRigidBodies, Physics, RigidBody } from '@react-three/rapier'
 import { useFrame } from '@react-three/fiber'
 
+import { globalStore, mouseStore } from "@/stores/globalStore"
+import { useStore } from '@nanostores/react';
+
 export default function Experience(){
+
+    const $store = useStore(globalStore)
+    const $mouseStore = useStore(mouseStore)
 
     const lightRef = useRef()
     const sphereRef = useRef()
     const cubeRef = useRef()
     const twister = useRef()
     const cubes = useRef()
+    const ground = useRef()
 
     const cubesCount = 100
 
     // un bon moyen de créer une valeur au mounted et pas à chaque rerender, est d'utiliser : useState avec une fonction anonyme qui renvoi une valeur, genre : 
-    const [ hitSound ] = useState(() => new Audio("./audios/hit.mp3"))
+    // const [ hitSound ] = useState(() => new Audio("./audios/hit.mp3"))
 
 
     const cubeJump = () => {
@@ -112,14 +120,29 @@ export default function Experience(){
         const quaternionRotation = new THREE.Quaternion()
 
         quaternionRotation.setFromEuler(eulerRotation)
-        twister.current?.setNextKinematicRotation(quaternionRotation)
+        // twister.current?.setNextKinematicRotation(quaternionRotation)
 
         // deplacements
         const angle = time * 0.5
         const x = Math.cos(angle) *2
         const z = Math.sin(angle) *2
 
-        twister.current.setNextKinematicTranslation({x, z, y: 0})
+        // twister.current.setNextKinematicTranslation({x, z, y: 0})
+
+        console.log("yo")
+        // ground.current.position.x = $store. sometinggh @TODO
+        console.log("moving ? ", $mouseStore.x)
+
+        if( $mouseStore ){
+            const ratio = 10
+            console.log("ground current : ", ground.current)
+            ground.current.position.set(
+                $mouseStore.x * ratio, 
+                $mouseStore.y * ratio, 
+                0
+            )
+            
+        }
     })
 
     const collisionEnter = () => {
@@ -134,9 +157,26 @@ export default function Experience(){
 
     return <>
 
-                {/* <Perf position="top-left" /> */}
+                <Perf position="top-left" />
 
-                {/* <OrbitControls makeDefault /> */}
+                <OrbitControls makeDefault/>
+
+                <EffectComposer 
+                    disableNormalPass
+                >
+
+                    <DepthOfField 
+                        focusDistance={ 0.025 }
+                        focalLength={ 0.015 }
+                        bokehScale={ 15 }
+                    />
+                    <Bloom 
+                        mipmapBlur
+                        intensity={0.05}
+                        // luminanceThreshold={ 1.5 }
+                        // default is 0.9 (theshold = seuil, de luminosité à partir duquel le bloom s'applique)
+                    />
+                </EffectComposer>
 
                 {/* <Environment
                     // background 
@@ -177,51 +217,7 @@ export default function Experience(){
 
                 <ambientLight args={["white", 0.15]} />
 
-                <Environment
-                    // background 
-                    // resolution={ 128 }
-                    ground={{
-                        height: 7,
-                        radius: 28,
-                        scale: 100
-                    }}
-                    preset="city"
-                    // files={[
-                    //     './environmentMaps/2/px.jpg',   
-                    //     './environmentMaps/2/nx.jpg',   
-                    //     './environmentMaps/2/py.jpg',   
-                    //     './environmentMaps/2/ny.jpg',   
-                    //     './environmentMaps/2/pz.jpg',   
-                    //     './environmentMaps/2/nz.jpg',
-                    // ]}
-
-                    // files="./environmentMaps/the_sky_is_on_fire_2k.hdr"
-
-                    // preset='city'
-
-                >
-
-                    {/* on peut donner une simple couleur */}
-                    {/* <color args={[ "blue" ]} attach="background" /> */}
-
-                    {/* on peut balancer un mesh dans l'environment, ce qui est relativement foufou */}
-                    {/* <mesh position={[ 0, 0, -6]} scale={ 3 }>
-                        <boxGeometry />
-                        <meshBasicMaterial color={ [30, 0, 0] } />
-                    </mesh> */}
-
-
-                    {/* si notre mesh ajouté à l'env est juste un plane ou un boite
-                        on peut remplacer ça par un LightFormer (c'est plus propre)
-                    */}
-                    <Lightformer 
-                        position={[0,0,-6]}
-                        scale={4}
-                        intensity={20}
-                        color={"red"}
-                        // form="ring"
-                    />
-                </Environment>
+                
 
                 <Physics 
                     // debug
@@ -324,7 +320,7 @@ export default function Experience(){
                             <mesh position={[ position.x, position.y, 0.2 ]} castShadow>
                                 <sphereGeometry />
                                 <meshStandardMaterial color={color} roughness={0} envMapIntensity={envMapIntensity} />
-                                {/* <Html 
+                                <Html 
                                     wrapperClass='floatingDiv' 
                                     // position={[ 1, 1, 0 ]}
                                     center
@@ -332,7 +328,7 @@ export default function Experience(){
                                     // occlude={[ cubeRef ]}
                                 >
                                     Hey
-                                </Html> */}
+                                </Html>
                             </mesh>
                         </RigidBody>
 
@@ -340,9 +336,11 @@ export default function Experience(){
                     </group>
 
                     <RigidBody type="fixed" restitution={0.5}>
-                        <mesh rotation-x={Math.PI * -0.5} scale={5} position-y={-1} receiveShadow>
+                        <mesh
+                            ref={ground}
+                            rotation-x={Math.PI * -0.5} scale={5} position-y={-1} receiveShadow>
                             <boxGeometry args={[4,4, 0.1]} />
-                            <meshStandardMaterial color="limegreen" />
+                            <meshStandardMaterial color="brown" />
                         </mesh>
                     </RigidBody>
 

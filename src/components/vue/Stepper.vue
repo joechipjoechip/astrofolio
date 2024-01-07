@@ -19,7 +19,10 @@ import {
 	setStepGrabed,
 	setIsCurrentlyManipulatedIndex,
 	setCurrentStepIndexIncrement,
-	setCurrentStepIndexDecrement
+	setCurrentStepIndexDecrement,
+
+	mouseStore, 
+	setMousePosition
 } from "@/stores/globalStore.js"
 
 import { useStore } from '@nanostores/vue';
@@ -27,6 +30,7 @@ import { useStore } from '@nanostores/vue';
 
 
 const $store = useStore(globalStore);
+const $mouseStore = useStore(mouseStore);
 
 const stepperWrapper = ref(null)
 
@@ -86,12 +90,18 @@ function onTouchEnd(){
 }
 
 function onTouchMove( event ){
+	const { x, y } = useGetEventPosition(event)
+	updateMouseStore({x,y})
 	if( !$store.value.stepGrabed ){ 
 		onTouchEnd()
 		return
 	} 
 
-	const { x } = useGetEventPosition(event)
+	
+	
+	
+	// console.log("ici je dois chopper le getBoundingClientRect de ")
+	
 	const diffX = computePositionDiff(x)
 	dynamicLeft.value = `${-diffX}px`
 	
@@ -116,6 +126,27 @@ function computePositionDiff( movingX ){
 
 		onTouchEnd()
 	}
+}
+
+function updateMouseStore({x,y}){
+
+	const computedPositions = {
+		x: Math.min(1,
+			Math.max(
+				-1,
+				(((x) / window.innerWidth) - 0.5) * 2
+			)
+		),
+		y: Math.min(1,
+			Math.max(
+				-1,
+				(((y) / window.innerHeight) - 0.5) * -2
+			)
+		)
+	}
+
+	console.log("depuis vue stapper : ", computedPositions.x)
+	setMousePosition(computedPositions)
 }
 
 

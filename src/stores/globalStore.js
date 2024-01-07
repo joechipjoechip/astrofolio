@@ -76,3 +76,16 @@ export function setNavigationNavbarIsMoving( bool ){
 		Object.assign(globalStore.get().navigation.navbar,  { navbar: { isMoving: bool } })
 	)
 }
+
+
+export const mouseStore = map({
+	x: window.innerWidth / 2,
+	y: window.innerHeight / 2
+})
+
+export function setMousePosition(payload){
+	if( payload.x ){
+		mouseStore.setKey("x", payload.x)
+		mouseStore.setKey("y", payload.y)
+	}
+}

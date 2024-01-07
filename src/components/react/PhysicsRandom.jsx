@@ -1,12 +1,13 @@
 // import './App.css'
-import Experience from './ExperienceNine.jsx'
+// import Experience from './ExperienceNine.jsx'
+import Experience from './ExperienceFour.jsx'
 import { Canvas } from '@react-three/fiber'
-import { StrictMode } from 'react'
+// import { StrictMode } from 'react'
 
 function App() {
 
   return (
-    <StrictMode>
+    // <StrictM
       <Canvas
         flat
         // flat permet de régler le toneMapping à noToneMapping
@@ -16,7 +17,7 @@ function App() {
         <color args={[ "#000000" ]} attach="background" />
         <Experience />
       </Canvas>
-    </StrictMode>
+    //  </StrictMode>
   )
 }
 
