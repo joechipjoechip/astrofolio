@@ -120,8 +120,14 @@ export default function HelloReact(){
 
   return (
     <>
+        {$store.currentStepIndex >= 2 && <div 
+            className='react-canvas-wrapper portfolio'
+        >
+            <PhysicsRandom></PhysicsRandom>
+        </div>}
+        
         <div className='react-canvas-wrapper'>
-
+            
             {$store.colorMode === 'light' && <ShaderGradientCanvas
                     importedfiber={{ ...fiber, ...drei, ...reactSpring }}
                     style={{
@@ -147,11 +153,9 @@ export default function HelloReact(){
                     />
                 </ShaderGradientCanvas>
             }
-
-            {$store.currentStepIndex === 3 && <PhysicsRandom></PhysicsRandom>
-            }
-
         </div>
+
+       
     </>
   )
 }
