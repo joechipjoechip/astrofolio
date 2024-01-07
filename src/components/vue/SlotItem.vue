@@ -89,9 +89,11 @@ const slotWrapperElement = ref(null)
 const technosWrapper = ref(null)
 
 function scrollSlotAtTop(){
-	setTimeout(() => {
-		slotWrapperElement.value.scrollIntoView({behavior: "smooth", inline: "start", block: "start"});
-	}, uiConfig.animation.medium);
+	// setTimeout(() => {
+		nextTick(() => {
+			slotWrapperElement.value.scrollIntoView({behavior: "smooth", inline: "start", block: "start"});
+		})
+	// }, uiConfig.animation.medium);
 }
 
 // PIN LOGIC
@@ -395,6 +397,7 @@ $expandButtonBorderWidth: 2px;
 		box-sizing: border-box;
 		margin-top: 0;
 		text-transform: none;
+		// scroll-margin-top: 0rem;
 
 		will-change: margin, height;
 
@@ -405,6 +408,7 @@ $expandButtonBorderWidth: 2px;
 		&.isHovered {
 			margin: 2rem 0;
 			height: $slotHeightHovered;
+			scroll-margin-top: 2rem;
 		}
 
 		&.isExpanded {
