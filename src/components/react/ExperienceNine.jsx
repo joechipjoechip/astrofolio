@@ -14,20 +14,20 @@ export default function Experience(){
     // le vignette va fonctionner mais pas sur le background de l'expérience
     // pour résoudre ça il suffit de rajouter un background, avec <color> par exemple
 
-    // useFrame(() => {
-    //     console.log('check frame')
-    //     // console.log("document : ", document)
-    //     // const goodElement = document.querySelector("body .layout-step-wrapper.isActive.step-slot.step-portfolio.isActive")
-    //     console.log(goodElement)
+    useFrame(() => {
+        console.log('check frame')
+        // console.log("document : ", document)
+        // const goodElement = document.querySelector("body .layout-step-wrapper.isActive.step-slot.step-portfolio.isActive")
+        console.log(goodElement)
 
-    //     if(goodElement){
-    //         console.log(goodElement.getBoundingClientRect())
-    //         const {left } = goodElement.getBoundingClientRect()
+        if(goodElement){
+            console.log(goodElement.getBoundingClientRect())
+            const {left } = goodElement.getBoundingClientRect()
 
-    //         planeRef.current.rotation.y += (left * 10000)
+            planeRef.current.rotation.y += (left * 10000)
 
-    //     }
-    // })
+        }
+    })
 
     return <>
         <>

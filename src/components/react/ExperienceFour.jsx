@@ -120,27 +120,37 @@ export default function Experience(){
         const quaternionRotation = new THREE.Quaternion()
 
         quaternionRotation.setFromEuler(eulerRotation)
-        // twister.current?.setNextKinematicRotation(quaternionRotation)
+        twister.current.setNextKinematicRotation(quaternionRotation)
 
         // deplacements
         const angle = time * 0.5
         const x = Math.cos(angle) *2
         const z = Math.sin(angle) *2
 
-        // twister.current.setNextKinematicTranslation({x, z, y: 0})
-
-        console.log("yo")
-        // ground.current.position.x = $store. sometinggh @TODO
-        console.log("moving ? ", $mouseStore.x)
+        twister.current.setNextKinematicTranslation({x, z, y: 0})
 
         if( $mouseStore ){
             const ratio = 10
-            console.log("ground current : ", ground.current)
-            ground.current.position.set(
+            console.log("frame update experience four")
+            // ground.current.position.set(
+            //     $mouseStore.x * ratio, 
+            //     $mouseStore.y * ratio, 
+            //     0
+            // )
+            ground.current.parent.parent.position.set(
                 $mouseStore.x * ratio, 
                 $mouseStore.y * ratio, 
                 0
             )
+
+            // twister.current.setNextKinematicTranslation({x: $mouseStore.x, z: $mouseStore.y, y: 0})
+
+            console.log("twister : ", twister.current)
+            // twister.current.position?.set(
+            //     $mouseStore.x * ratio, 
+            //     $mouseStore.y * ratio, 
+            //     0
+            // )
             
         }
     })
@@ -160,19 +170,20 @@ export default function Experience(){
                 <Perf position="top-left" />
 
                 <OrbitControls makeDefault/>
+                <color args={["black"]} />
 
                 <EffectComposer 
                     disableNormalPass
                 >
 
-                    <DepthOfField 
+                    {/* <DepthOfField 
                         focusDistance={ 0.025 }
                         focalLength={ 0.015 }
                         bokehScale={ 15 }
-                    />
+                    /> */}
                     <Bloom 
                         mipmapBlur
-                        intensity={0.05}
+                        intensity={0.9}
                         // luminanceThreshold={ 1.5 }
                         // default is 0.9 (theshold = seuil, de luminosité à partir duquel le bloom s'applique)
                     />
@@ -199,29 +210,29 @@ export default function Experience(){
 
                 <spotLight 
                     ref={ lightRef } 
-                    color="orange" 
-                    intensity={190} 
-                    position={ [15, 10, 1] } 
+                    color="white" 
+                    intensity={5} 
+                    position={ [15, 7, 1] } 
                     castShadow 
                     shadow-mapSize={[ 1024, 1024 ]}
                 />
 
                 <spotLight 
                     ref={ lightRef } 
-                    color="purple" 
-                    intensity={190} 
-                    position={ [-15, 7, -4] } 
+                    color="orange" 
+                    intensity={5} 
+                    position={ [-10, 7, -2] } 
                     castShadow 
                     shadow-mapSize={[ 1024, 1024 ]}
                 />
 
-                <ambientLight args={["white", 0.15]} />
+                {/* <ambientLight args={["white", 0.55]} /> */}
 
                 
 
                 <Physics 
                     // debug
-                    gravity={[ 0, -20, 0 ]}
+                    gravity={[ 0, -25, 0 ]}
                     // gravité globale, et les gravités relatives sont possible avec l'attribut gravityScale (float) sur les rigidBodies (c'est donc un ratio multiplicateur, qui peut être négatif/positif)
                 >
 
