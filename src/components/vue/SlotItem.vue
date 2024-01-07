@@ -51,6 +51,7 @@ const isExpanded = ref(false)
 // EXPAND LOGIC
 const technosAreVisible = ref(true)
 // initialized at true to trigger the loads of images
+// and restablish at false at onMounted
 // ( see v-show and v-if at .technos-wrapper )
 
 function handleExpand(){

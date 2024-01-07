@@ -4,7 +4,6 @@ export const stepsWording = {
 		id: "bio",
 		title: "Bio",
 		catcher: "hey, ici cest la bio",
-		stepStyle: "line",
 		color: "#FF4E4E",
 		searchEnabled: false,
 		withScrollbar: false,
@@ -15,7 +14,6 @@ export const stepsWording = {
 		id: "formation",
 		title: "Education",
 		catcher: "hey, ici cest la formation",
-		stepStyle: "squared",
 		color: "orange",
 		searchEnabled: true,
 		withScrollbar: true,
@@ -188,7 +186,6 @@ export const stepsWording = {
 		id: "experience",
 		title: "Experiences",
 		catcher: "hey, ici cest la experience",
-		stepStyle: "line",
 		color: "#4E6AFF",
 		searchEnabled: true,
 		withScrollbar: true,
@@ -1502,6 +1499,16 @@ export const stepsWording = {
 			},
 			
 		]
-	}
+	},
+
+	"portfolio": {
+		id: "portfolio",
+		title: "portfolio",
+		catcher: "hey, ici cest le portfolio",
+		color: "#FF4E4E",
+		searchEnabled: false,
+		withScrollbar: false,
+		slots: []
+	},
 
 } 
