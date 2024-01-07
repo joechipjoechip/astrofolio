@@ -56,7 +56,7 @@ on("main-touch-end", onTouchEnd)
 const dynamicLeft = ref("0px")
 const leftTransitionValue = ref("0s")
 const touchOriginX = ref(null)
-const threshold = 0.15
+const threshold = 0.17
 
 function onTouchStart( event ){
 	const currentStepGrabed = event.target.closest(".slot")?.dataset.index
@@ -119,9 +119,9 @@ function computePositionDiff( movingX ){
 // - - - - DYNAMIC STYLE LOGIC - - - -
 const baseDecayX = 85
 const decayX = ref(baseDecayX)
-const decayXPositiveString = computed(() => `${$store.value.currentStepIndex === 0 ? "0" : decayX.value}%`)
+const decayXPositiveString = computed(() => `${decayX.value}%`)
 const decayXNegativeString = computed(() => `${-decayX.value}%`)
-const scaleRatio = computed(() => $store.value.currentStepIndex === 0 ? 0.25 : 0.6)
+const scaleRatio = ref(0.55)
 
 
 // - - - COMPONENT STATUS / CLASS LOGIC - - - -
@@ -166,7 +166,7 @@ function defineDynamicClasses(index){
 			:wording="stepsWording[step.name.toLowerCase()]"
 
 			:style="{ 
-				left: ($store.currentStepIndex === 0 && index === 1) ? '0px' : dynamicLeft
+				left: dynamicLeft
 			}"
 		/>
 
@@ -229,7 +229,7 @@ function defineDynamicClasses(index){
 			opacity: 1;
 			z-index: 50;
 			backdrop-filter: blur(5px);
-			background-color: var(--color-contrast-15);
+			background-color: var(--color-main-10);
 
 			:deep(.step-wrapper > *){
 				display: none;
@@ -240,7 +240,7 @@ function defineDynamicClasses(index){
 			transform: translateX(v-bind(decayXNegativeString)) scale(v-bind(scaleRatio));
 			
 			&:hover {
-				transform: translateX(v-bind(decayXNegativeString)) scale(0.97);
+				transform: translateX(v-bind(decayXNegativeString)) scale(0.65);
 			}
 		}
 	
@@ -248,7 +248,7 @@ function defineDynamicClasses(index){
 			transform: translateX(v-bind(decayXPositiveString)) scale(v-bind(scaleRatio));
 			
 			&:hover {
-				transform: translateX(v-bind(decayXPositiveString)) scale(0.97);
+				transform: translateX(v-bind(decayXPositiveString)) scale(0.65);
 			}
 		}
 	
