@@ -33,6 +33,17 @@ const props = defineProps({
 // BASIC LOGIC
 const listWrapper = ref(null)
 
+// incroyable mais vrai :
+// watch last 2 previous commit from here
+// and https://stackoverflow.com/questions/60415580/vue-js-this-nexttick-doesnt-seems-to-wait-for-dom-rendering
+
+// instead of
+// watch(() => props.stepIsActive, newVal => newVal && nextTick(() => scrollListToTop()))
+// do
+nextTick(() => watch(() => props.stepIsActive, (newVal) => newVal && scrollListToTop() ))
+// and sizes bugys computations are now good
+// (which is crazy and interesting)
+
 const focusedSlotIndex = ref(null)
 
 function scrollListToTop(){
