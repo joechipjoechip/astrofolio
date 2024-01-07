@@ -65,6 +65,7 @@ export const stepsWording = {
 				title: "Self - FreeCodeCamp.org",
 				body: "Pure<br>Algorythm",
 				self: true,
+				pinable: true,
 				location: "Online",
 				date: {
 					year: "2017",
@@ -131,7 +132,7 @@ export const stepsWording = {
 			},
 			{
 				title: "Fine Arts studies",
-				body: "Hypermedia<br>Graphism",
+				body: "Code Art<br>Graphism",
 				self: false,
 				location: "Aix-en-Provence (Beaux-Arts)",
 				date: {
@@ -377,12 +378,12 @@ export const stepsWording = {
 			},
 			{
 				title: "Omakase Recordings",
-				body: "Director, CreaTech<br>Front-End Dev.",
+				body: "Code Artist",
 				location: "Marseille",
 				logoSrc: "omakase.png",
 				date: {
 					year: "2023",
-					duration: "Freelance : 9 months mission"
+					duration: "Art project : 9 months"
 				},
 				description: [
 					"Vue2, Nuxt2, ThreeJS",

@@ -33,8 +33,6 @@ const props = defineProps({
 // BASIC LOGIC
 const listWrapper = ref(null)
 
-watch(() => props.stepIsActive, newVal => newVal && nextTick(() => scrollListToTop()))
-
 const focusedSlotIndex = ref(null)
 
 function scrollListToTop(){
