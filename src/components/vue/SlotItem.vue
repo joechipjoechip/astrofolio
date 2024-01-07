@@ -88,23 +88,16 @@ watch(isExpanded, newVal => {
 const slotWrapperElement = ref(null)
 const technosWrapper = ref(null)
 
-// disabled cause it's buggy
-// but keeped cause it's a good hint when it comes to swiped ui system that can be buggy
-// function scrollSlotAtTop(){
-// 	// timeout because of misunderstanding block size because of margin animations
-// 	nextTick(() => {
-// 		slotWrapperElement.value.scrollIntoView({behavior: "smooth", inline: "start", block: "start"});
-// 	})
-// }
+function scrollSlotAtTop(){
+	nextTick(() => {
+		slotWrapperElement.value.scrollIntoView({behavior: "smooth", inline: "start", block: "start"});
+	})
+}
 
 // PIN LOGIC
 const isPined = ref(props.slotData.pinable)
 function handlePin(){
 	isPined.value = !isPined.value
-
-	// if( isPined.value ){
-	// 	scrollSlotAtTop()
-	// }
 }
 
 // ANIMATION LOGIC

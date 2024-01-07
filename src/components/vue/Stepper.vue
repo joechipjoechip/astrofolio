@@ -6,7 +6,7 @@ import Experience from "./Experience.vue";
 
 import { stepsWording } from "@/assets/wording/steps.js"
 
-import { ref, computed, watch } from "vue"
+import { ref, computed } from "vue"
 
 import { useEmitter } from "@/composables/Emitter"
 import { useUserInteractions } from "@/composables/UserInteractions"
@@ -111,7 +111,6 @@ function computePositionDiff( movingX ){
 		}
 
 		onTouchEnd()
-
 	}
 }
 
@@ -130,7 +129,6 @@ function defineIsActive(index){
 }
 
 function defineDynamicClasses(index){
-
 	return {
 		name: goodSteps[index].name?.toLowerCase(),
 		isActive: defineIsActive(index),
@@ -140,7 +138,6 @@ function defineDynamicClasses(index){
 		isOutNext: index - $store.value.currentStepIndex > 1,
 		isCurrentlyManipulated: $store.value.navigation.isCurrentlyManipulatedIndex === index
 	}
-
 }
 
 </script>
@@ -228,8 +225,8 @@ function defineDynamicClasses(index){
 			z-index: 15;
 			opacity: 1;
 			z-index: 50;
-			backdrop-filter: blur(5px);
-			background-color: var(--color-main-10);
+			backdrop-filter: blur(25px);
+			background-color: var(--color-contrast-10);
 
 			:deep(.step-wrapper > *){
 				display: none;
