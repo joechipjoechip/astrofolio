@@ -130,7 +130,7 @@ export default function Experience(){
         twister.current.setNextKinematicTranslation({x, z, y: 0})
 
         if( $mouseStore ){
-            const ratio = 10
+            const ratio = 4
             console.log("frame update experience four")
             // ground.current.position.set(
             //     $mouseStore.x * ratio, 
@@ -181,12 +181,12 @@ export default function Experience(){
                         focalLength={ 0.015 }
                         bokehScale={ 15 }
                     /> */}
-                    <Bloom 
+                    {/* <Bloom 
                         mipmapBlur
-                        intensity={0.9}
+                        intensity={3.3}
                         // luminanceThreshold={ 1.5 }
                         // default is 0.9 (theshold = seuil, de luminosité à partir duquel le bloom s'applique)
-                    />
+                    /> */}
                 </EffectComposer>
 
                 {/* <Environment
@@ -197,7 +197,7 @@ export default function Experience(){
                         radius: 28,
                         scale: 100
                     }}
-                    preset="city"
+                    preset="night"
                 >
                     <Lightformer 
                         position={[0,0,-6]}
@@ -211,8 +211,8 @@ export default function Experience(){
                 <spotLight 
                     ref={ lightRef } 
                     color="white" 
-                    intensity={5} 
-                    position={ [15, 7, 1] } 
+                    intensity={1} 
+                    position={ [15, 7, 5] } 
                     castShadow 
                     shadow-mapSize={[ 1024, 1024 ]}
                 />
@@ -220,19 +220,19 @@ export default function Experience(){
                 <spotLight 
                     ref={ lightRef } 
                     color="orange" 
-                    intensity={5} 
-                    position={ [-10, 7, -2] } 
+                    intensity={1} 
+                    position={ [-10, 7, 7] } 
                     castShadow 
                     shadow-mapSize={[ 1024, 1024 ]}
                 />
 
-                {/* <ambientLight args={["white", 0.55]} /> */}
+                <ambientLight args={["red", 0.55]} />
 
                 
 
                 <Physics 
                     // debug
-                    gravity={[ 0, -25, 0 ]}
+                    gravity={[ 0, -6, 0 ]}
                     // gravité globale, et les gravités relatives sont possible avec l'attribut gravityScale (float) sur les rigidBodies (c'est donc un ratio multiplicateur, qui peut être négatif/positif)
                 >
 
@@ -283,13 +283,18 @@ export default function Experience(){
                             
                         */}
 
-                        {/* <RigidBody colliders={ false } rotation-x={Math.PI * 0.5}>
+                        <RigidBody
+                            colliders={ false } 
+                            rotation-x={Math.PI * 0.5} 
+                            position={[0,12,0]}
+                            gravityScale={0.15}
+                        >
                             <CuboidCollider args={[1,1,1]} />
-                            <mesh castShadow >
+                            <mesh castShadow>
                                 <torusGeometry />
                                 <meshStandardMaterial color="mediumpurple" />
                             </mesh>
-                        </RigidBody> */}
+                        </RigidBody>
 
                         <RigidBody 
                             ref={ twister }
@@ -325,7 +330,7 @@ export default function Experience(){
                         <RigidBody 
                             ref={ sphereRef } 
                             colliders="ball" 
-                            gravityScale={0.5}
+                            gravityScale={0.15}
                             restitution={ 1 }
                         >
                             <mesh position={[ position.x, position.y, 0.2 ]} castShadow>
@@ -349,7 +354,7 @@ export default function Experience(){
                     <RigidBody type="fixed" restitution={0.5}>
                         <mesh
                             ref={ground}
-                            rotation-x={Math.PI * -0.5} scale={5} position-y={-1} receiveShadow>
+                            rotation-x={Math.PI * -0.5} scale={5} position-y={-0.5} receiveShadow>
                             <boxGeometry args={[4,4, 0.1]} />
                             <meshStandardMaterial color="brown" />
                         </mesh>
@@ -358,32 +363,40 @@ export default function Experience(){
 
                     {/* invisibles walls around the floor */}
                     <RigidBody type="fixed">
-                        <CuboidCollider args={[ 10, 5, 0.5]} position={[0, 1, 10 ]} />
-                        <CuboidCollider args={[ 10, 5, 0.5]} position={[0, 1, -10 ]} />
+                        <CuboidCollider args={[ 10, 5, 0.5]} position={[0, 1, 2.5 ]} />
+                        <CuboidCollider args={[ 10, 5, 0.5]} position={[0, 1, -2.5 ]} />
 
-                        <CuboidCollider args={[ 0.5, 5, 10]} position={[10, 1, 0 ]} />
-                        <CuboidCollider args={[ 0.5, 5, 10]} position={[-10, 1, 0 ]} />
+                        <CuboidCollider args={[ 0.5, 5, 10]} position={[2.5, 1, 0 ]} />
+                        <CuboidCollider args={[ 0.5, 5, 10]} position={[-2.5, 1, 0 ]} />
                     </RigidBody>
 
                     {/*  cubes falling */}
-                    <InstancedRigidBodies instances={ instances } onClick={ genericCubeJump }>
-                        <instancedMesh ref={ cubes } args={[null,null, cubesCount]} castShadow>
+                    <InstancedRigidBodies 
+                        instances={ instances } 
+                        onClick={ genericCubeJump } 
+                        scale={[0.32,0.32,0.32]}
+                    >
+                        <instancedMesh 
+                            ref={ cubes } 
+                            args={[null,null, cubesCount]} 
+                            castShadow 
+                        >
                             <boxGeometry />
-                            {/* <meshStandardMaterial color="tomatoe" /> */}
-                            <meshPhysicalMaterial 
+                            <meshStandardMaterial color="tomatoe" />
+                            {/* <meshPhysicalMaterial 
                                 // color="red"
                                 transparent
-                                transmission={ 1 }
-                                thickness={ 0.77 }
+                                transmission={ 0.002 }
+                                thickness={ 1 }
                                 ior={ 2.4 }
-                                clearcoat={ 1 }
+                                clearcoat={ 0.5 }
                                 clearcoatRoughness={ 0 }
                                 sheen={1}
-                                sheenRoughness={0.25}
+                                sheenRoughness={0.75}
                                 sheenColor={ [1,1,1] }
                                 iridescence={1}
                                 iridescenceIOR={1}
-                            /> 
+                            />  */}
                         </instancedMesh>
                     </InstancedRigidBodies>
 

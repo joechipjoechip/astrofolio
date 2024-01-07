@@ -57,12 +57,12 @@ export default function Experience(){
                     blendFunction={ BlendFunction.SOFT_LIGHT }
                 /> */}
 
-                {/* <Bloom 
+                <Bloom 
                     mipmapBlur
-                    intensity={0.9}
+                    intensity={2}
                     // luminanceThreshold={ 1.5 }
                     // default is 0.9 (theshold = seuil, de luminosité à partir duquel le bloom s'applique)
-                /> */}
+                />
 
                 {/* <DepthOfField 
                     focusDistance={ 0.025 }
@@ -72,8 +72,8 @@ export default function Experience(){
 
             </EffectComposer>
 
-            <directionalLight castShadow position={ [ 1, 2, 3 ] } intensity={ 4.5 } />
-            <ambientLight intensity={ 1.5 } />
+            {/* <directionalLight castShadow position={ [ 1, 2, 3 ] } intensity={ 4.5 } /> */}
+            {/* <ambientLight intensity={ 1.5 } /> */}
 
             <mesh castShadow position-x={ - 2 }>
                 <sphereGeometry />
@@ -93,7 +93,7 @@ export default function Experience(){
             <mesh receiveShadow 
                 ref={planeRef}
                 // position-y={ - 1 } 
-                rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
+                rotation-x={ - Math.PI * 0.5 } scale={ 5 }>
                 <planeGeometry />
                 <meshStandardMaterial color="greenyellow" />
             </mesh>
