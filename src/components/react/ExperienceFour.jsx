@@ -23,7 +23,7 @@ export default function Experience(){
     const cubes = useRef()
     const ground = useRef()
 
-    const cubesCount = 100
+    const cubesCount = 25
 
     // un bon moyen de créer une valeur au mounted et pas à chaque rerender, est d'utiliser : useState avec une fonction anonyme qui renvoi une valeur, genre : 
     // const [ hitSound ] = useState(() => new Audio("./audios/hit.mp3"))
@@ -181,12 +181,12 @@ export default function Experience(){
                         focalLength={ 0.015 }
                         bokehScale={ 15 }
                     /> */}
-                    {/* <Bloom 
+                    <Bloom 
                         mipmapBlur
-                        intensity={3.3}
+                        intensity={1}
                         // luminanceThreshold={ 1.5 }
                         // default is 0.9 (theshold = seuil, de luminosité à partir duquel le bloom s'applique)
-                    /> */}
+                    />
                 </EffectComposer>
 
                 {/* <Environment
@@ -226,7 +226,7 @@ export default function Experience(){
                     shadow-mapSize={[ 1024, 1024 ]}
                 />
 
-                <ambientLight args={["red", 0.55]} />
+                {/* <ambientLight args={["red", 0.55]} /> */}
 
                 
 
@@ -307,9 +307,9 @@ export default function Experience(){
                             <mesh>
                                 <boxGeometry 
                                     args={[ 0.4, 0.4, 3 ]} 
-                                    position={[0,0,0]}
+                                    position={[0,-0.5,0]}
                                 />
-                                <meshStandardMaterial color="orange" />
+                                <meshStandardMaterial  emissive={"#ffffff"} emissiveIntensity={1.8} />
                             </mesh>
                         </RigidBody>
                         
@@ -320,10 +320,11 @@ export default function Experience(){
                             position={[0, 2, 0]}
                             // restitution={ 0.25 }
                             onClick={ cubeJump }
+                            gravityScale={20}
                         >
                             <mesh castShadow>
                                 <boxGeometry />
-                                <meshStandardMaterial color="mediumpurple" />
+                                <meshStandardMaterial color="black" />
                             </mesh>
                         </RigidBody>
 
@@ -335,7 +336,7 @@ export default function Experience(){
                         >
                             <mesh position={[ position.x, position.y, 0.2 ]} castShadow>
                                 <sphereGeometry />
-                                <meshStandardMaterial color={color} roughness={0} envMapIntensity={envMapIntensity} />
+                                <meshStandardMaterial color={color} roughness={0} envMapIntensity={envMapIntensity} castShadow/>
                                 <Html 
                                     wrapperClass='floatingDiv' 
                                     // position={[ 1, 1, 0 ]}
@@ -382,7 +383,11 @@ export default function Experience(){
                             castShadow 
                         >
                             <boxGeometry />
-                            <meshStandardMaterial color="tomatoe" />
+                            <meshStandardMaterial 
+                                color="#050505" 
+                                roughness={0.5}
+                                metalness={0.5}
+                            />
                             {/* <meshPhysicalMaterial 
                                 // color="red"
                                 transparent
