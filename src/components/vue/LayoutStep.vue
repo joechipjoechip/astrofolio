@@ -1,6 +1,8 @@
 <script setup>
-
 import SearchBar from './SearchBar.vue'
+
+import { ref } from 'vue';
+import { useEmitter } from "@/composables/Emitter"
 
 const props = defineProps({
 	isActive: {
@@ -12,6 +14,23 @@ const props = defineProps({
 		required: true
 	}
 })
+
+const stepBody = ref(null)
+const outsideScrollAmount = 200
+
+// SCROLL PROCURATION
+const { on } = useEmitter()
+on("wheel-from-shell", handleWheelFromShell)
+
+function handleWheelFromShell( event ){
+    if( props.isActive ){
+        stepBody.value.scroll({
+            top: stepBody.value.scrollTop + (event.deltaY > 0 ? outsideScrollAmount : -outsideScrollAmount),
+            left: 0,
+            behavior: "smooth"
+        });
+    }
+}
 
 
 </script>
@@ -75,6 +94,7 @@ const props = defineProps({
 
                 <div 
                     class="step-body"
+                    ref="stepBody"
                     :class="{ withScrollbar: wording.withScrollbar }"
                 >
                     

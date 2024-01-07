@@ -3,8 +3,6 @@ import { ref, watch, computed, nextTick } from "vue"
 import SlotItem from "@/components/vue/SlotItem.vue"
 import { searchStore } from "@/stores/searchStore.js"
 import { useDefineSlotVisibility } from "@/composables/searchParser"
-import { useEmitter } from "@/composables/Emitter"
-
 
 import { useStore } from '@nanostores/vue';
 
@@ -100,23 +98,6 @@ const rafinedData = computed(() => {
     }
 
 })
-
-// SCROLL PROCURATION
-const { on } = useEmitter()
-on("wheel-from-shell", handleWheelFromShell)
-
-function handleWheelFromShell( event ){
-
-    if( props.stepIsActive ){
-        console.log("here we are active ! ", rafinedData.value, listWrapper.value)
-        listWrapper.value.scrollTo({
-            top: 300,
-            left: 0,
-            // behavior: "smooth",
-        });
-    }
-
-}
 
 </script>
 
