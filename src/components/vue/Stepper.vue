@@ -3,13 +3,13 @@
 import Bio from "./Bio.vue";
 import Formation from "./Formation.vue";
 import Experience from "./Experience.vue";
-import Portfolio from "./Portfolio.vue";
 
 import { stepsWording } from "@/assets/wording/steps.js"
 
 import { ref, computed } from "vue"
 
 import { useEmitter } from "@/composables/Emitter"
+import { useUserInteractions } from "@/composables/UserInteractions"
 import { useGetEventPosition } from "@/composables/GetEventPosition"
 
 
@@ -24,7 +24,7 @@ import {
 
 import { useStore } from '@nanostores/vue';
 
-
+useUserInteractions()
 
 const $store = useStore(globalStore);
 
@@ -42,10 +42,6 @@ const goodSteps = [
     {
 		name: "Experience",
         component: Experience
-    },
-    {
-		name: "Portfolio",
-        component: Portfolio
     }
 ]
 
