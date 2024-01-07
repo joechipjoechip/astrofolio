@@ -109,11 +109,6 @@ $headHeight: 6rem;
 
         :deep(.slot-wrapper){
     
-            &:first-of-type,
-            &.isPined {
-                margin-top: 0.25rem;
-            }
-        
             &:last-of-type {
                 margin-bottom: 2rem;
             }
