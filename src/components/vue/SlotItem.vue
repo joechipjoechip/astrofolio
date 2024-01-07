@@ -844,6 +844,7 @@ $expandButtonBorderWidth: 2px;
 					}
 
 					&-name {
+						margin-top: 0.75rem;
 						margin-bottom: 0;
 						font-size: var(--font-size-medium-small);
 						line-height: var(--font-size-medium-small);
