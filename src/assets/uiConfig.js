@@ -6,6 +6,6 @@ export const uiConfig = {
         long: 700
     },
     scroll: {
-        procuration: true
+        procuration: false
     }
 }
