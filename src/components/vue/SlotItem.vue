@@ -75,8 +75,8 @@ watch(isExpanded, newVal => {
 		technosAreVisible.value = true
 
 		nextTick(() => {
-			technosWrapper.value.scrollTo(0,0)
 			scrollSlotAtTop()
+			technosWrapper.value.scrollTo(0,0)
 		})
 
 	} else {
@@ -89,9 +89,9 @@ const slotWrapperElement = ref(null)
 const technosWrapper = ref(null)
 
 function scrollSlotAtTop(){
-	nextTick(() => {
+	setTimeout(() => {
 		slotWrapperElement.value.scrollIntoView({behavior: "smooth", inline: "start", block: "start"});
-	})
+	}, uiConfig.animation.medium);
 }
 
 // PIN LOGIC
