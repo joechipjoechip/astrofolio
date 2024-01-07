@@ -3,6 +3,7 @@
 import Bio from "./Bio.vue";
 import Formation from "./Formation.vue";
 import Experience from "./Experience.vue";
+import Portfolio from "./Portfolio.vue";
 
 import { stepsWording } from "@/assets/wording/steps.js"
 
@@ -41,6 +42,10 @@ const goodSteps = [
     {
 		name: "Experience",
         component: Experience
+    },
+    {
+		name: "Portfolio",
+        component: Portfolio
     }
 ]
 

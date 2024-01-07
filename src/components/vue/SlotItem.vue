@@ -91,7 +91,7 @@ const technosWrapper = ref(null)
 function scrollSlotAtTop(){
 	// setTimeout(() => {
 		nextTick(() => {
-			slotWrapperElement.value.scrollIntoView({behavior: "smooth", inline: "start", block: "start"});
+			slotWrapperElement.value.scrollIntoView({behavior: "smooth", block: "start"});
 		})
 	// }, uiConfig.animation.medium);
 }

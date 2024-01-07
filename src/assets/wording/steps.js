@@ -1499,6 +1499,16 @@ export const stepsWording = {
 			},
 			
 		]
-	}
+	},
+	
+	"portfolio": {
+		id: "portfolio",
+		title: "portfolio",
+		catcher: "hey, ici cest la portfolio",
+		color: "#FF4E4E",
+		searchEnabled: false,
+		withScrollbar: false,
+		slots: []
+	},
 
 } 
