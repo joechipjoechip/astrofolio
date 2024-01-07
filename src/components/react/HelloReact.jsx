@@ -2,6 +2,7 @@ import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient'
 import * as reactSpring from '@react-spring/three'
 import * as drei from '@react-three/drei'
 import * as fiber from '@react-three/fiber'
+import PhysicsRandom from "./PhysicsRandom.jsx"
 
 import "./HelloReact.css"
 
@@ -145,6 +146,9 @@ export default function HelloReact(){
                         {...shaderDark}
                     />
                 </ShaderGradientCanvas>
+            }
+
+            {$store.currentStepIndex === 3 && <PhysicsRandom></PhysicsRandom>
             }
 
         </div>

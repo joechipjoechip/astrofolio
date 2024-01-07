@@ -4,6 +4,10 @@
     height: 100vh;
     max-width: 100vw;
     max-height: 100vh;
+
+    Canvas {
+        border: solid 10px green;
+    }
 }
 
 .react-canvas-wrapper::after {
