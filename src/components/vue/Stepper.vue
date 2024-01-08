@@ -91,9 +91,9 @@ function onTouchEnd(){
 	setStepGrabed(false)
 	setIsCurrentlyManipulatedIndex(null)
 
-	setTimeout(() => {
-		updateStepCoords()
-	}, 400)
+	// setTimeout(() => {
+	// 	updateStepCoords()
+	// }, 400)
 }
 
 function onTouchMove( event ){
@@ -182,6 +182,11 @@ function defineDynamicClasses(index){
 	}
 }
 
+function handleTransition(){
+	console.log("transition triggered")
+	updateStepCoords()
+}
+
 </script>
 
 <template>
@@ -207,6 +212,8 @@ function defineDynamicClasses(index){
 			:style="{ 
 				left: dynamicLeft
 			}"
+
+			@transitionend="handleTransition"
 		/>
 
 	</div>
@@ -259,7 +266,7 @@ function defineDynamicClasses(index){
 			// position: relative;
 			transform: translateX(0) scale(1);
 			background-color: var(--color-contrast-10);
-			border-radius: var(--borderRadiusMedium) var(--borderRadiusBig) var(--borderRadiusSmall) var(--borderRadiusSmall);
+			border-radius: var(--borderRadiusMedium) var(--borderRadiusMedium) var(--borderRadiusSmall) var(--borderRadiusSmall);
 		}
 	
 		&.isPrevious,
