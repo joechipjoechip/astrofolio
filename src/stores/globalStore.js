@@ -77,7 +77,7 @@ export function setNavigationNavbarIsMoving( bool ){
 	)
 }
 
-
+// MOUSE STORE
 export const mouseStore = map({
 	x: window.innerWidth / 2,
 	y: window.innerHeight / 2
@@ -88,4 +88,20 @@ export function setMousePosition(payload){
 		mouseStore.setKey("x", payload.x)
 		mouseStore.setKey("y", payload.y)
 	}
+}
+
+// STEP COORDS STORE
+export const stepCoords = map({
+	x: 0,
+	y: 0,
+	width: 0,
+	height: 0
+})
+
+export function setStepCoords(payload){
+	const { x, y, width, height } = payload
+	stepCoords.setKey("x", x)
+	stepCoords.setKey("y", y)
+	stepCoords.setKey("width", width)
+	stepCoords.setKey("height", height)
 }

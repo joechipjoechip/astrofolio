@@ -22,7 +22,9 @@ import {
 	setCurrentStepIndexDecrement,
 
 	mouseStore, 
-	setMousePosition
+	setMousePosition,
+
+	setStepCoords
 } from "@/stores/globalStore.js"
 
 import { useStore } from '@nanostores/vue';
@@ -60,6 +62,7 @@ const { on } = useEmitter()
 on("main-touch-move", onTouchMove)
 on("main-touch-start", onTouchStart)
 on("main-touch-end", onTouchEnd)
+on("main-resize", onResize)
 
 const dynamicLeft = ref("0px")
 const leftTransitionValue = ref("0s")
@@ -87,24 +90,28 @@ function onTouchEnd(){
 
 	setStepGrabed(false)
 	setIsCurrentlyManipulatedIndex(null)
+
+	setTimeout(() => {
+		updateStepCoords()
+	}, 400)
 }
 
 function onTouchMove( event ){
 	const { x, y } = useGetEventPosition(event)
 	updateMouseStore({x,y})
+
 	if( !$store.value.stepGrabed ){ 
 		onTouchEnd()
 		return
-	} 
+	} else {
+		updateStepCoords()
+		const diffX = computePositionDiff(x)
+		dynamicLeft.value = `${-diffX}px`
+	}
+}
 
-	
-	
-	
-	// console.log("ici je dois chopper le getBoundingClientRect de ")
-	
-	const diffX = computePositionDiff(x)
-	dynamicLeft.value = `${-diffX}px`
-	
+function onResize(){
+	updateStepCoords()
 }
 
 function computePositionDiff( movingX ){
@@ -129,8 +136,7 @@ function computePositionDiff( movingX ){
 }
 
 function updateMouseStore({x,y}){
-
-	const computedPositions = {
+	setMousePosition({
 		x: Math.min(1,
 			Math.max(
 				-1,
@@ -143,10 +149,11 @@ function updateMouseStore({x,y}){
 				(((y) / window.innerHeight) - 0.5) * -2
 			)
 		)
-	}
+	})
+}
 
-	console.log("depuis vue stapper : ", computedPositions.x)
-	setMousePosition(computedPositions)
+function updateStepCoords(){
+	setStepCoords(stepperWrapper.value.querySelector(".isActive").getBoundingClientRect())
 }
 
 

@@ -7,7 +7,12 @@ import ExperienceEntryPoint from "./ExperienceEntryPoint.jsx"
 import "./HelloReact.css"
 
 import { useStore } from '@nanostores/react';
-import { globalStore, setColorMode } from "@/stores/globalStore.js"
+import { 
+        globalStore, 
+        setColorMode,
+
+        stepCoords
+} from "@/stores/globalStore.js"
 
 const targetNode = document.querySelector("html")
 const observerConfig = { attributes: true, childList: false }
@@ -117,11 +122,20 @@ export default function HelloReact(){
     }
     
     const $store = useStore(globalStore)
+    const $stepCoords = useStore(stepCoords)
+
+    console.log("stepcoords.x : ", $stepCoords.x)
 
   return (
     <>
         {$store.currentStepIndex >= 2 && <div 
             className='react-canvas-wrapper portfolio'
+            style={{
+                left: $stepCoords.x,
+                width: $stepCoords.width,
+                top: $stepCoords.y,
+                height: $stepCoords.height
+            }}
         >
             <ExperienceEntryPoint></ExperienceEntryPoint>
         </div>}
