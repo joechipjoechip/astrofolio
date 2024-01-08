@@ -8,12 +8,11 @@ import * as THREE from "three"
 import { CuboidCollider, InstancedRigidBodies, Physics, RigidBody } from '@react-three/rapier'
 import { useFrame } from '@react-three/fiber'
 
-import { globalStore, mouseStore } from "@/stores/globalStore"
+import { mouseStore } from "@/stores/globalStore"
 import { useStore } from '@nanostores/react';
 
 export default function Experience(){
 
-    const $store = useStore(globalStore)
     const $mouseStore = useStore(mouseStore)
 
     const lightRef = useRef()
@@ -99,18 +98,18 @@ export default function Experience(){
         return instances
     }, [])
 
-    const { position, color } = useControls("sphere", {
-        position: {
-            value: { x: 0, y: 2 },
-            step: 0.1,
-            joystick: "invertY"
-        },
-        color: "#FF0000"
-    })
+    // const { position, color } = useControls("sphere", {
+    //     position: {
+    //         value: { x: 0, y: 2 },
+    //         step: 0.1,
+    //         joystick: "invertY"
+    //     },
+    //     color: "#FF0000"
+    // })
 
-    const { envMapIntensity } = useControls("envMapIntensity", {
-        envMapIntensity: { value: 1, min: 0, max: 20 }
-    })
+    // const { envMapIntensity } = useControls("envMapIntensity", {
+    //     envMapIntensity: { value: 1, min: 0, max: 20 }
+    // })
 
     useFrame((state, delta) => {
         const time = state.clock.getElapsedTime()
@@ -131,7 +130,6 @@ export default function Experience(){
 
         if( $mouseStore ){
             const ratio = 4
-            console.log("frame update experience four")
             // ground.current.position.set(
             //     $mouseStore.x * ratio, 
             //     $mouseStore.y * ratio, 
@@ -145,7 +143,6 @@ export default function Experience(){
 
             // twister.current.setNextKinematicTranslation({x: $mouseStore.x, z: $mouseStore.y, y: 0})
 
-            console.log("twister : ", twister.current)
             // twister.current.position?.set(
             //     $mouseStore.x * ratio, 
             //     $mouseStore.y * ratio, 
@@ -181,12 +178,12 @@ export default function Experience(){
                         focalLength={ 0.015 }
                         bokehScale={ 15 }
                     /> */}
-                    <Bloom 
+                    {/* <Bloom 
                         mipmapBlur
                         intensity={1}
                         // luminanceThreshold={ 1.5 }
                         // default is 0.9 (theshold = seuil, de luminosité à partir duquel le bloom s'applique)
-                    />
+                    /> */}
                 </EffectComposer>
 
                 {/* <Environment
@@ -334,9 +331,9 @@ export default function Experience(){
                             gravityScale={0.15}
                             restitution={ 1 }
                         >
-                            <mesh position={[ position.x, position.y, 0.2 ]} castShadow>
+                            <mesh position={[ 0, 0, 0.2 ]}>
                                 <sphereGeometry />
-                                <meshStandardMaterial color={color} roughness={0} envMapIntensity={envMapIntensity} castShadow/>
+                                <meshStandardMaterial color={'red'} roughness={0} castShadow/>
                                 <Html 
                                     wrapperClass='floatingDiv' 
                                     // position={[ 1, 1, 0 ]}

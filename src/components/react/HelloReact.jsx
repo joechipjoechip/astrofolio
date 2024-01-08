@@ -2,7 +2,7 @@ import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient'
 import * as reactSpring from '@react-spring/three'
 import * as drei from '@react-three/drei'
 import * as fiber from '@react-three/fiber'
-import PhysicsRandom from "./PhysicsRandom.jsx"
+import ExperienceEntryPoint from "./ExperienceEntryPoint.jsx"
 
 import "./HelloReact.css"
 
@@ -123,7 +123,7 @@ export default function HelloReact(){
         {$store.currentStepIndex >= 2 && <div 
             className='react-canvas-wrapper portfolio'
         >
-            <PhysicsRandom></PhysicsRandom>
+            <ExperienceEntryPoint></ExperienceEntryPoint>
         </div>}
         
         <div className='react-canvas-wrapper'>
