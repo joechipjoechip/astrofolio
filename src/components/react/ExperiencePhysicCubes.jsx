@@ -85,8 +85,8 @@ export default function Experience(){
 
             if( index % 5 === 0 ){
                 body.applyImpulse({ 
-                    x: Math.sin(time) * gravityRatio * multiplier * -90, 
-                    y: Math.sin(time) * gravityRatio * multiplier * 90, 
+                    x: Math.sin(time) * gravityRatio * multiplier * -20, 
+                    y: Math.sin(time) * gravityRatio * multiplier * 20, 
                     z: 0, 
                     // y: 0, 
                     // z: 0 
@@ -114,7 +114,7 @@ export default function Experience(){
         
         // state.camera.position.set(
         //     -$mouseStore.x,
-        //     $mouseStore.y + 1 ,
+        //     $mouseStore.y * -2.5 + 1 ,
         //     6.1
         // )
     })
