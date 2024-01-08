@@ -17,9 +17,9 @@ export default function Experience(){
     const $mouseStore = useStore(mouseStore)
     const $globalStore = useStore(globalStore)
     
-    const [ matcapTexture ] = useMatcapTexture($globalStore.colorMode === "light" ? "CCF6FA_9DD9EB_82C5D9_ACD4E4" : "EA783E_6D4830_905837_FCDC6C", 256)
+    const [ matcapTexture ] = useMatcapTexture($globalStore.colorMode === "light" ? "CCF6FA_9DD9EB_82C5D9_ACD4E4" : "660505_F2B090_DD4D37_AA1914", 256)
 
-    const bloomIntensity = $globalStore.colorMode === "light" ? 0.5 : 1.5
+    const bloomIntensity = $globalStore.colorMode === "light" ? 0.5 : 11.5
 
 
     console.log("matcapTexture : ", matcapTexture)
