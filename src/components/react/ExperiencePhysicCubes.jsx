@@ -6,18 +6,23 @@ import { useMatcapTexture } from '@react-three/drei'
 
 import { useFrame, useThree } from '@react-three/fiber'
 
-import { mouseStore } from "@/stores/globalStore"
+import { mouseStore, globalStore } from "@/stores/globalStore"
 import { useStore } from '@nanostores/react';
 
 export default function Experience(){
-
-    const [ matcapTexture ] = useMatcapTexture("660505_F2B090_DD4D37_AA1914", 256)
-    // const [ matcapTexture ] = useMatcapTexture("CCF6FA_9DD9EB_82C5D9_ACD4E4", 256)
-
+    
     const { camera } = useThree()
     camera.position.set(0,0.5,6.6)
-
+    
     const $mouseStore = useStore(mouseStore)
+    const $globalStore = useStore(globalStore)
+    
+    const [ matcapTexture ] = useMatcapTexture($globalStore.colorMode === "light" ? "CCF6FA_9DD9EB_82C5D9_ACD4E4" : "EA783E_6D4830_905837_FCDC6C", 256)
+
+    const bloomIntensity = $globalStore.colorMode === "light" ? 0.5 : 1.5
+
+
+    console.log("matcapTexture : ", matcapTexture)
 
     const lightRef = useRef()
     const lightRef2 = useRef()
@@ -114,7 +119,7 @@ export default function Experience(){
                 >
                     <Bloom 
                         mipmapBlur
-                        intensity={.75}
+                        intensity={bloomIntensity}
                         // luminanceThreshold={ 1.5 }
                         // default is 0.9 (theshold = seuil, de luminosité à partir duquel le bloom s'applique)
                     />
@@ -128,14 +133,6 @@ export default function Experience(){
                     castShadow 
                     shadow-mapSize={[ 1024, 1024 ]}
                 /> */}
-                <spotLight 
-                    ref={ lightRef } 
-                    color="#930039" 
-                    intensity={9.45} 
-                    position={ [0, 0, -10] } 
-                    castShadow 
-                    shadow-mapSize={[ 1024, 1024 ]}
-                />
                 <spotLight 
                     ref={ lightRef2 } 
                     color="#004183" 
