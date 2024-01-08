@@ -15,11 +15,12 @@ export default function Experience(){
     // const [ matcapTexture ] = useMatcapTexture("CCF6FA_9DD9EB_82C5D9_ACD4E4", 256)
 
     const { camera } = useThree()
-    camera.position.set(0,0.5,6.2)
+    camera.position.set(0,0.5,6.6)
 
     const $mouseStore = useStore(mouseStore)
 
     const lightRef = useRef()
+    const lightRef2 = useRef()
     const cubes = useRef()
     const bodies = useRef()
 
@@ -28,7 +29,7 @@ export default function Experience(){
     const cubesCount = 25
     const cubeSize = 0.35
 
-    const ratioGravity = 0.0006
+    const gravityRatio = 0.0002
 
     const instances = useMemo(() => {
         const instances = []
@@ -38,21 +39,24 @@ export default function Experience(){
             instances.push({
                 key: `instance_${i}`,
                 position: [
-                    (Math.random() - 0.5) * 2 * cubeSize, 
-                    i / 5, 
-                    (Math.random() - 0.5) * 2 * cubeSize
+                    (i) / 8 - 2, 
+                    (i) / 8 - 2, 
+
+                    // i / 5 - 2, 
+                    // (Math.random() - 0.5) * 2 * cubeSize, 
+                    (Math.random() - 0.5) * 1.5 * cubeSize
                 ],
                 rotation: [
-                    Math.random() - 0.5, 
-                    Math.random() - 0.5, 
-                    Math.random() - 0.5
+                    0, 
+                    0, 
+                    0
                 ],
                 scale: [
-                    cubeSize * (i % 4 === 0 ? 2.5 : 1),
-                    cubeSize * (i % 4 === 0 ? 2.5 : 1),
-                    cubeSize * (i % 4 === 0 ? 2.5 : 1),
+                    cubeSize * (i % 5 === 0 ? 3.2 : 1),
+                    cubeSize * (i % 5 === 0 ? 3.2 : 1),
+                    cubeSize * (i % 5 === 0 ? 3.2 : 1),
                 ],
-                restitution: (i % 4 === 0 ? 0.7 : 0.2)
+                restitution: (i % 5 === 0 ? 0.7 : 0.2)
             })
         }
 
@@ -65,18 +69,18 @@ export default function Experience(){
 
         bodies.current.forEach((body, index) => {
 
-            if( index % 2 === 0 ){
+            if( index % 3 === 0 ){
                 body.applyImpulse({ 
-                    x: Math.sin(time) * ratioGravity, 
-                    y: Math.sin(time) * ratioGravity, 
+                    x: Math.sin(time) * gravityRatio, 
+                    y: Math.sin(time) * gravityRatio, 
                     z: 0, 
                     // y: 0, 
                     // z: 0 
                 }, true);    
             } else {
                 body.applyImpulse({ 
-                    x: Math.sin(-time) * ratioGravity, 
-                    y: Math.sin(-time) * ratioGravity, 
+                    x: Math.sin(-time) * gravityRatio, 
+                    y: Math.sin(-time) * gravityRatio, 
                     z: 0, 
                     // y: 0, 
                     // z: 0 
@@ -116,11 +120,27 @@ export default function Experience(){
                     />
                 </EffectComposer>
 
-                <spotLight 
+                {/* <spotLight 
                     ref={ lightRef } 
                     color="white" 
                     intensity={1.45} 
                     position={ [0, 0, -10] } 
+                    castShadow 
+                    shadow-mapSize={[ 1024, 1024 ]}
+                /> */}
+                <spotLight 
+                    ref={ lightRef } 
+                    color="#930039" 
+                    intensity={9.45} 
+                    position={ [0, 0, -10] } 
+                    castShadow 
+                    shadow-mapSize={[ 1024, 1024 ]}
+                />
+                <spotLight 
+                    ref={ lightRef2 } 
+                    color="#004183" 
+                    intensity={5.45} 
+                    position={ [3, 3, -10] } 
                     castShadow 
                     shadow-mapSize={[ 1024, 1024 ]}
                 />

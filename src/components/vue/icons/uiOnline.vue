@@ -5,6 +5,7 @@ defineProps({
         default: "currentColor"
     }
 })
+
 </script>
 
 <template>
