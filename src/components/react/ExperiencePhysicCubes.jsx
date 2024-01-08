@@ -74,18 +74,27 @@ export default function Experience(){
 
         bodies.current.forEach((body, index) => {
 
-            if( index % 3 === 0 ){
+            // every 10seconds, multiply by 5 for 1 second
+            const multiplier = Math.floor(time) % 10 === 0 ? 5 : 1
+            // const multiplier = $mouseStore.x > 0.5 ? 5 : 1
+
+            // if(multiplier === -10){
+            //     console.log("accelerating !")
+            // }
+
+
+            if( index % 5 === 0 ){
                 body.applyImpulse({ 
-                    x: Math.sin(time) * gravityRatio, 
-                    y: Math.sin(time) * gravityRatio, 
+                    x: Math.sin(time) * gravityRatio * multiplier * -90, 
+                    y: Math.sin(time) * gravityRatio * multiplier * 90, 
                     z: 0, 
                     // y: 0, 
                     // z: 0 
                 }, true);    
             } else {
                 body.applyImpulse({ 
-                    x: Math.sin(-time) * gravityRatio, 
-                    y: Math.sin(-time) * gravityRatio, 
+                    x: Math.sin(-time) * gravityRatio * -multiplier, 
+                    y: Math.sin(-time) * gravityRatio * -multiplier, 
                     z: 0, 
                     // y: 0, 
                     // z: 0 
