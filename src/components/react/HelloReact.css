@@ -9,10 +9,12 @@
 
 .react-canvas-wrapper.portfolio {
     z-index: 6;
-    opacity: 0.75;
+    opacity: 1;
     border-radius: var(--borderRadiusMedium) var(--borderRadiusMedium) var(--borderRadiusSmall) var(--borderRadiusSmall);
     overflow: hidden;
     transition: opacity 0.7s;
+
+    /* mix-blend-mode: difference; */
 }
 
 /* .react-canvas-wrapper::after {

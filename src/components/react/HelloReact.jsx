@@ -128,14 +128,14 @@ export default function HelloReact(){
 
   return (
     <>
-        {$store.currentStepIndex === 3 && <div 
+        {$store.currentStepIndex === 2 && <div 
             className='react-canvas-wrapper portfolio'
-            style={{
-                left: $stepCoords.x,
-                width: $stepCoords.width,
-                top: $stepCoords.y,
-                height: $stepCoords.height
-            }}
+            // style={{
+            //     left: $stepCoords.x,
+            //     width: $stepCoords.width,
+            //     top: $stepCoords.y,
+            //     height: $stepCoords.height
+            // }}
         >
             <ExperienceEntryPoint></ExperienceEntryPoint>
         </div>}
