@@ -19,6 +19,7 @@ export function useUserInteractions() {
 
 
     useEventListener(window, "keydown", handleKeyDown)
+    useEventListener(window, "resize", handleResize)
 
 
 	function handleTouchStart( event ){
@@ -39,6 +40,10 @@ export function useUserInteractions() {
 
     function handleKeyDown( event ){
         emit("main-keydown", event)
+    }
+
+    function handleResize( event ){
+        emit("main-resize", event)
     }
 
 }
