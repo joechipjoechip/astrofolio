@@ -41,12 +41,20 @@ if( uiConfig.scroll.procuration ){
 <template>
     <div 
         class="layout-step-wrapper"
-        :class="{ isActive }"
+        :class="{ 
+            isActive,
+            isWideLayout: wording.isWideStep 
+        }"
     >
 
         <section class="layout-step-inner">
 
-            <div class="step-wrapper">
+            <div 
+                class="step-wrapper" 
+                :class="{ 
+                    headIsEnabled: wording.searchEnabled
+                }"
+            >
 
                 <div class="step-head">
 
@@ -130,6 +138,12 @@ $headHeight: 6rem;
             border-radius: 0;
         }
 
+        &.isWideLayout {
+            &.step-slot.isActive{
+                border-radius: 0;
+            }
+        }
+
         :deep(.slot-wrapper){
     
             &:last-of-type {
@@ -149,6 +163,20 @@ $headHeight: 6rem;
             &-wrapper {
                 position: relative;
                 height: 100%;
+
+                &.headIsEnabled {
+
+                    .step-head {
+                        display: flex;
+                    }
+                    .step-body {
+                        height: calc(100% - $headHeight);
+                    }
+
+                }
+
+               
+
             }
         
             &-head {
@@ -156,7 +184,7 @@ $headHeight: 6rem;
                 position: relative;
                 // margin-bottom: -0.3rem;
                 height: $headHeight;
-                display: flex;
+                display: none;
                 flex-flow: column nowrap;
                 justify-content: center;
                 align-items: center;
@@ -193,7 +221,7 @@ $headHeight: 6rem;
             &-body {
                 z-index: 50;
                 position: relative;
-                height: calc(100% - $headHeight);
+                height: 100%;
                 // padding-right: 2rem;
                 
                 

@@ -204,8 +204,7 @@ function handleTransition(){
 			class="step-slot"
 			:class="[
 				`step-${step.name.toLowerCase()}`,
-				defineDynamicClasses(index),
-				{ 'grabing-x': $store.navigation.isCurrentlyManipulatedIndex === index }
+				defineDynamicClasses(index)
 			]"
 
 			:data-index="index"
@@ -261,23 +260,18 @@ function handleTransition(){
 		overflow: hidden;
 		top: calc((100vh - var(--stepHeight)) / 2);
 		transform: translateX(0) scale(1);
-		border: solid 2px transparent;
 		background-color: transparent;
 
-		// will-change: opacity, transform, left, background-color, border-color;
+		// will-change: opacity, transform, left, background-color;
 		
 		transition: 
 			opacity 1.2s,
 			transform var(--transitionDurationLong),
 			left v-bind(leftTransitionValue),
 			background-color var(--transitionDurationLong),
-			border-color var(--transitionDurationMediumPlus),
 			height var(--transitionDurationMediumPlus) var(--transitionDurationLong),
 			top var(--transitionDurationMediumPlus) var(--transitionDurationLong);
 
-		&.grabing-x {
-			border-color: coral;
-		}
 	
 		&.isActive {
 			z-index: 100;
