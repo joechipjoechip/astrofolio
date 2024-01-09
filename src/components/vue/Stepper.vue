@@ -182,11 +182,6 @@ function defineDynamicClasses(index){
 	}
 }
 
-function handleTransition(){
-	console.log("transition triggered")
-	updateStepCoords()
-}
-
 </script>
 
 <template>
@@ -215,8 +210,6 @@ function handleTransition(){
 			:style="{ 
 				left: dynamicLeft
 			}"
-
-			@transitionend="handleTransition"
 		/>
 
 	</div>
