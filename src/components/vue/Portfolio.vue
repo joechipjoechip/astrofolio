@@ -1,5 +1,6 @@
 <script setup>
 import LayoutStep from './LayoutStep.vue';
+import PortfolioContent from './PortfolioContent.vue';
 
 const props = defineProps({
 	isActive: {
@@ -22,53 +23,11 @@ const props = defineProps({
 	>
 		<Transition name="transition-step-change">
 
-			<div 
-				v-if="isActive"
-				class="portfolio-wrapper"
-			>
-
-				<div style="text-align: left; font-size: 12rem;">here portfolio</div>
-
-			</div>
-
+			<PortfolioContent
+				:isActive="isActive" 
+			/>
 
 		</Transition>
 	</LayoutStep>
 
 </template>
-
-<style lang="scss" scoped>
-.portfolio-wrapper {
-	z-index: 40;
-	width: 100%;
-	height: 100%;
-	position: relative;
-	top: 0;
-	border-radius: 0;
-	
-	&::after {
-		z-index: 30;
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-
-		background-color: #f5f5f5;
-		pointer-events: none;
-
-		animation: animation-bg-enter var(--transitionDurationLong);
-
-		@keyframes animation-bg-enter {
-			0% {
-				height: 0%
-			}
-			100% {
-				height: 100%
-			}
-		}
-	}
-}
-
-</style>

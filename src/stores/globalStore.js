@@ -5,13 +5,11 @@ export const globalStore = map({
 	name: "Paul",
 	currentStepIndex: 1,
 	stepsCount: 0,
-	stepGrabed: false,
 	navigation: {
 		navbar: {
 			isMoving: false,
 			position: { x:0, y:0 }
 		}, 
-		isCurrentlyManipulatedIndex: null
 	},
 	sound: {
 		enabled: true
@@ -25,6 +23,32 @@ export function setName( newName ){
 export function setColorMode(newColor){
 	globalStore.setKey("colorMode", newColor)
 }
+
+
+
+
+
+// NAVIGATION
+export const navigationStore = map({
+	stepGrabed: false,
+	isCurrentlyManipulatedIndex: null,
+})
+
+export function setStepGrabed( bool ){
+	console.log("set grabed", bool)
+	navigationStore.setKey("stepGrabed", bool)
+}
+
+export function setIsCurrentlyManipulatedIndex( payload ){
+	console.log("setCurrentStepIndex", payload)
+	navigationStore.setKey("isCurrentlyManipulatedIndex", payload)
+}
+
+
+
+
+
+
 
 
 // STEPS
@@ -50,32 +74,6 @@ export function setStepsCount( size ){
 	globalStore.setKey("stepsCount", size)
 }
 
-
-// NAVIGATION
-export function setStepGrabed( bool ){
-	globalStore.setKey("stepGrabed", bool)
-}
-
-export function setIsCurrentlyManipulatedIndex( payload ){
-	globalStore.setKey("navigation",
-		Object.assign(globalStore.get().navigation,  { isCurrentlyManipulatedIndex: payload })
-	)
-}
-
-// TODO : à tester (si la key fonctionne)
-// response : ca marche pas, le niveau de profondeur n'est pas géré par le map
-// enfin, si, mais on perd la réactivité
-export function setNavigationNavbarPosition( obj ){
-	globalStore.setKey("navigation.navbar",
-		Object.assign(globalStore.get().navigation.navbar,  { navbar: { position: obj } })
-	)
-}
-
-export function setNavigationNavbarIsMoving( bool ){
-	globalStore.setKey("navigation.navbar",
-		Object.assign(globalStore.get().navigation.navbar,  { navbar: { isMoving: bool } })
-	)
-}
 
 // MOUSE STORE
 export const mouseStore = map({

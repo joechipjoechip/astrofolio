@@ -7,7 +7,7 @@ import Portfolio from "./Portfolio.vue";
 
 import { stepsWording } from "@/assets/wording/steps.js"
 
-import { ref, computed } from "vue"
+import { ref, computed, nextTick } from "vue"
 
 import { useEmitter } from "@/composables/Emitter"
 import { useGetEventPosition } from "@/composables/GetEventPosition"
@@ -17,6 +17,8 @@ import {
 	globalStore, 
 	setStepsCount, 
 	setStepGrabed,
+
+	navigationStore,
 	setIsCurrentlyManipulatedIndex,
 	setCurrentStepIndexIncrement,
 	setCurrentStepIndexDecrement,
@@ -32,6 +34,7 @@ import { useStore } from '@nanostores/vue';
 
 
 const $store = useStore(globalStore);
+const $navigationStore = useStore(navigationStore);
 const $mouseStore = useStore(mouseStore);
 
 const stepperWrapper = ref(null)
@@ -70,7 +73,7 @@ const touchOriginX = ref(null)
 const threshold = 0.17
 
 function onTouchStart( event ){
-	const currentStepGrabed = event.target.closest(".slot")?.dataset.index
+	const currentStepGrabed = event.target.closest(".step-slot")?.dataset.index
 	const { x } = useGetEventPosition(event)
 
 	setStepGrabed(true)
@@ -79,7 +82,9 @@ function onTouchStart( event ){
 	decayX.value *= 0.82
 	leftTransitionValue.value = "0s"
 	
-	currentStepGrabed && setIsCurrentlyManipulatedIndex(parseInt(currentStepGrabed)) 
+	nextTick(() => {
+		currentStepGrabed && setIsCurrentlyManipulatedIndex(parseInt(currentStepGrabed)) 
+	})
 }
 
 function onTouchEnd(){
@@ -100,7 +105,7 @@ function onTouchMove( event ){
 	const { x, y } = useGetEventPosition(event)
 	updateMouseStore({x,y})
 
-	if( !$store.value.stepGrabed ){ 
+	if( !navigationStore.value.stepGrabed ){ 
 		onTouchEnd()
 		return
 	} else {
@@ -178,7 +183,7 @@ function defineDynamicClasses(index){
 		isNext: index === $store.value.currentStepIndex + 1,
 		isOutPrevious: $store.value.currentStepIndex - index > 1,
 		isOutNext: index - $store.value.currentStepIndex > 1,
-		isCurrentlyManipulated: $store.value.navigation.isCurrentlyManipulatedIndex === index
+		isCurrentlyManipulated: $navigationStore.value.isCurrentlyManipulatedIndex === index
 	}
 }
 
@@ -225,7 +230,7 @@ function defineDynamicClasses(index){
 		margin: 0 auto;
 		height: 100vh;
 
-		transition: all var(--transitionDurationMediumPlus) var(--transitionDurationMedium);
+		transition: all var(--transitionDurationMediumPlus) var(--transitionDurationMediumPlus);
 
 		@media #{$mobile} {
 			width: 90%;	
