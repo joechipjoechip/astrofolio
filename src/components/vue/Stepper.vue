@@ -105,7 +105,7 @@ function onTouchMove( event ){
 		onTouchEnd()
 		return
 	} else {
-		updateStepCoords()
+		// updateStepCoords()
 		const diffX = computePositionDiff(x)
 		dynamicLeft.value = `${-diffX}px`
 	}
@@ -230,8 +230,8 @@ function defineDynamicClasses(index){
 		height: 100vh;
 
 		transition: 
-			width var(--transitionDurationMediumPlus),
-			max-width var(--transitionDurationMediumPlus);
+			width var(--transitionDurationMediumPlus) var(--transitionDurationMediumPlus),
+			max-width var(--transitionDurationMediumPlus) var(--transitionDurationMediumPlus);
 
 		@media #{$mobile} {
 			width: 90%;	
@@ -245,6 +245,10 @@ function defineDynamicClasses(index){
 
 				width: 80%;
 				max-width: 70vw;
+
+				transition: 
+					width var(--transitionDurationMediumPlus),
+					max-width var(--transitionDurationMediumPlus);
 				
 				.step-slot {
 					height: 90%;
@@ -290,7 +294,9 @@ function defineDynamicClasses(index){
 
 	
 		&.isCurrentlyManipulated {
-			transition: all var(--transitionDurationMediumPlus);
+			transition: 
+				top var(--transitionDurationMediumPlus),
+				height var(--transitionDurationMediumPlus);
 		}
 		&.isActive {
 			z-index: 100;
@@ -307,7 +313,7 @@ function defineDynamicClasses(index){
 			z-index: 50;
 			backdrop-filter: blur(25px);
 			background-color: var(--color-contrast-10);
-			
+
 			:deep(.withScrollbar) {
 				overflow: hidden !important;
 			}
