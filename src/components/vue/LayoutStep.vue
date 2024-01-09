@@ -50,7 +50,7 @@ if( uiConfig.scroll.procuration ){
 
                 <div class="step-head">
 
-                    <h2 class="step-head-title"
+                    <!-- <h2 class="step-head-title"
                         v-if="isActive"
                         v-motion
                         :initial="{ y: 335, opacity: 0 }"
@@ -67,7 +67,7 @@ if( uiConfig.scroll.procuration ){
 
                     >
                         {{ wording.title }}
-                    </h2>
+                    </h2> -->
 
                     <SearchBar 
                         v-if="isActive && wording.searchEnabled"
