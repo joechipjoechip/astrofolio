@@ -35,12 +35,10 @@ export const navigationStore = map({
 })
 
 export function setStepGrabed( bool ){
-	console.log("set grabed", bool)
 	navigationStore.setKey("stepGrabed", bool)
 }
 
 export function setIsCurrentlyManipulatedIndex( payload ){
-	console.log("setCurrentStepIndex", payload)
 	navigationStore.setKey("isCurrentlyManipulatedIndex", payload)
 }
 
