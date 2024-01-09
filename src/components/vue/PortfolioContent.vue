@@ -18,6 +18,32 @@ const props = defineProps({
 
         <div class="portfolio-inner">
             <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
+            <div style="text-align: center; font-size: 12rem;">here portfolio</div>
         </div>
 
     </div>
@@ -46,7 +72,7 @@ const props = defineProps({
         width: 100%;
         height: 100%;
 
-        background-color: #f5f5f5;
+        background-color: var(--color-contrast-100);
         pointer-events: none;
 
         animation: animation-curtain var(--transitionDurationLong) linear;
@@ -54,8 +80,12 @@ const props = defineProps({
     }
 
     &-inner {
+        @include scrollbar;
+        direction: ltr;
         position: relative;
         z-index: 40;
+        height: 100%;
+        overflow-y: auto;
         * {
             z-index: 40;
         }

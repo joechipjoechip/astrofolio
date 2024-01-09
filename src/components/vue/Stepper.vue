@@ -243,9 +243,6 @@ function defineDynamicClasses(index){
 
 			&.isGrabed {
 
-				// border-radius: 5rem;
-				 
-				
 				width: 80%;
 				max-width: 70vw;
 				
@@ -253,6 +250,7 @@ function defineDynamicClasses(index){
 					height: 90%;
 					top: calc((100vh - 90%) / 2);
 					border-radius: 10rem;
+					background-color: var(--color-contrast-10);
 				}
 
 			}
@@ -260,6 +258,7 @@ function defineDynamicClasses(index){
 			.step-slot {
 				height: 100vh;
 				top: 0;
+				background-color: transparent;
 			}
 
 		}
