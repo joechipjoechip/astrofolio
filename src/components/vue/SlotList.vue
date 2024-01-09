@@ -103,29 +103,33 @@ const rafinedData = computed(() => {
 
 <template>
 
-    <div class="list"
-        v-show="stepIsActive"
-        ref="listWrapper"
-        @mousemove="handleMouseMove"
-        @mouseleave="handleMouseLeave"
-    >
+    <Transition name="transition-list">
 
-        <!-- :soundEnabled="$searchStore.sound.enabled" -->
-        <SlotItem
-            v-for="(slotData, index) in rafinedData" :key="index"
-            v-show="slotData.isDisplayed && stepIsActive"
-            
-            :stepColor="stepColor"
-            :slotData="slotData"
+        <div class="list"
+            v-show="stepIsActive"
+            ref="listWrapper"
+            @mousemove="handleMouseMove"
+            @mouseleave="handleMouseLeave"
+        >
 
-            :stepIsActive="stepIsActive"
-            :slotIndex="index"
-            :isHovered="index === focusedSlotIndex"
-            :searchIsActive="searchIsActive"
-            :searchRegEx="searchRegEx"
-        />
+            <!-- :soundEnabled="$searchStore.sound.enabled" -->
+            <SlotItem
+                v-for="(slotData, index) in rafinedData" :key="index"
+                v-show="slotData.isDisplayed"
+                
+                :stepColor="stepColor"
+                :slotData="slotData"
 
-    </div>
+                :stepIsActive="stepIsActive"
+                :slotIndex="index"
+                :isHovered="index === focusedSlotIndex"
+                :searchIsActive="searchIsActive"
+                :searchRegEx="searchRegEx"
+            />
+
+        </div>
+
+    </Transition>
 
 </template>
 
@@ -143,4 +147,21 @@ const rafinedData = computed(() => {
     direction: ltr;
     margin-bottom: 30rem;
 }
+
+.transition-list {
+    &-enter-active {
+        transition: opacity var(--transitionDurationShort) ease;
+    }
+
+    &-leave-active {
+        transition: opacity var(--transitionDurationMediumPlus) ease;
+    }
+
+    &-enter-from,
+    &-leave-to {
+        opacity: 0;
+    }
+}
+
+
 </style>

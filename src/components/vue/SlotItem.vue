@@ -105,10 +105,16 @@ function handlePin(){
 // ANIMATION LOGIC
 const speed = ref(0.2)
 const idealDelay = computed(() => {
-	if( props.searchIsActive ){
-		return 0
+	if( props.stepIsActive){
+
+		if( props.searchIsActive ){
+			return 0
+		} else {
+			return uiConfig.animation.short * (isPined.value ? 1 : (props.slotIndex +2)) * 0.8
+		}
+
 	} else {
-		return uiConfig.animation.short * (isPined.value ? 1 : (props.slotIndex +2)) * 0.8
+		return 0
 	}
 
 })
@@ -130,6 +136,7 @@ function insertHighlight( string ){
 <template>
 	<Transition name="animation-slot">
 		<article 
+			v-if="props.stepIsActive"
 			ref="slotWrapperElement"
 			class="slot-wrapper"
 			:class="{
@@ -513,6 +520,7 @@ $expandButtonBorderWidth: 2px;
 		background-color: var(--color-contrast-55);
 		backdrop-filter: blur(15px);
 		border-radius: 0 0 85rem 0;
+		opacity: 1;
 
 		margin: 0;
 		padding: 0;
@@ -520,6 +528,7 @@ $expandButtonBorderWidth: 2px;
 		will-change: background-color, padding, border-radius, transform, opacity, margin;
 		
 		transition: 
+			opacity var(--transitionDurationMedium),
 			background-color var(--transitionDurationMedium),
 			margin var(--transitionDurationLong),
 			padding var(--transitionDurationMedium),

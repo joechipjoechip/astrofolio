@@ -295,9 +295,6 @@ function handleTransition(){
 			backdrop-filter: blur(25px);
 			background-color: var(--color-contrast-10);
 
-			:deep(.step-wrapper > *){
-				display: none;
-			}
 		}
 	
 		&.isPrevious {
