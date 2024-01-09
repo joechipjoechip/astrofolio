@@ -249,7 +249,7 @@ function defineDynamicClasses(index){
 				.step-slot {
 					height: 90%;
 					top: calc((100vh - 90%) / 2);
-					border-radius: 10rem;
+					border-radius: var(--borderRadiusMedium);
 					background-color: var(--color-contrast-10);
 				}
 
@@ -283,7 +283,7 @@ function defineDynamicClasses(index){
 			opacity 1.2s,
 			transform var(--transitionDurationLong),
 			left v-bind(leftTransitionValue),
-			background-color var(--transitionDurationLong),
+			background-color var(--transitionDurationVeryLong),
 			border-radius var(--transitionDurationMediumPlus),
 			height var(--transitionDurationMediumPlus) var(--transitionDurationLong),
 			top var(--transitionDurationMediumPlus) var(--transitionDurationLong);
@@ -307,7 +307,10 @@ function defineDynamicClasses(index){
 			z-index: 50;
 			backdrop-filter: blur(25px);
 			background-color: var(--color-contrast-10);
-
+			
+			:deep(.withScrollbar) {
+				overflow: hidden !important;
+			}
 		}
 	
 		&.isPrevious {
