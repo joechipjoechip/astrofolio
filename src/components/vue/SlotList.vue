@@ -103,7 +103,7 @@ const rafinedData = computed(() => {
 
 <template>
 
-    <Transition name="transition-list">
+    <Transition name="transition-step-change">
 
         <div class="list"
             v-show="stepIsActive"
@@ -147,21 +147,5 @@ const rafinedData = computed(() => {
     direction: ltr;
     margin-bottom: 30rem;
 }
-
-.transition-list {
-    &-enter-active {
-        transition: opacity var(--transitionDurationShort) ease;
-    }
-
-    &-leave-active {
-        transition: opacity var(--transitionDurationMediumPlus) ease;
-    }
-
-    &-enter-from,
-    &-leave-to {
-        opacity: 0;
-    }
-}
-
 
 </style>

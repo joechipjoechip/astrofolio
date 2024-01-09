@@ -20,7 +20,16 @@ const props = defineProps({
 		:isActive="isActive" 
 		:wording="wording"
 	>
-		<div>here portfolio</div>
+		<Transition name="transition-step-change">
+
+			<div v-if="isActive">
+
+				<div style="text-align: left; font-size: 12rem;">here portfolio</div>
+
+			</div>
+
+
+		</Transition>
 	</LayoutStep>
 
 </template>

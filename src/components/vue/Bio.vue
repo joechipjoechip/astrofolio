@@ -21,7 +21,7 @@ const props = defineProps({
 		:isActive="isActive" 
 		:wording="wording"
 	>
-		<Losange />
+		<Losange :isActive="isActive" />
 	</LayoutStep>
 
 </template>

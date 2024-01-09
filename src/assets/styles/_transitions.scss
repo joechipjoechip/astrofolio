@@ -1,0 +1,16 @@
+.transition-step-change {
+		
+    &-enter-active {
+        transition: opacity var(--transitionDurationShort) ease;
+    }
+
+    &-leave-active {
+        transition: opacity var(--transitionDurationMediumPlus) ease;
+    }
+
+    &-enter-from,
+    &-leave-to {
+        opacity: 0;
+    }
+    
+}

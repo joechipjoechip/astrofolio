@@ -3,6 +3,13 @@ import { ref, computed } from 'vue';
 import { useEmitter } from "@/composables/Emitter"
 import { useGetEventPosition } from "@/composables/GetEventPosition"
 
+const props = defineProps({
+	isActive: {
+		type: Boolean,
+		required: true
+	}
+})
+
 const wording = {
 	"top-left": {
 		title: "clean code",
@@ -60,55 +67,57 @@ function onTouchMove( event ){
 </script>
 
 <template>
-	<div class="losange-wrapper">
-
-		<div class="losange-inner">
-
-			<!-- Referential big square -->
-			<div 
-				class="big-square anim-shadow"
-				:class="currentBorderClass"
-			>
-
-				<!-- TITLES -->
-				<div v-for="(key, index) in Object.keys(wording)" :key="index" 
-					:class="[
-						`wording-${key}`, 
-						{ 'is-active': currentPosition === key }
-					]"
+	<Transition name="transition-step-change">
+		<div class="losange-wrapper" v-if="isActive">
+	
+			<div class="losange-inner">
+	
+				<!-- Referential big square -->
+				<div 
+					class="big-square anim-shadow"
+					:class="currentBorderClass"
 				>
-					{{ wording[key].title }}
-				</div>
-
-				<!-- TEXTS -->
-				<div class="description-wrapper">
-
-					<div 
-						v-for="(key, index) in  Object.keys(wording)" :key="index"
-						class="description-item"
+	
+					<!-- TITLES -->
+					<div v-for="(key, index) in Object.keys(wording)" :key="index" 
+						:class="[
+							`wording-${key}`, 
+							{ 'is-active': currentPosition === key }
+						]"
 					>
-
-						<transition name="transition-description">
-
-							<div 
-								v-if="key === currentPosition"
-								class="description-text"
-							>
-								{{ wording[key].text }}
-							</div>
-
-						</transition>
-						
+						{{ wording[key].title }}
 					</div>
-
+	
+					<!-- TEXTS -->
+					<div class="description-wrapper">
+	
+						<div 
+							v-for="(key, index) in  Object.keys(wording)" :key="index"
+							class="description-item"
+						>
+	
+							<transition name="transition-description">
+	
+								<div 
+									v-if="key === currentPosition"
+									class="description-text"
+								>
+									{{ wording[key].text }}
+								</div>
+	
+							</transition>
+							
+						</div>
+	
+					</div>
+	
+					
 				</div>
-
-				
+	
 			</div>
-
+	
 		</div>
-
-	</div>
+	</Transition>
 </template>
 
 <style lang="scss" scoped>
