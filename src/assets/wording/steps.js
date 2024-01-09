@@ -1508,7 +1508,12 @@ export const stepsWording = {
 		color: "#FF4E4E",
 		searchEnabled: false,
 		withScrollbar: false,
-		slots: []
+		isWideStep: true,
+		slots: [
+			{
+
+			}
+		]
 	},
 
 } 

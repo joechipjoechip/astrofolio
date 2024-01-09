@@ -128,7 +128,7 @@ export default function HelloReact(){
 
   return (
     <>
-        {$store.currentStepIndex === 1 && <div 
+        {$store.currentStepIndex === 0 && <div 
             className='react-canvas-wrapper portfolio'
             // style={{
             //     left: $stepCoords.x,

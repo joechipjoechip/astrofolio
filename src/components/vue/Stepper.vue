@@ -191,7 +191,11 @@ function handleTransition(){
 
 <template>
 
-	<div class="stepper-wrapper" ref="stepperWrapper">
+	<div 
+		ref="stepperWrapper"
+		class="stepper-wrapper" 
+		:class="{ 'isWideStep': stepsWording[goodSteps[$store.currentStepIndex].name.toLowerCase()].isWideStep }"
+	>
 
 		<component 
 			v-for="(step, index) in goodSteps" :key="index"
@@ -229,8 +233,20 @@ function handleTransition(){
 		margin: 0 auto;
 		height: 100vh;
 
+		transition: all var(--transitionDurationMediumPlus) var(--transitionDurationMedium);
+
 		@media #{$mobile} {
 			width: 90%;	
+		}
+
+		&.isWideStep {
+			width: 100%;
+			max-width: 100vw;
+
+			.step-slot {
+				height: 100vh;
+				top: 0;
+			}
 		}
 	}
 }
@@ -254,8 +270,10 @@ function handleTransition(){
 			opacity 1.2s,
 			transform var(--transitionDurationLong),
 			left v-bind(leftTransitionValue),
-			background-color .7s,
-			border-color .4s;
+			background-color var(--transitionDurationLong),
+			border-color var(--transitionDurationMediumPlus),
+			height var(--transitionDurationMediumPlus) var(--transitionDurationLong),
+			top var(--transitionDurationMediumPlus) var(--transitionDurationLong);
 
 		&.grabing-x {
 			border-color: coral;

@@ -45,7 +45,8 @@ export default function Experience(){
                 key: `instance_${i}`,
                 position: [
                     (i) / 8 - 2, 
-                    (i) / 8 - 2, 
+                    (i) / 8 - 0.5, 
+                    // 0 + Math.random() - Math.sin(i), 
 
                     // i / 5 - 2, 
                     // (Math.random() - 0.5) * 2 * cubeSize, 
