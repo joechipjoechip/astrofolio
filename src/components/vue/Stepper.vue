@@ -90,15 +90,11 @@ function onTouchStart( event ){
 function onTouchEnd(){
 	touchOriginX.value = null
 	decayX.value = baseDecayX
-	leftTransitionValue.value = "0.4s"
+	leftTransitionValue.value = "1s"
 	dynamicLeft.value = "0px"
 
 	setStepGrabed(false)
 	setIsCurrentlyManipulatedIndex(null)
-
-	// setTimeout(() => {
-	// 	updateStepCoords()
-	// }, 400)
 }
 
 function onTouchMove( event ){
@@ -194,7 +190,10 @@ function defineDynamicClasses(index){
 	<div 
 		ref="stepperWrapper"
 		class="stepper-wrapper" 
-		:class="{ 'isWideStep': stepsWording[goodSteps[$store.currentStepIndex].name.toLowerCase()].isWideStep }"
+		:class="{ 
+			'isWideStep': stepsWording[goodSteps[$store.currentStepIndex].name.toLowerCase()].isWideStep,
+			'isGrabed': $navigationStore.stepGrabed 
+		}"
 	>
 
 		<component 
@@ -230,7 +229,9 @@ function defineDynamicClasses(index){
 		margin: 0 auto;
 		height: 100vh;
 
-		transition: all var(--transitionDurationMediumPlus) var(--transitionDurationMediumPlus);
+		transition: 
+			width var(--transitionDurationMediumPlus),
+			max-width var(--transitionDurationMediumPlus);
 
 		@media #{$mobile} {
 			width: 90%;	
@@ -240,10 +241,27 @@ function defineDynamicClasses(index){
 			width: 100%;
 			max-width: 100vw;
 
+			&.isGrabed {
+
+				// border-radius: 5rem;
+				 
+				
+				width: 80%;
+				max-width: 70vw;
+				
+				.step-slot {
+					height: 90%;
+					top: calc((100vh - 90%) / 2);
+					border-radius: 10rem;
+				}
+
+			}
+
 			.step-slot {
 				height: 100vh;
 				top: 0;
 			}
+
 		}
 	}
 }
@@ -267,10 +285,14 @@ function defineDynamicClasses(index){
 			transform var(--transitionDurationLong),
 			left v-bind(leftTransitionValue),
 			background-color var(--transitionDurationLong),
+			border-radius var(--transitionDurationMediumPlus),
 			height var(--transitionDurationMediumPlus) var(--transitionDurationLong),
 			top var(--transitionDurationMediumPlus) var(--transitionDurationLong);
 
 	
+		&.isCurrentlyManipulated {
+			transition: all var(--transitionDurationMediumPlus);
+		}
 		&.isActive {
 			z-index: 100;
 			// position: relative;
